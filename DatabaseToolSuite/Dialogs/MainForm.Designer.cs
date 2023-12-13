@@ -53,6 +53,16 @@
             this.mnuEditSelectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuEditFindToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFileExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.databaseTreeView = new System.Windows.Forms.TreeView();
+            this.mnuFileSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuBar.SuspendLayout();
             this.mainToolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -82,6 +92,14 @@
             // mnuFile
             // 
             this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFileNew,
+            this.mnuFileOpen,
+            this.mnuFileSave,
+            this.mnuFileSaveAs,
+            this.toolStripMenuItem3,
+            this.mnuFileImport,
+            this.mnuFileExport,
+            this.toolStripMenuItem4,
             this.mnuFileExit});
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(65, 29);
@@ -90,7 +108,7 @@
             // mnuFileExit
             // 
             this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(210, 30);
+            this.mnuFileExit.Size = new System.Drawing.Size(240, 30);
             this.mnuFileExit.Text = "Выход";
             // 
             // mainToolBar
@@ -98,7 +116,8 @@
             this.mainToolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.mainToolBar.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mainToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripButton3});
             this.mainToolBar.Location = new System.Drawing.Point(0, 33);
             this.mainToolBar.Name = "mainToolBar";
             this.mainToolBar.Size = new System.Drawing.Size(1118, 31);
@@ -131,13 +150,14 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.databaseTreeView);
             this.splitContainer1.Panel1.Controls.Add(this.toolsToolBar);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.mainDataGridView);
             this.splitContainer1.Size = new System.Drawing.Size(1118, 369);
-            this.splitContainer1.SplitterDistance = 198;
+            this.splitContainer1.SplitterDistance = 244;
             this.splitContainer1.TabIndex = 3;
             // 
             // mainDataGridView
@@ -147,7 +167,7 @@
             this.mainDataGridView.Location = new System.Drawing.Point(0, 0);
             this.mainDataGridView.Name = "mainDataGridView";
             this.mainDataGridView.RowTemplate.Height = 28;
-            this.mainDataGridView.Size = new System.Drawing.Size(916, 369);
+            this.mainDataGridView.Size = new System.Drawing.Size(870, 369);
             this.mainDataGridView.TabIndex = 0;
             // 
             // toolsToolBar
@@ -159,7 +179,7 @@
             this.toolsToolBar.Location = new System.Drawing.Point(0, 0);
             this.toolsToolBar.Name = "toolsToolBar";
             this.toolsToolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolsToolBar.Size = new System.Drawing.Size(198, 31);
+            this.toolsToolBar.Size = new System.Drawing.Size(244, 31);
             this.toolsToolBar.TabIndex = 0;
             this.toolsToolBar.Text = "Дополнительная";
             // 
@@ -222,48 +242,118 @@
             // mnuEditCutToolStripMenuItem
             // 
             this.mnuEditCutToolStripMenuItem.Name = "mnuEditCutToolStripMenuItem";
-            this.mnuEditCutToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
-            this.mnuEditCutToolStripMenuItem.Text = "mnuEditCut";
+            this.mnuEditCutToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.mnuEditCutToolStripMenuItem.Text = "Вырезать";
             // 
             // mnuEditCopyToolStripMenuItem
             // 
             this.mnuEditCopyToolStripMenuItem.Name = "mnuEditCopyToolStripMenuItem";
-            this.mnuEditCopyToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
-            this.mnuEditCopyToolStripMenuItem.Text = "mnuEditCopy";
+            this.mnuEditCopyToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.mnuEditCopyToolStripMenuItem.Text = "Копировать";
             // 
             // mnuEditPastToolStripMenuItem
             // 
             this.mnuEditPastToolStripMenuItem.Name = "mnuEditPastToolStripMenuItem";
-            this.mnuEditPastToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
-            this.mnuEditPastToolStripMenuItem.Text = "mnuEditPast";
+            this.mnuEditPastToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.mnuEditPastToolStripMenuItem.Text = "Вставить";
             // 
             // mnuEditDeleteToolStripMenuItem
             // 
             this.mnuEditDeleteToolStripMenuItem.Name = "mnuEditDeleteToolStripMenuItem";
-            this.mnuEditDeleteToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
-            this.mnuEditDeleteToolStripMenuItem.Text = "mnuEditDelete";
+            this.mnuEditDeleteToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.mnuEditDeleteToolStripMenuItem.Text = "Удалить";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(225, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(207, 6);
             // 
             // mnuEditSelectAllToolStripMenuItem
             // 
             this.mnuEditSelectAllToolStripMenuItem.Name = "mnuEditSelectAllToolStripMenuItem";
-            this.mnuEditSelectAllToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
-            this.mnuEditSelectAllToolStripMenuItem.Text = "mnuEditSelectAll";
+            this.mnuEditSelectAllToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.mnuEditSelectAllToolStripMenuItem.Text = "Выделить все";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(225, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(207, 6);
             // 
             // mnuEditFindToolStripMenuItem
             // 
             this.mnuEditFindToolStripMenuItem.Name = "mnuEditFindToolStripMenuItem";
-            this.mnuEditFindToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
-            this.mnuEditFindToolStripMenuItem.Text = "mnuEditFind";
+            this.mnuEditFindToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.mnuEditFindToolStripMenuItem.Text = "Найти...";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(237, 6);
+            // 
+            // mnuFileExport
+            // 
+            this.mnuFileExport.Name = "mnuFileExport";
+            this.mnuFileExport.Size = new System.Drawing.Size(240, 30);
+            this.mnuFileExport.Text = "Экспорт данных...";
+            this.mnuFileExport.Click += new System.EventHandler(this.mnuFileExport_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButton3.Text = "toolStripButton3";
+            // 
+            // databaseTreeView
+            // 
+            this.databaseTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.databaseTreeView.Location = new System.Drawing.Point(0, 31);
+            this.databaseTreeView.Name = "databaseTreeView";
+            this.databaseTreeView.Size = new System.Drawing.Size(244, 338);
+            this.databaseTreeView.TabIndex = 1;
+            this.databaseTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.databaseTreeView_AfterSelect);
+            // 
+            // mnuFileSave
+            // 
+            this.mnuFileSave.Name = "mnuFileSave";
+            this.mnuFileSave.Size = new System.Drawing.Size(240, 30);
+            this.mnuFileSave.Text = "Сохранить";
+            this.mnuFileSave.Click += new System.EventHandler(this.mnuFileSave_Click);
+            // 
+            // mnuFileSaveAs
+            // 
+            this.mnuFileSaveAs.Name = "mnuFileSaveAs";
+            this.mnuFileSaveAs.Size = new System.Drawing.Size(240, 30);
+            this.mnuFileSaveAs.Text = "Сохранить как...";
+            this.mnuFileSaveAs.Click += new System.EventHandler(this.mnuFileSaveAs_Click);
+            // 
+            // mnuFileImport
+            // 
+            this.mnuFileImport.Name = "mnuFileImport";
+            this.mnuFileImport.Size = new System.Drawing.Size(240, 30);
+            this.mnuFileImport.Text = "Импорт данных...";
+            this.mnuFileImport.Click += new System.EventHandler(this.mnuFileImport_Click);
+            // 
+            // mnuFileNew
+            // 
+            this.mnuFileNew.Name = "mnuFileNew";
+            this.mnuFileNew.Size = new System.Drawing.Size(240, 30);
+            this.mnuFileNew.Text = "Создать";
+            this.mnuFileNew.Click += new System.EventHandler(this.mnuFileNew_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(237, 6);
+            // 
+            // mnuFileOpen
+            // 
+            this.mnuFileOpen.Name = "mnuFileOpen";
+            this.mnuFileOpen.Size = new System.Drawing.Size(240, 30);
+            this.mnuFileOpen.Text = "Открыть...";
+            this.mnuFileOpen.Click += new System.EventHandler(this.mnuFileOpen_Click);
             // 
             // MainForm
             // 
@@ -320,5 +410,15 @@
         private System.Windows.Forms.ToolStripMenuItem mnuTools;
         private System.Windows.Forms.ToolStripMenuItem mnuHelp;
         private System.Windows.Forms.ToolStripMenuItem mnuHelpAbout;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileExport;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.TreeView databaseTreeView;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileNew;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileSave;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileSaveAs;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileImport;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileOpen;
     }
 }
