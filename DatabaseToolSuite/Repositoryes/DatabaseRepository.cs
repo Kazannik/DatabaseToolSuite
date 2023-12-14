@@ -9,9 +9,9 @@ namespace DatabaseToolSuite.Repositoryes
 {
     class DatabaseRepository
     {
-        DataSet _dataSet;
+        RepositoryDataSet _dataSet;
 
-        public DataSet DataSet { get { return _dataSet; } }
+        public RepositoryDataSet DataSet { get { return _dataSet; } }
 
         public bool IsInitialize { get; private set; }
 
@@ -32,7 +32,7 @@ namespace DatabaseToolSuite.Repositoryes
 
         public DatabaseRepository()
         {
-             _dataSet = new DataSet();
+             _dataSet = new RepositoryDataSet();
 
             if (System.IO.File.Exists("DatabaseXMLSchema.xsd"))
             {

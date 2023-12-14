@@ -43,7 +43,7 @@ namespace DatabaseToolSuite.Dialogs
 
         private void mnuFileNew_Click(object sender, EventArgs e)
         {
-
+            this.Text = repository.DataSet.ExistsOkatoCode("00").ToString();
         }
 
         private void mnuFileOpen_Click(object sender, EventArgs e)

@@ -51,717 +51,807 @@
     <name>орган прокуратуры</name>
   </authority>
   <okato>
-    <id>0</id>
     <code>00</code>
     <name>Объекты административно-территориального деления, кроме сельских населенных пунктов</name>
+    <ter>0</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>1</id>
     <code>01</code>
     <name>Алтайский край</name>
     <name2>Алтайский край</name2>
     <centrum>г Барнаул</centrum>
     <genitive>Алтайского края</genitive>
+    <ter>1</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>2</id>
     <code>02</code>
     <name>Федеральная территория "Сириус"</name>
     <name2>Федеральная территория "Сириус"</name2>
     <genitive>ФТ "Сириус"</genitive>
+    <ter>2</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>3</id>
     <code>03</code>
     <name>Краснодарский край</name>
     <name2>Краснодарский край</name2>
     <centrum>г Краснодар</centrum>
     <genitive>Краснодарского края</genitive>
+    <ter>3</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>4</id>
     <code>04</code>
     <name>Красноярский край</name>
     <name2>Красноярский край</name2>
     <centrum>г Красноярск</centrum>
     <genitive>Красноярского края</genitive>
+    <ter>4</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>5</id>
     <code>05</code>
     <name>Приморский край</name>
     <name2>Приморский край</name2>
     <centrum>г Владивосток</centrum>
     <genitive>Приморского края</genitive>
+    <ter>5</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>7</id>
     <code>07</code>
     <name>Ставропольский край</name>
     <name2>Ставропольский край</name2>
     <centrum>г Ставрополь</centrum>
     <genitive>Ставропольского края</genitive>
+    <ter>7</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>8</id>
     <code>08</code>
     <name>Хабаровский край</name>
     <name2>Хабаровский край</name2>
     <centrum>г Хабаровск</centrum>
     <genitive>Хабаровского края</genitive>
+    <ter>8</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>10</id>
     <code>10</code>
     <name>Амурская область</name>
     <name2>Амурская область</name2>
     <centrum>г Благовещенск</centrum>
     <genitive>Амурской области</genitive>
+    <ter>10</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>11</id>
     <code>11</code>
     <name>Архангельская область</name>
     <name2>Архангельская область</name2>
     <centrum>г Архангельск</centrum>
     <genitive>Архангельской области</genitive>
+    <ter>11</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>12</id>
     <code>12</code>
     <name>Астраханская область</name>
     <name2>Астраханская область</name2>
     <centrum>г Астрахань</centrum>
     <genitive>Астраханской области</genitive>
+    <ter>12</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>14</id>
     <code>14</code>
     <name>Белгородская область</name>
     <name2>Белгородская область</name2>
     <centrum>г Белгород</centrum>
     <genitive>Белгородской области</genitive>
+    <ter>14</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>15</id>
     <code>15</code>
     <name>Брянская область</name>
     <name2>Брянская область</name2>
     <centrum>г Брянск</centrum>
     <genitive>Брянской области</genitive>
+    <ter>15</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>17</id>
     <code>17</code>
     <name>Владимирская область</name>
     <name2>Владимирская область</name2>
     <centrum>г Владимир</centrum>
     <genitive>Владимирской области</genitive>
+    <ter>17</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>18</id>
     <code>18</code>
     <name>Волгоградская область</name>
     <name2>Волгоградская область</name2>
     <centrum>г Волгоград</centrum>
     <genitive>Волгоградской области</genitive>
+    <ter>18</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>19</id>
     <code>19</code>
     <name>Вологодская область</name>
     <name2>Вологодская область</name2>
     <centrum>г Вологда</centrum>
     <genitive>Вологодской области</genitive>
+    <ter>19</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>20</id>
     <code>20</code>
     <name>Воронежская область</name>
     <name2>Воронежская область</name2>
     <centrum>г Воронеж</centrum>
     <genitive>Воронежской области</genitive>
+    <ter>20</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>21</id>
     <code>21</code>
     <name>Донецкая Народная Республика</name>
     <name2>Донецкая Народная Республика</name2>
     <centrum>г Донецк</centrum>
     <genitive>Донецкой Народной Республики</genitive>
+    <ter>21</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>22</id>
     <code>22</code>
     <name>Нижегородская область</name>
     <name2>Нижегородская область</name2>
     <centrum>г Нижний Новгород</centrum>
     <genitive>Нижегородской области</genitive>
+    <ter>22</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>23</id>
     <code>23</code>
     <name>Запорожская область</name>
     <name2>Запорожская область</name2>
     <centrum>г Мелитополь</centrum>
     <genitive>Запорожской области</genitive>
+    <ter>23</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>24</id>
     <code>24</code>
     <name>Ивановская область</name>
     <name2>Ивановская область</name2>
     <centrum>г Иваново</centrum>
     <genitive>Ивановской области</genitive>
+    <ter>24</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>25</id>
     <code>25</code>
     <name>Иркутская область</name>
     <name2>Иркутская область</name2>
     <centrum>г Иркутск</centrum>
     <genitive>Иркутской области</genitive>
+    <ter>25</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>26</id>
     <code>26</code>
     <name>Республика Ингушетия</name>
     <name2>Республика Ингушетия</name2>
     <centrum>г Магас</centrum>
     <genitive>Республики Ингушетия</genitive>
+    <ter>26</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>27</id>
     <code>27</code>
     <name>Калининградская область</name>
     <name2>Калининградская область</name2>
     <centrum>г Калининград</centrum>
     <genitive>Калининградской области</genitive>
+    <ter>27</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>28</id>
     <code>28</code>
     <name>Тверская область</name>
     <name2>Тверская область</name2>
     <centrum>г Тверь</centrum>
     <genitive>Тверской области</genitive>
+    <ter>28</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>29</id>
     <code>29</code>
     <name>Калужская область</name>
     <name2>Калужская область</name2>
     <centrum>г Калуга</centrum>
     <genitive>Калужской области</genitive>
+    <ter>29</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>30</id>
     <code>30</code>
     <name>Камчатский край</name>
     <name2>Камчатский край</name2>
     <centrum>г Петропавловск-Камчатский</centrum>
     <genitive>Камчатского края</genitive>
+    <ter>30</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>32</id>
     <code>32</code>
     <name>Кемеровская область - Кузбасс</name>
     <name2>Кемеровская область - Кузбасс</name2>
     <centrum>г Кемерово</centrum>
     <genitive>Кемеровской области - Кузбасса</genitive>
+    <ter>32</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>33</id>
     <code>33</code>
     <name>Кировская область</name>
     <name2>Кировская область</name2>
     <centrum>г Киров</centrum>
     <genitive>Кировской области</genitive>
+    <ter>33</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>34</id>
     <code>34</code>
     <name>Костромская область</name>
     <name2>Костромская область</name2>
     <centrum>г Кострома</centrum>
     <genitive>Костромская область</genitive>
+    <ter>34</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>35</id>
     <code>35</code>
     <name>Республика Крым</name>
     <name2>Республика Крым</name2>
     <centrum>г Симферополь</centrum>
     <genitive>Республики Крым</genitive>
+    <ter>35</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>36</id>
     <code>36</code>
     <name>Самарская область</name>
     <name2>Самарская область</name2>
     <centrum>г Самара</centrum>
     <genitive>Самарской области</genitive>
+    <ter>36</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>37</id>
     <code>37</code>
     <name>Курганская область</name>
     <name2>Курганская область</name2>
     <centrum>г Курган</centrum>
     <genitive>Курганской области</genitive>
+    <ter>37</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>38</id>
     <code>38</code>
     <name>Курская область</name>
     <name2>Курская область</name2>
     <centrum>г Курск</centrum>
     <genitive>Курской области</genitive>
+    <ter>38</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>40</id>
     <code>40</code>
     <name>Город Санкт-Петербург город федерального значения</name>
     <name2>город Санкт-Петербург</name2>
     <genitive>города Санкт-Петербурга</genitive>
+    <ter>40</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>41</id>
     <code>41</code>
     <name>Ленинградская область</name>
     <name2>Ленинградская область</name2>
     <centrum>г Санкт-Петербург</centrum>
     <genitive>Ленинградской области</genitive>
+    <ter>41</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>42</id>
     <code>42</code>
     <name>Липецкая область</name>
     <name2>Липецкая область</name2>
     <centrum>г Липецк</centrum>
     <genitive>Липецкой области</genitive>
+    <ter>42</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>43</id>
     <code>43</code>
     <name>Луганская Народная Республика</name>
     <name2>Луганская Народная Республика</name2>
     <centrum>г Луганск</centrum>
     <genitive>Луганской Народной Республики</genitive>
+    <ter>43</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>44</id>
     <code>44</code>
     <name>Магаданская область</name>
     <name2>Магаданская область</name2>
     <centrum>г Магадан</centrum>
     <genitive>Магаданской области</genitive>
+    <ter>44</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>45</id>
     <code>45</code>
     <name>Город Москва столица Российской Федерации город федерального значения</name>
     <name2>город Москва</name2>
     <genitive>города Москвы</genitive>
+    <ter>45</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>46</id>
     <code>46</code>
     <name>Московская область</name>
     <name2>Московская область</name2>
     <centrum>г Москва</centrum>
     <genitive>Московской области</genitive>
+    <ter>46</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>47</id>
     <code>47</code>
     <name>Мурманская область</name>
     <name2>Мурманская область</name2>
     <centrum>г Мурманск</centrum>
     <genitive>Мурманской области</genitive>
+    <ter>47</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>49</id>
     <code>49</code>
     <name>Новгородская область</name>
     <name2>Новгородская область</name2>
     <centrum>г Великий Новгород</centrum>
     <genitive>Новгородской области</genitive>
+    <ter>49</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>50</id>
     <code>50</code>
     <name>Новосибирская область</name>
     <name2>Новосибирская область</name2>
     <centrum>г Новосибирск</centrum>
     <genitive>Новосибирской области</genitive>
+    <ter>50</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>52</id>
     <code>52</code>
     <name>Омская область</name>
     <name2>Омская область</name2>
     <centrum>г Омск</centrum>
     <genitive>Омской области</genitive>
+    <ter>52</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>53</id>
     <code>53</code>
     <name>Оренбургская область</name>
     <name2>Оренбургская область</name2>
     <centrum>г Оренбург</centrum>
     <genitive>Оренбургской области</genitive>
+    <ter>53</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>54</id>
     <code>54</code>
     <name>Орловская область</name>
     <name2>Орловская область</name2>
     <centrum>г Орёл</centrum>
     <genitive>Орловской области</genitive>
+    <ter>54</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>56</id>
     <code>56</code>
     <name>Пензенская область</name>
     <name2>Пензенская область</name2>
     <centrum>г Пенза</centrum>
     <genitive>Пензенской области</genitive>
+    <ter>56</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>57</id>
     <code>57</code>
     <name>Пермский край</name>
     <name2>Пермский край</name2>
     <centrum>г Пермь</centrum>
     <genitive>Пермского края</genitive>
+    <ter>57</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>58</id>
     <code>58</code>
     <name>Псковская область</name>
     <name2>Псковская область</name2>
     <centrum>г Псков</centrum>
     <genitive>Псковской области</genitive>
+    <ter>58</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>60</id>
     <code>60</code>
     <name>Ростовская область</name>
     <name2>Ростовская область</name2>
     <centrum>г Ростов-на-Дону</centrum>
     <genitive>Ростовской области</genitive>
+    <ter>60</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>61</id>
     <code>61</code>
     <name>Рязанская область</name>
     <name2>Рязанская область</name2>
     <centrum>г Рязань</centrum>
     <genitive>Рязанской области</genitive>
+    <ter>61</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>63</id>
     <code>63</code>
     <name>Саратовская область</name>
     <name2>Саратовская область</name2>
     <centrum>г Саратов</centrum>
     <genitive>Саратовской области</genitive>
+    <ter>63</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>64</id>
     <code>64</code>
     <name>Сахалинская область</name>
     <name2>Сахалинская область</name2>
     <centrum>г Южно-Сахалинск</centrum>
     <genitive>Сахалинской области</genitive>
+    <ter>64</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>65</id>
     <code>65</code>
     <name>Свердловская область</name>
     <name2>Свердловская область</name2>
     <centrum>г Екатеринбург</centrum>
     <genitive>Свердловской области</genitive>
+    <ter>65</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>66</id>
     <code>66</code>
     <name>Смоленская область</name>
     <name2>Смоленская область</name2>
     <centrum>г Смоленск</centrum>
     <genitive>Смоленской области</genitive>
+    <ter>66</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>67</id>
     <code>67</code>
     <name>Город федерального значения Севастополь</name>
     <name2>город Севастополь</name2>
     <genitive>города Севастополя</genitive>
+    <ter>67</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>68</id>
     <code>68</code>
     <name>Тамбовская область</name>
     <name2>Тамбовская область</name2>
     <centrum>г Тамбов</centrum>
     <genitive>Тамбовской области</genitive>
+    <ter>68</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>69</id>
     <code>69</code>
     <name>Томская область</name>
     <name2>Томская область</name2>
     <centrum>г Томск</centrum>
     <genitive>Томской области</genitive>
+    <ter>69</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>70</id>
     <code>70</code>
     <name>Тульская область</name>
     <name2>Тульская область</name2>
     <centrum>г Тула</centrum>
     <genitive>Тульской области</genitive>
+    <ter>70</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>71</id>
     <code>71</code>
     <name>Тюменская область</name>
     <name2>Тюменская область</name2>
     <centrum>г Тюмень</centrum>
     <genitive>Тюменской области</genitive>
+    <ter>71</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>71100</id>
-    <code>71100</code>
+    <code>7110</code>
     <name>Ханты-Мансийский автономный округ - Югра (Тюменская область)</name>
     <name2>Ханты-Мансийский автономный округ - Югра</name2>
     <centrum>г Ханты-Мансийск</centrum>
     <genitive>Ханты-Мансийского автономного округа - Югры</genitive>
+    <ter>71</ter>
+    <kod1>10</kod1>
   </okato>
   <okato>
-    <id>71140</id>
-    <code>71140</code>
+    <code>7114</code>
     <name>Ямало-Ненецкий автономный округ (Тюменская область)</name>
     <name2>Ямало-Ненецкий автономный округ</name2>
     <centrum>г Салехард</centrum>
     <genitive>Ямало-Ненецкого автономного округа</genitive>
+    <ter>71</ter>
+    <kod1>14</kod1>
   </okato>
   <okato>
-    <id>73</id>
     <code>73</code>
     <name>Ульяновская область</name>
     <name2>Ульяновская область</name2>
     <centrum>г Ульяновск</centrum>
     <genitive>Ульяновской области</genitive>
+    <ter>73</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>74</id>
     <code>74</code>
     <name>Херсонская область</name>
     <name2>Херсонская область</name2>
     <centrum>г Херсон</centrum>
     <genitive>Херсонской области</genitive>
+    <ter>74</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>75</id>
     <code>75</code>
     <name>Челябинская область</name>
     <name2>Челябинская область</name2>
     <centrum>г Челябинск</centrum>
     <genitive>Челябинской области</genitive>
+    <ter>75</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>76</id>
     <code>76</code>
     <name>Забайкальский край</name>
     <name2>Забайкальский край</name2>
     <centrum>г Чита</centrum>
     <genitive>Забайкальского края</genitive>
+    <ter>76</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>77</id>
     <code>77</code>
     <name>Чукотский автономный округ</name>
     <name2>Чукотский автономный округ</name2>
     <centrum>г Анадырь</centrum>
     <genitive>Чукотского автономного округа</genitive>
+    <ter>77</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>78</id>
     <code>78</code>
     <name>Ярославская область</name>
     <name2>Ярославская область</name2>
     <centrum>г Ярославль</centrum>
     <genitive>Ярославской области</genitive>
+    <ter>78</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>79</id>
     <code>79</code>
     <name>Республика Адыгея (Адыгея)</name>
     <name2>Республика Адыгея (Адыгея)</name2>
     <centrum>г Майкоп</centrum>
     <genitive>Республики Адыгея (Адыгея)</genitive>
+    <ter>79</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>80</id>
     <code>80</code>
     <name>Республика Башкортостан</name>
     <name2>Республика Башкортостан</name2>
     <centrum>г Уфа</centrum>
     <genitive>Республики Башкортостан</genitive>
+    <ter>80</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>81</id>
     <code>81</code>
     <name>Республика Бурятия</name>
     <name2>Республика Бурятия</name2>
     <centrum>г Улан-Удэ</centrum>
     <genitive>Республики Бурятия</genitive>
+    <ter>81</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>82</id>
     <code>82</code>
     <name>Республика Дагестан</name>
     <name2>Республика Дагестан</name2>
     <centrum>г Махачкала</centrum>
     <genitive>Республики Дагестан</genitive>
+    <ter>82</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>83</id>
     <code>83</code>
     <name>Кабардино-Балкарская Республика</name>
     <name2>Кабардино-Балкарская Республика</name2>
     <centrum>г Нальчик</centrum>
     <genitive>Кабардино-Балкарская Республика</genitive>
+    <ter>83</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>84</id>
     <code>84</code>
     <name>Республика Алтай</name>
     <name2>Республика Алтай</name2>
     <centrum>г Горно-Алтайск</centrum>
     <genitive>Республики Алтай</genitive>
+    <ter>84</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>85</id>
     <code>85</code>
     <name>Республика Калмыкия</name>
     <name2>Республика Калмыкия</name2>
     <centrum>г Элиста</centrum>
     <genitive>Республики Калмыкия</genitive>
+    <ter>85</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>86</id>
     <code>86</code>
     <name>Республика Карелия</name>
     <name2>Республика Карелия</name2>
     <centrum>г Петрозаводск</centrum>
     <genitive>Республики Карелия</genitive>
+    <ter>86</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>87</id>
     <code>87</code>
     <name>Республика Коми</name>
     <name2>Республика Коми</name2>
     <centrum>г Сыктывкар</centrum>
     <genitive>Республики Коми</genitive>
+    <ter>87</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>88</id>
     <code>88</code>
     <name>Республика Марий Эл</name>
     <name2>Республика Марий Эл</name2>
     <centrum>г Йошкар-Ола</centrum>
     <genitive>Республики Марий Эл</genitive>
+    <ter>88</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>89</id>
     <code>89</code>
     <name>Республика Мордовия</name>
     <name2>Республика Мордовия</name2>
     <centrum>г Саранск</centrum>
     <genitive>Республики Мордовия</genitive>
+    <ter>89</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>90</id>
     <code>90</code>
     <name>Республика Северная Осетия-Алания</name>
     <name2>Республика Северная Осетия-Алания</name2>
     <centrum>г Владикавказ</centrum>
     <genitive>Республики Северная Осетия-Алания</genitive>
+    <ter>90</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>91</id>
     <code>91</code>
     <name>Карачаево-Черкесская Республика</name>
     <name2>Карачаево-Черкесская Республика</name2>
     <centrum>г Черкесск</centrum>
     <genitive>Карачаево-Черкесской Республики</genitive>
+    <ter>91</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>92</id>
     <code>92</code>
     <name>Республика Татарстан (Татарстан)</name>
     <name2>Республика Татарстан (Татарстан)</name2>
     <centrum>г Казань</centrum>
     <genitive>Республики Татарстан (Татарстан)</genitive>
+    <ter>92</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>93</id>
     <code>93</code>
     <name>Республика Тыва</name>
     <name2>Республика Тыва</name2>
     <centrum>г Кызыл</centrum>
     <genitive>Республики Тыва</genitive>
+    <ter>93</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>94</id>
     <code>94</code>
     <name>Удмуртская Республика</name>
     <name2>Удмуртская Республика</name2>
     <centrum>г Ижевск</centrum>
     <genitive>Удмуртской Республики</genitive>
+    <ter>94</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>95</id>
     <code>95</code>
     <name>Республика Хакасия</name>
     <name2>Республика Хакасия</name2>
     <centrum>г Абакан</centrum>
     <genitive>Республики Хакасия</genitive>
+    <ter>95</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>96</id>
     <code>96</code>
     <name>Чеченская Республика</name>
     <name2>Чеченская Республика</name2>
     <centrum>г Грозный</centrum>
     <genitive>Чеченской Республики</genitive>
+    <ter>96</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>97</id>
     <code>97</code>
     <name>Чувашская Республика - Чувашия</name>
     <name2>Чувашская Республика - Чувашия</name2>
     <centrum>г Чебоксары</centrum>
     <genitive>Чувашской Республики - Чувашии</genitive>
+    <ter>97</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>98</id>
     <code>98</code>
     <name>Республика Саха (Якутия)</name>
     <name2>Республика Саха (Якутия)</name2>
     <centrum>г Якутск</centrum>
     <genitive>Республики Саха (Якутия)</genitive>
+    <ter>98</ter>
+    <kod1>0</kod1>
   </okato>
   <okato>
-    <id>99</id>
     <code>99</code>
     <name>Еврейская автономная область</name>
     <name2>Еврейская автономная область</name2>
     <centrum>г Биробиджан</centrum>
     <genitive>Еврейской автономной области</genitive>
+    <ter>99</ter>
+    <kod1>0</kod1>
   </okato>
   <court_type>
     <id>0</id>

@@ -106,12 +106,12 @@
     <Compile Include="Repositoryes\DatabaseXMLSchema.cs">
       <DependentUpon>DatabaseXMLSchema.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Repositoryes\DatabaseRepository.cs" />
     <Compile Include="Repositoryes\DatabaseXMLSchema.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseXMLSchema.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Repositoryes\DatabaseRepository.cs" />
     <EmbeddedResource Include="Dialogs\AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
