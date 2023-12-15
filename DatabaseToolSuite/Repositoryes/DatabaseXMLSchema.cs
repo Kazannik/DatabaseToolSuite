@@ -41,10 +41,10 @@ namespace DatabaseToolSuite.Repositoryes
 
         public bool ExistsOkatoCode(string code)
         {
-            okatoDataTable okato =(okatoDataTable) this.Tables["okato"];
+            okatoDataTable okato = (okatoDataTable)this.Tables["okato"];
             return okato.ExistsCode(code);
         }
-        
+
         public bool ExistsOkatoName(string name)
         {
             okatoDataTable okato = (okatoDataTable)this.Tables["okato"];
@@ -147,20 +147,21 @@ namespace DatabaseToolSuite.Repositoryes
 
         partial class okatoDataTable
         {
+            
             public bool ExistsCode(string code)
             {
                 return (from item in this.AsEnumerable()
-                         where item.code == code
-                         select item).Count() == 1;                
+                        where item.code == code
+                        select item).Count() == 1;
             }
-            
+
             public bool ExistsName(string name)
             {
                 return (from item in this.AsEnumerable()
                         where item.name == name
                         select item).Count() == 1;
             }
-            
+
             public bool ExistsName2(string name2)
             {
                 return (from item in this.AsEnumerable()

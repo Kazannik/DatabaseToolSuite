@@ -15,29 +15,30 @@
         <xs:element name="authority" msdata:CaseSensitive="False" msdata:Locale="ru" msprop:Generator_TableClassName="authorityDataTable" msprop:Generator_TableVarName="tableauthority" msprop:Generator_TablePropName="authority" msprop:Generator_RowDeletingName="authorityRowDeleting" msprop:Generator_RowChangingName="authorityRowChanging" msprop:Generator_RowEvHandlerName="authorityRowChangeEventHandler" msprop:Generator_RowDeletedName="authorityRowDeleted" msprop:Generator_UserTableName="authority" msprop:Generator_RowChangedName="authorityRowChanged" msprop:Generator_RowEvArgName="authorityRowChangeEvent" msprop:Generator_RowClassName="authorityRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:long" />
-              <xs:element name="code" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(Convert(id, System.String))=1, '0' + Convert(id, System.String), id)" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:string" />
-              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" />
+              <xs:element name="id" msdata:Caption="Индекс" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:long" />
+              <xs:element name="code" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(Convert(id, System.String))=1, '0' + Convert(id, System.String), id)" msdata:Caption="Код" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:string" />
+              <xs:element name="name" msdata:Caption="Ведомство" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="okato" msdata:Locale="ru" msprop:Generator_TableClassName="okatoDataTable" msprop:Generator_TableVarName="tableokato" msprop:Generator_TablePropName="okato" msprop:Generator_RowDeletingName="okatoRowDeleting" msprop:Generator_RowChangingName="okatoRowChanging" msprop:Generator_RowEvHandlerName="okatoRowChangeEventHandler" msprop:Generator_RowDeletedName="okatoRowDeleted" msprop:Generator_UserTableName="okato" msprop:Generator_RowChangedName="okatoRowChanged" msprop:Generator_RowEvArgName="okatoRowChangeEvent" msprop:Generator_RowClassName="okatoRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="code" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(Convert(ter, System.String))=1, '0' + Convert(ter, System.String), ter) + IIF(kod1&gt;1, Convert(kod1, System.String),'') + ISNULL(lab,'')" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:string" minOccurs="0" />
-              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" />
-              <xs:element name="name2" msprop:Generator_ColumnVarNameInTable="columnname2" msprop:Generator_ColumnPropNameInRow="name2" msprop:Generator_ColumnPropNameInTable="name2Column" msprop:Generator_UserColumnName="name2" type="xs:string" minOccurs="0" />
-              <xs:element name="centrum" msprop:Generator_ColumnVarNameInTable="columncentrum" msprop:Generator_ColumnPropNameInRow="centrum" msprop:Generator_ColumnPropNameInTable="centrumColumn" msprop:Generator_UserColumnName="centrum" type="xs:string" minOccurs="0" />
-              <xs:element name="genitive" msprop:Generator_ColumnVarNameInTable="columngenitive" msprop:Generator_ColumnPropNameInRow="genitive" msprop:Generator_ColumnPropNameInTable="genitiveColumn" msprop:Generator_UserColumnName="genitive" type="xs:string" minOccurs="0" />
-              <xs:element name="ter" msprop:Generator_ColumnVarNameInTable="columnter" msprop:Generator_ColumnPropNameInRow="ter" msprop:Generator_ColumnPropNameInTable="terColumn" msprop:Generator_UserColumnName="ter" type="xs:string" />
-              <xs:element name="kod1" msprop:Generator_ColumnVarNameInTable="columnkod1" msprop:Generator_ColumnPropNameInRow="kod1" msprop:Generator_ColumnPropNameInTable="kod1Column" msprop:Generator_UserColumnName="kod1" type="xs:short" default="0" />
-              <xs:element name="lab" msprop:Generator_ColumnVarNameInTable="columnlab" msprop:Generator_ColumnPropNameInRow="lab" msprop:Generator_ColumnPropNameInTable="labColumn" msprop:Generator_UserColumnName="lab" default="" minOccurs="0">
+              <xs:element name="code" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(Convert(ter, System.String))=1, '0' + Convert(ter, System.String), ter) + IIF(kod1&gt;1, Convert(kod1, System.String),'') + ISNULL(lab,'')" msdata:Caption="Код" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:string" minOccurs="0" />
+              <xs:element name="name" msdata:Caption="Наименование по ОКАТО" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" />
+              <xs:element name="name2" msdata:Caption="Наименование" msprop:Generator_ColumnVarNameInTable="columnname2" msprop:Generator_ColumnPropNameInRow="name2" msprop:Generator_ColumnPropNameInTable="name2Column" msprop:Generator_UserColumnName="name2" type="xs:string" minOccurs="0" />
+              <xs:element name="centrum" msdata:Caption="Центр" msprop:Generator_ColumnVarNameInTable="columncentrum" msprop:Generator_ColumnPropNameInRow="centrum" msprop:Generator_ColumnPropNameInTable="centrumColumn" msprop:Generator_UserColumnName="centrum" type="xs:string" minOccurs="0" />
+              <xs:element name="genitive" msdata:Caption="Наименование в родительном падеже" msprop:Generator_ColumnVarNameInTable="columngenitive" msprop:Generator_ColumnPropNameInRow="genitive" msprop:Generator_ColumnPropNameInTable="genitiveColumn" msprop:Generator_UserColumnName="genitive" type="xs:string" minOccurs="0" />
+              <xs:element name="ter" msdata:Caption="TER по ОКАТО" msprop:Generator_ColumnVarNameInTable="columnter" msprop:Generator_ColumnPropNameInRow="ter" msprop:Generator_ColumnPropNameInTable="terColumn" msprop:Generator_UserColumnName="ter" type="xs:string" />
+              <xs:element name="kod1" msdata:Caption="KOD1 по ОКАТО" msprop:Generator_ColumnVarNameInTable="columnkod1" msprop:Generator_ColumnPropNameInRow="kod1" msprop:Generator_ColumnPropNameInTable="kod1Column" msprop:Generator_UserColumnName="kod1" type="xs:short" default="0" />
+              <xs:element name="lab" msdata:Caption="Дополнительная метка" msprop:Generator_ColumnVarNameInTable="columnlab" msprop:Generator_ColumnPropNameInRow="lab" msprop:Generator_ColumnPropNameInTable="labColumn" msprop:Generator_UserColumnName="lab" default="" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="okato" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(Convert(ter, System.String))=1, '0' + Convert(ter, System.String), ter) + IIF(kod1&gt;1, Convert(kod1, System.String),'')" msdata:Caption="Код ОКАТО" msprop:Generator_ColumnVarNameInTable="columnokato" msprop:Generator_ColumnPropNameInRow="okato" msprop:Generator_ColumnPropNameInTable="okatoColumn" msprop:Generator_UserColumnName="okato" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -64,8 +65,8 @@
         <xs:element name="court_type" msprop:Generator_TableClassName="court_typeDataTable" msprop:Generator_TableVarName="tablecourt_type" msprop:Generator_TablePropName="court_type" msprop:Generator_RowDeletingName="court_typeRowDeleting" msprop:Generator_RowChangingName="court_typeRowChanging" msprop:Generator_RowEvHandlerName="court_typeRowChangeEventHandler" msprop:Generator_RowDeletedName="court_typeRowDeleted" msprop:Generator_UserTableName="court_type" msprop:Generator_RowChangedName="court_typeRowChanged" msprop:Generator_RowEvArgName="court_typeRowChangeEvent" msprop:Generator_RowClassName="court_typeRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:long" />
-              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" />
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:Caption="Индекс" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:long" />
+              <xs:element name="name" msdata:Caption="Вид суда" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

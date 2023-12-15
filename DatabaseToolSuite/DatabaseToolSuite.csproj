@@ -49,7 +49,10 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>DatabaseToolSuite.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -65,6 +68,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Base\BaseComboBox.cs" />
+    <Compile Include="Controls\ColorThemeList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorThemeList.Designer.cs">
+      <DependentUpon>ColorThemeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Base\ComboBoxControlBase.cs" />
+    <Compile Include="Controls\NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NumericTextBox.Designer.cs">
+      <DependentUpon>NumericTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Base\PickerControlBase.cs" />
+    <Compile Include="Controls\OkatoComboBox.cs" />
+    <Compile Include="Controls\ToolStripCheckBox.cs" />
+    <Compile Include="Controls\ToolStripNumericUpDown.cs" />
     <Compile Include="Dialogs\AboutDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +133,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseXMLSchema.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Repositoryes\Dto\OkatoDto.cs" />
+    <Compile Include="Services\DataGridViewSetting.cs" />
     <EmbeddedResource Include="Dialogs\AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +161,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -163,9 +187,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
@@ -180,6 +202,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Repositoryes\Database.xml" />
+    <None Include="Resources\app.ico" />
+    <None Include="Resources\AddHomeHS.png" />
+    <None Include="Resources\DeleteRedHS.png" />
+    <None Include="Resources\PasteHS.png" />
+    <None Include="Resources\CopyHS.png" />
+    <None Include="Resources\CutHS.png" />
+    <None Include="Resources\saveHS.png" />
+    <None Include="Resources\openHS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

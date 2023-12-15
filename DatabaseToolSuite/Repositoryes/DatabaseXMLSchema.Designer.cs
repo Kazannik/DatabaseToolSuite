@@ -414,6 +414,8 @@ namespace DatabaseToolSuite.Repositoryes {
             this.authority.codeColumn.Expression = "IIF(LEN(Convert(id, System.String))=1, \'0\' + Convert(id, System.String), id)";
             this.okato.codeColumn.Expression = "IIF(LEN(Convert(ter, System.String))=1, \'0\' + Convert(ter, System.String), ter) +" +
                 " IIF(kod1>1, Convert(kod1, System.String),\'\') + ISNULL(lab,\'\')";
+            this.okato.okatoColumn.Expression = "IIF(LEN(Convert(ter, System.String))=1, \'0\' + Convert(ter, System.String), ter) +" +
+                " IIF(kod1>1, Convert(kod1, System.String),\'\')";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -612,10 +614,13 @@ namespace DatabaseToolSuite.Repositoryes {
                                 this.columnname}, false));
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
+                this.columnid.Caption = "Индекс";
                 this.columncode.AllowDBNull = false;
                 this.columncode.ReadOnly = true;
+                this.columncode.Caption = "Код";
                 this.columnname.AllowDBNull = false;
                 this.columnname.Unique = true;
+                this.columnname.Caption = "Ведомство";
                 this.CaseSensitive = false;
                 this.Locale = new global::System.Globalization.CultureInfo("ru");
             }
@@ -773,6 +778,8 @@ namespace DatabaseToolSuite.Repositoryes {
             
             private global::System.Data.DataColumn columnlab;
             
+            private global::System.Data.DataColumn columnokato;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public okatoDataTable() : 
@@ -881,6 +888,14 @@ namespace DatabaseToolSuite.Repositoryes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn okatoColumn {
+                get {
+                    return this.columnokato;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -916,6 +931,28 @@ namespace DatabaseToolSuite.Repositoryes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public okatoRow AddokatoRow(gaspsRow parentgaspsRowByFK_gasps_okato, string name, string name2, string centrum, string genitive, string ter, short kod1, string lab, string okato) {
+                okatoRow rowokatoRow = ((okatoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        name,
+                        name2,
+                        centrum,
+                        genitive,
+                        ter,
+                        kod1,
+                        lab,
+                        okato};
+                if ((parentgaspsRowByFK_gasps_okato != null)) {
+                    columnValuesArray[0] = parentgaspsRowByFK_gasps_okato[3];
+                }
+                rowokatoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowokatoRow);
+                return rowokatoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public okatoRow AddokatoRow(gaspsRow parentgaspsRowByFK_gasps_okato, string name, string name2, string centrum, string genitive, string ter, short kod1, string lab) {
                 okatoRow rowokatoRow = ((okatoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -926,7 +963,8 @@ namespace DatabaseToolSuite.Repositoryes {
                         genitive,
                         ter,
                         kod1,
-                        lab};
+                        lab,
+                        null};
                 if ((parentgaspsRowByFK_gasps_okato != null)) {
                     columnValuesArray[0] = parentgaspsRowByFK_gasps_okato[3];
                 }
@@ -960,6 +998,7 @@ namespace DatabaseToolSuite.Repositoryes {
                 this.columnter = base.Columns["ter"];
                 this.columnkod1 = base.Columns["kod1"];
                 this.columnlab = base.Columns["lab"];
+                this.columnokato = base.Columns["okato"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -981,13 +1020,25 @@ namespace DatabaseToolSuite.Repositoryes {
                 base.Columns.Add(this.columnkod1);
                 this.columnlab = new global::System.Data.DataColumn("lab", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlab);
+                this.columnokato = new global::System.Data.DataColumn("okato", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnokato);
                 this.columncode.ReadOnly = true;
+                this.columncode.Caption = "Код";
                 this.columnname.AllowDBNull = false;
+                this.columnname.Caption = "Наименование по ОКАТО";
+                this.columnname2.Caption = "Наименование";
+                this.columncentrum.Caption = "Центр";
+                this.columngenitive.Caption = "Наименование в родительном падеже";
                 this.columnter.AllowDBNull = false;
+                this.columnter.Caption = "TER по ОКАТО";
                 this.columnkod1.AllowDBNull = false;
+                this.columnkod1.Caption = "KOD1 по ОКАТО";
                 this.columnkod1.DefaultValue = ((short)(0));
+                this.columnlab.Caption = "Дополнительная метка";
                 this.columnlab.DefaultValue = ((string)(""));
                 this.columnlab.MaxLength = 2;
+                this.columnokato.ReadOnly = true;
+                this.columnokato.Caption = "Код ОКАТО";
                 this.Locale = new global::System.Globalization.CultureInfo("ru");
             }
             
@@ -1014,6 +1065,8 @@ namespace DatabaseToolSuite.Repositoryes {
             private void InitExpressions() {
                 this.codeColumn.Expression = "IIF(LEN(Convert(ter, System.String))=1, \'0\' + Convert(ter, System.String), ter) +" +
                     " IIF(kod1>1, Convert(kod1, System.String),\'\') + ISNULL(lab,\'\')";
+                this.okatoColumn.Expression = "IIF(LEN(Convert(ter, System.String))=1, \'0\' + Convert(ter, System.String), ter) +" +
+                    " IIF(kod1>1, Convert(kod1, System.String),\'\')";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1730,8 +1783,10 @@ namespace DatabaseToolSuite.Repositoryes {
                 this.columnid.AutoIncrement = true;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
+                this.columnid.Caption = "Индекс";
                 this.columnname.AllowDBNull = false;
                 this.columnname.Unique = true;
+                this.columnname.Caption = "Вид суда";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2046,6 +2101,22 @@ namespace DatabaseToolSuite.Repositoryes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string okato {
+                get {
+                    try {
+                        return ((string)(this[this.tableokato.okatoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'okato\' в таблице \'okato\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableokato.okatoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public gaspsRow gaspsRow {
                 get {
                     return ((gaspsRow)(this.GetParentRow(this.Table.ParentRelations["FK_gasps_okato"])));
@@ -2113,6 +2184,18 @@ namespace DatabaseToolSuite.Repositoryes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetlabNull() {
                 this[this.tableokato.labColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsokatoNull() {
+                return this.IsNull(this.tableokato.okatoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetokatoNull() {
+                this[this.tableokato.okatoColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -22,16 +22,5 @@ namespace DatabaseToolSuite.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\kazannik.m\\Documents\\esnsi" +
-            ".accdb")]
-        public string esnsiConnectionString {
-            get {
-                return ((string)(this["esnsiConnectionString"]));
-            }
-        }
     }
 }
