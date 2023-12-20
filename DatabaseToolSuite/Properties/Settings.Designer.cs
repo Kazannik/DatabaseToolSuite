@@ -22,5 +22,28 @@ namespace DatabaseToolSuite.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\kazannik.m\\Documents\\esnsi" +
+            ".accdb")]
+        public string esnsiConnectionString {
+            get {
+                return ((string)(this["esnsiConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HideLinkedItem {
+            get {
+                return ((bool)(this["HideLinkedItem"]));
+            }
+            set {
+                this["HideLinkedItem"] = value;
+            }
+        }
     }
 }

@@ -75,7 +75,7 @@
     <Compile Include="Controls\ColorThemeList.Designer.cs">
       <DependentUpon>ColorThemeList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Base\ComboBoxControlBase.cs" />
+    <Compile Include="Controls\Base\ComboBoxBase.cs" />
     <Compile Include="Controls\NumericTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Controls\Base\PickerControlBase.cs" />
     <Compile Include="Controls\OkatoComboBox.cs" />
+    <Compile Include="Controls\TableViewComboBox.cs" />
     <Compile Include="Controls\ToolStripCheckBox.cs" />
     <Compile Include="Controls\ToolStripNumericUpDown.cs" />
     <Compile Include="Dialogs\AboutDialog.cs">
@@ -110,6 +111,18 @@
     <Compile Include="Dialogs\ExportDialog.Designer.cs">
       <DependentUpon>ExportDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ImportProcessDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ImportProcessDialog.Designer.cs">
+      <DependentUpon>ImportProcessDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\LinkedDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\LinkedDialog.Designer.cs">
+      <DependentUpon>LinkedDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +146,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseXMLSchema.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Repositoryes\DataLinkXMLSchema.cs">
+      <DependentUpon>DataLinkXMLSchema.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Repositoryes\DataLinkXMLSchema.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataLinkXMLSchema.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Repositoryes\Dto\OkatoDto.cs" />
     <Compile Include="Services\DataGridViewSetting.cs" />
     <EmbeddedResource Include="Dialogs\AboutDialog.resx">
@@ -146,6 +167,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ExportDialog.resx">
       <DependentUpon>ExportDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ImportProcessDialog.resx">
+      <DependentUpon>ImportProcessDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\LinkedDialog.resx">
+      <DependentUpon>LinkedDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -202,6 +229,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Repositoryes\Database.xml" />
+    <None Include="Repositoryes\DataLinkXMLSchema.xsc">
+      <DependentUpon>DataLinkXMLSchema.xsd</DependentUpon>
+    </None>
+    <None Include="Repositoryes\DataLinkXMLSchema.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataLinkXMLSchema.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Repositoryes\DataLinkXMLSchema.xss">
+      <DependentUpon>DataLinkXMLSchema.xsd</DependentUpon>
+    </None>
     <None Include="Resources\app.ico" />
     <None Include="Resources\AddHomeHS.png" />
     <None Include="Resources\DeleteRedHS.png" />

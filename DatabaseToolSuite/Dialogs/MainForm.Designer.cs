@@ -60,7 +60,7 @@
             this.btnDatabaseAddOkato = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.mainStatusBar = new System.Windows.Forms.StatusStrip();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.databaseTreeView = new System.Windows.Forms.TreeView();
             this.mainImageList = new System.Windows.Forms.ImageList(this.components);
             this.toolsToolBar = new System.Windows.Forms.ToolStrip();
@@ -70,10 +70,10 @@
             this.repositoryDataSet = new DatabaseToolSuite.Repositoryes.RepositoryDataSet();
             this.mainMenuBar.SuspendLayout();
             this.mainToolBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
+            this.mainSplitContainer.Panel1.SuspendLayout();
+            this.mainSplitContainer.Panel2.SuspendLayout();
+            this.mainSplitContainer.SuspendLayout();
             this.toolsToolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.okatoBindingSource)).BeginInit();
@@ -292,6 +292,7 @@
             this.mainToolBar.Size = new System.Drawing.Size(994, 27);
             this.mainToolBar.TabIndex = 1;
             this.mainToolBar.Text = "Стандартная";
+            this.mainToolBar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mainToolBar_ItemClicked);
             // 
             // btnDatabaseAddOkato
             // 
@@ -322,24 +323,24 @@
             this.mainStatusBar.TabIndex = 2;
             this.mainStatusBar.Text = "statusStrip1";
             // 
-            // splitContainer1
+            // mainSplitContainer
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 55);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.splitContainer1.Name = "splitContainer1";
+            this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainSplitContainer.Location = new System.Drawing.Point(0, 55);
+            this.mainSplitContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mainSplitContainer.Name = "mainSplitContainer";
             // 
-            // splitContainer1.Panel1
+            // mainSplitContainer.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.databaseTreeView);
-            this.splitContainer1.Panel1.Controls.Add(this.toolsToolBar);
+            this.mainSplitContainer.Panel1.Controls.Add(this.databaseTreeView);
+            this.mainSplitContainer.Panel1.Controls.Add(this.toolsToolBar);
             // 
-            // splitContainer1.Panel2
+            // mainSplitContainer.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.mainDataGridView);
-            this.splitContainer1.Size = new System.Drawing.Size(994, 287);
-            this.splitContainer1.SplitterDistance = 216;
-            this.splitContainer1.TabIndex = 3;
+            this.mainSplitContainer.Panel2.Controls.Add(this.mainDataGridView);
+            this.mainSplitContainer.Size = new System.Drawing.Size(994, 287);
+            this.mainSplitContainer.SplitterDistance = 169;
+            this.mainSplitContainer.TabIndex = 3;
             // 
             // databaseTreeView
             // 
@@ -350,7 +351,7 @@
             this.databaseTreeView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.databaseTreeView.Name = "databaseTreeView";
             this.databaseTreeView.SelectedImageIndex = 0;
-            this.databaseTreeView.Size = new System.Drawing.Size(216, 260);
+            this.databaseTreeView.Size = new System.Drawing.Size(169, 260);
             this.databaseTreeView.TabIndex = 1;
             this.databaseTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.databaseTreeView_AfterSelect);
             // 
@@ -371,7 +372,7 @@
             this.toolsToolBar.Location = new System.Drawing.Point(0, 0);
             this.toolsToolBar.Name = "toolsToolBar";
             this.toolsToolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolsToolBar.Size = new System.Drawing.Size(216, 27);
+            this.toolsToolBar.Size = new System.Drawing.Size(169, 27);
             this.toolsToolBar.TabIndex = 0;
             this.toolsToolBar.Text = "Дополнительная";
             // 
@@ -392,7 +393,7 @@
             this.mainDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainDataGridView.Name = "mainDataGridView";
             this.mainDataGridView.RowTemplate.Height = 28;
-            this.mainDataGridView.Size = new System.Drawing.Size(774, 287);
+            this.mainDataGridView.Size = new System.Drawing.Size(821, 287);
             this.mainDataGridView.TabIndex = 0;
             this.mainDataGridView.DoubleClick += new System.EventHandler(this.mainDataGridView_DoubleClick);
             // 
@@ -412,7 +413,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 364);
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.mainStatusBar);
             this.Controls.Add(this.mainToolBar);
             this.Controls.Add(this.mainMenuBar);
@@ -424,11 +425,11 @@
             this.mainMenuBar.PerformLayout();
             this.mainToolBar.ResumeLayout(false);
             this.mainToolBar.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.mainSplitContainer.Panel1.ResumeLayout(false);
+            this.mainSplitContainer.Panel1.PerformLayout();
+            this.mainSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
+            this.mainSplitContainer.ResumeLayout(false);
             this.toolsToolBar.ResumeLayout(false);
             this.toolsToolBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).EndInit();
@@ -447,7 +448,7 @@
         private System.Windows.Forms.ToolStrip mainToolBar;
         private System.Windows.Forms.ToolStripButton btnDatabaseAddOkato;
         private System.Windows.Forms.StatusStrip mainStatusBar;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer mainSplitContainer;
         private System.Windows.Forms.DataGridView mainDataGridView;
         private System.Windows.Forms.ToolStrip toolsToolBar;
         private System.Windows.Forms.ToolStripButton toolStripButton2;

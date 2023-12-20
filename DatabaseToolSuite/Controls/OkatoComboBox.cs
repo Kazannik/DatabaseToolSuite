@@ -12,7 +12,7 @@ using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
 
 namespace DatabaseToolSuite.Controls
 {
-    public class OkatoComboBox: Base.ComboBoxControlBase
+    public class OkatoComboBox: Base.ComboBoxBase
     {
 
         public void SetData(okatoDataTable table)

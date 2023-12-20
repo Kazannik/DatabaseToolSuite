@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace DatabaseToolSuite.Repositoryes
-{
-}
-
-namespace DatabaseToolSuite.Repositoryes
-{
-}
-
-namespace DatabaseToolSuite.Repositoryes
-{
-}
 
 namespace DatabaseToolSuite.Repositoryes
 {
@@ -147,7 +135,7 @@ namespace DatabaseToolSuite.Repositoryes
 
         partial class okatoDataTable
         {
-            
+
             public bool ExistsCode(string code)
             {
                 return (from item in this.AsEnumerable()

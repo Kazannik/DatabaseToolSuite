@@ -1,11 +1,6 @@
-﻿using DatabaseToolSuite.Controls;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using System;
 using System.Windows.Forms;
+using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
 
 namespace DatabaseToolSuite.Dialogs
 {
@@ -28,14 +23,31 @@ namespace DatabaseToolSuite.Dialogs
         public string OkatoCentrum { get; private set; }
 
         public string OkatoGenitive { get; private set; }
-        
-        public OkatoEditDialog()
+
+
+        okatoDataTable okatoTable;
+
+        private string oldCode = string.Empty;
+
+        public OkatoEditDialog(okatoDataTable table)
         {
+            okatoTable = table;
+
             InitializeComponent();
+
+            terNumericTextBox.Text = string.Empty;
+            kod1NumericTextBox.Text = string.Empty;
+            labTextBox.Text  = string.Empty;
+            nameTextBox.Text =  string.Empty;
+            name2TextBox.Text = string.Empty;
+            centrumTextBox.Text = string.Empty;
+            genitiveTextBox.Text = string.Empty;
         }
 
-        public OkatoEditDialog(int ter, int kod1, string lab, string name, string name2, string centrum, string genitive)
+        public OkatoEditDialog(int ter, int kod1, string lab, string name, string name2, string centrum, string genitive, okatoDataTable table)
         {
+            okatoTable = table;
+
             InitializeComponent();
 
             terNumericTextBox.Text = ter.ToString("0");
@@ -45,7 +57,8 @@ namespace DatabaseToolSuite.Dialogs
             name2TextBox.Text = name2;
             centrumTextBox.Text = centrum;
             genitiveTextBox.Text = genitive;
-            SetCode();
+            oldCode = SetCode();
+            ValidateCode(codeTextBox);
         }
 
 
@@ -74,14 +87,30 @@ namespace DatabaseToolSuite.Dialogs
             SetCode();
         }
 
-        private void SetCode()
+        private string SetCode()
         {
             Okato = terNumericTextBox.Value.ToString("00") + (kod1NumericTextBox.Value > 0 ? kod1NumericTextBox.Value.ToString("00"):string.Empty);
             Code = Okato + (labTextBox.Text.Length > 0 ? labTextBox.Text.ToUpper() : string.Empty);
             okatoTextBox.Text = Okato;
             codeTextBox.Text = Code;
+            return Code;
         }
 
+        private void ValidateCode(Control control)
+        {
+            if ((oldCode == string.Empty || oldCode != Code) && okatoTable.ExistsCode(Code))
+            {
+                okatoErrorProvider.SetError(control, "Указанный код не является уникальным!");
+                okButton.Enabled = false;
+                errorLabel.Text = okatoTable.GetName(Code);
+            }
+            else
+            {
+                okatoErrorProvider.SetError(control, String.Empty);
+                okButton.Enabled = true;
+                errorLabel.Text = String.Empty;
+            }
+        }
 
         private void nameTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -105,6 +134,11 @@ namespace DatabaseToolSuite.Dialogs
         {
             TextBox control = (TextBox)sender;
             OkatoGenitive = control.Text;
-        }        
+        }
+
+        private void codeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateCode((Control) sender);
+        }
     }
 }

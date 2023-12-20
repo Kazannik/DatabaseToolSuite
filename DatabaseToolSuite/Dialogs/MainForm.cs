@@ -93,12 +93,28 @@ namespace DatabaseToolSuite.Dialogs
 
         private void mnuFileImport_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Импортировать данные";
+            dialog.Multiselect = false;
+            dialog.Filter = "Файл Microsoft Excel, содержащий значения, разделенные запятыми (.csv)|*.csv";
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                if (dialog.FilterIndex == 1)
+                {
+                    int[] linkIndexes = new int[] { };
+                    ImportProcessDialog importDialog = new ImportProcessDialog(repositoryDataSet.gasps, dialog.FileName, linkIndexes);
+                    importDialog.ShowDialog(this);
+                }
+                else
+                {
+                    
+                }
+            }
         }
 
         private void mnuFileExport_Click(object sender, EventArgs e)
         {
-            OkatoEditDialog dialog = new OkatoEditDialog();
+            OkatoEditDialog dialog = new OkatoEditDialog(repository.DataSet.okato);
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
 
@@ -135,7 +151,7 @@ namespace DatabaseToolSuite.Dialogs
 
         private void AddOkatoItem()
         {
-            OkatoEditDialog dialog = new OkatoEditDialog();
+            OkatoEditDialog dialog = new OkatoEditDialog(repository.DataSet.okato);
             dialog.Text = "Добавить строку ОКАТО";
             if (dialog.ShowDialog(this)== DialogResult.OK)
             {
@@ -162,7 +178,8 @@ namespace DatabaseToolSuite.Dialogs
                        row.Cells["name"].Value.ToString(),
                        row.Cells["name2"].Value.ToString(),
                        row.Cells["centrum"].Value.ToString(),
-                       row.Cells["genitive"].Value.ToString());
+                       row.Cells["genitive"].Value.ToString(),
+                       repository.DataSet.okato);
             dialog.Text = "Править строку ОКАТО";
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
@@ -174,6 +191,11 @@ namespace DatabaseToolSuite.Dialogs
                 row.Cells["centrum"].Value = dialog.OkatoCentrum;
                 row.Cells["genitive"].Value = dialog.OkatoGenitive;
             }
+        }
+
+        private void mainToolBar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

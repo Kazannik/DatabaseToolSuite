@@ -55,7 +55,7 @@
     <name>Объекты административно-территориального деления, кроме сельских населенных пунктов</name>
     <ter>0</ter>
     <kod1>0</kod1>
-    <ocato>00</ocato>
+    <okato>00</okato>
   </okato>
   <okato>
     <code>01</code>
@@ -65,7 +65,7 @@
     <genitive>Алтайского края</genitive>
     <ter>1</ter>
     <kod1>0</kod1>
-    <ocato>01</ocato>
+    <okato>01</okato>
   </okato>
   <okato>
     <code>02</code>
@@ -74,7 +74,7 @@
     <genitive>ФТ "Сириус"</genitive>
     <ter>2</ter>
     <kod1>0</kod1>
-    <ocato>02</ocato>
+    <okato>02</okato>
   </okato>
   <okato>
     <code>03</code>
@@ -84,7 +84,7 @@
     <genitive>Краснодарского края</genitive>
     <ter>3</ter>
     <kod1>0</kod1>
-    <ocato>03</ocato>
+    <okato>03</okato>
   </okato>
   <okato>
     <code>04</code>
@@ -94,7 +94,7 @@
     <genitive>Красноярского края</genitive>
     <ter>4</ter>
     <kod1>0</kod1>
-    <ocato>04</ocato>
+    <okato>04</okato>
   </okato>
   <okato>
     <code>05</code>
@@ -104,7 +104,7 @@
     <genitive>Приморского края</genitive>
     <ter>5</ter>
     <kod1>0</kod1>
-    <ocato>05</ocato>
+    <okato>05</okato>
   </okato>
   <okato>
     <code>07</code>
@@ -114,7 +114,7 @@
     <genitive>Ставропольского края</genitive>
     <ter>7</ter>
     <kod1>0</kod1>
-    <ocato>07</ocato>
+    <okato>07</okato>
   </okato>
   <okato>
     <code>08</code>
@@ -124,7 +124,7 @@
     <genitive>Хабаровского края</genitive>
     <ter>8</ter>
     <kod1>0</kod1>
-    <ocato>08</ocato>
+    <okato>08</okato>
   </okato>
   <okato>
     <code>10</code>
@@ -134,7 +134,7 @@
     <genitive>Амурской области</genitive>
     <ter>10</ter>
     <kod1>0</kod1>
-    <ocato>10</ocato>
+    <okato>10</okato>
   </okato>
   <okato>
     <code>11</code>
@@ -144,7 +144,7 @@
     <genitive>Архангельской области</genitive>
     <ter>11</ter>
     <kod1>0</kod1>
-    <ocato>11</ocato>
+    <okato>11</okato>
   </okato>
   <okato>
     <code>12</code>
@@ -154,7 +154,7 @@
     <genitive>Астраханской области</genitive>
     <ter>12</ter>
     <kod1>0</kod1>
-    <ocato>12</ocato>
+    <okato>12</okato>
   </okato>
   <okato>
     <code>14</code>
@@ -164,7 +164,7 @@
     <genitive>Белгородской области</genitive>
     <ter>14</ter>
     <kod1>0</kod1>
-    <ocato>14</ocato>
+    <okato>14</okato>
   </okato>
   <okato>
     <code>15</code>
@@ -174,7 +174,7 @@
     <genitive>Брянской области</genitive>
     <ter>15</ter>
     <kod1>0</kod1>
-    <ocato>15</ocato>
+    <okato>15</okato>
   </okato>
   <okato>
     <code>17</code>
@@ -184,7 +184,7 @@
     <genitive>Владимирской области</genitive>
     <ter>17</ter>
     <kod1>0</kod1>
-    <ocato>17</ocato>
+    <okato>17</okato>
   </okato>
   <okato>
     <code>18</code>
@@ -194,7 +194,7 @@
     <genitive>Волгоградской области</genitive>
     <ter>18</ter>
     <kod1>0</kod1>
-    <ocato>18</ocato>
+    <okato>18</okato>
   </okato>
   <okato>
     <code>19</code>
@@ -204,7 +204,7 @@
     <genitive>Вологодской области</genitive>
     <ter>19</ter>
     <kod1>0</kod1>
-    <ocato>19</ocato>
+    <okato>19</okato>
   </okato>
   <okato>
     <code>20</code>
@@ -214,7 +214,7 @@
     <genitive>Воронежской области</genitive>
     <ter>20</ter>
     <kod1>0</kod1>
-    <ocato>20</ocato>
+    <okato>20</okato>
   </okato>
   <okato>
     <code>21</code>
@@ -224,7 +224,7 @@
     <genitive>Донецкой Народной Республики</genitive>
     <ter>21</ter>
     <kod1>0</kod1>
-    <ocato>21</ocato>
+    <okato>21</okato>
   </okato>
   <okato>
     <code>22</code>
@@ -234,7 +234,7 @@
     <genitive>Нижегородской области</genitive>
     <ter>22</ter>
     <kod1>0</kod1>
-    <ocato>22</ocato>
+    <okato>22</okato>
   </okato>
   <okato>
     <code>23</code>
@@ -244,7 +244,7 @@
     <genitive>Запорожской области</genitive>
     <ter>23</ter>
     <kod1>0</kod1>
-    <ocato>23</ocato>
+    <okato>23</okato>
   </okato>
   <okato>
     <code>24</code>
@@ -254,7 +254,7 @@
     <genitive>Ивановской области</genitive>
     <ter>24</ter>
     <kod1>0</kod1>
-    <ocato>24</ocato>
+    <okato>24</okato>
   </okato>
   <okato>
     <code>25</code>
@@ -264,7 +264,7 @@
     <genitive>Иркутской области</genitive>
     <ter>25</ter>
     <kod1>0</kod1>
-    <ocato>25</ocato>
+    <okato>25</okato>
   </okato>
   <okato>
     <code>26</code>
@@ -274,7 +274,7 @@
     <genitive>Республики Ингушетия</genitive>
     <ter>26</ter>
     <kod1>0</kod1>
-    <ocato>26</ocato>
+    <okato>26</okato>
   </okato>
   <okato>
     <code>27</code>
@@ -284,7 +284,7 @@
     <genitive>Калининградской области</genitive>
     <ter>27</ter>
     <kod1>0</kod1>
-    <ocato>27</ocato>
+    <okato>27</okato>
   </okato>
   <okato>
     <code>28</code>
@@ -294,7 +294,7 @@
     <genitive>Тверской области</genitive>
     <ter>28</ter>
     <kod1>0</kod1>
-    <ocato>28</ocato>
+    <okato>28</okato>
   </okato>
   <okato>
     <code>29</code>
@@ -304,7 +304,7 @@
     <genitive>Калужской области</genitive>
     <ter>29</ter>
     <kod1>0</kod1>
-    <ocato>29</ocato>
+    <okato>29</okato>
   </okato>
   <okato>
     <code>30</code>
@@ -314,7 +314,7 @@
     <genitive>Камчатского края</genitive>
     <ter>30</ter>
     <kod1>0</kod1>
-    <ocato>30</ocato>
+    <okato>30</okato>
   </okato>
   <okato>
     <code>32</code>
@@ -324,7 +324,7 @@
     <genitive>Кемеровской области - Кузбасса</genitive>
     <ter>32</ter>
     <kod1>0</kod1>
-    <ocato>32</ocato>
+    <okato>32</okato>
   </okato>
   <okato>
     <code>33</code>
@@ -334,7 +334,7 @@
     <genitive>Кировской области</genitive>
     <ter>33</ter>
     <kod1>0</kod1>
-    <ocato>33</ocato>
+    <okato>33</okato>
   </okato>
   <okato>
     <code>34</code>
@@ -344,7 +344,7 @@
     <genitive>Костромская область</genitive>
     <ter>34</ter>
     <kod1>0</kod1>
-    <ocato>34</ocato>
+    <okato>34</okato>
   </okato>
   <okato>
     <code>35</code>
@@ -354,7 +354,7 @@
     <genitive>Республики Крым</genitive>
     <ter>35</ter>
     <kod1>0</kod1>
-    <ocato>35</ocato>
+    <okato>35</okato>
   </okato>
   <okato>
     <code>36</code>
@@ -364,7 +364,7 @@
     <genitive>Самарской области</genitive>
     <ter>36</ter>
     <kod1>0</kod1>
-    <ocato>36</ocato>
+    <okato>36</okato>
   </okato>
   <okato>
     <code>37</code>
@@ -374,7 +374,7 @@
     <genitive>Курганской области</genitive>
     <ter>37</ter>
     <kod1>0</kod1>
-    <ocato>37</ocato>
+    <okato>37</okato>
   </okato>
   <okato>
     <code>38</code>
@@ -384,7 +384,7 @@
     <genitive>Курской области</genitive>
     <ter>38</ter>
     <kod1>0</kod1>
-    <ocato>38</ocato>
+    <okato>38</okato>
   </okato>
   <okato>
     <code>40</code>
@@ -393,7 +393,7 @@
     <genitive>города Санкт-Петербурга</genitive>
     <ter>40</ter>
     <kod1>0</kod1>
-    <ocato>40</ocato>
+    <okato>40</okato>
   </okato>
   <okato>
     <code>41</code>
@@ -403,7 +403,7 @@
     <genitive>Ленинградской области</genitive>
     <ter>41</ter>
     <kod1>0</kod1>
-    <ocato>41</ocato>
+    <okato>41</okato>
   </okato>
   <okato>
     <code>42</code>
@@ -413,7 +413,7 @@
     <genitive>Липецкой области</genitive>
     <ter>42</ter>
     <kod1>0</kod1>
-    <ocato>42</ocato>
+    <okato>42</okato>
   </okato>
   <okato>
     <code>43</code>
@@ -423,7 +423,7 @@
     <genitive>Луганской Народной Республики</genitive>
     <ter>43</ter>
     <kod1>0</kod1>
-    <ocato>43</ocato>
+    <okato>43</okato>
   </okato>
   <okato>
     <code>44</code>
@@ -433,7 +433,7 @@
     <genitive>Магаданской области</genitive>
     <ter>44</ter>
     <kod1>0</kod1>
-    <ocato>44</ocato>
+    <okato>44</okato>
   </okato>
   <okato>
     <code>45</code>
@@ -442,7 +442,7 @@
     <genitive>города Москвы</genitive>
     <ter>45</ter>
     <kod1>0</kod1>
-    <ocato>45</ocato>
+    <okato>45</okato>
   </okato>
   <okato>
     <code>46</code>
@@ -452,7 +452,7 @@
     <genitive>Московской области</genitive>
     <ter>46</ter>
     <kod1>0</kod1>
-    <ocato>46</ocato>
+    <okato>46</okato>
   </okato>
   <okato>
     <code>47</code>
@@ -462,7 +462,7 @@
     <genitive>Мурманской области</genitive>
     <ter>47</ter>
     <kod1>0</kod1>
-    <ocato>47</ocato>
+    <okato>47</okato>
   </okato>
   <okato>
     <code>49</code>
@@ -472,7 +472,7 @@
     <genitive>Новгородской области</genitive>
     <ter>49</ter>
     <kod1>0</kod1>
-    <ocato>49</ocato>
+    <okato>49</okato>
   </okato>
   <okato>
     <code>50</code>
@@ -482,7 +482,7 @@
     <genitive>Новосибирской области</genitive>
     <ter>50</ter>
     <kod1>0</kod1>
-    <ocato>50</ocato>
+    <okato>50</okato>
   </okato>
   <okato>
     <code>52</code>
@@ -492,7 +492,7 @@
     <genitive>Омской области</genitive>
     <ter>52</ter>
     <kod1>0</kod1>
-    <ocato>52</ocato>
+    <okato>52</okato>
   </okato>
   <okato>
     <code>53</code>
@@ -502,7 +502,7 @@
     <genitive>Оренбургской области</genitive>
     <ter>53</ter>
     <kod1>0</kod1>
-    <ocato>53</ocato>
+    <okato>53</okato>
   </okato>
   <okato>
     <code>54</code>
@@ -512,7 +512,7 @@
     <genitive>Орловской области</genitive>
     <ter>54</ter>
     <kod1>0</kod1>
-    <ocato>54</ocato>
+    <okato>54</okato>
   </okato>
   <okato>
     <code>56</code>
@@ -522,7 +522,7 @@
     <genitive>Пензенской области</genitive>
     <ter>56</ter>
     <kod1>0</kod1>
-    <ocato>56</ocato>
+    <okato>56</okato>
   </okato>
   <okato>
     <code>57</code>
@@ -532,7 +532,7 @@
     <genitive>Пермского края</genitive>
     <ter>57</ter>
     <kod1>0</kod1>
-    <ocato>57</ocato>
+    <okato>57</okato>
   </okato>
   <okato>
     <code>58</code>
@@ -542,7 +542,7 @@
     <genitive>Псковской области</genitive>
     <ter>58</ter>
     <kod1>0</kod1>
-    <ocato>58</ocato>
+    <okato>58</okato>
   </okato>
   <okato>
     <code>60</code>
@@ -552,7 +552,7 @@
     <genitive>Ростовской области</genitive>
     <ter>60</ter>
     <kod1>0</kod1>
-    <ocato>60</ocato>
+    <okato>60</okato>
   </okato>
   <okato>
     <code>61</code>
@@ -562,7 +562,7 @@
     <genitive>Рязанской области</genitive>
     <ter>61</ter>
     <kod1>0</kod1>
-    <ocato>61</ocato>
+    <okato>61</okato>
   </okato>
   <okato>
     <code>63</code>
@@ -572,7 +572,7 @@
     <genitive>Саратовской области</genitive>
     <ter>63</ter>
     <kod1>0</kod1>
-    <ocato>63</ocato>
+    <okato>63</okato>
   </okato>
   <okato>
     <code>64</code>
@@ -582,7 +582,7 @@
     <genitive>Сахалинской области</genitive>
     <ter>64</ter>
     <kod1>0</kod1>
-    <ocato>64</ocato>
+    <okato>64</okato>
   </okato>
   <okato>
     <code>65</code>
@@ -592,7 +592,7 @@
     <genitive>Свердловской области</genitive>
     <ter>65</ter>
     <kod1>0</kod1>
-    <ocato>65</ocato>
+    <okato>65</okato>
   </okato>
   <okato>
     <code>66</code>
@@ -602,7 +602,7 @@
     <genitive>Смоленской области</genitive>
     <ter>66</ter>
     <kod1>0</kod1>
-    <ocato>66</ocato>
+    <okato>66</okato>
   </okato>
   <okato>
     <code>67</code>
@@ -611,7 +611,7 @@
     <genitive>города Севастополя</genitive>
     <ter>67</ter>
     <kod1>0</kod1>
-    <ocato>67</ocato>
+    <okato>67</okato>
   </okato>
   <okato>
     <code>68</code>
@@ -621,7 +621,7 @@
     <genitive>Тамбовской области</genitive>
     <ter>68</ter>
     <kod1>0</kod1>
-    <ocato>68</ocato>
+    <okato>68</okato>
   </okato>
   <okato>
     <code>69</code>
@@ -631,7 +631,7 @@
     <genitive>Томской области</genitive>
     <ter>69</ter>
     <kod1>0</kod1>
-    <ocato>69</ocato>
+    <okato>69</okato>
   </okato>
   <okato>
     <code>70</code>
@@ -641,7 +641,7 @@
     <genitive>Тульской области</genitive>
     <ter>70</ter>
     <kod1>0</kod1>
-    <ocato>70</ocato>
+    <okato>70</okato>
   </okato>
   <okato>
     <code>71</code>
@@ -651,7 +651,7 @@
     <genitive>Тюменской области</genitive>
     <ter>71</ter>
     <kod1>0</kod1>
-    <ocato>71</ocato>
+    <okato>71</okato>
   </okato>
   <okato>
     <code>7110</code>
@@ -661,7 +661,7 @@
     <genitive>Ханты-Мансийского автономного округа - Югры</genitive>
     <ter>71</ter>
     <kod1>10</kod1>
-    <ocato>7110</ocato>
+    <okato>7110</okato>
   </okato>
   <okato>
     <code>7114</code>
@@ -671,7 +671,7 @@
     <genitive>Ямало-Ненецкого автономного округа</genitive>
     <ter>71</ter>
     <kod1>14</kod1>
-    <ocato>7114</ocato>
+    <okato>7114</okato>
   </okato>
   <okato>
     <code>73</code>
@@ -681,7 +681,7 @@
     <genitive>Ульяновской области</genitive>
     <ter>73</ter>
     <kod1>0</kod1>
-    <ocato>73</ocato>
+    <okato>73</okato>
   </okato>
   <okato>
     <code>74</code>
@@ -691,7 +691,7 @@
     <genitive>Херсонской области</genitive>
     <ter>74</ter>
     <kod1>0</kod1>
-    <ocato>74</ocato>
+    <okato>74</okato>
   </okato>
   <okato>
     <code>75</code>
@@ -701,7 +701,7 @@
     <genitive>Челябинской области</genitive>
     <ter>75</ter>
     <kod1>0</kod1>
-    <ocato>75</ocato>
+    <okato>75</okato>
   </okato>
   <okato>
     <code>76</code>
@@ -711,7 +711,7 @@
     <genitive>Забайкальского края</genitive>
     <ter>76</ter>
     <kod1>0</kod1>
-    <ocato>76</ocato>
+    <okato>76</okato>
   </okato>
   <okato>
     <code>77</code>
@@ -721,7 +721,7 @@
     <genitive>Чукотского автономного округа</genitive>
     <ter>77</ter>
     <kod1>0</kod1>
-    <ocato>77</ocato>
+    <okato>77</okato>
   </okato>
   <okato>
     <code>78</code>
@@ -731,7 +731,7 @@
     <genitive>Ярославской области</genitive>
     <ter>78</ter>
     <kod1>0</kod1>
-    <ocato>78</ocato>
+    <okato>78</okato>
   </okato>
   <okato>
     <code>79</code>
@@ -741,7 +741,7 @@
     <genitive>Республики Адыгея (Адыгея)</genitive>
     <ter>79</ter>
     <kod1>0</kod1>
-    <ocato>79</ocato>
+    <okato>79</okato>
   </okato>
   <okato>
     <code>80</code>
@@ -751,7 +751,7 @@
     <genitive>Республики Башкортостан</genitive>
     <ter>80</ter>
     <kod1>0</kod1>
-    <ocato>80</ocato>
+    <okato>80</okato>
   </okato>
   <okato>
     <code>81</code>
@@ -761,7 +761,7 @@
     <genitive>Республики Бурятия</genitive>
     <ter>81</ter>
     <kod1>0</kod1>
-    <ocato>81</ocato>
+    <okato>81</okato>
   </okato>
   <okato>
     <code>82</code>
@@ -771,7 +771,7 @@
     <genitive>Республики Дагестан</genitive>
     <ter>82</ter>
     <kod1>0</kod1>
-    <ocato>82</ocato>
+    <okato>82</okato>
   </okato>
   <okato>
     <code>83</code>
@@ -781,7 +781,7 @@
     <genitive>Кабардино-Балкарская Республика</genitive>
     <ter>83</ter>
     <kod1>0</kod1>
-    <ocato>83</ocato>
+    <okato>83</okato>
   </okato>
   <okato>
     <code>84</code>
@@ -791,7 +791,7 @@
     <genitive>Республики Алтай</genitive>
     <ter>84</ter>
     <kod1>0</kod1>
-    <ocato>84</ocato>
+    <okato>84</okato>
   </okato>
   <okato>
     <code>85</code>
@@ -801,7 +801,7 @@
     <genitive>Республики Калмыкия</genitive>
     <ter>85</ter>
     <kod1>0</kod1>
-    <ocato>85</ocato>
+    <okato>85</okato>
   </okato>
   <okato>
     <code>86</code>
@@ -811,7 +811,7 @@
     <genitive>Республики Карелия</genitive>
     <ter>86</ter>
     <kod1>0</kod1>
-    <ocato>86</ocato>
+    <okato>86</okato>
   </okato>
   <okato>
     <code>87</code>
@@ -821,7 +821,7 @@
     <genitive>Республики Коми</genitive>
     <ter>87</ter>
     <kod1>0</kod1>
-    <ocato>87</ocato>
+    <okato>87</okato>
   </okato>
   <okato>
     <code>88</code>
@@ -831,7 +831,7 @@
     <genitive>Республики Марий Эл</genitive>
     <ter>88</ter>
     <kod1>0</kod1>
-    <ocato>88</ocato>
+    <okato>88</okato>
   </okato>
   <okato>
     <code>89</code>
@@ -841,7 +841,7 @@
     <genitive>Республики Мордовия</genitive>
     <ter>89</ter>
     <kod1>0</kod1>
-    <ocato>89</ocato>
+    <okato>89</okato>
   </okato>
   <okato>
     <code>90</code>
@@ -851,7 +851,7 @@
     <genitive>Республики Северная Осетия-Алания</genitive>
     <ter>90</ter>
     <kod1>0</kod1>
-    <ocato>90</ocato>
+    <okato>90</okato>
   </okato>
   <okato>
     <code>91</code>
@@ -861,7 +861,7 @@
     <genitive>Карачаево-Черкесской Республики</genitive>
     <ter>91</ter>
     <kod1>0</kod1>
-    <ocato>91</ocato>
+    <okato>91</okato>
   </okato>
   <okato>
     <code>92</code>
@@ -871,7 +871,7 @@
     <genitive>Республики Татарстан (Татарстан)</genitive>
     <ter>92</ter>
     <kod1>0</kod1>
-    <ocato>92</ocato>
+    <okato>92</okato>
   </okato>
   <okato>
     <code>93</code>
@@ -881,7 +881,7 @@
     <genitive>Республики Тыва</genitive>
     <ter>93</ter>
     <kod1>0</kod1>
-    <ocato>93</ocato>
+    <okato>93</okato>
   </okato>
   <okato>
     <code>94</code>
@@ -891,7 +891,7 @@
     <genitive>Удмуртской Республики</genitive>
     <ter>94</ter>
     <kod1>0</kod1>
-    <ocato>94</ocato>
+    <okato>94</okato>
   </okato>
   <okato>
     <code>95</code>
@@ -901,7 +901,7 @@
     <genitive>Республики Хакасия</genitive>
     <ter>95</ter>
     <kod1>0</kod1>
-    <ocato>95</ocato>
+    <okato>95</okato>
   </okato>
   <okato>
     <code>96</code>
@@ -911,7 +911,7 @@
     <genitive>Чеченской Республики</genitive>
     <ter>96</ter>
     <kod1>0</kod1>
-    <ocato>96</ocato>
+    <okato>96</okato>
   </okato>
   <okato>
     <code>97</code>
@@ -921,7 +921,7 @@
     <genitive>Чувашской Республики - Чувашии</genitive>
     <ter>97</ter>
     <kod1>0</kod1>
-    <ocato>97</ocato>
+    <okato>97</okato>
   </okato>
   <okato>
     <code>98</code>
@@ -931,7 +931,7 @@
     <genitive>Республики Саха (Якутия)</genitive>
     <ter>98</ter>
     <kod1>0</kod1>
-    <ocato>98</ocato>
+    <okato>98</okato>
   </okato>
   <okato>
     <code>99</code>
@@ -941,7 +941,7 @@
     <genitive>Еврейской автономной области</genitive>
     <ter>99</ter>
     <kod1>0</kod1>
-    <ocato>99</ocato>
+    <okato>99</okato>
   </okato>
   <court_type>
     <id>0</id>

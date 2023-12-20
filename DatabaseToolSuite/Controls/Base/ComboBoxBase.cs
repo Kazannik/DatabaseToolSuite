@@ -11,7 +11,7 @@ namespace DatabaseToolSuite.Controls.Base
     [DesignerCategory("code")]
     [ToolboxBitmap(typeof(ComboBox))]
     [ComVisible(false)]
-     public abstract class ComboBoxControlBase : ComboBox
+     public abstract class ComboBoxBase : ComboBox
     {
         protected StringFormat sfCode;
         protected StringFormat sfCaption;
@@ -19,7 +19,7 @@ namespace DatabaseToolSuite.Controls.Base
         #region Initialize
 
         [DebuggerNonUserCode()]
-        public ComboBoxControlBase (IContainer container) :this()
+        public ComboBoxBase (IContainer container) :this()
         {
             if (container != null) { container.Add(this); }
         }
@@ -43,7 +43,7 @@ namespace DatabaseToolSuite.Controls.Base
             components = new Container();
         }
 
-        public ComboBoxControlBase():base()
+        public ComboBoxBase():base()
         {
             sfCode =(StringFormat) StringFormat.GenericTypographic.Clone();
             sfCode.Alignment = StringAlignment.Center;
@@ -187,6 +187,22 @@ namespace DatabaseToolSuite.Controls.Base
                 }
             }
             return base.Items.Add(item);
+        }
+
+        public string SelectedCode
+        {
+            get
+            {
+                return ((IComboBoxItem)this.SelectedItem).Code;
+            }
+        }
+
+        new string SelectedText
+        {
+            get
+            {
+                return ((IComboBoxItem)this.SelectedItem).Text;
+            }
         }
 
         public abstract int Add(string code, string text);

@@ -190,6 +190,23 @@ namespace DatabaseToolSuite.Controls.Base
             return base.Items.Add(item);
         }
 
+
+        public int SelectedCode
+        {
+            get
+            {
+                return ((IComboBoxItem)this.SelectedItem).Code;
+            }
+        }
+
+        new string SelectedText
+        {
+            get
+            {
+                return ((IComboBoxItem)this.SelectedItem).Text;
+            }
+        }
+
         public abstract int Add(int code, string text);
 
         public interface IComboBoxItem

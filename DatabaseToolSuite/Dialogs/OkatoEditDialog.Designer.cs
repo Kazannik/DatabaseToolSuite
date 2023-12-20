@@ -49,13 +49,16 @@
             this.terLabel = new System.Windows.Forms.Label();
             this.kod1Label = new System.Windows.Forms.Label();
             this.labLabel = new System.Windows.Forms.Label();
+            this.okatoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.okatoErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(208, 424);
+            this.cancelButton.Location = new System.Drawing.Point(348, 431);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(100, 27);
@@ -66,7 +69,7 @@
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(315, 424);
+            this.okButton.Location = new System.Drawing.Point(240, 431);
             this.okButton.Margin = new System.Windows.Forms.Padding(4);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(100, 27);
@@ -76,26 +79,29 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
+            this.idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.idLabel.Location = new System.Drawing.Point(19, 25);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(86, 17);
+            this.idLabel.Size = new System.Drawing.Size(95, 17);
             this.idLabel.TabIndex = 31;
             this.idLabel.Text = "Код ОКАТО";
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(15, 189);
+            this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameTextBox.Location = new System.Drawing.Point(15, 203);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameTextBox.Multiline = true;
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(398, 73);
+            this.nameTextBox.Size = new System.Drawing.Size(433, 73);
             this.nameTextBox.TabIndex = 34;
             this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(12, 170);
+            this.nameLabel.Location = new System.Drawing.Point(12, 184);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(106, 17);
             this.nameLabel.TabIndex = 33;
@@ -103,17 +109,19 @@
             // 
             // name2TextBox
             // 
-            this.name2TextBox.Location = new System.Drawing.Point(16, 283);
+            this.name2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.name2TextBox.Location = new System.Drawing.Point(16, 297);
             this.name2TextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.name2TextBox.Name = "name2TextBox";
-            this.name2TextBox.Size = new System.Drawing.Size(397, 22);
+            this.name2TextBox.Size = new System.Drawing.Size(432, 22);
             this.name2TextBox.TabIndex = 36;
             this.name2TextBox.TextChanged += new System.EventHandler(this.name2TextBox_TextChanged);
             // 
             // name2Label
             // 
             this.name2Label.AutoSize = true;
-            this.name2Label.Location = new System.Drawing.Point(13, 264);
+            this.name2Label.Location = new System.Drawing.Point(13, 278);
             this.name2Label.Name = "name2Label";
             this.name2Label.Size = new System.Drawing.Size(192, 17);
             this.name2Label.TabIndex = 35;
@@ -121,29 +129,34 @@
             // 
             // codeTextBox
             // 
-            this.codeTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.codeTextBox.Location = new System.Drawing.Point(111, 19);
+            this.codeTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.codeTextBox.Location = new System.Drawing.Point(118, 19);
             this.codeTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.ReadOnly = true;
             this.codeTextBox.Size = new System.Drawing.Size(100, 27);
             this.codeTextBox.TabIndex = 38;
+            this.codeTextBox.Text = "00";
             this.codeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.codeTextBox.TextChanged += new System.EventHandler(this.codeTextBox_TextChanged);
             // 
             // centrumTextBox
             // 
-            this.centrumTextBox.Location = new System.Drawing.Point(16, 331);
+            this.centrumTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.centrumTextBox.Location = new System.Drawing.Point(16, 345);
             this.centrumTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.centrumTextBox.Name = "centrumTextBox";
-            this.centrumTextBox.Size = new System.Drawing.Size(397, 22);
+            this.centrumTextBox.Size = new System.Drawing.Size(432, 22);
             this.centrumTextBox.TabIndex = 40;
             this.centrumTextBox.TextChanged += new System.EventHandler(this.centrumTextBox_TextChanged);
             // 
             // centrumLabel
             // 
             this.centrumLabel.AutoSize = true;
-            this.centrumLabel.Location = new System.Drawing.Point(13, 312);
+            this.centrumLabel.Location = new System.Drawing.Point(13, 326);
             this.centrumLabel.Name = "centrumLabel";
             this.centrumLabel.Size = new System.Drawing.Size(50, 17);
             this.centrumLabel.TabIndex = 39;
@@ -151,17 +164,19 @@
             // 
             // genitiveTextBox
             // 
-            this.genitiveTextBox.Location = new System.Drawing.Point(16, 379);
+            this.genitiveTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.genitiveTextBox.Location = new System.Drawing.Point(16, 393);
             this.genitiveTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.genitiveTextBox.Name = "genitiveTextBox";
-            this.genitiveTextBox.Size = new System.Drawing.Size(397, 22);
+            this.genitiveTextBox.Size = new System.Drawing.Size(432, 22);
             this.genitiveTextBox.TabIndex = 42;
             this.genitiveTextBox.TextChanged += new System.EventHandler(this.genitiveTextBox_TextChanged);
             // 
             // genitiveLabel
             // 
             this.genitiveLabel.AutoSize = true;
-            this.genitiveLabel.Location = new System.Drawing.Point(13, 360);
+            this.genitiveLabel.Location = new System.Drawing.Point(13, 374);
             this.genitiveLabel.Name = "genitiveLabel";
             this.genitiveLabel.Size = new System.Drawing.Size(261, 17);
             this.genitiveLabel.TabIndex = 41;
@@ -169,47 +184,48 @@
             // 
             // terNumericTextBox
             // 
-            this.terNumericTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.terNumericTextBox.Location = new System.Drawing.Point(111, 77);
+            this.terNumericTextBox.Location = new System.Drawing.Point(118, 91);
             this.terNumericTextBox.MaxLength = 2;
             this.terNumericTextBox.Name = "terNumericTextBox";
             this.terNumericTextBox.Size = new System.Drawing.Size(100, 22);
             this.terNumericTextBox.TabIndex = 43;
+            this.terNumericTextBox.Text = "00";
             this.terNumericTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.terNumericTextBox.TextChanged += new System.EventHandler(this.terNumericTextBox_TextChanged);
             // 
             // kod1NumericTextBox
             // 
-            this.kod1NumericTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.kod1NumericTextBox.Location = new System.Drawing.Point(111, 105);
+            this.kod1NumericTextBox.Location = new System.Drawing.Point(118, 119);
             this.kod1NumericTextBox.MaxLength = 2;
             this.kod1NumericTextBox.Name = "kod1NumericTextBox";
             this.kod1NumericTextBox.Size = new System.Drawing.Size(100, 22);
             this.kod1NumericTextBox.TabIndex = 44;
+            this.kod1NumericTextBox.Text = "00";
             this.kod1NumericTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.kod1NumericTextBox.TextChanged += new System.EventHandler(this.kod1NumericTextBox_TextChanged);
             // 
             // labTextBox
             // 
-            this.labTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labTextBox.Location = new System.Drawing.Point(111, 134);
+            this.labTextBox.Location = new System.Drawing.Point(118, 148);
             this.labTextBox.MaxLength = 2;
             this.labTextBox.Name = "labTextBox";
             this.labTextBox.Size = new System.Drawing.Size(100, 22);
             this.labTextBox.TabIndex = 45;
+            this.labTextBox.Text = "AA";
             this.labTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.labTextBox.TextChanged += new System.EventHandler(this.labTextBox_TextChanged);
             // 
             // okatoTextBox
             // 
-            this.okatoTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.okatoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.okatoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.okatoTextBox.Location = new System.Drawing.Point(111, 50);
+            this.okatoTextBox.Location = new System.Drawing.Point(118, 50);
             this.okatoTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.okatoTextBox.Name = "okatoTextBox";
             this.okatoTextBox.ReadOnly = true;
             this.okatoTextBox.Size = new System.Drawing.Size(100, 22);
             this.okatoTextBox.TabIndex = 46;
+            this.okatoTextBox.Text = "00";
             this.okatoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // okatoLabel
@@ -224,7 +240,7 @@
             // terLabel
             // 
             this.terLabel.AutoSize = true;
-            this.terLabel.Location = new System.Drawing.Point(48, 80);
+            this.terLabel.Location = new System.Drawing.Point(48, 94);
             this.terLabel.Name = "terLabel";
             this.terLabel.Size = new System.Drawing.Size(36, 17);
             this.terLabel.TabIndex = 48;
@@ -233,7 +249,7 @@
             // kod1Label
             // 
             this.kod1Label.AutoSize = true;
-            this.kod1Label.Location = new System.Drawing.Point(48, 108);
+            this.kod1Label.Location = new System.Drawing.Point(48, 122);
             this.kod1Label.Name = "kod1Label";
             this.kod1Label.Size = new System.Drawing.Size(46, 17);
             this.kod1Label.TabIndex = 49;
@@ -242,18 +258,34 @@
             // labLabel
             // 
             this.labLabel.AutoSize = true;
-            this.labLabel.Location = new System.Drawing.Point(48, 137);
+            this.labLabel.Location = new System.Drawing.Point(48, 151);
             this.labLabel.Name = "labLabel";
             this.labLabel.Size = new System.Drawing.Size(51, 17);
             this.labLabel.TabIndex = 50;
             this.labLabel.Text = "LABEL";
+            // 
+            // okatoErrorProvider
+            // 
+            this.okatoErrorProvider.ContainerControl = this;
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorLabel.ForeColor = System.Drawing.Color.Red;
+            this.errorLabel.Location = new System.Drawing.Point(243, 25);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(205, 145);
+            this.errorLabel.TabIndex = 51;
+            this.errorLabel.Text = "##";
             // 
             // OkatoEditDialog
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(426, 462);
+            this.ClientSize = new System.Drawing.Size(461, 471);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.labLabel);
             this.Controls.Add(this.kod1Label);
             this.Controls.Add(this.terLabel);
@@ -282,6 +314,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Справочник ОКАТО";
+            ((System.ComponentModel.ISupportInitialize)(this.okatoErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,5 +342,7 @@
         private System.Windows.Forms.Label terLabel;
         private System.Windows.Forms.Label kod1Label;
         private System.Windows.Forms.Label labLabel;
+        private System.Windows.Forms.ErrorProvider okatoErrorProvider;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
