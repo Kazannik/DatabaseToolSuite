@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Linq;
 
@@ -104,7 +107,22 @@ namespace DatabaseToolSuite.Repositoryes
 
         partial class gaspsDataTable
         {
+            public BindingList<gaspsRow> GetAll()
+            {
+                return new BindingList<gaspsRow>(
+                    this.AsEnumerable()
+                    .Where(x => (x.date_beg <= DateTime.Now && x.date_end >= DateTime.Now)
+                     && x.authority_id == 20).ToArray());
+            }
 
+
+            //public ObservableCollection<gaspsRow> GetAll()
+            //{
+            //    return new ObservableCollection <gaspsRow>(
+            //        this.AsEnumerable()
+            //        .Where(x => (x.date_beg <= DateTime.Now && x.date_end >= DateTime.Now)
+            //         && x.authority_id == 20));
+            //}         
 
         }
 
@@ -130,7 +148,6 @@ namespace DatabaseToolSuite.Repositoryes
                         where item.id == id
                         select item).First().name;
             }
-
         }
 
         partial class okatoDataTable
@@ -190,6 +207,74 @@ namespace DatabaseToolSuite.Repositoryes
                 return (from item in this.AsEnumerable()
                         where item.code == code
                         select item).First().genitive;
+            }
+        }
+    }
+}
+
+namespace DatabaseToolSuite.Repositoryes.RepositoryDataSetTableAdapters
+{ 
+
+    [DesignerCategoryAttribute("code")]
+    [ToolboxItem(true)]
+    [DataObject(true)]
+    [Designer("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [HelpKeyword("vs.data.TableAdapter")]
+    public partial class QueriesTableAdapter : Component
+    {
+
+        private IDbCommand[] _commandCollection;
+
+        protected IDbCommand[] CommandCollection
+        {
+            get
+            {
+                if ((this._commandCollection == null))
+                {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+
+        private void InitCommandCollection()
+        {
+            this._commandCollection = new IDbCommand[1];
+            this._commandCollection[0] = new System.Data.OleDb.OleDbCommand();
+            ((System.Data.OleDb.OleDbCommand)(this._commandCollection[0])).CommandType = CommandType.Text;
+        }
+
+        [HelpKeyword("vs.data.TableAdapter")]
+        public virtual object ScalarQuery()
+        {
+            System.Data.OleDb.OleDbCommand command = ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[0]));
+            ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & ConnectionState.Open)
+                        != ConnectionState.Open))
+            {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try
+            {
+                returnValue = command.ExecuteScalar();
+            }
+            finally
+            {
+                if ((previousConnectionState == ConnectionState.Closed))
+                {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null)
+                        || (returnValue.GetType() == typeof(DBNull))))
+            {
+                return null;
+            }
+            else
+            {
+                return ((object)(returnValue));
             }
         }
     }

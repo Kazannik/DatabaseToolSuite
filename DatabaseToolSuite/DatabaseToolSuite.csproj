@@ -146,14 +146,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseXMLSchema.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Repositoryes\DataLinkXMLSchema.cs">
-      <DependentUpon>DataLinkXMLSchema.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Repositoryes\DataLinkXMLSchema.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataLinkXMLSchema.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Repositoryes\Dto\OkatoDto.cs" />
     <Compile Include="Services\DataGridViewSetting.cs" />
     <EmbeddedResource Include="Dialogs\AboutDialog.resx">
@@ -228,18 +220,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Repositoryes\Database.xml" />
-    <None Include="Repositoryes\DataLinkXMLSchema.xsc">
-      <DependentUpon>DataLinkXMLSchema.xsd</DependentUpon>
-    </None>
-    <None Include="Repositoryes\DataLinkXMLSchema.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataLinkXMLSchema.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Repositoryes\DataLinkXMLSchema.xss">
-      <DependentUpon>DataLinkXMLSchema.xsd</DependentUpon>
-    </None>
     <None Include="Resources\app.ico" />
     <None Include="Resources\AddHomeHS.png" />
     <None Include="Resources\DeleteRedHS.png" />

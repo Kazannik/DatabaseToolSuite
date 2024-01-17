@@ -100,9 +100,8 @@ namespace DatabaseToolSuite.Dialogs
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 if (dialog.FilterIndex == 1)
-                {
-                    int[] linkIndexes = new int[] { };
-                    ImportProcessDialog importDialog = new ImportProcessDialog(repositoryDataSet.gasps, dialog.FileName, linkIndexes);
+                {                    
+                    ImportProcessDialog importDialog = new ImportProcessDialog(repository.DataSet.gasps, dialog.FileName, checkFileCollection);
                     importDialog.ShowDialog(this);
                 }
                 else
@@ -125,7 +124,16 @@ namespace DatabaseToolSuite.Dialogs
         {
            if (e.Node.Tag is DataTable)
             {
-                mainDataGridView.DataSource = (DataTable)e.Node.Tag;
+                DataTable table = (DataTable)e.Node.Tag;
+                if (table is gaspsDataTable)
+                {
+                    mainDataGridView.DataSource = ((gaspsDataTable) table).GetAll();
+                }
+                else
+                {
+                    mainDataGridView.DataSource = table;
+                }
+                
                 Services.DataGridViewSetting.SetSetting(mainDataGridView);
             }
         }
@@ -196,6 +204,43 @@ namespace DatabaseToolSuite.Dialogs
         private void mainToolBar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        IDictionary<string, string> checkFileCollection;
+
+        private void btnCheckLinkFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Сравнение данных";
+            dialog.Multiselect = false;
+            dialog.Filter = "Текстовый файл (.txt)|*.txt";
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                if (dialog.FilterIndex == 1)
+                {
+                    checkFileCollection = new Dictionary<string, string>();
+                    System.IO.StreamReader reader = new System.IO.StreamReader(dialog.FileName, Encoding.GetEncoding(1251));
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        string[] split = line.Split(';');
+                        if (split.Length == 2)
+                        {
+                            checkFileCollection.Add(split[0], split[1]);
+                        }
+                    }
+                    reader.Close();                    
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

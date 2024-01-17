@@ -1,5 +1,6 @@
 ﻿using DatabaseToolSuite.Repositoryes;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.IO;
@@ -12,17 +13,17 @@ namespace DatabaseToolSuite.Dialogs
     {
         DataTable _dataTable;
         string _filename;
-        int[] _linkColumnIndex;
         DataTable[] _linkDataTables;
-        
+        IDictionary<string, string> _linkColumnIndexes;
 
-        public ImportProcessDialog(DataTable dataTable, string filename, int[] linkColumnIndexes) : this(dataTable: dataTable, filename: filename, linkColumnIndexes:linkColumnIndexes, linkDataTables: null) { }
+        public ImportProcessDialog(DataTable dataTable, string filename, IDictionary<string, string> linkColumnIndexes) : this(dataTable: dataTable, filename: filename, linkColumnIndexes:linkColumnIndexes, linkDataTables: null) { }
 
-        public ImportProcessDialog(DataTable dataTable, string filename, int[] linkColumnIndexes,  DataTable[] linkDataTables)
+        public ImportProcessDialog(DataTable dataTable, string filename, IDictionary<string, string> linkColumnIndexes,  DataTable[] linkDataTables)
         {
             _dataTable = dataTable;
             _filename = filename;
             _linkDataTables = linkDataTables;
+            _linkColumnIndexes = linkColumnIndexes;
 
             InitializeComponent();
 
@@ -43,8 +44,8 @@ namespace DatabaseToolSuite.Dialogs
             DataTable dataTable =(DataTable) ((Object[])e.Argument)[0];
             string filename = (string)((Object[])e.Argument)[1];
             DataTable[] linkDataTables = (DataTable[])((Object[])e.Argument)[2];
+            IDictionary<string, string> linkColumnIndexes = (IDictionary<string, string>)((Object[])e.Argument)[3];
 
-         
             //LinkDataSet linkDataSet = new LinkDataSet();
             //if (linkfile !=string.Empty)
             //{
@@ -55,19 +56,22 @@ namespace DatabaseToolSuite.Dialogs
             long length = reader.BaseStream.Length;
             string headers = reader.ReadLine();
 
+            int index = -1;
             while (!reader.EndOfStream)
             {
                 long percent = reader.BaseStream.Position * 100 / length;
                 worker.ReportProgress((int)percent);
                 string line = reader.ReadLine();
                 string[] split = line.Split(';');
-
+                
                 object[] cells = new object[dataTable.Columns.Count];
 
-                for (int i = 0; i < split.Length; i++)
-                {
-                    if (linkDataTables[i] == null)
-                    {
+                
+                index+=1;
+                cells[0] = index;
+
+                for (int i = 1; i < split.Length; i++)
+                {                   
                         try
                         {
                             cells[i] = Convert.ChangeType(split[i], dataTable.Columns[i].DataType);
@@ -75,14 +79,44 @@ namespace DatabaseToolSuite.Dialogs
                         catch (Exception)
                         {
                             cells[i] = 0;
-                        }                        
-                    } else
-                    {
-
-                    }
+                        }
+                    
                 }
 
-                DataRow row =  dataTable.Rows.Add(cells);
+                if (linkColumnIndexes.ContainsKey(split[3]))
+                {
+                    cells[3] = linkColumnIndexes[split[3]];
+                    if (cells[3].ToString() == "00")
+                    {
+                        string code = cells[5].ToString();
+                        string okato = code.Substring(2, 4);
+                        cells[3] = okato;
+                    }
+                }
+                else
+                {
+                    throw new Exception(split[3]);
+                }
+
+                if (linkColumnIndexes.ContainsKey(split[4]))
+                {
+                    cells[4] = linkColumnIndexes[split[4]];
+                }
+                else
+                {
+                    throw new Exception(split[4]);
+                }
+
+                if (linkColumnIndexes.ContainsKey(split[13]))
+                {
+                    cells[13] = linkColumnIndexes[split[13]];
+                }
+                else
+                {
+                    cells[13] = 0;
+                }
+                
+                DataRow row = dataTable.Rows.Add(cells);
             }
 
             reader.Close();
@@ -121,7 +155,7 @@ namespace DatabaseToolSuite.Dialogs
                 _linkDataTables = new DataTable[_dataTable.Columns.Count];
             }
 
-            importBackgroundWorker.RunWorkerAsync(new object[] { _dataTable, _filename, _linkDataTables});
+            importBackgroundWorker.RunWorkerAsync(new object[] { _dataTable, _filename, _linkDataTables, _linkColumnIndexes });
         }
     }
 }

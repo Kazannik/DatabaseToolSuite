@@ -58,7 +58,8 @@
             this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolBar = new System.Windows.Forms.ToolStrip();
             this.btnDatabaseAddOkato = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.btnCheckLinkFile = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.mainStatusBar = new System.Windows.Forms.StatusStrip();
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.databaseTreeView = new System.Windows.Forms.TreeView();
@@ -192,50 +193,50 @@
             // 
             this.mnuEditCutToolStripMenuItem.Image = global::DatabaseToolSuite.Properties.Resources.CutHS;
             this.mnuEditCutToolStripMenuItem.Name = "mnuEditCutToolStripMenuItem";
-            this.mnuEditCutToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.mnuEditCutToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.mnuEditCutToolStripMenuItem.Text = "Вырезать";
             // 
             // mnuEditCopyToolStripMenuItem
             // 
             this.mnuEditCopyToolStripMenuItem.Image = global::DatabaseToolSuite.Properties.Resources.CopyHS;
             this.mnuEditCopyToolStripMenuItem.Name = "mnuEditCopyToolStripMenuItem";
-            this.mnuEditCopyToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.mnuEditCopyToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.mnuEditCopyToolStripMenuItem.Text = "Копировать";
             // 
             // mnuEditPastToolStripMenuItem
             // 
             this.mnuEditPastToolStripMenuItem.Image = global::DatabaseToolSuite.Properties.Resources.PasteHS;
             this.mnuEditPastToolStripMenuItem.Name = "mnuEditPastToolStripMenuItem";
-            this.mnuEditPastToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.mnuEditPastToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.mnuEditPastToolStripMenuItem.Text = "Вставить";
             // 
             // mnuEditDeleteToolStripMenuItem
             // 
             this.mnuEditDeleteToolStripMenuItem.Image = global::DatabaseToolSuite.Properties.Resources.DeleteRedHS;
             this.mnuEditDeleteToolStripMenuItem.Name = "mnuEditDeleteToolStripMenuItem";
-            this.mnuEditDeleteToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.mnuEditDeleteToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.mnuEditDeleteToolStripMenuItem.Text = "Удалить";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(175, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(178, 6);
             // 
             // mnuEditSelectAllToolStripMenuItem
             // 
             this.mnuEditSelectAllToolStripMenuItem.Name = "mnuEditSelectAllToolStripMenuItem";
-            this.mnuEditSelectAllToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.mnuEditSelectAllToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.mnuEditSelectAllToolStripMenuItem.Text = "Выделить все";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(175, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(178, 6);
             // 
             // mnuEditFindToolStripMenuItem
             // 
             this.mnuEditFindToolStripMenuItem.Name = "mnuEditFindToolStripMenuItem";
-            this.mnuEditFindToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.mnuEditFindToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.mnuEditFindToolStripMenuItem.Text = "Найти...";
             // 
             // mnuView
@@ -286,7 +287,8 @@
             this.mainToolBar.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mainToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnDatabaseAddOkato,
-            this.toolStripButton3});
+            this.btnCheckLinkFile,
+            this.toolStripButton1});
             this.mainToolBar.Location = new System.Drawing.Point(0, 28);
             this.mainToolBar.Name = "mainToolBar";
             this.mainToolBar.Size = new System.Drawing.Size(994, 27);
@@ -304,14 +306,24 @@
             this.btnDatabaseAddOkato.Text = "Добавить код ОКАО";
             this.btnDatabaseAddOkato.Click += new System.EventHandler(this.mnuDatabaseAddOkato_Click);
             // 
-            // toolStripButton3
+            // btnCheckLinkFile
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.btnCheckLinkFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnCheckLinkFile.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckLinkFile.Image")));
+            this.btnCheckLinkFile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCheckLinkFile.Name = "btnCheckLinkFile";
+            this.btnCheckLinkFile.Size = new System.Drawing.Size(24, 24);
+            this.btnCheckLinkFile.Text = "Сравнение";
+            this.btnCheckLinkFile.Click += new System.EventHandler(this.btnCheckLinkFile_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // mainStatusBar
             // 
@@ -384,6 +396,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // mainDataGridView
             // 
@@ -468,7 +481,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuHelpAbout;
         private System.Windows.Forms.ToolStripMenuItem mnuFileExport;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton btnCheckLinkFile;
         private System.Windows.Forms.TreeView databaseTreeView;
         private System.Windows.Forms.ToolStripMenuItem mnuFileNew;
         private System.Windows.Forms.ToolStripMenuItem mnuFileSave;
@@ -480,5 +493,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuDatabaseAddOkato;
         private System.Windows.Forms.BindingSource okatoBindingSource;
         private Repositoryes.RepositoryDataSet repositoryDataSet;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

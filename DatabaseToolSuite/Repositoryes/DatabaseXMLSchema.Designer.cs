@@ -413,9 +413,11 @@ namespace DatabaseToolSuite.Repositoryes {
         private void InitExpressions() {
             this.authority.codeColumn.Expression = "IIF(LEN(Convert(id, System.String))=1, \'0\' + Convert(id, System.String), id)";
             this.okato.codeColumn.Expression = "IIF(LEN(Convert(ter, System.String))=1, \'0\' + Convert(ter, System.String), ter) +" +
-                " IIF(kod1>1, Convert(kod1, System.String),\'\') + ISNULL(lab,\'\')";
+                " IIF(kod1>0, IIF(LEN(Convert(kod1, System.String))=1, \'0\' + Convert(kod1, System" +
+                ".String), kod1),\'\') + ISNULL(lab,\'\')";
             this.okato.okatoColumn.Expression = "IIF(LEN(Convert(ter, System.String))=1, \'0\' + Convert(ter, System.String), ter) +" +
-                " IIF(kod1>1, Convert(kod1, System.String),\'\')";
+                " IIF(kod1>0, IIF(LEN(Convert(kod1, System.String))=1, \'0\' + Convert(kod1, System" +
+                ".String), kod1),\'\')";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1058,9 +1060,11 @@ namespace DatabaseToolSuite.Repositoryes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitExpressions() {
                 this.codeColumn.Expression = "IIF(LEN(Convert(ter, System.String))=1, \'0\' + Convert(ter, System.String), ter) +" +
-                    " IIF(kod1>1, Convert(kod1, System.String),\'\') + ISNULL(lab,\'\')";
+                    " IIF(kod1>0, IIF(LEN(Convert(kod1, System.String))=1, \'0\' + Convert(kod1, System" +
+                    ".String), kod1),\'\') + ISNULL(lab,\'\')";
                 this.okatoColumn.Expression = "IIF(LEN(Convert(ter, System.String))=1, \'0\' + Convert(ter, System.String), ter) +" +
-                    " IIF(kod1>1, Convert(kod1, System.String),\'\')";
+                    " IIF(kod1>0, IIF(LEN(Convert(kod1, System.String))=1, \'0\' + Convert(kod1, System" +
+                    ".String), kod1),\'\')";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1490,8 +1494,6 @@ namespace DatabaseToolSuite.Repositoryes {
                 base.Columns.Add(this.columncourt_type_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("gasps_key", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint3", new global::System.Data.DataColumn[] {
-                                this.columncode}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint4", new global::System.Data.DataColumn[] {
                                 this.columnversion}, false));
                 this.columnid.AutoIncrement = true;
@@ -1505,7 +1507,6 @@ namespace DatabaseToolSuite.Repositoryes {
                 this.columnokato_code.DefaultValue = ((string)("00"));
                 this.columnauthority_id.AllowDBNull = false;
                 this.columncode.AllowDBNull = false;
-                this.columncode.Unique = true;
                 this.columnversion.AllowDBNull = false;
                 this.columnversion.Unique = true;
                 this.columnowner.AllowDBNull = false;

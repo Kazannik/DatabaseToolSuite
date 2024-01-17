@@ -24,7 +24,7 @@
         <xs:element name="okato" msdata:Locale="ru" msprop:Generator_TableClassName="okatoDataTable" msprop:Generator_TableVarName="tableokato" msprop:Generator_RowChangedName="okatoRowChanged" msprop:Generator_TablePropName="okato" msprop:Generator_RowDeletingName="okatoRowDeleting" msprop:Generator_RowChangingName="okatoRowChanging" msprop:Generator_RowEvHandlerName="okatoRowChangeEventHandler" msprop:Generator_RowDeletedName="okatoRowDeleted" msprop:Generator_RowClassName="okatoRow" msprop:Generator_UserTableName="okato" msprop:Generator_RowEvArgName="okatoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="code" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(Convert(ter, System.String))=1, '0' + Convert(ter, System.String), ter) + IIF(kod1&gt;1, Convert(kod1, System.String),'') + ISNULL(lab,'')" msdata:Caption="���" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:string" minOccurs="0" />
+              <xs:element name="code" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(Convert(ter, System.String))=1, '0' + Convert(ter, System.String), ter) + IIF(kod1&gt;0, IIF(LEN(Convert(kod1, System.String))=1, '0' + Convert(kod1, System.String), kod1),'') + ISNULL(lab,'')" msdata:Caption="���" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:string" minOccurs="0" />
               <xs:element name="name" msdata:Caption="������������ �� �����" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" />
               <xs:element name="name2" msdata:Caption="������������" msprop:Generator_ColumnVarNameInTable="columnname2" msprop:Generator_ColumnPropNameInRow="name2" msprop:Generator_ColumnPropNameInTable="name2Column" msprop:Generator_UserColumnName="name2" type="xs:string" minOccurs="0" />
               <xs:element name="centrum" msdata:Caption="�����" msprop:Generator_ColumnVarNameInTable="columncentrum" msprop:Generator_ColumnPropNameInRow="centrum" msprop:Generator_ColumnPropNameInTable="centrumColumn" msprop:Generator_UserColumnName="centrum" type="xs:string" minOccurs="0" />
@@ -38,7 +38,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="okato" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(Convert(ter, System.String))=1, '0' + Convert(ter, System.String), ter) + IIF(kod1&gt;1, Convert(kod1, System.String),'')" msdata:Caption="��� �����" msprop:Generator_ColumnVarNameInTable="columnokato" msprop:Generator_ColumnPropNameInRow="okato" msprop:Generator_ColumnPropNameInTable="okatoColumn" msprop:Generator_UserColumnName="okato" type="xs:string" minOccurs="0" />
+              <xs:element name="okato" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(Convert(ter, System.String))=1, '0' + Convert(ter, System.String), ter) + IIF(kod1&gt;0, IIF(LEN(Convert(kod1, System.String))=1, '0' + Convert(kod1, System.String), kod1),'')" msdata:Caption="��� �����" msprop:Generator_ColumnVarNameInTable="columnokato" msprop:Generator_ColumnPropNameInRow="okato" msprop:Generator_ColumnPropNameInTable="okatoColumn" msprop:Generator_UserColumnName="okato" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -83,10 +83,6 @@
     <xs:unique name="gasps_key" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:gasps" />
       <xs:field xpath="mstns:id" />
-    </xs:unique>
-    <xs:unique name="Constraint3">
-      <xs:selector xpath=".//mstns:gasps" />
-      <xs:field xpath="mstns:code" />
     </xs:unique>
     <xs:unique name="Constraint4">
       <xs:selector xpath=".//mstns:gasps" />
