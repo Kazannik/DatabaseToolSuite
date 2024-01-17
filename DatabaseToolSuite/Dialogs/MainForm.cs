@@ -127,7 +127,7 @@ namespace DatabaseToolSuite.Dialogs
                 DataTable table = (DataTable)e.Node.Tag;
                 if (table is gaspsDataTable)
                 {
-                    mainDataGridView.DataSource = ((gaspsDataTable) table).GetAll();
+                    mainDataGridView.DataSource = ((gaspsDataTable) table);
                 }
                 else
                 {
