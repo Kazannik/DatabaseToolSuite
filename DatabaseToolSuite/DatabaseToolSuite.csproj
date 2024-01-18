@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\AuthorityComboBox.cs" />
+    <Compile Include="Controls\AuthorityToolStripComboBox.cs" />
     <Compile Include="Controls\ColorThemeList.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -83,7 +84,9 @@
       <DependentUpon>NumericTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\OkatoComboBox.cs" />
+    <Compile Include="Controls\OkatoToolStripComboBox.cs" />
     <Compile Include="Controls\ToolStripCheckBox.cs" />
+    <Compile Include="Controls\ToolStripComboControl.cs" />
     <Compile Include="Controls\ToolStripNumericUpDown.cs" />
     <Compile Include="Dialogs\AboutDialog.cs">
       <SubType>Form</SubType>
@@ -249,6 +252,24 @@
     <None Include="Resources\CutHS.png" />
     <None Include="Resources\saveHS.png" />
     <None Include="Resources\openHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewPage32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PageDuplicate32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PageVersion32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PageDelete32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PageSave32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileExit32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

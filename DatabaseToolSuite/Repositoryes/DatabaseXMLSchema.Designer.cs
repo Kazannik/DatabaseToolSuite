@@ -32,9 +32,9 @@ namespace DatabaseToolSuite.Repositoryes {
         
         private court_typeDataTable tablecourt_type;
         
-        private global::System.Data.DataRelation relationFK_court_type_gasps;
-        
         private global::System.Data.DataRelation relationFK_authority_gasps;
+        
+        private global::System.Data.DataRelation relationFK_court_type_gasps;
         
         private global::System.Data.DataRelation relationFK_okato_gasps;
         
@@ -278,8 +278,8 @@ namespace DatabaseToolSuite.Repositoryes {
                     this.tablecourt_type.InitVars();
                 }
             }
-            this.relationFK_court_type_gasps = this.Relations["FK_court_type_gasps"];
             this.relationFK_authority_gasps = this.Relations["FK_authority_gasps"];
+            this.relationFK_court_type_gasps = this.Relations["FK_court_type_gasps"];
             this.relationFK_okato_gasps = this.Relations["FK_okato_gasps"];
         }
         
@@ -301,13 +301,6 @@ namespace DatabaseToolSuite.Repositoryes {
             this.tablecourt_type = new court_typeDataTable();
             base.Tables.Add(this.tablecourt_type);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_court_type_gasps", new global::System.Data.DataColumn[] {
-                        this.tablecourt_type.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tablegasps.court_type_idColumn});
-            this.tablegasps.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_authority_gasps", new global::System.Data.DataColumn[] {
                         this.tableauthority.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablegasps.authority_idColumn});
@@ -315,14 +308,21 @@ namespace DatabaseToolSuite.Repositoryes {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_court_type_gasps = new global::System.Data.DataRelation("FK_court_type_gasps", new global::System.Data.DataColumn[] {
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_court_type_gasps", new global::System.Data.DataColumn[] {
                         this.tablecourt_type.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tablegasps.court_type_idColumn}, false);
-            this.Relations.Add(this.relationFK_court_type_gasps);
+                        this.tablegasps.court_type_idColumn});
+            this.tablegasps.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationFK_authority_gasps = new global::System.Data.DataRelation("FK_authority_gasps", new global::System.Data.DataColumn[] {
                         this.tableauthority.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablegasps.authority_idColumn}, false);
             this.Relations.Add(this.relationFK_authority_gasps);
+            this.relationFK_court_type_gasps = new global::System.Data.DataRelation("FK_court_type_gasps", new global::System.Data.DataColumn[] {
+                        this.tablecourt_type.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablegasps.court_type_idColumn}, false);
+            this.Relations.Add(this.relationFK_court_type_gasps);
             this.relationFK_okato_gasps = new global::System.Data.DataRelation("FK_okato_gasps", new global::System.Data.DataColumn[] {
                         this.tableokato.codeColumn}, new global::System.Data.DataColumn[] {
                         this.tablegasps.okato_codeColumn}, false);
@@ -2390,23 +2390,23 @@ namespace DatabaseToolSuite.Repositoryes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public court_typeRow court_typeRow {
-                get {
-                    return ((court_typeRow)(this.GetParentRow(this.Table.ParentRelations["FK_court_type_gasps"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_court_type_gasps"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public authorityRow authorityRow {
                 get {
                     return ((authorityRow)(this.GetParentRow(this.Table.ParentRelations["FK_authority_gasps"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_authority_gasps"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public court_typeRow court_typeRow {
+                get {
+                    return ((court_typeRow)(this.GetParentRow(this.Table.ParentRelations["FK_court_type_gasps"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_court_type_gasps"]);
                 }
             }
             

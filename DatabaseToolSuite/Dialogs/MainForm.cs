@@ -65,6 +65,8 @@ namespace DatabaseToolSuite.Dialogs
                     repository.ReadSchema(dialog.FileName);
                     GetTables(repository.DataSet);
                 }
+                okatoToolStripComboBox1.InitializeSource(repository.DataSet.okato);
+                authorityToolStripComboBox1.InitializeSource(repository.DataSet.authority);
             }
         }
 
@@ -127,7 +129,7 @@ namespace DatabaseToolSuite.Dialogs
                 DataTable table = (DataTable)e.Node.Tag;
                 if (table is gaspsDataTable)
                 {
-                    mainDataGridView.DataSource = ((gaspsDataTable) table);
+                    mainDataGridView.DataSource = ((gaspsDataTable)table) ;
                 }
                 else
                 {
@@ -257,7 +259,7 @@ namespace DatabaseToolSuite.Dialogs
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            OrganizationDialog dialog = new OrganizationDialog((gaspsRow) repository.DataSet.gasps.Rows[35000], repository.DataSet.okato, repository.DataSet.authority);
+            OrganizationDialog dialog = new OrganizationDialog((gaspsRow) repository.DataSet.gasps.Rows[35000], repository.DataSet.gasps, repository.DataSet.okato, repository.DataSet.authority);
             dialog.ShowDialog(this);
         }
 

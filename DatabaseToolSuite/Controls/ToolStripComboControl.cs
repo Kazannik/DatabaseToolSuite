@@ -13,7 +13,8 @@ namespace DatabaseToolSuite.Controls
     [DesignerCategory("code")]
     [ToolboxBitmap(typeof(ComboBox))]
     [ComVisible(false)]
-    public abstract class ComboControl<T> : ComboBox where T : ComboControl<T>.IComboBoxItem
+    [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.All)]
+    public abstract class ToolStripComboControl<T> : ToolStripComboBox where T : ComboControl<T>.IComboBoxItem
     {
         protected StringFormat sfCode;
         protected StringFormat sfCaption;
@@ -23,7 +24,7 @@ namespace DatabaseToolSuite.Controls
         #region Initialize
 
         [DebuggerNonUserCode()]
-        public ComboControl(IContainer container) : this()
+        public ToolStripComboControl(IContainer container) : this()
         {
             if (container != null) { container.Add(this); }
         }
@@ -34,7 +35,7 @@ namespace DatabaseToolSuite.Controls
             try
             {
                 if (disposing && components != null)
-                { components.Dispose(); }                
+                { components.Dispose(); }
             }
             finally
             { base.Dispose(disposing); }
@@ -49,7 +50,7 @@ namespace DatabaseToolSuite.Controls
             list = new List<T>();
         }
 
-        public ComboControl() : base()
+        public ToolStripComboControl() : base()
         {
             sfCode = (StringFormat)StringFormat.GenericTypographic.Clone();
             sfCode.Alignment = StringAlignment.Center;
@@ -64,34 +65,36 @@ namespace DatabaseToolSuite.Controls
 
             InitializeComponent();
 
+            ComboBox.DrawItem += new DrawItemEventHandler(ComboBox_DrawItem);
+
             base.DropDownStyle = ComboBoxStyle.DropDownList;
-            DrawMode = DrawMode.OwnerDrawFixed;
+            ComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             MaxDropDownItems = 20;
             DropDownWidth = 80;
             base.AutoSize = false;
-            Width = 80;
+            Width = 200;
             DropDownHeight = 80;
-            Items.Clear();
+            ComboBox.Items.Clear();
         }
 
         #endregion
 
         #region Draw Item
 
-        protected override void OnDrawItem(DrawItemEventArgs e)
+        private void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             Graphics graphics = e.Graphics;
 
             SizeF CodeSize = graphics.MeasureString("FFFFF", Font);
-            ItemHeight = (int)CodeSize.Height + SystemInformation.BorderSize.Height * 4;
-            DropDownHeight = ItemHeight * 8 + SystemInformation.BorderSize.Height * 4;
+            ComboBox.ItemHeight = (int)CodeSize.Height + SystemInformation.BorderSize.Height * 4;
+            DropDownHeight = ComboBox.ItemHeight * 8 + SystemInformation.BorderSize.Height * 4;
 
             Rectangle rectSelection = new Rectangle(e.Bounds.X + 1, e.Bounds.Y, e.Bounds.Width - 3, e.Bounds.Height - 1);
             Rectangle rectCode = new Rectangle(rectSelection.X + 2, rectSelection.Y + 2, (int)CodeSize.Width, rectSelection.Height - 4);
             Rectangle rectText = new Rectangle(rectCode.X + rectCode.Width + 6, rectCode.Y, e.Bounds.Width - rectCode.X - rectCode.Width - 6, rectCode.Height);
 
             Size TextSize = new Size(rectText.Width - SystemInformation.VerticalScrollBarWidth - 8, rectText.Height);
-            
+
             Brush backCodeBrush, foreCodeBrush, backCaptionBrush, foreCaptionBrush;
             Pen borderPen;
 
@@ -150,14 +153,14 @@ namespace DatabaseToolSuite.Controls
         }
 
         #endregion
-        
+
         string codeBuffer;
         string textBuffer;
         int findNext = 0;
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
-            if (e.KeyCode== Keys.Delete)
+            if (e.KeyCode == Keys.Delete)
             {
                 codeBuffer = string.Empty;
                 textBuffer = string.Empty;
@@ -201,15 +204,16 @@ namespace DatabaseToolSuite.Controls
                     if (!FindText(textBuffer))
                         findNext = 0;
                 }
-            }                
+            }
             else if (e.KeyChar >= 48 & e.KeyChar <= 57)
             {
-                e.Handled = false;                
-                if (FindCode(codeBuffer + e.KeyChar)) {
+                e.Handled = false;
+                if (FindCode(codeBuffer + e.KeyChar))
+                {
                     codeBuffer += e.KeyChar;
                     textBuffer = string.Empty;
                 }
-                findNext = 0;             
+                findNext = 0;
             }
             else if (char.IsLetter(e.KeyChar))
             {
@@ -312,28 +316,28 @@ namespace DatabaseToolSuite.Controls
         {
             list.Add(item);
             list.Sort(new ItemComparer());
-            Items.Insert(index, item);
+            ComboBox.Items.Insert(index, item);
         }
 
         protected void Remove(T value)
         {
             list.Remove(value);
-            Items.Remove(value);
+            ComboBox.Items.Remove(value);
         }
 
         protected void RemoveAt(int index)
         {
-            object item = Items[index];
+            object item = ComboBox.Items[index];
             list.Remove((T)item);
-            Items.RemoveAt(index);            
+            ComboBox.Items.RemoveAt(index);
         }
 
         protected void Clear()
         {
             list.Clear();
-            Items.Clear();
+            ComboBox.Items.Clear();
         }
-        
+
         public int Add(T item)
         {
             foreach (T i in Items)
@@ -345,7 +349,7 @@ namespace DatabaseToolSuite.Controls
             }
             list.Add(item);
             list.Sort(new ItemComparer());
-            return Items.Add(item);
+            return ComboBox.Items.Add(item);
         }
 
         public bool Contains(string code)
@@ -370,13 +374,7 @@ namespace DatabaseToolSuite.Controls
                 }
             }
             return default(T);
-        }
-
-        public interface IComboBoxItem
-        {
-            string Code { get; }
-            string Text { get; }            
-        }
+        }        
 
         private class ItemComparer : IComparer<T>
         {

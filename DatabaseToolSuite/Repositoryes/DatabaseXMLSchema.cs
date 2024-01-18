@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Data;
@@ -108,14 +107,32 @@ namespace DatabaseToolSuite.Repositoryes
 
         partial class gaspsDataTable
         {
+           public DataView GetUnlockOrganization()
+            {
+                DataViewManager vm = new DataViewManager(this.DataSet);
+
+                DataView dv =  vm.CreateDataView(this);
+                      
+                dv.RowFilter=string.Format("(date_beg <= {0} and date_end > {0}) or date_beg >= {0}", DateTime.Today.ToString("#MM-dd-yyyy#"));
+
+                return dv;
+            }
+
+
             public BindingList<gaspsRow> GetAll()
             {
+                
                 return new BindingList<gaspsRow>(
                     this.AsEnumerable()
                     .Where(x => (x.date_beg <= DateTime.Now && x.date_end >= DateTime.Now)
                      && x.authority_id == 20).ToArray());
             }
 
+
+            public gaspsRow GetOrganization(long key)
+            {
+                return this.First(r => r.key == key);
+            }
 
             public long GetNextKey()
             {
@@ -160,8 +177,9 @@ namespace DatabaseToolSuite.Repositoryes
                     else
                     {
                         return leftCode + code.ToString(rightCodeFormat);
-                    }                    
-                } else
+                    }
+                }
+                else
                 {
                     return leftCode + (1).ToString(rightCodeFormat);
                 }
@@ -176,17 +194,18 @@ namespace DatabaseToolSuite.Repositoryes
                 EnumerableRowCollection<gaspsRow> unlickCodes = from item in this.AsEnumerable()
                                                                 where item.authority_id == authority &&
                                                                 item.okato_code == okato &&
-                                                                item.date_beg <= today &&
-                                                                item.date_end > today
+                                                                ((item.date_beg <= today &&
+                                                                item.date_end > today) ||
+                                                                item.date_beg > today)
                                                                 orderby item.date_beg descending
                                                                 select item;
 
                 IEnumerable<gaspsRow> lockCodes = (from item in this.AsEnumerable()
-                                                              where item.authority_id == authority &&
-                                                              item.okato_code == okato &&
-                                                              item.date_end <= today
-                                                              orderby item.date_beg descending
-                                                              select item).GroupBy(x => x.code).Select(y => y.FirstOrDefault());
+                                                   where item.authority_id == authority &&
+                                                   item.okato_code == okato &&
+                                                   item.date_end <= today
+                                                   orderby item.date_beg descending
+                                                   select item).GroupBy(x => x.code).Select(y => y.FirstOrDefault());
 
                 return new BindingList<gaspsRow>(lockCodes.Where(p => unlickCodes.All(p2 => p2.code != p.code)).OrderBy(x => x.code).ToArray());
             }
@@ -288,7 +307,7 @@ namespace DatabaseToolSuite.Repositoryes
 }
 
 namespace DatabaseToolSuite.Repositoryes.RepositoryDataSetTableAdapters
-{ 
+{
 
     [DesignerCategoryAttribute("code")]
     [ToolboxItem(true)]
