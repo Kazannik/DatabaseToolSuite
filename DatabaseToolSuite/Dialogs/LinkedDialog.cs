@@ -27,21 +27,21 @@ namespace DatabaseToolSuite.Dialogs
 
         public string RepositoryText { get; }
 
-        public string SelectedCode
-        {
-            get
-            {
-                return dictionaryTableViewComboBox.SelectedCode;
-            }
-        }
+        //public string SelectedCode
+        //{
+        //    get
+        //    {
+        //        return dictionaryTableViewComboBox.SelectedCode;
+        //    }
+        //}
 
-        public string SelectedText
-        {
-            get
-            {
-                return dictionaryTableViewComboBox.SelectedText;
-            }
-        }
+        //public string SelectedText
+        //{
+        //    get
+        //    {
+        //        return dictionaryTableViewComboBox.SelectedText;
+        //    }
+        //}
 
         private void hideLinkedItemCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -60,11 +60,9 @@ namespace DatabaseToolSuite.Dialogs
         {
             if (hideCodes == null || hideCodes.Length == 0)
             {
-                dictionaryTableViewComboBox.SetData(table: table, codeColumnIndex: codeColumnIndex, textColumnIndex: textColumnIndex);
             }
             else
             {
-                dictionaryTableViewComboBox.SetData(table: table, codeColumnIndex: codeColumnIndex, textColumnIndex: textColumnIndex, hideCodes: hideCodes);
             }
         }
 
