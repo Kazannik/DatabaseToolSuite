@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -115,6 +116,80 @@ namespace DatabaseToolSuite.Repositoryes
                      && x.authority_id == 20).ToArray());
             }
 
+
+            public long GetNextKey()
+            {
+                if (this.Count > 0)
+                    return 1 + this.AsEnumerable().Max(r => r.key);
+                else
+                    return 1;
+            }
+
+            public long GetNextVersion()
+            {
+                if (this.Count > 0)
+                    return 1 + this.AsEnumerable().Max(r => r.version);
+                else
+                    return 1;
+            }
+
+            public long GetNextIndex()
+            {
+                if (this.Count > 0)
+                    return 1 + this.AsEnumerable().Max(r => r.index);
+                else
+                    return 1;
+            }
+
+            public string GetNextCode(long authority, string okato)
+            {
+                string leftCode = authority.ToString("00") + okato;
+                string rightCodeFormat = new string('0', 8 - leftCode.Length);
+                if (this.AsEnumerable()
+                    .Where(r => r.authority_id == authority && r.okato_code == okato).Count() > 0)
+                {
+                    long code = 1 + this.AsEnumerable()
+                    .Where(r => r.authority_id == authority && r.okato_code == okato).Max(r => long.Parse(r.code.Substring(leftCode.Length)));
+                    if (code.ToString().Length > rightCodeFormat.Length)
+                    {
+                        throw new ArgumentOutOfRangeException(
+                            string.Format("Диапазон кодов исчерпан. Присваемое значение {0} выходит за границы заданного диапазона (1-{1}).",
+                            code, new string('9', rightCodeFormat.Length))
+                            );
+                    }
+                    else
+                    {
+                        return leftCode + code.ToString(rightCodeFormat);
+                    }                    
+                } else
+                {
+                    return leftCode + (1).ToString(rightCodeFormat);
+                }
+            }
+
+
+            public BindingList<gaspsRow> GetLockCodes(long authority, string okato, DateTime today)
+            {
+                string leftCode = authority.ToString("00") + okato;
+                string rightCodeFormat = new string('0', 8 - leftCode.Length);
+
+                EnumerableRowCollection<gaspsRow> unlickCodes = from item in this.AsEnumerable()
+                                                                where item.authority_id == authority &&
+                                                                item.okato_code == okato &&
+                                                                item.date_beg <= today &&
+                                                                item.date_end > today
+                                                                orderby item.date_beg descending
+                                                                select item;
+
+                IEnumerable<gaspsRow> lockCodes = (from item in this.AsEnumerable()
+                                                              where item.authority_id == authority &&
+                                                              item.okato_code == okato &&
+                                                              item.date_end <= today
+                                                              orderby item.date_beg descending
+                                                              select item).GroupBy(x => x.code).Select(y => y.FirstOrDefault());
+
+                return new BindingList<gaspsRow>(lockCodes.Where(p => unlickCodes.All(p2 => p2.code != p.code)).OrderBy(x => x.code).ToArray());
+            }
 
             //public ObservableCollection<gaspsRow> GetAll()
             //{

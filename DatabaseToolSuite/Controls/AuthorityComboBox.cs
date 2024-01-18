@@ -5,29 +5,27 @@ using System.Windows.Forms.Design;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
 
 namespace DatabaseToolSuite.Controls
-{    
+{
     [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.All)]
-    public class OkatoComboBox: ComboControl<OkatoDto>
+    public class AuthorityComboBox: ComboControl<AuthorityDto>
     {
         #region Initialize
-
-        public OkatoComboBox() : base() { }
+        public  AuthorityComboBox() : base() { }
 
         [DebuggerNonUserCode()]
-        public OkatoComboBox(IContainer container):base(container: container) { }
+        public  AuthorityComboBox(IContainer container):base(container: container) { }
 
-        public void InitializeSource(okatoDataTable table)
+        public void InitializeSource(authorityDataTable table)
         {
             BeginUpdate();
             Items.Clear();
-            foreach (okatoRow row in table.Rows)
+            foreach (authorityRow row in table.Rows)
             {
-                Add(new OkatoDto(row));
+                Add(new AuthorityDto(row));
             }
             EndUpdate();
-        }        
+        }
 
         #endregion
     }
 }
-

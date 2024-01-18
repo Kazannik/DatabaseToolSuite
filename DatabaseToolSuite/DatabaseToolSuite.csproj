@@ -68,23 +68,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Base\BaseComboBox.cs" />
+    <Compile Include="Controls\AuthorityComboBox.cs" />
     <Compile Include="Controls\ColorThemeList.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ColorThemeList.Designer.cs">
       <DependentUpon>ColorThemeList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Base\ComboBoxBase.cs" />
+    <Compile Include="Controls\ComboControl.cs" />
     <Compile Include="Controls\NumericTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\NumericTextBox.Designer.cs">
       <DependentUpon>NumericTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Base\PickerControlBase.cs" />
     <Compile Include="Controls\OkatoComboBox.cs" />
-    <Compile Include="Controls\TableViewComboBox.cs" />
     <Compile Include="Controls\ToolStripCheckBox.cs" />
     <Compile Include="Controls\ToolStripNumericUpDown.cs" />
     <Compile Include="Dialogs\AboutDialog.cs">
@@ -98,6 +96,12 @@
     </Compile>
     <Compile Include="Dialogs\AuthorityDialog.Designer.cs">
       <DependentUpon>AuthorityDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CodeCollectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\CodeCollectionDialog.Designer.cs">
+      <DependentUpon>CodeCollectionDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\DictionaryEditDialog.cs">
       <SubType>Form</SubType>
@@ -135,6 +139,12 @@
     <Compile Include="Dialogs\OkatoEditDialog.Designer.cs">
       <DependentUpon>OkatoEditDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\OrganizationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\OrganizationDialog.Designer.cs">
+      <DependentUpon>OrganizationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositoryes\DatabaseXMLSchema.cs">
@@ -146,6 +156,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseXMLSchema.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Repositoryes\Dto\AuthorityDto.cs" />
     <Compile Include="Repositoryes\Dto\OkatoDto.cs" />
     <Compile Include="Services\DataGridViewSetting.cs" />
     <EmbeddedResource Include="Dialogs\AboutDialog.resx">
@@ -153,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AuthorityDialog.resx">
       <DependentUpon>AuthorityDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\CodeCollectionDialog.resx">
+      <DependentUpon>CodeCollectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DictionaryEditDialog.resx">
       <DependentUpon>DictionaryEditDialog.cs</DependentUpon>
@@ -171,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\OkatoEditDialog.resx">
       <DependentUpon>OkatoEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\OrganizationDialog.resx">
+      <DependentUpon>OrganizationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

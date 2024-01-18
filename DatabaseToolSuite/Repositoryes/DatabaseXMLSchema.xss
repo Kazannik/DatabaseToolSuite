@@ -12,18 +12,6 @@
     <Shape ID="DesignTable:court_type" ZOrder="5" X="172" Y="412" Height="91" Width="172" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="87" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK_court_type_gasps" ZOrder="2" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>344</X>
-          <Y>451</Y>
-        </Point>
-        <Point>
-          <X>529</X>
-          <Y>451</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
     <Connector ID="DesignRelation:FK_authority_gasps" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
@@ -33,6 +21,18 @@
         <Point>
           <X>529</X>
           <Y>134</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:FK_court_type_gasps" ZOrder="2" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>344</X>
+          <Y>451</Y>
+        </Point>
+        <Point>
+          <X>529</X>
+          <Y>451</Y>
         </Point>
       </RoutePoints>
     </Connector>

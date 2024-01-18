@@ -32,10 +32,10 @@ namespace DatabaseToolSuite.Services
                 control.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
                 control.Columns["id"].Visible = false;
-                control.Columns["key"].Visible = false;
-                control.Columns["version"].Visible = false;
-                control.Columns["index"].Visible = false;
-                control.Columns["owner"].Visible = false;
+                control.Columns["key"].Visible = true;
+                control.Columns["version"].Visible = true;
+                control.Columns["index"].Visible = true;
+                control.Columns["owner"].Visible = true;
                 control.Columns["location_okato_id"].Visible = false;
                 control.Columns["another_okato_id"].Visible = false;
                 control.Columns["court_type_id"].Visible = false;

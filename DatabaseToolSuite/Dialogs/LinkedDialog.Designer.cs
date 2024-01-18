@@ -35,7 +35,6 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
             this.hideLinkedItemCheckBox = new System.Windows.Forms.CheckBox();
-            this.dictionaryTableViewComboBox = new DatabaseToolSuite.Controls.TableViewComboBox(this.components);
             this.AddButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -103,22 +102,6 @@
             this.hideLinkedItemCheckBox.UseVisualStyleBackColor = true;
             this.hideLinkedItemCheckBox.CheckedChanged += new System.EventHandler(this.hideLinkedItemCheckBox_CheckedChanged);
             // 
-            // dictionaryTableViewComboBox
-            // 
-            this.dictionaryTableViewComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dictionaryTableViewComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.dictionaryTableViewComboBox.DropDownHeight = 164;
-            this.dictionaryTableViewComboBox.DropDownWidth = 80;
-            this.dictionaryTableViewComboBox.FormattingEnabled = true;
-            this.dictionaryTableViewComboBox.IntegralHeight = false;
-            this.dictionaryTableViewComboBox.ItemHeight = 20;
-            this.dictionaryTableViewComboBox.Location = new System.Drawing.Point(12, 103);
-            this.dictionaryTableViewComboBox.MaxDropDownItems = 20;
-            this.dictionaryTableViewComboBox.Name = "dictionaryTableViewComboBox";
-            this.dictionaryTableViewComboBox.Size = new System.Drawing.Size(372, 26);
-            this.dictionaryTableViewComboBox.TabIndex = 3;
-            // 
             // AddButton
             // 
             this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -141,7 +124,6 @@
             this.Controls.Add(this.hideLinkedItemCheckBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
-            this.Controls.Add(this.dictionaryTableViewComboBox);
             this.Controls.Add(this.dictionaryLabel);
             this.Controls.Add(this.repositoryTextBox);
             this.Controls.Add(this.repositoryLabel);
@@ -163,7 +145,6 @@
         private System.Windows.Forms.Label repositoryLabel;
         private System.Windows.Forms.TextBox repositoryTextBox;
         private System.Windows.Forms.Label dictionaryLabel;
-        private Controls.TableViewComboBox dictionaryTableViewComboBox;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.CheckBox hideLinkedItemCheckBox;

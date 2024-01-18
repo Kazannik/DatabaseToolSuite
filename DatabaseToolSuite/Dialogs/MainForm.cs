@@ -127,7 +127,7 @@ namespace DatabaseToolSuite.Dialogs
                 DataTable table = (DataTable)e.Node.Tag;
                 if (table is gaspsDataTable)
                 {
-                    mainDataGridView.DataSource = ((gaspsDataTable) table).GetAll();
+                    mainDataGridView.DataSource = ((gaspsDataTable) table);
                 }
                 else
                 {
@@ -240,7 +240,33 @@ namespace DatabaseToolSuite.Dialogs
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
+            this.Text = repository.DataSet.gasps.GetNextCode(2, "0077");
+
+            foreach (okatoRow okato in repository.DataSet.okato)
+            {
+                var t = repository.DataSet.gasps.GetLockCodes(2, okato.code, DateTime.Today);
+                if (t.Count>0)
+                {
+                    CodeCollectionDialog dialog = new CodeCollectionDialog(t);
+                    dialog.Show();
+                }
+            }
+
             
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            OrganizationDialog dialog = new OrganizationDialog((gaspsRow) repository.DataSet.gasps.Rows[35000], repository.DataSet.okato, repository.DataSet.authority);
+            dialog.ShowDialog(this);
+        }
+
+        private void mainDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (mainDataGridView.DataSource is gaspsDataTable)
+            {
+               
+            }
         }
     }
 }
