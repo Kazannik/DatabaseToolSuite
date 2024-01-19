@@ -93,6 +93,16 @@ namespace DatabaseToolSuite.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Delete16 {
+            get {
+                object obj = ResourceManager.GetObject("Delete16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DeleteRedHS {
             get {
                 object obj = ResourceManager.GetObject("DeleteRedHS", resourceCulture);
@@ -106,6 +116,26 @@ namespace DatabaseToolSuite.Properties {
         internal static System.Drawing.Bitmap FileExit32 {
             get {
                 object obj = ResourceManager.GetObject("FileExit32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Flag16 {
+            get {
+                object obj = ResourceManager.GetObject("Flag16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Home16 {
+            get {
+                object obj = ResourceManager.GetObject("Home16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

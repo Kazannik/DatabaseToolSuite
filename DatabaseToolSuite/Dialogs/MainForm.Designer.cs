@@ -67,13 +67,14 @@
             this.toolsToolBar = new System.Windows.Forms.ToolStrip();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.mainDataGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.okatoToolStripComboBox1 = new DatabaseToolSuite.Controls.OkatoToolStripComboBox(this.components);
             this.authorityToolStripComboBox1 = new DatabaseToolSuite.Controls.AuthorityToolStripComboBox(this.components);
+            this.unlockCodeStripCheckBox = new DatabaseToolSuite.Controls.ToolStripCheckBox();
             this.okatoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.repositoryDataSet = new DatabaseToolSuite.Repositoryes.RepositoryDataSet();
-            this.unlockCodeStripCheckBox = new DatabaseToolSuite.Controls.ToolStripCheckBox();
             this.mainMenuBar.SuspendLayout();
             this.mainToolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
@@ -99,7 +100,7 @@
             this.mnuHelp});
             this.mainMenuBar.Location = new System.Drawing.Point(0, 0);
             this.mainMenuBar.Name = "mainMenuBar";
-            this.mainMenuBar.Size = new System.Drawing.Size(1242, 24);
+            this.mainMenuBar.Size = new System.Drawing.Size(1242, 28);
             this.mainMenuBar.TabIndex = 0;
             this.mainMenuBar.Text = "Основная";
             // 
@@ -116,13 +117,13 @@
             this.toolStripMenuItem4,
             this.mnuFileExit});
             this.mnuFile.Name = "mnuFile";
-            this.mnuFile.Size = new System.Drawing.Size(48, 20);
+            this.mnuFile.Size = new System.Drawing.Size(57, 24);
             this.mnuFile.Text = "&Файл";
             // 
             // mnuFileNew
             // 
             this.mnuFileNew.Name = "mnuFileNew";
-            this.mnuFileNew.Size = new System.Drawing.Size(175, 26);
+            this.mnuFileNew.Size = new System.Drawing.Size(205, 26);
             this.mnuFileNew.Text = "Создать";
             this.mnuFileNew.Click += new System.EventHandler(this.mnuFileNew_Click);
             // 
@@ -130,7 +131,7 @@
             // 
             this.mnuFileOpen.Image = global::DatabaseToolSuite.Properties.Resources.openHS;
             this.mnuFileOpen.Name = "mnuFileOpen";
-            this.mnuFileOpen.Size = new System.Drawing.Size(175, 26);
+            this.mnuFileOpen.Size = new System.Drawing.Size(205, 26);
             this.mnuFileOpen.Text = "Открыть...";
             this.mnuFileOpen.Click += new System.EventHandler(this.mnuFileOpen_Click);
             // 
@@ -138,45 +139,45 @@
             // 
             this.mnuFileSave.Image = global::DatabaseToolSuite.Properties.Resources.saveHS;
             this.mnuFileSave.Name = "mnuFileSave";
-            this.mnuFileSave.Size = new System.Drawing.Size(175, 26);
+            this.mnuFileSave.Size = new System.Drawing.Size(205, 26);
             this.mnuFileSave.Text = "Сохранить";
             this.mnuFileSave.Click += new System.EventHandler(this.mnuFileSave_Click);
             // 
             // mnuFileSaveAs
             // 
             this.mnuFileSaveAs.Name = "mnuFileSaveAs";
-            this.mnuFileSaveAs.Size = new System.Drawing.Size(175, 26);
+            this.mnuFileSaveAs.Size = new System.Drawing.Size(205, 26);
             this.mnuFileSaveAs.Text = "Сохранить как...";
             this.mnuFileSaveAs.Click += new System.EventHandler(this.mnuFileSaveAs_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(172, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(202, 6);
             // 
             // mnuFileImport
             // 
             this.mnuFileImport.Name = "mnuFileImport";
-            this.mnuFileImport.Size = new System.Drawing.Size(175, 26);
+            this.mnuFileImport.Size = new System.Drawing.Size(205, 26);
             this.mnuFileImport.Text = "Импорт данных...";
             this.mnuFileImport.Click += new System.EventHandler(this.mnuFileImport_Click);
             // 
             // mnuFileExport
             // 
             this.mnuFileExport.Name = "mnuFileExport";
-            this.mnuFileExport.Size = new System.Drawing.Size(175, 26);
+            this.mnuFileExport.Size = new System.Drawing.Size(205, 26);
             this.mnuFileExport.Text = "Экспорт данных...";
             this.mnuFileExport.Click += new System.EventHandler(this.mnuFileExport_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(172, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(202, 6);
             // 
             // mnuFileExit
             // 
             this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(175, 26);
+            this.mnuFileExit.Size = new System.Drawing.Size(205, 26);
             this.mnuFileExit.Text = "Выход";
             // 
             // mnuEdit
@@ -191,63 +192,63 @@
             this.toolStripMenuItem2,
             this.mnuEditFindToolStripMenuItem});
             this.mnuEdit.Name = "mnuEdit";
-            this.mnuEdit.Size = new System.Drawing.Size(59, 20);
+            this.mnuEdit.Size = new System.Drawing.Size(72, 24);
             this.mnuEdit.Text = "&Правка";
             // 
             // mnuEditCutToolStripMenuItem
             // 
             this.mnuEditCutToolStripMenuItem.Image = global::DatabaseToolSuite.Properties.Resources.CutHS;
             this.mnuEditCutToolStripMenuItem.Name = "mnuEditCutToolStripMenuItem";
-            this.mnuEditCutToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.mnuEditCutToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.mnuEditCutToolStripMenuItem.Text = "Вырезать";
             // 
             // mnuEditCopyToolStripMenuItem
             // 
             this.mnuEditCopyToolStripMenuItem.Image = global::DatabaseToolSuite.Properties.Resources.CopyHS;
             this.mnuEditCopyToolStripMenuItem.Name = "mnuEditCopyToolStripMenuItem";
-            this.mnuEditCopyToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.mnuEditCopyToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.mnuEditCopyToolStripMenuItem.Text = "Копировать";
             // 
             // mnuEditPastToolStripMenuItem
             // 
             this.mnuEditPastToolStripMenuItem.Image = global::DatabaseToolSuite.Properties.Resources.PasteHS;
             this.mnuEditPastToolStripMenuItem.Name = "mnuEditPastToolStripMenuItem";
-            this.mnuEditPastToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.mnuEditPastToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.mnuEditPastToolStripMenuItem.Text = "Вставить";
             // 
             // mnuEditDeleteToolStripMenuItem
             // 
             this.mnuEditDeleteToolStripMenuItem.Image = global::DatabaseToolSuite.Properties.Resources.DeleteRedHS;
             this.mnuEditDeleteToolStripMenuItem.Name = "mnuEditDeleteToolStripMenuItem";
-            this.mnuEditDeleteToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.mnuEditDeleteToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.mnuEditDeleteToolStripMenuItem.Text = "Удалить";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(175, 6);
             // 
             // mnuEditSelectAllToolStripMenuItem
             // 
             this.mnuEditSelectAllToolStripMenuItem.Name = "mnuEditSelectAllToolStripMenuItem";
-            this.mnuEditSelectAllToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.mnuEditSelectAllToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.mnuEditSelectAllToolStripMenuItem.Text = "Выделить все";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(175, 6);
             // 
             // mnuEditFindToolStripMenuItem
             // 
             this.mnuEditFindToolStripMenuItem.Name = "mnuEditFindToolStripMenuItem";
-            this.mnuEditFindToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.mnuEditFindToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.mnuEditFindToolStripMenuItem.Text = "Найти...";
             // 
             // mnuView
             // 
             this.mnuView.Name = "mnuView";
-            this.mnuView.Size = new System.Drawing.Size(39, 20);
+            this.mnuView.Size = new System.Drawing.Size(47, 24);
             this.mnuView.Text = "&Вид";
             // 
             // mnuDatabase
@@ -255,21 +256,21 @@
             this.mnuDatabase.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuDatabaseAddOkato});
             this.mnuDatabase.Name = "mnuDatabase";
-            this.mnuDatabase.Size = new System.Drawing.Size(86, 20);
+            this.mnuDatabase.Size = new System.Drawing.Size(109, 24);
             this.mnuDatabase.Text = "База &данных";
             // 
             // mnuDatabaseAddOkato
             // 
             this.mnuDatabaseAddOkato.Image = global::DatabaseToolSuite.Properties.Resources.AddHomeHS;
             this.mnuDatabaseAddOkato.Name = "mnuDatabaseAddOkato";
-            this.mnuDatabaseAddOkato.Size = new System.Drawing.Size(204, 26);
+            this.mnuDatabaseAddOkato.Size = new System.Drawing.Size(241, 26);
             this.mnuDatabaseAddOkato.Text = "Добавить код ОКАТО...";
             this.mnuDatabaseAddOkato.Click += new System.EventHandler(this.mnuDatabaseAddOkato_Click);
             // 
             // mnuTools
             // 
             this.mnuTools.Name = "mnuTools";
-            this.mnuTools.Size = new System.Drawing.Size(59, 20);
+            this.mnuTools.Size = new System.Drawing.Size(71, 24);
             this.mnuTools.Text = "С&ервис";
             // 
             // mnuHelp
@@ -277,13 +278,14 @@
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHelpAbout});
             this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(65, 20);
+            this.mnuHelp.Size = new System.Drawing.Size(79, 24);
             this.mnuHelp.Text = "Справ&ка";
             // 
             // mnuHelpAbout
             // 
+            this.mnuHelpAbout.Image = global::DatabaseToolSuite.Properties.Resources.Home16;
             this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(158, 22);
+            this.mnuHelpAbout.Size = new System.Drawing.Size(188, 26);
             this.mnuHelpAbout.Text = "&О программе...";
             // 
             // mainToolBar
@@ -294,7 +296,7 @@
             this.btnDatabaseAddOkato,
             this.btnCheckLinkFile,
             this.toolStripButton1});
-            this.mainToolBar.Location = new System.Drawing.Point(0, 24);
+            this.mainToolBar.Location = new System.Drawing.Point(0, 28);
             this.mainToolBar.Name = "mainToolBar";
             this.mainToolBar.Size = new System.Drawing.Size(1242, 27);
             this.mainToolBar.TabIndex = 1;
@@ -343,7 +345,7 @@
             // mainSplitContainer
             // 
             this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainSplitContainer.Location = new System.Drawing.Point(0, 51);
+            this.mainSplitContainer.Location = new System.Drawing.Point(0, 55);
             this.mainSplitContainer.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.mainSplitContainer.Name = "mainSplitContainer";
             // 
@@ -356,7 +358,7 @@
             // 
             this.mainSplitContainer.Panel2.Controls.Add(this.mainDataGridView);
             this.mainSplitContainer.Panel2.Controls.Add(this.toolStrip1);
-            this.mainSplitContainer.Size = new System.Drawing.Size(1242, 382);
+            this.mainSplitContainer.Size = new System.Drawing.Size(1242, 378);
             this.mainSplitContainer.SplitterDistance = 211;
             this.mainSplitContainer.SplitterWidth = 5;
             this.mainSplitContainer.TabIndex = 3;
@@ -370,7 +372,7 @@
             this.databaseTreeView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.databaseTreeView.Name = "databaseTreeView";
             this.databaseTreeView.SelectedImageIndex = 0;
-            this.databaseTreeView.Size = new System.Drawing.Size(211, 355);
+            this.databaseTreeView.Size = new System.Drawing.Size(211, 351);
             this.databaseTreeView.TabIndex = 1;
             this.databaseTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.databaseTreeView_AfterSelect);
             // 
@@ -388,7 +390,8 @@
             this.toolsToolBar.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolsToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton2,
-            this.toolStripButton3});
+            this.toolStripButton3,
+            this.toolStripButton4});
             this.toolsToolBar.Location = new System.Drawing.Point(0, 0);
             this.toolsToolBar.Name = "toolsToolBar";
             this.toolsToolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -416,17 +419,27 @@
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
             // mainDataGridView
             // 
             this.mainDataGridView.AllowUserToAddRows = false;
             this.mainDataGridView.AllowUserToDeleteRows = false;
             this.mainDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mainDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainDataGridView.Location = new System.Drawing.Point(0, 27);
+            this.mainDataGridView.Location = new System.Drawing.Point(0, 31);
             this.mainDataGridView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.mainDataGridView.Name = "mainDataGridView";
             this.mainDataGridView.RowTemplate.Height = 28;
-            this.mainDataGridView.Size = new System.Drawing.Size(1026, 355);
+            this.mainDataGridView.Size = new System.Drawing.Size(1026, 347);
             this.mainDataGridView.TabIndex = 0;
             this.mainDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mainDataGridView_CellContentClick);
             this.mainDataGridView.DoubleClick += new System.EventHandler(this.mainDataGridView_DoubleClick);
@@ -434,13 +447,14 @@
             // toolStrip1
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.okatoToolStripComboBox1,
             this.authorityToolStripComboBox1,
             this.unlockCodeStripCheckBox});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1026, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1026, 31);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -448,23 +462,31 @@
             // 
             this.okatoToolStripComboBox1.AutoSize = false;
             this.okatoToolStripComboBox1.Code = "";
-            this.okatoToolStripComboBox1.DropDownHeight = 172;
+            this.okatoToolStripComboBox1.DropDownHeight = 204;
             this.okatoToolStripComboBox1.DropDownWidth = 80;
             this.okatoToolStripComboBox1.IntegralHeight = false;
             this.okatoToolStripComboBox1.MaxDropDownItems = 20;
             this.okatoToolStripComboBox1.Name = "okatoToolStripComboBox1";
-            this.okatoToolStripComboBox1.Size = new System.Drawing.Size(400, 27);
+            this.okatoToolStripComboBox1.Size = new System.Drawing.Size(400, 31);
             // 
             // authorityToolStripComboBox1
             // 
             this.authorityToolStripComboBox1.AutoSize = false;
             this.authorityToolStripComboBox1.Code = "";
-            this.authorityToolStripComboBox1.DropDownHeight = 172;
+            this.authorityToolStripComboBox1.DropDownHeight = 204;
             this.authorityToolStripComboBox1.DropDownWidth = 80;
             this.authorityToolStripComboBox1.IntegralHeight = false;
             this.authorityToolStripComboBox1.MaxDropDownItems = 20;
             this.authorityToolStripComboBox1.Name = "authorityToolStripComboBox1";
-            this.authorityToolStripComboBox1.Size = new System.Drawing.Size(200, 24);
+            this.authorityToolStripComboBox1.Size = new System.Drawing.Size(200, 31);
+            // 
+            // unlockCodeStripCheckBox
+            // 
+            this.unlockCodeStripCheckBox.Checked = false;
+            this.unlockCodeStripCheckBox.CheckState = System.Windows.Forms.CheckState.Unchecked;
+            this.unlockCodeStripCheckBox.Name = "unlockCodeStripCheckBox";
+            this.unlockCodeStripCheckBox.Size = new System.Drawing.Size(178, 28);
+            this.unlockCodeStripCheckBox.Text = "Только действующие";
             // 
             // okatoBindingSource
             // 
@@ -477,17 +499,9 @@
             this.repositoryDataSet.Locale = new System.Globalization.CultureInfo("ru");
             this.repositoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // unlockCodeStripCheckBox
-            // 
-            this.unlockCodeStripCheckBox.Checked = false;
-            this.unlockCodeStripCheckBox.CheckState = System.Windows.Forms.CheckState.Unchecked;
-            this.unlockCodeStripCheckBox.Name = "unlockCodeStripCheckBox";
-            this.unlockCodeStripCheckBox.Size = new System.Drawing.Size(145, 24);
-            this.unlockCodeStripCheckBox.Text = "Только действующие";
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 455);
             this.Controls.Add(this.mainSplitContainer);
@@ -495,6 +509,7 @@
             this.Controls.Add(this.mainToolBar);
             this.Controls.Add(this.mainMenuBar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuBar;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "MainForm";
@@ -567,5 +582,6 @@
         private Controls.OkatoToolStripComboBox okatoToolStripComboBox1;
         private Controls.AuthorityToolStripComboBox authorityToolStripComboBox1;
         private Controls.ToolStripCheckBox unlockCodeStripCheckBox;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }

@@ -270,5 +270,14 @@ namespace DatabaseToolSuite.Dialogs
                
             }
         }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            SelectOrganizationDialog dialog = new SelectOrganizationDialog(repository.DataSet);
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }

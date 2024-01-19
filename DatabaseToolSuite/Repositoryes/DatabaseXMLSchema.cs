@@ -107,6 +107,57 @@ namespace DatabaseToolSuite.Repositoryes
 
         partial class gaspsDataTable
         {
+
+            public IList<gaspsRow> GetOrganizationFilter(long? authority, string okato, string code, string name, bool unlocShow, bool reserveShow, bool lockShow)
+            {
+                IEnumerable<gaspsRow> result = this.AsEnumerable()                    
+                    .OrderByDescending(x => x.date_beg).OrderBy(x => x.code);
+                                
+                if (!unlocShow)
+                {
+                    result = result
+                        .Where(x => (
+                    (x.date_end < DateTime.Now || x.date_beg >= DateTime.Today))
+                    );
+                }
+
+                if (!reserveShow)
+                {
+                    result = result
+                    .Where(x =>
+                    x.date_beg < DateTime.Today);
+                }
+
+                if (!lockShow)                
+                {
+                    result = result
+                    .Where(x => x.date_end > DateTime.Today) ;
+                }
+                
+                if (authority.HasValue)
+                {
+                    result = result.Where(x => x.authority_id == authority.Value);
+                }
+
+                if (!string.IsNullOrWhiteSpace(okato))
+                {
+                    result = result.Where(x => x.okato_code.Equals(okato, StringComparison.OrdinalIgnoreCase));
+                }
+
+                if (!string.IsNullOrWhiteSpace(code))
+                {
+                    result = result.Where(x => x.code.Contains(code));
+                }
+
+                if (!string.IsNullOrWhiteSpace(name))
+                {
+                    result = result.Where(x => x.name.ToLower().Contains(name.ToLower()));
+                }
+
+                return result.ToList();
+            }
+
+
            public DataView GetUnlockOrganization()
             {
                 DataViewManager vm = new DataViewManager(this.DataSet);
