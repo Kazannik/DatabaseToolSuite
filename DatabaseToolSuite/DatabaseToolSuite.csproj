@@ -95,12 +95,6 @@
     <Compile Include="Controls\ToolStripComboControl.cs" />
     <Compile Include="Controls\ToolStripNumericTextBox.cs" />
     <Compile Include="Controls\ToolStripNumericUpDown.cs" />
-    <Compile Include="Dialogs\AboutDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\AboutDialog.Designer.cs">
-      <DependentUpon>AboutDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dialogs\ActionsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,9 +202,6 @@
     <Compile Include="Services\MasterDataSystem.cs" />
     <EmbeddedResource Include="Controls\GaspsListView.resx">
       <DependentUpon>GaspsListView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\AboutDialog.resx">
-      <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ActionsDialog.resx">
       <DependentUpon>ActionsDialog.cs</DependentUpon>
