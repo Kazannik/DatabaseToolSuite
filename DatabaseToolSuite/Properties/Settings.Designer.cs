@@ -25,24 +25,19 @@ namespace DatabaseToolSuite.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\kazannik.m\\Documents\\esnsi" +
-            ".accdb")]
-        public string esnsiConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("gasps.xml")]
+        public string DatabaseFileName {
             get {
-                return ((string)(this["esnsiConnectionString"]));
+                return ((string)(this["DatabaseFileName"]));
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool HideLinkedItem {
+        [global::System.Configuration.DefaultSettingValueAttribute("gasps.xml.rescue")]
+        public string RescueDatabaseFileName {
             get {
-                return ((bool)(this["HideLinkedItem"]));
-            }
-            set {
-                this["HideLinkedItem"] = value;
+                return ((string)(this["RescueDatabaseFileName"]));
             }
         }
     }

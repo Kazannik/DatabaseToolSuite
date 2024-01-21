@@ -23,7 +23,7 @@ namespace DatabaseToolSuite.Dialogs
         {
             InitializeComponent();
 
-            gaspsRow owner = gasps.GetOrganization(row.owner);
+            gaspsRow owner = gasps.GetLastVersionOrganizationFromKey(row.owner_id);
             if (owner !=null)
             {
                 ownerTextBox.Text = owner.name;

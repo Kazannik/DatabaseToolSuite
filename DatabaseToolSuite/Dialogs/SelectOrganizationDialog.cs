@@ -34,7 +34,7 @@ namespace DatabaseToolSuite.Dialogs
         }
 
         [DefaultValue(false)]
-        public bool LockOnlyShow
+        public bool LastLockOnlyShow
         {
             get
             {
@@ -43,12 +43,21 @@ namespace DatabaseToolSuite.Dialogs
             set
             {
                 filterLockCodeViewCheckBox.Visible = !value;
-                LockShow = value;
             }
         }
 
         [DefaultValue(true)]
         public bool ReserveShow { get; set; }
+        
+        public SelectOrganizationDialog(): this(dataSet: Services.FileSystem.Repository.DataSet) { }
+
+        public SelectOrganizationDialog(long authority, string okato) : this(dataSet: Services.FileSystem.Repository.DataSet)
+        {
+            filterAuthorityComboBox.Enabled = false;
+            filterOkatoComboBox.Enabled = false;
+            filterAuthorityComboBox.Code = authority.ToString("00");
+            filterOkatoComboBox.Code = okato;
+        }
 
         public SelectOrganizationDialog(RepositoryDataSet dataSet)
         {
@@ -59,15 +68,14 @@ namespace DatabaseToolSuite.Dialogs
             UnlockShow = true;
             ReserveShow = true;
             LockShow = false;
-            LockOnlyShow = false;
+            LastLockOnlyShow = false;
 
             filterOkatoComboBox.InitializeSource(dialogDataSet.okato);
             filterAuthorityComboBox.InitializeSource(dialogDataSet.authority);
             InitializeFilter(dialogDataSet);
             DetailsUpdate();
         }
-
-
+        
         private void InitializeFilter(RepositoryDataSet dataSet)
         {
             detailsListView.BeginUpdate();
@@ -77,15 +85,24 @@ namespace DatabaseToolSuite.Dialogs
 
             long? authority = string.IsNullOrWhiteSpace(filterAuthorityComboBox.Code) ? (long?)null : long.Parse(filterAuthorityComboBox.Code);
 
-            rowsCollection = dataSet.gasps.GetOrganizationFilter(
-                authority: authority,
-                okato: filterOkatoComboBox.Code,
-                code: filterCodeNumericTextBox.Text,
-                name: filterNameTextBox.Text,
-                unlocShow: UnlockShow,
-                reserveShow: ReserveShow,
-                lockShow: filterLockCodeViewCheckBox.Checked);
-
+            if (LastLockOnlyShow)
+            {
+                rowsCollection = dataSet.gasps.GetLockLastCodes(
+                    authority: authority,
+                    okato: filterOkatoComboBox.Code);
+            }
+            else
+            {
+                rowsCollection = dataSet.gasps.GetOrganizationFilter(
+                    authority: authority,
+                    okato: filterOkatoComboBox.Code,
+                    code: filterCodeNumericTextBox.Text,
+                    name: filterNameTextBox.Text,
+                    unlockShow: UnlockShow,
+                    reserveShow: ReserveShow,
+                    lockShow: filterLockCodeViewCheckBox.Checked);
+            }
+            
             detailsListView.VirtualListSize = rowsCollection.Count();
 
             detailsListView.EndUpdate();
@@ -120,10 +137,10 @@ namespace DatabaseToolSuite.Dialogs
                 text.AppendLine();
                 text.AppendLine("Вид органа: " + DataRow.authority_id.ToString("00") + " - " + dialogDataSet.authority.GetName(DataRow.authority_id));
 
-                if (DataRow.owner > 0)
+                if (DataRow.owner_id > 0)
                 {
                     text.AppendLine();
-                    gaspsRow owner = dialogDataSet.gasps.GetOrganization(DataRow.owner);
+                    gaspsRow owner = dialogDataSet.gasps.GetLastVersionOrganizationFromKey(DataRow.owner_id);
                     text.AppendLine("Владелец: (" + owner.code + ") " + owner.name);
                 }
 

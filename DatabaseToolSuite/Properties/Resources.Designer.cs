@@ -143,6 +143,16 @@ namespace DatabaseToolSuite.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Info64 {
+            get {
+                object obj = ResourceManager.GetObject("Info64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NewPage32 {
             get {
                 object obj = ResourceManager.GetObject("NewPage32", resourceCulture);
@@ -216,6 +226,16 @@ namespace DatabaseToolSuite.Properties {
         internal static System.Drawing.Bitmap saveHS {
             get {
                 object obj = ResourceManager.GetObject("saveHS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Warning64 {
+            get {
+                object obj = ResourceManager.GetObject("Warning64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

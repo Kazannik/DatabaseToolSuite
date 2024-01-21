@@ -19,7 +19,7 @@
     <id>5</id>
     <code>05</code>
     <name>суд</name>
-  </authority>  
+  </authority>
   <authority>
     <id>6</id>
     <code>06</code>
@@ -50,7 +50,7 @@
     <code>11</code>
     <name>ПС ФСБ</name>
   </authority>
-    <authority>
+  <authority>
     <id>14</id>
     <code>14</code>
     <name>ФСКН</name>
@@ -67,7 +67,7 @@
     <kod1>0</kod1>
     <okato>00</okato>
   </okato>
-    <okato>
+  <okato>
     <code>0001</code>
     <name>Приволжская транспортная прокуратура</name>
     <name2>Приволжская транспортная прокуратура</name2>
@@ -233,7 +233,7 @@
     <kod1>77</kod1>
     <lab />
     <okato>0077</okato>
-  </okato>  
+  </okato>
   <okato>
     <code>0081</code>
     <name>Южная транспортная прокуратура</name>
@@ -304,7 +304,7 @@
     <lab />
     <okato>0098</okato>
   </okato>
-    <okato>
+  <okato>
     <code>0099</code>
     <name>Правоохранительные органы федерального уровня</name>
     <name2>Правоохранительные органы федерального уровня</name2>
@@ -312,7 +312,7 @@
     <kod1>99</kod1>
     <lab />
     <okato>0099</okato>
-  </okato>  
+  </okato>
   <okato>
     <code>01</code>
     <name>Алтайский край</name>

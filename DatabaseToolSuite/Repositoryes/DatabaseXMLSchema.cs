@@ -78,9 +78,6 @@ namespace DatabaseToolSuite.Repositoryes
             return okato.GetGenitive(code);
         }
 
-
-
-
         partial class court_typeDataTable
         {
             public bool ExistsId(Int64 id)
@@ -108,12 +105,23 @@ namespace DatabaseToolSuite.Repositoryes
         partial class gaspsDataTable
         {
 
-            public IList<gaspsRow> GetOrganizationFilter(long? authority, string okato, string code, string name, bool unlocShow, bool reserveShow, bool lockShow)
+            public IList<gaspsRow> GetOrganizationFilter(long? authority, string okato, string code, string name, bool unlockShow, bool reserveShow, bool lockShow)
             {
-                IEnumerable<gaspsRow> result = this.AsEnumerable()                    
-                    .OrderByDescending(x => x.date_beg).OrderBy(x => x.code);
-                                
-                if (!unlocShow)
+                return _GetOrganizationFilter(authority: authority,
+                    okato: okato,
+                    code: code,
+                    name: name,
+                    unlockShow: unlockShow,
+                    reserveShow: reserveShow,
+                    lockShow: lockShow).ToList();
+            }
+
+            private IEnumerable<gaspsRow> _GetOrganizationFilter(long? authority, string okato, string code, string name, bool unlockShow, bool reserveShow, bool lockShow)
+            {
+                IEnumerable<gaspsRow> result = this.AsEnumerable()
+                    .OrderBy(x => x.version).OrderBy(x => x.code);
+
+                if (!unlockShow)
                 {
                     result = result
                         .Where(x => (
@@ -124,16 +132,15 @@ namespace DatabaseToolSuite.Repositoryes
                 if (!reserveShow)
                 {
                     result = result
-                    .Where(x =>
-                    x.date_beg < DateTime.Today);
+                    .Where(x => x.date_beg < DateTime.Today);
                 }
 
-                if (!lockShow)                
+                if (!lockShow)
                 {
                     result = result
-                    .Where(x => x.date_end > DateTime.Today) ;
+                    .Where(x => x.date_end > DateTime.Today);
                 }
-                
+
                 if (authority.HasValue)
                 {
                     result = result.Where(x => x.authority_id == authority.Value);
@@ -154,35 +161,93 @@ namespace DatabaseToolSuite.Repositoryes
                     result = result.Where(x => x.name.ToLower().Contains(name.ToLower()));
                 }
 
-                return result.ToList();
+                return result;
             }
 
+            public IEnumerable<gaspsRow> GetOwnerOrganization()
+            {
+                return this.AsEnumerable().Where(x => x.owner_id == 0);
+            }
 
-           public DataView GetUnlockOrganization()
+            public DataView GetUnlockOrganization()
             {
                 DataViewManager vm = new DataViewManager(this.DataSet);
 
-                DataView dv =  vm.CreateDataView(this);
-                      
-                dv.RowFilter=string.Format("(date_beg <= {0} and date_end > {0}) or date_beg >= {0}", DateTime.Today.ToString("#MM-dd-yyyy#"));
+                DataView dv = vm.CreateDataView(this);
+
+                dv.RowFilter = string.Format("(date_beg <= {0} and date_end > {0}) or date_beg >= {0}", DateTime.Today.ToString("#MM-dd-yyyy#"));
 
                 return dv;
             }
 
 
-            public BindingList<gaspsRow> GetAll()
+            public IList<gaspsRow> GetLockLastCodes(long? authority, string okato)
             {
-                
-                return new BindingList<gaspsRow>(
-                    this.AsEnumerable()
-                    .Where(x => (x.date_beg <= DateTime.Now && x.date_end >= DateTime.Now)
-                     && x.authority_id == 20).ToArray());
+                IEnumerable<gaspsRow> result = this.AsEnumerable()
+                    .GroupBy(x => x.code, (key, g) => g.OrderByDescending(y => y.version).First())
+                    .Where(x => x.date_end < DateTime.Today);
+
+                if (authority.HasValue)
+                {
+                    result = result.Where(x => x.authority_id == authority.Value);
+                }
+
+                if (!string.IsNullOrWhiteSpace(okato))
+                {
+                    result = result.Where(x => x.okato_code.Equals(okato, StringComparison.OrdinalIgnoreCase));
+                }
+
+                return result.ToList();
             }
 
 
-            public gaspsRow GetOrganization(long key)
+            public gaspsRow GetOrganizationFromVersion(long version)
             {
-                return this.First(r => r.key == key);
+                return this.AsEnumerable()
+                    .Last(x => x.version.Equals(version));
+            }
+
+            public gaspsRow GetLastVersionOrganizationFromKey(long key)
+            {
+                long version = this.AsEnumerable()
+                    .Where(x => x.key.Equals(key)).Max(r => r.version);
+                return GetOrganizationFromVersion(version);
+            }
+
+            public gaspsRow GetLastVersionOrganizationFromCode(string code)
+            {
+                long version = this.AsEnumerable()
+                    .Where(x => x.code.Equals(code, StringComparison.CurrentCultureIgnoreCase)).Max(r => r.version);
+                return GetOrganizationFromVersion(version);
+            }
+
+
+            public int GetEditedRowCount()
+            {
+                DateTime beginDate = new DateTime(2023, 01, 01);
+                DateTime endDate = new DateTime(2023, 12, 31);
+                return this.AsEnumerable()
+                    .Where(x => (x.date_beg >= beginDate && x.date_beg <= endDate) || (x.date_end >= beginDate && x.date_end <= endDate))
+                    .Count();
+            }
+
+            public string GetOrganizationName(long key, string defaultName)
+            {
+                try
+                {
+                    return GetLastVersionOrganizationFromKey(key).name;
+                }
+                catch (Exception)
+                {
+                    return defaultName;
+                }
+            }
+
+            public bool IsLastVersion(long version)
+            {
+                gaspsRow current = GetOrganizationFromVersion(version);
+                gaspsRow last = GetLastVersionOrganizationFromCode(current.code);
+                return version.Equals(last.version);
             }
 
             public long GetNextKey()
@@ -213,11 +278,13 @@ namespace DatabaseToolSuite.Repositoryes
             {
                 string leftCode = authority.ToString("00") + okato;
                 string rightCodeFormat = new string('0', 8 - leftCode.Length);
+
                 if (this.AsEnumerable()
                     .Where(r => r.authority_id == authority && r.okato_code == okato).Count() > 0)
                 {
                     long code = 1 + this.AsEnumerable()
                     .Where(r => r.authority_id == authority && r.okato_code == okato).Max(r => long.Parse(r.code.Substring(leftCode.Length)));
+
                     if (code.ToString().Length > rightCodeFormat.Length)
                     {
                         throw new ArgumentOutOfRangeException(
@@ -260,15 +327,6 @@ namespace DatabaseToolSuite.Repositoryes
 
                 return new BindingList<gaspsRow>(lockCodes.Where(p => unlickCodes.All(p2 => p2.code != p.code)).OrderBy(x => x.code).ToArray());
             }
-
-            //public ObservableCollection<gaspsRow> GetAll()
-            //{
-            //    return new ObservableCollection <gaspsRow>(
-            //        this.AsEnumerable()
-            //        .Where(x => (x.date_beg <= DateTime.Now && x.date_end >= DateTime.Now)
-            //         && x.authority_id == 20));
-            //}         
-
         }
 
         partial class authorityDataTable

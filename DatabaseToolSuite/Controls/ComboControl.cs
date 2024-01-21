@@ -293,6 +293,15 @@ namespace DatabaseToolSuite.Controls
             }
         }
 
+
+        public long? Value
+        {
+            get
+            {
+               return string.IsNullOrWhiteSpace(Code) ? (long?)null : long.Parse(Code);
+            }
+        }
+
         [ReadOnly(true)]
         public T this[int index]
         {

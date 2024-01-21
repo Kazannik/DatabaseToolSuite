@@ -1,9 +1,15 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace DatabaseToolSuite.Controls
 {
-    public partial class NumericTextBox : System.Windows.Forms.TextBox
+    [DesignerCategory("code")]
+    [ToolboxBitmap(typeof(TextBox))]
+    [ComVisible(false)]
+    public partial class NumericTextBox : TextBox
     {
         public NumericTextBox()
         {
@@ -16,7 +22,6 @@ namespace DatabaseToolSuite.Controls
 
             InitializeComponent();
         }
-
 
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
@@ -34,19 +39,18 @@ namespace DatabaseToolSuite.Controls
         }
 
 
-        public double Value
+        public long Value
         {
             get
             {
-                if (this.Text.Trim().Length == 0) return 0;
-                double dbl = 0;
-                bool result = double.TryParse(this.Text, out dbl);
-                if (result)
-                    return dbl;
-                else
+                if (string.IsNullOrWhiteSpace(Text)) return 0;
+                long result = 0;
+                if (long.TryParse(Text, out result))
+                    return result;
+                else                
                     return 0;
             }
-        }        
+        }       
     }
 }
 

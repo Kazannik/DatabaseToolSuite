@@ -279,5 +279,10 @@ namespace DatabaseToolSuite.Dialogs
 
             }
         }
+
+        private void mnuFileExit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

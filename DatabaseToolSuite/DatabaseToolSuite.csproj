@@ -56,7 +56,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,9 +79,13 @@
       <DependentUpon>ColorThemeList.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ComboControl.cs" />
-    <Compile Include="Controls\NumericTextBox.cs">
-      <SubType>Component</SubType>
+    <Compile Include="Controls\GaspsListView.cs">
+      <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controls\GaspsListView.Designer.cs">
+      <DependentUpon>GaspsListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NumericTextBox.cs" />
     <Compile Include="Controls\NumericTextBox.Designer.cs">
       <DependentUpon>NumericTextBox.cs</DependentUpon>
     </Compile>
@@ -87,12 +93,25 @@
     <Compile Include="Controls\OkatoToolStripComboBox.cs" />
     <Compile Include="Controls\ToolStripCheckBox.cs" />
     <Compile Include="Controls\ToolStripComboControl.cs" />
+    <Compile Include="Controls\ToolStripNumericTextBox.cs" />
     <Compile Include="Controls\ToolStripNumericUpDown.cs" />
     <Compile Include="Dialogs\AboutDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ActionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ActionsDialog.Designer.cs">
+      <DependentUpon>ActionsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AppForm.Designer.cs">
+      <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\AuthorityDialog.cs">
       <SubType>Form</SubType>
@@ -105,6 +124,18 @@
     </Compile>
     <Compile Include="Dialogs\CodeCollectionDialog.Designer.cs">
       <DependentUpon>CodeCollectionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CreateNewOrganizationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\CreateNewOrganizationDialog.Designer.cs">
+      <DependentUpon>CreateNewOrganizationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CreateNewVersionOrganizationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\CreateNewVersionOrganizationDialog.Designer.cs">
+      <DependentUpon>CreateNewVersionOrganizationDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\DictionaryEditDialog.cs">
       <SubType>Form</SubType>
@@ -124,12 +155,6 @@
     <Compile Include="Dialogs\ImportProcessDialog.Designer.cs">
       <DependentUpon>ImportProcessDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\LinkedDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\LinkedDialog.Designer.cs">
-      <DependentUpon>LinkedDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dialogs\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,11 +173,22 @@
     <Compile Include="Dialogs\OrganizationDialog.Designer.cs">
       <DependentUpon>OrganizationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\RemoveOrganizationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\RemoveOrganizationDialog.Designer.cs">
+      <DependentUpon>RemoveOrganizationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\SelectOrganizationDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\SelectOrganizationDialog.Designer.cs">
       <DependentUpon>SelectOrganizationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Files\gasps.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gasps.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -168,14 +204,31 @@
     <Compile Include="Repositoryes\Dto\AuthorityDto.cs" />
     <Compile Include="Repositoryes\Dto\OkatoDto.cs" />
     <Compile Include="Services\DataGridViewSetting.cs" />
+    <Compile Include="Services\FileSystem.cs" />
+    <Compile Include="Services\MasterDataSystem.cs" />
+    <EmbeddedResource Include="Controls\GaspsListView.resx">
+      <DependentUpon>GaspsListView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ActionsDialog.resx">
+      <DependentUpon>ActionsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AppForm.resx">
+      <DependentUpon>AppForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AuthorityDialog.resx">
       <DependentUpon>AuthorityDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\CodeCollectionDialog.resx">
       <DependentUpon>CodeCollectionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\CreateNewOrganizationDialog.resx">
+      <DependentUpon>CreateNewOrganizationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\CreateNewVersionOrganizationDialog.resx">
+      <DependentUpon>CreateNewVersionOrganizationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DictionaryEditDialog.resx">
       <DependentUpon>DictionaryEditDialog.cs</DependentUpon>
@@ -186,9 +239,6 @@
     <EmbeddedResource Include="Dialogs\ImportProcessDialog.resx">
       <DependentUpon>ImportProcessDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\LinkedDialog.resx">
-      <DependentUpon>LinkedDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\OrganizationDialog.resx">
       <DependentUpon>OrganizationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\RemoveOrganizationDialog.resx">
+      <DependentUpon>RemoveOrganizationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SelectOrganizationDialog.resx">
       <DependentUpon>SelectOrganizationDialog.cs</DependentUpon>
@@ -211,6 +264,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Files\gasps.xsc">
+      <DependentUpon>gasps.xsd</DependentUpon>
+    </None>
+    <None Include="Files\gasps.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gasps.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Files\gasps.xss">
+      <DependentUpon>gasps.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -288,6 +352,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Home16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Warning64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

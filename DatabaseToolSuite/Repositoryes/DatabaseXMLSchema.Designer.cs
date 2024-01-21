@@ -618,7 +618,7 @@ namespace DatabaseToolSuite.Repositoryes {
                 this.columnid.Unique = true;
                 this.columncode.AllowDBNull = false;
                 this.columncode.ReadOnly = true;
-                this.columncode.Caption = "���";
+                this.columncode.Caption = "Код";
                 this.columnname.AllowDBNull = false;
                 this.columnname.Unique = true;
                 this.columnname.Caption = "Наименование";
@@ -1019,20 +1019,20 @@ namespace DatabaseToolSuite.Repositoryes {
                 base.Columns.Add(this.columnokato);
                 this.columncode.ReadOnly = true;
                 this.columnname.AllowDBNull = false;
-                this.columnname.Caption = "������������ �� �����";
-                this.columnname2.Caption = "������������";
-                this.columncentrum.Caption = "�����";
-                this.columngenitive.Caption = "������������ � ����������� ������";
+                this.columnname.Caption = "Наименование по справочнику ОКАТО";
+                this.columnname2.Caption = "Наименование для вывода";
+                this.columncentrum.Caption = "Центр";
+                this.columngenitive.Caption = "Наименование в родительном падеже";
                 this.columnter.AllowDBNull = false;
-                this.columnter.Caption = "TER �� �����";
+                this.columnter.Caption = "TER код ОКАТО";
                 this.columnkod1.AllowDBNull = false;
-                this.columnkod1.Caption = "KOD1 �� �����";
+                this.columnkod1.Caption = "KOD1 код ОКАТО";
                 this.columnkod1.DefaultValue = ((short)(0));
-                this.columnlab.Caption = "�������������� �����";
+                this.columnlab.Caption = "Дополнительные знаки";
                 this.columnlab.DefaultValue = ((string)(""));
                 this.columnlab.MaxLength = 2;
                 this.columnokato.ReadOnly = true;
-                this.columnokato.Caption = "��� �����";
+                this.columnokato.Caption = "Код ОКАТО";
                 this.Locale = new global::System.Globalization.CultureInfo("ru");
             }
             
@@ -1194,7 +1194,7 @@ namespace DatabaseToolSuite.Repositoryes {
             
             private global::System.Data.DataColumn columnindex;
             
-            private global::System.Data.DataColumn columnowner;
+            private global::System.Data.DataColumn columnowner_id;
             
             private global::System.Data.DataColumn columndate_beg;
             
@@ -1305,9 +1305,9 @@ namespace DatabaseToolSuite.Repositoryes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ownerColumn {
+            public global::System.Data.DataColumn owner_idColumn {
                 get {
-                    return this.columnowner;
+                    return this.columnowner_id;
                 }
             }
             
@@ -1388,7 +1388,7 @@ namespace DatabaseToolSuite.Repositoryes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public gaspsRow AddgaspsRow(string name, long key, okatoRow parentokatoRowByFK_okato_gasps, authorityRow parentauthorityRowByFK_authority_gasps, string code, long version, long index, long owner, System.DateTime date_beg, System.DateTime date_end, long location_okato_id, long another_okato_id, court_typeRow parentcourt_typeRowByFK_court_type_gasps) {
+            public gaspsRow AddgaspsRow(string name, long key, okatoRow parentokatoRowByFK_okato_gasps, authorityRow parentauthorityRowByFK_authority_gasps, string code, long version, long index, long owner_id, System.DateTime date_beg, System.DateTime date_end, long location_okato_id, long another_okato_id, court_typeRow parentcourt_typeRowByFK_court_type_gasps) {
                 gaspsRow rowgaspsRow = ((gaspsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1399,7 +1399,7 @@ namespace DatabaseToolSuite.Repositoryes {
                         code,
                         version,
                         index,
-                        owner,
+                        owner_id,
                         date_beg,
                         date_end,
                         location_okato_id,
@@ -1451,7 +1451,7 @@ namespace DatabaseToolSuite.Repositoryes {
                 this.columncode = base.Columns["code"];
                 this.columnversion = base.Columns["version"];
                 this.columnindex = base.Columns["index"];
-                this.columnowner = base.Columns["owner"];
+                this.columnowner_id = base.Columns["owner_id"];
                 this.columndate_beg = base.Columns["date_beg"];
                 this.columndate_end = base.Columns["date_end"];
                 this.columnlocation_okato_id = base.Columns["location_okato_id"];
@@ -1478,8 +1478,8 @@ namespace DatabaseToolSuite.Repositoryes {
                 base.Columns.Add(this.columnversion);
                 this.columnindex = new global::System.Data.DataColumn("index", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnindex);
-                this.columnowner = new global::System.Data.DataColumn("owner", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnowner);
+                this.columnowner_id = new global::System.Data.DataColumn("owner_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnowner_id);
                 this.columndate_beg = new global::System.Data.DataColumn("date_beg", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_beg);
                 this.columndate_end = new global::System.Data.DataColumn("date_end", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -1500,16 +1500,21 @@ namespace DatabaseToolSuite.Repositoryes {
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columnname.AllowDBNull = false;
+                this.columnname.Caption = "Наименование";
                 this.columnkey.AllowDBNull = false;
                 this.columnokato_code.AllowDBNull = false;
                 this.columnokato_code.DefaultValue = ((string)("00"));
                 this.columnauthority_id.AllowDBNull = false;
                 this.columncode.AllowDBNull = false;
+                this.columncode.Caption = "Код подразделения";
                 this.columnversion.AllowDBNull = false;
                 this.columnversion.Unique = true;
-                this.columnowner.AllowDBNull = false;
+                this.columnversion.Caption = "Версия";
+                this.columnowner_id.AllowDBNull = false;
                 this.columndate_beg.AllowDBNull = false;
+                this.columndate_beg.Caption = "Дата начала";
                 this.columndate_end.AllowDBNull = false;
+                this.columndate_end.Caption = "Дата окончания";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1787,7 +1792,7 @@ namespace DatabaseToolSuite.Repositoryes {
                 this.columnid.Unique = true;
                 this.columnname.AllowDBNull = false;
                 this.columnname.Unique = true;
-                this.columnname.Caption = "��� ����";
+                this.columnname.Caption = "Наименование";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2309,12 +2314,12 @@ namespace DatabaseToolSuite.Repositoryes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long owner {
+            public long owner_id {
                 get {
-                    return ((long)(this[this.tablegasps.ownerColumn]));
+                    return ((long)(this[this.tablegasps.owner_idColumn]));
                 }
                 set {
-                    this[this.tablegasps.ownerColumn] = value;
+                    this[this.tablegasps.owner_idColumn] = value;
                 }
             }
             
