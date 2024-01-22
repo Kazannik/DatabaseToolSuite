@@ -285,8 +285,8 @@ namespace DatabaseToolSuite.Controls
             item.SubItems.Add(row.date_beg.ToShortDateString());
             item.SubItems.Add(row.date_end.ToShortDateString());
 
-            item.SubItems.Add(row.key.ToString());
-            item.SubItems.Add(row.version.ToString());
+            //item.SubItems.Add(row.key.ToString());
+            //item.SubItems.Add(row.version.ToString());
             return item;
         }
 
@@ -314,8 +314,8 @@ namespace DatabaseToolSuite.Controls
             item.SubItems[4].Text = selectedRow.date_beg.ToShortDateString();
             item.SubItems[5].Text = selectedRow.date_end.ToShortDateString();
 
-            item.SubItems[6].Text = selectedRow.key.ToString();
-            item.SubItems[7].Text = selectedRow.version.ToString();
+            //item.SubItems[6].Text = selectedRow.key.ToString();
+            //item.SubItems[7].Text = selectedRow.version.ToString();
         }
 
         private void ListView_SelectedIndexChanged(object sender, EventArgs e)

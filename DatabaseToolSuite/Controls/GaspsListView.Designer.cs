@@ -38,8 +38,6 @@
             this.beginColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.organizationImageList = new System.Windows.Forms.ImageList(this.components);
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // baseListView
@@ -50,17 +48,16 @@
             this.authorityColumn,
             this.okatoColumn,
             this.beginColumn,
-            this.endColumn,
-            this.columnHeader1,
-            this.columnHeader2});
+            this.endColumn});
             this.baseListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.baseListView.FullRowSelect = true;
             this.baseListView.GridLines = true;
             this.baseListView.LargeImageList = this.organizationImageList;
             this.baseListView.Location = new System.Drawing.Point(0, 0);
+            this.baseListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.baseListView.MultiSelect = false;
             this.baseListView.Name = "baseListView";
-            this.baseListView.Size = new System.Drawing.Size(647, 150);
+            this.baseListView.Size = new System.Drawing.Size(863, 185);
             this.baseListView.SmallImageList = this.organizationImageList;
             this.baseListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.baseListView.TabIndex = 0;
@@ -111,21 +108,14 @@
             this.organizationImageList.Images.SetKeyName(1, "lock");
             this.organizationImageList.Images.SetKeyName(2, "reserve");
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "key";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "version";
-            // 
             // GaspsListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.baseListView);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GaspsListView";
-            this.Size = new System.Drawing.Size(647, 150);
+            this.Size = new System.Drawing.Size(863, 185);
             this.ResumeLayout(false);
 
         }
@@ -140,7 +130,5 @@
         private System.Windows.Forms.ColumnHeader okatoColumn;
         private System.Windows.Forms.ColumnHeader beginColumn;
         private System.Windows.Forms.ColumnHeader endColumn;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

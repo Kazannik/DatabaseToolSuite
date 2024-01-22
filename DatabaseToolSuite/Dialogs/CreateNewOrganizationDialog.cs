@@ -16,18 +16,40 @@ namespace DatabaseToolSuite.Dialogs
         {
             InitializeComponent();
 
-            selectCodeButton.Enabled = false;
+            okButton.Top = Height - 72;
+            okButton.Left = Width - 184;
+            cancelButton.Top = Height - 72;
+            cancelButton.Left = Width - 103;
+
+            nextCodeButton.Enabled = !string.IsNullOrWhiteSpace(authorityComboBox.Code) ||
+                !string.IsNullOrWhiteSpace(okatoComboBox.Code);
+
+            selectCodeButton.Enabled = !string.IsNullOrWhiteSpace(authorityComboBox.Code) ||
+                !string.IsNullOrWhiteSpace(okatoComboBox.Code);
 
             Text = "Новая записи о подразделении";
             captionLabel.Text = "Укажите дату введения новой записи о подразделении правоохранительного органа";
+            codeTextBox.Text = string.Empty;
         }
 
         public CreateNewOrganizationDialog(gaspsRow row) : base(row)
         {
             InitializeComponent();
-            selectCodeButton.Enabled = false;
+
+            okButton.Top = Height - 72;
+            okButton.Left = Width - 184;
+            cancelButton.Top = Height - 72;
+            cancelButton.Left = Width - 103;
+
+            nextCodeButton.Enabled = !string.IsNullOrWhiteSpace(authorityComboBox.Code) ||
+                !string.IsNullOrWhiteSpace(okatoComboBox.Code);
+
+            selectCodeButton.Enabled = !string.IsNullOrWhiteSpace(authorityComboBox.Code) ||
+                !string.IsNullOrWhiteSpace(okatoComboBox.Code);
+
             Text = "Новая записи о подразделении";
             captionLabel.Text = "Укажите дату введения новой записи о подразделении правоохранительного органа";
+            codeTextBox.Text = string.Empty;
         }
 
         public string Code
@@ -55,10 +77,13 @@ namespace DatabaseToolSuite.Dialogs
             if (string.IsNullOrWhiteSpace(authorityComboBox.Code)||
                 string.IsNullOrWhiteSpace(okatoComboBox.Code))
             {
+                nextCodeButton.Enabled = false;
                 selectCodeButton.Enabled = false;
             }
             else
             {
+                codeTextBox.Text = Services.FileSystem.Repository.DataSet.gasps.GetNextCode(authority: Authority.HasValue ? Authority.Value : 0, okato: OkatoCode);
+                nextCodeButton.Enabled = true;
                 selectCodeButton.Enabled = true;
             }
         }

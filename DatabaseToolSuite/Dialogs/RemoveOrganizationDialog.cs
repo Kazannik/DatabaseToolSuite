@@ -16,6 +16,11 @@ namespace DatabaseToolSuite.Dialogs
         {
             InitializeComponent();
 
+            okButton.Top = Height - 72;
+            okButton.Left = Width - 184;
+            cancelButton.Top = Height - 72;
+            cancelButton.Left = Width - 103;
+
             lockDateTimePicker.MinDate = Services.MasterDataSystem.MIN_DATE;
             lockDateTimePicker.MaxDate = Services.MasterDataSystem.MAX_DATE;
 

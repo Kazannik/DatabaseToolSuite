@@ -18,6 +18,12 @@ namespace DatabaseToolSuite.Dialogs
         public ActionsDialog()
         {
             InitializeComponent();
+
+            okButton.Top = Height - 72;
+            okButton.Left = Width - 184;
+            cancelButton.Top = Height - 72;
+            cancelButton.Left = Width - 103;
+
         }
 
         public ActionsDialog(gaspsRow row)
@@ -25,6 +31,11 @@ namespace DatabaseToolSuite.Dialogs
             DataRow = row;
 
             InitializeComponent();
+
+            okButton.Top = Height - 72;
+            okButton.Left = Width - 184;
+            cancelButton.Top = Height - 72;
+            cancelButton.Left = Width - 103;
         }
 
         protected bool OkButtonEnabled

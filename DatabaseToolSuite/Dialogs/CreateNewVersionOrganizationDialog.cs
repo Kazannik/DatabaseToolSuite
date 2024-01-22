@@ -16,6 +16,11 @@ namespace DatabaseToolSuite.Dialogs
         {
             InitializeComponent();
 
+            okButton.Top = Height - 72;
+            okButton.Left = Width - 184;
+            cancelButton.Top = Height - 72;
+            cancelButton.Left = Width - 103;
+
             okatoComboBox.InitializeSource(Services.FileSystem.Repository.DataSet.okato);
             authorityComboBox.InitializeSource(Services.FileSystem.Repository.DataSet.authority);
 
@@ -34,6 +39,11 @@ namespace DatabaseToolSuite.Dialogs
             oldCourtTypeId = DataRow.court_type_id;
 
             InitializeComponent();
+
+            okButton.Top = Height - 72;
+            okButton.Left = Width - 184;
+            cancelButton.Top = Height - 72;
+            cancelButton.Left = Width - 103;
 
             codeTextBox.Text = DataRow.code;
 
@@ -91,6 +101,11 @@ namespace DatabaseToolSuite.Dialogs
         private void selectOwnerButton_Click(object sender, EventArgs e)
         {
             SelectOrganizationDialog dialog = new SelectOrganizationDialog();
+            dialog.UnlockShow = true;
+            dialog.LockShow = false;
+            dialog.ReserveShow = false;
+            dialog.LastLockOnlyShow = false;
+
             if (dialog.ShowDialog(this)== DialogResult.OK)
             {
                 OrganizationOwner = dialog.DataRow.key;

@@ -55,9 +55,10 @@
             // nextCodeButton
             // 
             this.nextCodeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nextCodeButton.Location = new System.Drawing.Point(260, 93);
+            this.nextCodeButton.Location = new System.Drawing.Point(345, 115);
+            this.nextCodeButton.Margin = new System.Windows.Forms.Padding(4);
             this.nextCodeButton.Name = "nextCodeButton";
-            this.nextCodeButton.Size = new System.Drawing.Size(85, 28);
+            this.nextCodeButton.Size = new System.Drawing.Size(113, 34);
             this.nextCodeButton.TabIndex = 3;
             this.nextCodeButton.Text = "Создать";
             this.nextCodeButton.UseVisualStyleBackColor = true;
@@ -66,9 +67,10 @@
             // selectCodeButton
             // 
             this.selectCodeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.selectCodeButton.Location = new System.Drawing.Point(351, 93);
+            this.selectCodeButton.Location = new System.Drawing.Point(466, 115);
+            this.selectCodeButton.Margin = new System.Windows.Forms.Padding(4);
             this.selectCodeButton.Name = "selectCodeButton";
-            this.selectCodeButton.Size = new System.Drawing.Size(85, 28);
+            this.selectCodeButton.Size = new System.Drawing.Size(113, 34);
             this.selectCodeButton.TabIndex = 4;
             this.selectCodeButton.Text = "Выбрать...";
             this.selectCodeButton.UseVisualStyleBackColor = true;
@@ -76,8 +78,9 @@
             // 
             // CreateNewOrganizationDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(544, 482);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.ClientSize = new System.Drawing.Size(722, 593);
+            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "CreateNewOrganizationDialog";
             this.organizationGroupBox.ResumeLayout(false);
             this.organizationGroupBox.PerformLayout();

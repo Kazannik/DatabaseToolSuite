@@ -21,7 +21,6 @@ namespace DatabaseToolSuite.Dialogs
         [DefaultValue(true)]
         public bool UnlockShow { get; set; }
 
-        [DefaultValue(false)]
         public bool LockShow {
             get
             {
@@ -33,7 +32,6 @@ namespace DatabaseToolSuite.Dialogs
             }
         }
 
-        [DefaultValue(false)]
         public bool LastLockOnlyShow
         {
             get
@@ -46,7 +44,6 @@ namespace DatabaseToolSuite.Dialogs
             }
         }
 
-        [DefaultValue(true)]
         public bool ReserveShow { get; set; }
         
         public SelectOrganizationDialog(): this(dataSet: Services.FileSystem.Repository.DataSet) { }
@@ -68,10 +65,11 @@ namespace DatabaseToolSuite.Dialogs
             UnlockShow = true;
             ReserveShow = true;
             LockShow = false;
-            LastLockOnlyShow = false;
+            filterLockCodeViewCheckBox.Visible = true;
 
             filterOkatoComboBox.InitializeSource(dialogDataSet.okato);
             filterAuthorityComboBox.InitializeSource(dialogDataSet.authority);
+
             InitializeFilter(dialogDataSet);
             DetailsUpdate();
         }
