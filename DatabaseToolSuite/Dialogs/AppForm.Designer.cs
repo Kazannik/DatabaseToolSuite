@@ -37,8 +37,8 @@
             this.mnuFileSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileSaveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuFileImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileExport = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTable = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,8 +95,8 @@
             this.mnuFileSaveToolStripMenuItem,
             this.mnuFileSaveAsToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.mnuFileImportToolStripMenuItem,
-            this.mnuFileExportToolStripMenuItem,
+            this.mnuFileImport,
+            this.mnuFileExport,
             this.toolStripMenuItem2,
             this.mnuFileExit});
             this.mnuFile.Name = "mnuFile";
@@ -106,60 +106,60 @@
             // mnuFileNewToolStripMenuItem
             // 
             this.mnuFileNewToolStripMenuItem.Name = "mnuFileNewToolStripMenuItem";
-            this.mnuFileNewToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.mnuFileNewToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.mnuFileNewToolStripMenuItem.Text = "mnuFileNew";
             this.mnuFileNewToolStripMenuItem.Visible = false;
             // 
             // mnuFileOpenToolStripMenuItem
             // 
             this.mnuFileOpenToolStripMenuItem.Name = "mnuFileOpenToolStripMenuItem";
-            this.mnuFileOpenToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.mnuFileOpenToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.mnuFileOpenToolStripMenuItem.Text = "Открыть...";
             this.mnuFileOpenToolStripMenuItem.Click += new System.EventHandler(this.FileOpenToolStripMenuItem_Click);
             // 
             // mnuFileSaveToolStripMenuItem
             // 
             this.mnuFileSaveToolStripMenuItem.Name = "mnuFileSaveToolStripMenuItem";
-            this.mnuFileSaveToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.mnuFileSaveToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.mnuFileSaveToolStripMenuItem.Text = "Сохранить";
             this.mnuFileSaveToolStripMenuItem.Click += new System.EventHandler(this.FileSaveToolStripMenuItem_Click);
             // 
             // mnuFileSaveAsToolStripMenuItem
             // 
             this.mnuFileSaveAsToolStripMenuItem.Name = "mnuFileSaveAsToolStripMenuItem";
-            this.mnuFileSaveAsToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.mnuFileSaveAsToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.mnuFileSaveAsToolStripMenuItem.Text = "Сохранить как...";
             this.mnuFileSaveAsToolStripMenuItem.Click += new System.EventHandler(this.FileSaveAsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(190, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(212, 6);
             this.toolStripMenuItem1.Visible = false;
             // 
-            // mnuFileImportToolStripMenuItem
+            // mnuFileImport
             // 
-            this.mnuFileImportToolStripMenuItem.Name = "mnuFileImportToolStripMenuItem";
-            this.mnuFileImportToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
-            this.mnuFileImportToolStripMenuItem.Text = "mnuFileImport";
-            this.mnuFileImportToolStripMenuItem.Visible = false;
+            this.mnuFileImport.Name = "mnuFileImport";
+            this.mnuFileImport.Size = new System.Drawing.Size(215, 26);
+            this.mnuFileImport.Text = "Импорт из файла...";
+            this.mnuFileImport.Click += new System.EventHandler(this.FileImport_Click);
             // 
-            // mnuFileExportToolStripMenuItem
+            // mnuFileExport
             // 
-            this.mnuFileExportToolStripMenuItem.Name = "mnuFileExportToolStripMenuItem";
-            this.mnuFileExportToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
-            this.mnuFileExportToolStripMenuItem.Text = "mnuFileExport";
-            this.mnuFileExportToolStripMenuItem.Visible = false;
+            this.mnuFileExport.Name = "mnuFileExport";
+            this.mnuFileExport.Size = new System.Drawing.Size(215, 26);
+            this.mnuFileExport.Text = "mnuFileExport";
+            this.mnuFileExport.Visible = false;
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(190, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(212, 6);
             // 
             // mnuFileExit
             // 
             this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(193, 26);
+            this.mnuFileExit.Size = new System.Drawing.Size(215, 26);
             this.mnuFileExit.Text = "Выход";
             this.mnuFileExit.Click += new System.EventHandler(this.FileExit_Click);
             // 
@@ -277,7 +277,7 @@
             this.panel1.Controls.Add(this.filtrGroupBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 28);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(939, 160);
             this.panel1.TabIndex = 3;
@@ -419,7 +419,7 @@
             this.gaspsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gaspsListView.Location = new System.Drawing.Point(0, 188);
             this.gaspsListView.LockShow = false;
-            this.gaspsListView.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gaspsListView.Margin = new System.Windows.Forms.Padding(5);
             this.gaspsListView.Name = "gaspsListView";
             this.gaspsListView.ReserveShow = true;
             this.gaspsListView.Size = new System.Drawing.Size(939, 257);
@@ -438,7 +438,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(954, 328);
             this.Name = "AppForm";
             this.Text = "Справочник подразделений правоохранительных органов в НСИ ГАС ПС";
@@ -464,8 +464,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuFileSaveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuFileSaveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem mnuFileImportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mnuFileExportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileImport;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileExport;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem mnuFileExit;
         private System.Windows.Forms.StatusStrip statusStrip1;

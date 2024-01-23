@@ -105,6 +105,13 @@ namespace DatabaseToolSuite.Repositoryes
         partial class gaspsDataTable
         {
 
+            public bool ExistsCode(string code)
+            {
+                return (from item in this.AsEnumerable()
+                        where item.code.Equals(code, StringComparison.CurrentCultureIgnoreCase)
+                        select item).Count() > 0;
+            }
+
             public IList<gaspsRow> GetOrganizationFilter(long? authority, string okato, string code, string name, bool unlockShow, bool reserveShow, bool lockShow)
             {
                 return _GetOrganizationFilter(authority: authority,

@@ -100,7 +100,16 @@ namespace DatabaseToolSuite.Dialogs
 
         private void selectOwnerButton_Click(object sender, EventArgs e)
         {
-            SelectOrganizationDialog dialog = new SelectOrganizationDialog();
+            SelectOrganizationDialog dialog;
+            if (!string.IsNullOrWhiteSpace(okatoComboBox.Code) &&
+                authorityComboBox.Value.HasValue){
+                dialog = new SelectOrganizationDialog(authorityComboBox.Value.Value, okatoComboBox.Code);
+            }
+            else
+            {
+                dialog = new SelectOrganizationDialog();
+            }
+            
             dialog.UnlockShow = true;
             dialog.LockShow = false;
             dialog.ReserveShow = false;

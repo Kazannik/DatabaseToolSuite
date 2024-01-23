@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
 
@@ -11,6 +6,7 @@ namespace DatabaseToolSuite.Dialogs
 {
     internal partial class CreateNewOrganizationDialog : DatabaseToolSuite.Dialogs.CreateNewVersionOrganizationDialog
     {
+        private bool generationCodeService = true;
 
         public CreateNewOrganizationDialog() : base()
         {
@@ -30,6 +26,32 @@ namespace DatabaseToolSuite.Dialogs
             Text = "Новая записи о подразделении";
             captionLabel.Text = "Укажите дату введения новой записи о подразделении правоохранительного органа";
             codeTextBox.Text = string.Empty;
+        }
+
+
+        public CreateNewOrganizationDialog(string name, string code, DateTime beginDate) : base()
+        {
+            generationCodeService = false;
+
+            InitializeComponent();
+
+            okButton.Top = Height - 72;
+            okButton.Left = Width - 184;
+            cancelButton.Top = Height - 72;
+            cancelButton.Left = Width - 103;
+
+            nextCodeButton.Enabled = false;
+            selectCodeButton.Enabled = false;
+
+            nameTextBox.Text = name;
+            nameTextBox.Enabled = false;
+            codeTextBox.Text = code;
+            codeTextBox.Enabled = false;
+            beginDateTimePicker.Value = beginDate;
+            beginDateTimePicker.Enabled = false;
+
+            Text = "Новая записи о подразделении";
+            captionLabel.Text = "Укажите дату введения новой записи о подразделении правоохранительного органа";
         }
 
         public CreateNewOrganizationDialog(gaspsRow row) : base(row)
@@ -82,9 +104,12 @@ namespace DatabaseToolSuite.Dialogs
             }
             else
             {
-                codeTextBox.Text = Services.FileSystem.Repository.DataSet.gasps.GetNextCode(authority: Authority.HasValue ? Authority.Value : 0, okato: OkatoCode);
-                nextCodeButton.Enabled = true;
-                selectCodeButton.Enabled = true;
+                if (generationCodeService)
+                {
+                    codeTextBox.Text = Services.FileSystem.Repository.DataSet.gasps.GetNextCode(authority: Authority.HasValue ? Authority.Value : 0, okato: OkatoCode);
+                    nextCodeButton.Enabled = true;
+                    selectCodeButton.Enabled = true;
+                }
             }
         }
     }

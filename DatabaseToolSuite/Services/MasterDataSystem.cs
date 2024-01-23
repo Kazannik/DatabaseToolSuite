@@ -18,6 +18,11 @@ namespace DatabaseToolSuite.Services
         public static readonly DateTime MAX_DATE = new DateTime(2999, 12, 31);
         public static readonly DateTime MIN_DATE = new DateTime(1900, 1, 1);
         
+        public static Repositoryes.RepositoryDataSet DataSet
+        {
+            get { return FileSystem.Repository.DataSet; }
+        }
+                
         /// <summary>
         /// Создание записи о подразделении правоохранительного органа
         /// </summary>
@@ -89,11 +94,11 @@ namespace DatabaseToolSuite.Services
             DateTime dateEnd,
             long courtTypeId)
         {
-            long key = FileSystem.Repository.DataSet.gasps.GetNextKey();
-            long version = FileSystem.Repository.DataSet.gasps.GetNextVersion();
+            long key = DataSet.gasps.GetNextKey();
+            long version = DataSet.gasps.GetNextVersion();
             key = key >= version ? key : version;
             version = key;
-            long index = FileSystem.Repository.DataSet.gasps.GetNextIndex();
+            long index = DataSet.gasps.GetNextIndex();
 
             gaspsRow newRow = CreateOrganization(
                            name: name,
@@ -131,9 +136,9 @@ namespace DatabaseToolSuite.Services
             long ownerKey,            
             long courtTypeId)
         {
-            gaspsRow modifedRow = FileSystem.Repository.DataSet.gasps.GetOrganizationFromVersion(version: version);
+            gaspsRow modifedRow = DataSet.gasps.GetOrganizationFromVersion(version: version);
 
-            if (!FileSystem.Repository.DataSet.gasps.IsLastVersion(version: version))
+            if (!DataSet.gasps.IsLastVersion(version: version))
             {
                 throw new ArgumentException(string.Format(
                     "Запись версии {0} не является самой последней записью с ключем {1}, поэтому не может быть отредактирована.",
@@ -142,7 +147,7 @@ namespace DatabaseToolSuite.Services
             
             modifedRow.date_end = date;
 
-            long newVersion = FileSystem.Repository.DataSet.gasps.GetNextVersion();
+            long newVersion = DataSet.gasps.GetNextVersion();
 
             gaspsRow newRow = CreateOrganization(
                 name: name,
@@ -162,13 +167,54 @@ namespace DatabaseToolSuite.Services
 
 
         /// <summary>
+        /// Создание новой версии записи
+        /// </summary>
+        /// <param name="version">Индекс версии</param>
+        /// <param name="date">Дата введения в действие новой версии</param>
+        /// <param name="name">Наименование подразделения</param>
+        /// <returns></returns>
+        public static long CreateNewVersionOrganization(
+            long version,
+            DateTime date,
+            string name)
+        {
+            gaspsRow modifedRow = DataSet.gasps.GetOrganizationFromVersion(version: version);
+
+            if (!DataSet.gasps.IsLastVersion(version: version))
+            {
+                throw new ArgumentException(string.Format(
+                    "Запись версии {0} не является самой последней записью с ключем {1}, поэтому не может быть отредактирована.",
+                            version, modifedRow.key));
+            }
+
+            modifedRow.date_end = date;
+
+            long newVersion = DataSet.gasps.GetNextVersion();
+
+            gaspsRow newRow = CreateOrganization(
+                name: name,
+                key: modifedRow.key,
+                okato: modifedRow.okato_code,
+                authorityId: modifedRow.authority_id,
+                code: modifedRow.code,
+                version: newVersion,
+                index: modifedRow.index,
+                ownerKey: modifedRow.owner_id,
+                dateBegin: date,
+                dateEnd: MAX_DATE,
+                courtTypeId: modifedRow.court_type_id);
+
+            return newRow.version;
+        }
+
+        /// <summary>
         /// Блокировка записи
         /// </summary>
         /// <param name="version">Индекс версии</param>
         /// <param name="date">Дата блокировки</param>
         public static void RemoveOrganization(long version, DateTime date)
         {
-            gaspsRow oldRow = FileSystem.Repository.DataSet.gasps.GetOrganizationFromVersion(version: version);
+            gaspsRow oldRow = DataSet.gasps.GetOrganizationFromVersion(version: version);
             oldRow.BeginEdit();
             oldRow.date_end = date;
             oldRow.EndEdit();

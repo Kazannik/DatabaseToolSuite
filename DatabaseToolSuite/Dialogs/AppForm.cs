@@ -231,5 +231,24 @@ namespace DatabaseToolSuite.Dialogs
             MessageBox.Show("Отдел ведения единой нормативно-справочной информации", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
         }
+
+        private void FileImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Импортировать данные";
+            dialog.Multiselect = false;
+            dialog.Filter = "Текстовый документ (.txt)|*.txt";
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                if (dialog.FilterIndex == 1)
+                {
+                    Services.Impors.ImportTextFile(dialog.FileName);
+                }
+                else
+                {
+
+                }
+            }
+        }
     }
 }

@@ -53,6 +53,14 @@
             this.pictureBox1.Image = global::DatabaseToolSuite.Properties.Resources.Info64;
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(637, 568);
+            // 
+            // okButton
+            // 
+            this.okButton.Location = new System.Drawing.Point(556, 568);
+            // 
             // beginDateLabel
             // 
             this.beginDateLabel.AutoSize = true;
@@ -271,6 +279,8 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimumSize = new System.Drawing.Size(740, 630);
             this.Name = "CreateNewVersionOrganizationDialog";
+            this.Controls.SetChildIndex(this.okButton, 0);
+            this.Controls.SetChildIndex(this.cancelButton, 0);
             this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.beginDateTimePicker, 0);
             this.Controls.SetChildIndex(this.beginDateLabel, 0);
@@ -287,9 +297,7 @@
         #endregion
 
         private System.Windows.Forms.Label beginDateLabel;
-        private System.Windows.Forms.DateTimePicker beginDateTimePicker;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label codeLabel;
         private System.Windows.Forms.Label okatoLabel;
         private System.Windows.Forms.Label authorityLabel;
@@ -301,5 +309,7 @@
         public System.Windows.Forms.TextBox codeTextBox;
         protected Controls.AuthorityComboBox authorityComboBox;
         protected Controls.OkatoComboBox okatoComboBox;
+        protected System.Windows.Forms.TextBox nameTextBox;
+        protected System.Windows.Forms.DateTimePicker beginDateTimePicker;
     }
 }

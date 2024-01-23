@@ -213,6 +213,7 @@
     <Compile Include="Repositoryes\Dto\OkatoDto.cs" />
     <Compile Include="Services\DataGridViewSetting.cs" />
     <Compile Include="Services\FileSystem.cs" />
+    <Compile Include="Services\Impors.cs" />
     <Compile Include="Services\MasterDataSystem.cs" />
     <EmbeddedResource Include="Controls\GaspsListView.resx">
       <DependentUpon>GaspsListView.cs</DependentUpon>
