@@ -12,9 +12,6 @@ namespace DatabaseToolSuite.Controls
         #region Initialize
         public  AuthorityComboBox() : base() { }
 
-        [DebuggerNonUserCode()]
-        public  AuthorityComboBox(IContainer container):base(container: container) { }
-
         public void InitializeSource(authorityDataTable table)
         {
             BeginUpdate();

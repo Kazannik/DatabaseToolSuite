@@ -186,8 +186,7 @@ namespace DatabaseToolSuite.Repositoryes
 
                 return dv;
             }
-
-
+            
             public IList<gaspsRow> GetLockLastCodes(long? authority, string okato)
             {
                 IEnumerable<gaspsRow> result = this.AsEnumerable()
@@ -206,8 +205,7 @@ namespace DatabaseToolSuite.Repositoryes
 
                 return result.ToList();
             }
-
-
+            
             public gaspsRow GetOrganizationFromVersion(long version)
             {
                 return this.AsEnumerable()
@@ -333,6 +331,44 @@ namespace DatabaseToolSuite.Repositoryes
                                                    select item).GroupBy(x => x.code).Select(y => y.FirstOrDefault());
 
                 return new BindingList<gaspsRow>(lockCodes.Where(p => unlickCodes.All(p2 => p2.code != p.code)).OrderBy(x => x.code).ToArray());
+            }
+            
+            public IEnumerable<Organization> ExportData()
+            {
+                return from item in this.AsEnumerable()
+                       where (item.date_beg <= DateTime.Today &&
+                       item.date_end > DateTime.Today)
+                       join authority in  authorityTable on item.authority_id equals authority.id
+                       join okato in okatoTable on item.okato_code equals okato.code
+                       select new Organization(name:item.name, authority:authority.name, okato:okato.code + " - " + okato.name, code: item.code, begin: item.date_beg);
+            }
+
+            public class Organization
+            {
+                public string Name { get; }
+                public string Authority { get; }
+                public string Okato { get; }
+                public string Code { get; }
+                public DateTime Begin { get; }
+
+                public Organization(string name, string authority, string okato, string code, DateTime begin)
+                {
+                    Name = name;
+                    Authority = authority;
+                    Okato = okato;
+                    Code = code;
+                    Begin = begin;
+                }
+            }
+
+            private authorityDataTable authorityTable
+            {
+                get { return Services.MasterDataSystem.DataSet.authority; }
+            }
+
+            private okatoDataTable okatoTable
+            {
+                get { return Services.MasterDataSystem.DataSet.okato; }
             }
         }
 

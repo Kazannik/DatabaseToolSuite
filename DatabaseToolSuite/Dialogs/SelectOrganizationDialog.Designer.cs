@@ -49,8 +49,8 @@
             this.filterNameTextBox = new System.Windows.Forms.TextBox();
             this.filterLockCodeViewCheckBox = new System.Windows.Forms.CheckBox();
             this.okatoLabel = new System.Windows.Forms.Label();
-            this.filterAuthorityComboBox = new DatabaseToolSuite.Controls.AuthorityComboBox(this.components);
-            this.filterOkatoComboBox = new DatabaseToolSuite.Controls.OkatoComboBox(this.components);
+            this.filterAuthorityComboBox = new DatabaseToolSuite.Controls.AuthorityComboBox();
+            this.filterOkatoComboBox = new DatabaseToolSuite.Controls.OkatoComboBox();
             this.authorityLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();

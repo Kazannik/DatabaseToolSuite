@@ -40,5 +40,53 @@ namespace DatabaseToolSuite.Properties {
                 return ((string)(this["RescueDatabaseFileName"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("900")]
+        public int AppWindowWidth {
+            get {
+                return ((int)(this["AppWindowWidth"]));
+            }
+            set {
+                this["AppWindowWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        public int AppWindowHight {
+            get {
+                return ((int)(this["AppWindowHight"]));
+            }
+            set {
+                this["AppWindowHight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("740")]
+        public int DialogWidth {
+            get {
+                return ((int)(this["DialogWidth"]));
+            }
+            set {
+                this["DialogWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("580")]
+        public int DialogHight {
+            get {
+                return ((int)(this["DialogHight"]));
+            }
+            set {
+                this["DialogHight"] = value;
+            }
+        }
     }
 }

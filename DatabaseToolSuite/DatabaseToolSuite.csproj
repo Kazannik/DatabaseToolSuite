@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <TargetCulture>ru</TargetCulture>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -69,6 +69,9 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -84,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Const\App.cs" />
     <Compile Include="Controls\AuthorityComboBox.cs" />
     <Compile Include="Controls\AuthorityToolStripComboBox.cs" />
     <Compile Include="Controls\ColorThemeList.cs">
@@ -109,6 +113,9 @@
     <Compile Include="Controls\ToolStripComboControl.cs" />
     <Compile Include="Controls\ToolStripNumericTextBox.cs" />
     <Compile Include="Controls\ToolStripNumericUpDown.cs" />
+    <Compile Include="Dialogs\AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\ActionsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,20 +143,20 @@
     <Compile Include="Dialogs\CreateNewOrganizationDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\CreateNewOrganizationDialog.Designer.cs">
-      <DependentUpon>CreateNewOrganizationDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\CreateNewVersionOrganizationDialog.cs">
+    <Compile Include="Dialogs\CreateNewVersionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\CreateNewVersionOrganizationDialog.Designer.cs">
-      <DependentUpon>CreateNewVersionOrganizationDialog.cs</DependentUpon>
+    <Compile Include="Dialogs\DialogBase.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\DictionaryEditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\DictionaryEditDialog.Designer.cs">
       <DependentUpon>DictionaryEditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\EditErrorDialog.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\ExportDialog.cs">
       <SubType>Form</SubType>
@@ -184,9 +191,6 @@
     <Compile Include="Dialogs\RemoveOrganizationDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\RemoveOrganizationDialog.Designer.cs">
-      <DependentUpon>RemoveOrganizationDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dialogs\SelectOrganizationDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,11 +216,15 @@
     <Compile Include="Repositoryes\Dto\AuthorityDto.cs" />
     <Compile Include="Repositoryes\Dto\OkatoDto.cs" />
     <Compile Include="Services\DataGridViewSetting.cs" />
+    <Compile Include="Services\Export.cs" />
     <Compile Include="Services\FileSystem.cs" />
     <Compile Include="Services\Impors.cs" />
     <Compile Include="Services\MasterDataSystem.cs" />
     <EmbeddedResource Include="Controls\GaspsListView.resx">
       <DependentUpon>GaspsListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ActionsDialog.resx">
       <DependentUpon>ActionsDialog.cs</DependentUpon>
@@ -233,8 +241,11 @@
     <EmbeddedResource Include="Dialogs\CreateNewOrganizationDialog.resx">
       <DependentUpon>CreateNewOrganizationDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\CreateNewVersionOrganizationDialog.resx">
-      <DependentUpon>CreateNewVersionOrganizationDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\CreateNewVersionDialog.resx">
+      <DependentUpon>CreateNewVersionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogBase.resx">
+      <DependentUpon>DialogBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DictionaryEditDialog.resx">
       <DependentUpon>DictionaryEditDialog.cs</DependentUpon>
@@ -365,6 +376,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Info64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emblem_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Windows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Windows32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

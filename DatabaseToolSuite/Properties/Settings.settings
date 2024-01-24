@@ -8,5 +8,17 @@
     <Setting Name="RescueDatabaseFileName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">gasps.xml.rescue</Value>
     </Setting>
+    <Setting Name="AppWindowWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">900</Value>
+    </Setting>
+    <Setting Name="AppWindowHight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">600</Value>
+    </Setting>
+    <Setting Name="DialogWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">740</Value>
+    </Setting>
+    <Setting Name="DialogHight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">580</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

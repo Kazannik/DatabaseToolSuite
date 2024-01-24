@@ -103,9 +103,7 @@ namespace DatabaseToolSuite.Services
                 "Импорт данных", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
         }
-
-
-        
+               
 
         private class CodeGroup
         {

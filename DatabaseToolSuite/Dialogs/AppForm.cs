@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DatabaseToolSuite.Dialogs
@@ -20,6 +13,7 @@ namespace DatabaseToolSuite.Dialogs
             selectedRowStatusLabel.Text = string.Empty;
             mnuTableCreateOrganization.Enabled = false;
             mnuTableCreateNewVersion.Enabled = false;
+            mnuTableEditError.Enabled = false;
             mnuTableRemoveOrganization.Enabled = false;
 
             if (Services.FileSystem.DefaultDatabaseFileExists())
@@ -51,7 +45,9 @@ namespace DatabaseToolSuite.Dialogs
             {
                 selectedRowStatusLabel.Text = gaspsListView.DataRow.code.ToString();
                 mnuTableCreateOrganization.Enabled = true;
-                mnuTableCreateNewVersion.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);                
+                mnuTableCreateNewVersion.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
+                mnuTableEditError.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
+
                 mnuTableRemoveOrganization.Enabled = gaspsListView.DataRow.date_end > DateTime.Today;
             }
             else
@@ -59,6 +55,7 @@ namespace DatabaseToolSuite.Dialogs
                 selectedRowStatusLabel.Text = string.Empty;
                 mnuTableCreateOrganization.Enabled = false;
                 mnuTableCreateNewVersion.Enabled = false;
+                mnuTableEditError.Enabled = false;
                 mnuTableRemoveOrganization.Enabled = false;
             }
         }
@@ -101,7 +98,7 @@ namespace DatabaseToolSuite.Dialogs
 
         private void TableCreateVersion_Click(object sender, EventArgs e)
         {
-            CreateNewVersionOrganizationDialog dialog = new CreateNewVersionOrganizationDialog(gaspsListView.DataRow);
+            CreateNewVersionDialog dialog = new CreateNewVersionDialog(gaspsListView.DataRow);
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 long version = gaspsListView.DataRow.version;
@@ -124,6 +121,25 @@ namespace DatabaseToolSuite.Dialogs
             {
                 long version = gaspsListView.DataRow.version;
                 Services.MasterDataSystem.RemoveOrganization(version: version, date: dialog.LockDate);
+                gaspsListView.UpdateListViewItem();
+            }
+        }
+
+
+        private void TableEditError_Click(object sender, EventArgs e)
+        {
+            EditErrorDialog dialog = new EditErrorDialog(gaspsListView.DataRow);
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                long version = gaspsListView.DataRow.version;
+                Services.MasterDataSystem.EditVersionOrganization(
+                    version: version,
+                    date: dialog.BeginDate,
+                    name: dialog.OrganizationName,
+                    okato: dialog.OkatoCode,
+                    authorityId: dialog.Authority.HasValue ? dialog.Authority.Value : 0,
+                    ownerKey: dialog.OrganizationOwner,
+                    courtTypeId: dialog.CourtType);
                 gaspsListView.UpdateListViewItem();
             }
         }
@@ -228,8 +244,8 @@ namespace DatabaseToolSuite.Dialogs
 
         private void HelpAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Отдел ведения единой нормативно-справочной информации", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
+            AboutDialog dialog = new AboutDialog();
+            dialog.ShowDialog(this);
         }
 
         private void FileImport_Click(object sender, EventArgs e)
@@ -249,6 +265,46 @@ namespace DatabaseToolSuite.Dialogs
 
                 }
             }
+        }
+
+        private void FileExport_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Title = "Экспортировать данные";
+            dialog.Filter = "Документ XML(.xml)|*.xml|XML Schema File(.xsd)|*.xsd";
+            dialog.FileName = string.IsNullOrWhiteSpace(Services.FileSystem.DatabaseFileName) ? "gasps.xml" : Services.FileSystem.DatabaseFileName;
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                if (dialog.FilterIndex == 1)
+                {
+                    Services.Export.ExportToXml(dialog.FileName);
+                }
+                else
+                {
+                   // Services.FileSystem.WriteSchema(dialog.FileName);
+                }
+            }
+        }
+
+        private void FileExportToExcel_Click(object sender, EventArgs e)
+        {
+            Services.Export.ExportToExcel();
+        }
+
+        private void AppForm_Load(object sender, EventArgs e)
+        {
+            DatabaseToolSuite.Properties.Settings.Default.Reload();
+            Width = DatabaseToolSuite.Properties.Settings.Default.AppWindowWidth;
+            Height = DatabaseToolSuite.Properties.Settings.Default.AppWindowHight;
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            DatabaseToolSuite.Properties.Settings.Default.AppWindowWidth = Width;
+            DatabaseToolSuite.Properties.Settings.Default.AppWindowHight = Height;
+            DatabaseToolSuite.Properties.Settings.Default.Save();
+
+            base.OnFormClosed(e);
         }
     }
 }

@@ -22,35 +22,16 @@ namespace DatabaseToolSuite.Controls
 
         #region Initialize
 
-        [DebuggerNonUserCode()]
-        public ComboControl(IContainer container) : this()
-        {
-            if (container != null) { container.Add(this); }
-        }
-
-        [DebuggerNonUserCode()]
-        protected override void Dispose(bool disposing)
-        {
-            try
-            {
-                if (disposing && components != null)
-                { components.Dispose(); }                
-            }
-            finally
-            { base.Dispose(disposing); }
-        }
-
-        private IContainer components;
-
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            components = new Container();
             list = new List<T>();
         }
 
         public ComboControl() : base()
         {
+            
+            SuspendLayout();
             sfCode = (StringFormat)StringFormat.GenericTypographic.Clone();
             sfCode.Alignment = StringAlignment.Center;
             sfCode.LineAlignment = StringAlignment.Center;
@@ -72,6 +53,9 @@ namespace DatabaseToolSuite.Controls
             Width = 80;
             DropDownHeight = 80;
             Items.Clear();
+
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

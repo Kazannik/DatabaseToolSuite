@@ -49,8 +49,8 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.savaButton = new System.Windows.Forms.Button();
             this.beginDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.authorityComboBox = new DatabaseToolSuite.Controls.AuthorityComboBox(this.components);
-            this.okatoComboBox = new DatabaseToolSuite.Controls.OkatoComboBox(this.components);
+            this.authorityComboBox = new DatabaseToolSuite.Controls.AuthorityComboBox();
+            this.okatoComboBox = new DatabaseToolSuite.Controls.OkatoComboBox();
             this.endDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();

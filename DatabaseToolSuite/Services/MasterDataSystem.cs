@@ -219,5 +219,38 @@ namespace DatabaseToolSuite.Services
             oldRow.date_end = date;
             oldRow.EndEdit();
         }
+
+
+        /// <summary>
+        /// Создание новой версии записи
+        /// </summary>
+        /// <param name="version">Индекс версии</param>
+        /// <param name="date">Дата введения в действие новой версии</param>
+        /// <param name="name">Наименование подразделения</param>
+        /// <param name="okato">Код ОКАТО</param>
+        /// <param name="authorityId">Индекс вида органа</param>
+        /// <param name="ownerKey">Ключ (key) родительского подразделения</param>
+        /// <param name="courtTypeId">Индекс вида суда</param>
+        /// <returns></returns>
+        public static long EditVersionOrganization(
+            long version,
+            DateTime date,
+            string name,
+            string okato,
+            long authorityId,
+            long ownerKey,
+            long courtTypeId)
+        {
+            gaspsRow errorRow = DataSet.gasps.GetOrganizationFromVersion(version: version);
+
+            errorRow.date_beg = date;
+            errorRow.name = name;
+            errorRow.okato_code = okato;
+            errorRow.authority_id = authorityId;
+            errorRow.owner_id = ownerKey;
+            errorRow.date_end = MAX_DATE;
+
+            return errorRow.version;
+        }
     }
 }

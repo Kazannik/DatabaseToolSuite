@@ -7,12 +7,12 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
 [assembly: AssemblyTitle("DatabaseToolSuite")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Справочник подразделений правоохранительных органов в НСИ ГАС ПС")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DatabaseToolSuite")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Главное управление правовой статистики и информационных технологий Генеральной прокуратуры Российской Федерации")]
+[assembly: AssemblyProduct("Справочники НСИ ГАС ПС")]
+[assembly: AssemblyCopyright("Отдел ведения ЕНСИ ©  2024")]
+[assembly: AssemblyTrademark("Управление информационных технологий")]
 [assembly: AssemblyCulture("")]
 
 // Параметр ComVisible со значением FALSE делает типы в сборке невидимыми 

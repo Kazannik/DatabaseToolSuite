@@ -40,6 +40,8 @@
             this.mnuFileImport = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileExport = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFileExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTable = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTableNewOrganization = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +50,8 @@
             this.mnuTableCreateNewVersion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuTableRemoveOrganization = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuTableEditError = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpStatistic = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,16 +61,16 @@
             this.selectedRowStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.filtrGroupBox = new System.Windows.Forms.GroupBox();
-            this.filterCodeNumericTextBox = new DatabaseToolSuite.Controls.NumericTextBox(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.filterNameTextBox = new System.Windows.Forms.TextBox();
             this.filterLockCodeViewCheckBox = new System.Windows.Forms.CheckBox();
             this.okatoLabel = new System.Windows.Forms.Label();
-            this.filterAuthorityComboBox = new DatabaseToolSuite.Controls.AuthorityComboBox(this.components);
-            this.filterOkatoComboBox = new DatabaseToolSuite.Controls.OkatoComboBox(this.components);
             this.authorityLabel = new System.Windows.Forms.Label();
             this.gaspsListView = new DatabaseToolSuite.Controls.GaspsListView();
+            this.filterCodeNumericTextBox = new DatabaseToolSuite.Controls.NumericTextBox(this.components);
+            this.filterAuthorityComboBox = new DatabaseToolSuite.Controls.AuthorityComboBox();
+            this.filterOkatoComboBox = new DatabaseToolSuite.Controls.OkatoComboBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -83,7 +87,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(939, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(982, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -98,6 +102,8 @@
             this.mnuFileImport,
             this.mnuFileExport,
             this.toolStripMenuItem2,
+            this.mnuFileExportToExcel,
+            this.toolStripMenuItem6,
             this.mnuFileExit});
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(57, 24);
@@ -106,60 +112,71 @@
             // mnuFileNewToolStripMenuItem
             // 
             this.mnuFileNewToolStripMenuItem.Name = "mnuFileNewToolStripMenuItem";
-            this.mnuFileNewToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.mnuFileNewToolStripMenuItem.Size = new System.Drawing.Size(315, 26);
             this.mnuFileNewToolStripMenuItem.Text = "mnuFileNew";
             this.mnuFileNewToolStripMenuItem.Visible = false;
             // 
             // mnuFileOpenToolStripMenuItem
             // 
             this.mnuFileOpenToolStripMenuItem.Name = "mnuFileOpenToolStripMenuItem";
-            this.mnuFileOpenToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.mnuFileOpenToolStripMenuItem.Size = new System.Drawing.Size(315, 26);
             this.mnuFileOpenToolStripMenuItem.Text = "Открыть...";
             this.mnuFileOpenToolStripMenuItem.Click += new System.EventHandler(this.FileOpenToolStripMenuItem_Click);
             // 
             // mnuFileSaveToolStripMenuItem
             // 
             this.mnuFileSaveToolStripMenuItem.Name = "mnuFileSaveToolStripMenuItem";
-            this.mnuFileSaveToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.mnuFileSaveToolStripMenuItem.Size = new System.Drawing.Size(315, 26);
             this.mnuFileSaveToolStripMenuItem.Text = "Сохранить";
             this.mnuFileSaveToolStripMenuItem.Click += new System.EventHandler(this.FileSaveToolStripMenuItem_Click);
             // 
             // mnuFileSaveAsToolStripMenuItem
             // 
             this.mnuFileSaveAsToolStripMenuItem.Name = "mnuFileSaveAsToolStripMenuItem";
-            this.mnuFileSaveAsToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.mnuFileSaveAsToolStripMenuItem.Size = new System.Drawing.Size(315, 26);
             this.mnuFileSaveAsToolStripMenuItem.Text = "Сохранить как...";
             this.mnuFileSaveAsToolStripMenuItem.Click += new System.EventHandler(this.FileSaveAsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(212, 6);
-            this.toolStripMenuItem1.Visible = false;
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(312, 6);
             // 
             // mnuFileImport
             // 
             this.mnuFileImport.Name = "mnuFileImport";
-            this.mnuFileImport.Size = new System.Drawing.Size(215, 26);
+            this.mnuFileImport.Size = new System.Drawing.Size(315, 26);
             this.mnuFileImport.Text = "Импорт из файла...";
             this.mnuFileImport.Click += new System.EventHandler(this.FileImport_Click);
             // 
             // mnuFileExport
             // 
             this.mnuFileExport.Name = "mnuFileExport";
-            this.mnuFileExport.Size = new System.Drawing.Size(215, 26);
-            this.mnuFileExport.Text = "mnuFileExport";
-            this.mnuFileExport.Visible = false;
+            this.mnuFileExport.Size = new System.Drawing.Size(315, 26);
+            this.mnuFileExport.Text = "Экспорт данных в файл...";
+            this.mnuFileExport.Click += new System.EventHandler(this.FileExport_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(212, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(312, 6);
+            // 
+            // mnuFileExportToExcel
+            // 
+            this.mnuFileExportToExcel.Name = "mnuFileExportToExcel";
+            this.mnuFileExportToExcel.Size = new System.Drawing.Size(315, 26);
+            this.mnuFileExportToExcel.Text = "Экспорт данных в MS Office Excel";
+            this.mnuFileExportToExcel.Click += new System.EventHandler(this.FileExportToExcel_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(312, 6);
             // 
             // mnuFileExit
             // 
             this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(215, 26);
+            this.mnuFileExit.Size = new System.Drawing.Size(315, 26);
             this.mnuFileExit.Text = "Выход";
             this.mnuFileExit.Click += new System.EventHandler(this.FileExit_Click);
             // 
@@ -171,7 +188,9 @@
             this.toolStripMenuItem3,
             this.mnuTableCreateNewVersion,
             this.toolStripMenuItem4,
-            this.mnuTableRemoveOrganization});
+            this.mnuTableRemoveOrganization,
+            this.toolStripMenuItem7,
+            this.mnuTableEditError});
             this.mnuTable.Name = "mnuTable";
             this.mnuTable.Size = new System.Drawing.Size(219, 24);
             this.mnuTable.Text = "Справочник подразделений";
@@ -214,6 +233,18 @@
             this.mnuTableRemoveOrganization.Text = "Заблокировать запись...";
             this.mnuTableRemoveOrganization.Click += new System.EventHandler(this.TableRemoveOrganization_Click);
             // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(333, 6);
+            // 
+            // mnuTableEditError
+            // 
+            this.mnuTableEditError.Name = "mnuTableEditError";
+            this.mnuTableEditError.Size = new System.Drawing.Size(336, 26);
+            this.mnuTableEditError.Text = "Исправить ошибку...";
+            this.mnuTableEditError.Click += new System.EventHandler(this.TableEditError_Click);
+            // 
             // mnuHelp
             // 
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -249,10 +280,10 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rowCountStatusLabel,
             this.selectedRowStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 445);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 528);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(939, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(982, 25);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -279,7 +310,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(939, 160);
+            this.panel1.Size = new System.Drawing.Size(982, 160);
             this.panel1.TabIndex = 3;
             // 
             // filtrGroupBox
@@ -299,19 +330,10 @@
             this.filtrGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filtrGroupBox.Name = "filtrGroupBox";
             this.filtrGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.filtrGroupBox.Size = new System.Drawing.Size(624, 153);
+            this.filtrGroupBox.Size = new System.Drawing.Size(667, 153);
             this.filtrGroupBox.TabIndex = 2;
             this.filtrGroupBox.TabStop = false;
             this.filtrGroupBox.Text = "Фильтр";
-            // 
-            // filterCodeNumericTextBox
-            // 
-            this.filterCodeNumericTextBox.Location = new System.Drawing.Point(7, 114);
-            this.filterCodeNumericTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.filterCodeNumericTextBox.Name = "filterCodeNumericTextBox";
-            this.filterCodeNumericTextBox.Size = new System.Drawing.Size(161, 22);
-            this.filterCodeNumericTextBox.TabIndex = 6;
-            this.filterCodeNumericTextBox.TextChanged += new System.EventHandler(this.Filter_ParametersChanged);
             // 
             // label1
             // 
@@ -340,7 +362,7 @@
             this.filterNameTextBox.Location = new System.Drawing.Point(173, 114);
             this.filterNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filterNameTextBox.Name = "filterNameTextBox";
-            this.filterNameTextBox.Size = new System.Drawing.Size(445, 22);
+            this.filterNameTextBox.Size = new System.Drawing.Size(488, 22);
             this.filterNameTextBox.TabIndex = 7;
             this.filterNameTextBox.TextChanged += new System.EventHandler(this.Filter_ParametersChanged);
             // 
@@ -348,7 +370,7 @@
             // 
             this.filterLockCodeViewCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.filterLockCodeViewCheckBox.AutoSize = true;
-            this.filterLockCodeViewCheckBox.Location = new System.Drawing.Point(403, 57);
+            this.filterLockCodeViewCheckBox.Location = new System.Drawing.Point(446, 57);
             this.filterLockCodeViewCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filterLockCodeViewCheckBox.Name = "filterLockCodeViewCheckBox";
             this.filterLockCodeViewCheckBox.Size = new System.Drawing.Size(217, 21);
@@ -365,44 +387,6 @@
             this.okatoLabel.Size = new System.Drawing.Size(90, 17);
             this.okatoLabel.TabIndex = 35;
             this.okatoLabel.Text = "Код ОКАТО:";
-            // 
-            // filterAuthorityComboBox
-            // 
-            this.filterAuthorityComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.filterAuthorityComboBox.Code = "";
-            this.filterAuthorityComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.filterAuthorityComboBox.DropDownHeight = 164;
-            this.filterAuthorityComboBox.DropDownWidth = 80;
-            this.filterAuthorityComboBox.FormattingEnabled = true;
-            this.filterAuthorityComboBox.IntegralHeight = false;
-            this.filterAuthorityComboBox.ItemHeight = 20;
-            this.filterAuthorityComboBox.Location = new System.Drawing.Point(105, 53);
-            this.filterAuthorityComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.filterAuthorityComboBox.MaxDropDownItems = 20;
-            this.filterAuthorityComboBox.Name = "filterAuthorityComboBox";
-            this.filterAuthorityComboBox.Size = new System.Drawing.Size(253, 26);
-            this.filterAuthorityComboBox.TabIndex = 4;
-            this.filterAuthorityComboBox.SelectedIndexChanged += new System.EventHandler(this.Filter_ParametersChanged);
-            // 
-            // filterOkatoComboBox
-            // 
-            this.filterOkatoComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.filterOkatoComboBox.Code = "";
-            this.filterOkatoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.filterOkatoComboBox.DropDownHeight = 164;
-            this.filterOkatoComboBox.DropDownWidth = 80;
-            this.filterOkatoComboBox.FormattingEnabled = true;
-            this.filterOkatoComboBox.IntegralHeight = false;
-            this.filterOkatoComboBox.ItemHeight = 20;
-            this.filterOkatoComboBox.Location = new System.Drawing.Point(107, 21);
-            this.filterOkatoComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.filterOkatoComboBox.MaxDropDownItems = 20;
-            this.filterOkatoComboBox.Name = "filterOkatoComboBox";
-            this.filterOkatoComboBox.Size = new System.Drawing.Size(516, 26);
-            this.filterOkatoComboBox.TabIndex = 3;
-            this.filterOkatoComboBox.SelectedIndexChanged += new System.EventHandler(this.Filter_ParametersChanged);
             // 
             // authorityLabel
             // 
@@ -422,16 +406,63 @@
             this.gaspsListView.Margin = new System.Windows.Forms.Padding(5);
             this.gaspsListView.Name = "gaspsListView";
             this.gaspsListView.ReserveShow = true;
-            this.gaspsListView.Size = new System.Drawing.Size(939, 257);
+            this.gaspsListView.Size = new System.Drawing.Size(982, 340);
             this.gaspsListView.TabIndex = 1;
             this.gaspsListView.UnlockShow = true;
             this.gaspsListView.ItemSelectionChanged += new System.EventHandler(this.gaspsListView_ItemSelectionChanged);
+            // 
+            // filterCodeNumericTextBox
+            // 
+            this.filterCodeNumericTextBox.Location = new System.Drawing.Point(7, 114);
+            this.filterCodeNumericTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.filterCodeNumericTextBox.Name = "filterCodeNumericTextBox";
+            this.filterCodeNumericTextBox.Size = new System.Drawing.Size(161, 22);
+            this.filterCodeNumericTextBox.TabIndex = 6;
+            this.filterCodeNumericTextBox.TextChanged += new System.EventHandler(this.Filter_ParametersChanged);
+            // 
+            // filterAuthorityComboBox
+            // 
+            this.filterAuthorityComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterAuthorityComboBox.Code = "";
+            this.filterAuthorityComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.filterAuthorityComboBox.DropDownHeight = 164;
+            this.filterAuthorityComboBox.DropDownWidth = 80;
+            this.filterAuthorityComboBox.FormattingEnabled = true;
+            this.filterAuthorityComboBox.IntegralHeight = false;
+            this.filterAuthorityComboBox.ItemHeight = 20;
+            this.filterAuthorityComboBox.Location = new System.Drawing.Point(105, 53);
+            this.filterAuthorityComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.filterAuthorityComboBox.MaxDropDownItems = 20;
+            this.filterAuthorityComboBox.Name = "filterAuthorityComboBox";
+            this.filterAuthorityComboBox.Size = new System.Drawing.Size(296, 26);
+            this.filterAuthorityComboBox.TabIndex = 4;
+            this.filterAuthorityComboBox.SelectedIndexChanged += new System.EventHandler(this.Filter_ParametersChanged);
+            // 
+            // filterOkatoComboBox
+            // 
+            this.filterOkatoComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterOkatoComboBox.Code = "";
+            this.filterOkatoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.filterOkatoComboBox.DropDownHeight = 164;
+            this.filterOkatoComboBox.DropDownWidth = 80;
+            this.filterOkatoComboBox.FormattingEnabled = true;
+            this.filterOkatoComboBox.IntegralHeight = false;
+            this.filterOkatoComboBox.ItemHeight = 20;
+            this.filterOkatoComboBox.Location = new System.Drawing.Point(107, 21);
+            this.filterOkatoComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.filterOkatoComboBox.MaxDropDownItems = 20;
+            this.filterOkatoComboBox.Name = "filterOkatoComboBox";
+            this.filterOkatoComboBox.Size = new System.Drawing.Size(559, 26);
+            this.filterOkatoComboBox.TabIndex = 3;
+            this.filterOkatoComboBox.SelectedIndexChanged += new System.EventHandler(this.Filter_ParametersChanged);
             // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 470);
+            this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.gaspsListView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
@@ -443,6 +474,7 @@
             this.Name = "AppForm";
             this.Text = "Справочник подразделений правоохранительных органов в НСИ ГАС ПС";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppForm_FormClosing);
+            this.Load += new System.EventHandler(this.AppForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -494,5 +526,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem mnuHelpAbout;
         private System.Windows.Forms.ToolStripStatusLabel selectedRowStatusLabel;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileExportToExcel;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem mnuTableEditError;
     }
 }

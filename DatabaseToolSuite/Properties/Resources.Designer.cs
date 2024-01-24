@@ -113,6 +113,16 @@ namespace DatabaseToolSuite.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap emblem_big {
+            get {
+                object obj = ResourceManager.GetObject("emblem_big", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FileExit32 {
             get {
                 object obj = ResourceManager.GetObject("FileExit32", resourceCulture);
@@ -236,6 +246,26 @@ namespace DatabaseToolSuite.Properties {
         internal static System.Drawing.Bitmap Warning64 {
             get {
                 object obj = ResourceManager.GetObject("Warning64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Windows {
+            get {
+                object obj = ResourceManager.GetObject("Windows", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Windows32 {
+            get {
+                object obj = ResourceManager.GetObject("Windows32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

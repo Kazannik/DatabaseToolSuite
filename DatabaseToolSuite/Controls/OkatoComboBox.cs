@@ -11,9 +11,6 @@ namespace DatabaseToolSuite.Controls
 
         public OkatoComboBox() : base() { }
 
-        [DebuggerNonUserCode()]
-        public OkatoComboBox(IContainer container):base(container: container) { }
-
         public void InitializeSource(okatoDataTable table)
         {
             BeginUpdate();
