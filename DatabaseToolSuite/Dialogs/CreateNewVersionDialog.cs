@@ -400,11 +400,14 @@ namespace DatabaseToolSuite.Dialogs
             // 
             // CreateNewVersionDialog
             // 
+            this.AcceptButton = null;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.CancelButton = null;
             this.ClientSize = new System.Drawing.Size(722, 533);
             this.Controls.Add(this.organizationGroupBox);
             this.Controls.Add(this.beginDateLabel);
             this.Controls.Add(this.beginDateTimePicker);
+            this.DialogCaptionImage = global::DatabaseToolSuite.Properties.Resources.Duplicate32;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimumSize = new System.Drawing.Size(740, 580);

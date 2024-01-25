@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace DatabaseToolSuite.Controls
 {
@@ -17,6 +16,7 @@ namespace DatabaseToolSuite.Controls
     {
         protected StringFormat sfCode;
         protected StringFormat sfCaption;
+        protected StringFormat sfHighlight;
 
         private List<T> list;
 
@@ -42,6 +42,10 @@ namespace DatabaseToolSuite.Controls
             sfCaption.LineAlignment = StringAlignment.Near;
             sfCaption.FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap;
 
+            sfHighlight = (StringFormat)StringFormat.GenericTypographic.Clone();
+            sfHighlight.Alignment = StringAlignment.Center;
+            sfHighlight.LineAlignment = StringAlignment.Near;
+            sfHighlight.FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap;
 
             InitializeComponent();
 
@@ -96,9 +100,11 @@ namespace DatabaseToolSuite.Controls
             }
 
             if (Items.Count <= e.Index) return;
+
             string itemCode = this[e.Index].Code;
             string itemCodeString = itemCode.ToString();
             string itemCaptionString = this[e.Index].Text.Trim();
+
             if ((e.State & DrawItemState.ComboBoxEdit) == DrawItemState.ComboBoxEdit)
             {
                 backCodeBrush = new SolidBrush(BackColor);
@@ -106,6 +112,15 @@ namespace DatabaseToolSuite.Controls
                 foreCaptionBrush = new SolidBrush(ForeColor);
                 backCaptionBrush = new SolidBrush(BackColor);
                 borderPen = new Pen(ForeColor);
+
+                graphics.FillRectangle(backCaptionBrush, e.Bounds);
+                graphics.FillRectangle(backCodeBrush, rectCode);
+
+                DrawHighlightText(graphics, rectCode, Font, foreCodeBrush, SystemBrushes.HighlightText, SystemBrushes.Highlight, itemCodeString, sfCode, codeBuffer);
+
+                graphics.DrawRectangle(borderPen, rectCode);
+
+                DrawHighlightText(graphics, rectText, Font, foreCaptionBrush, SystemBrushes.HighlightText, SystemBrushes.Highlight, itemCaptionString, sfCaption, textBuffer);
             }
             else
             {
@@ -125,18 +140,65 @@ namespace DatabaseToolSuite.Controls
                     foreCaptionBrush = new SolidBrush(ForeColor);
                     borderPen = new Pen(ForeColor, 1);
                 }
+                graphics.FillRectangle(backCaptionBrush, e.Bounds);
+                graphics.FillRectangle(backCodeBrush, rectCode);
+                graphics.DrawRectangle(borderPen, rectCode);
+                graphics.DrawString(itemCodeString, Font, foreCodeBrush, rectCode, sfCode);
+                graphics.DrawString(itemCaptionString, Font, foreCaptionBrush, rectText, sfCaption);
             }
-            graphics.FillRectangle(backCaptionBrush, e.Bounds);
-            graphics.FillRectangle(backCodeBrush, rectCode);
-            graphics.DrawRectangle(borderPen, rectCode);
-            graphics.DrawString(itemCodeString, Font, foreCodeBrush, rectCode, sfCode);
-            graphics.DrawString(itemCaptionString, Font, foreCaptionBrush, rectText, sfCaption);
         }
-
-        #endregion
         
-        string codeBuffer;
-        string textBuffer;
+        private void DrawHighlightText(Graphics graphics, Rectangle rectagle, Font font, Brush foreColorBrush, Brush highlightForeColor, Brush highlightBackColor, string text, StringFormat format, string buffer)
+        {
+            if (string.IsNullOrWhiteSpace(buffer) || !text.Contains(buffer))
+            {
+                graphics.DrawString(text, font, foreColorBrush, rectagle, format);
+            } 
+            else
+            {
+                string firstText = text.Substring(0, text.IndexOf(buffer, StringComparison.CurrentCultureIgnoreCase));
+                SizeF firstSize = graphics.MeasureString(firstText, font, rectagle.Width, format);
+
+                string centerText = text.Substring(firstText.Length, buffer.Length);
+                SizeF centerSize = graphics.MeasureString(centerText, font, rectagle.Width, format);
+
+                string lastText = text.Substring(firstText.Length + centerText.Length);
+                SizeF lastSize = graphics.MeasureString(lastText, font, rectagle.Width, format);
+
+                Rectangle firstRect;
+                if (format.Alignment == StringAlignment.Near)
+                {
+                    firstRect = new Rectangle(rectagle.X, rectagle.Y, (int) firstSize.Width, rectagle.Height);
+                }
+                else if (format.Alignment == StringAlignment.Far)
+                {
+                    SizeF textSize = graphics.MeasureString(text, font, rectagle.Width, format);
+                    firstRect = new Rectangle(rectagle.Width - (int)textSize.Width, rectagle.Y, (int)firstSize.Width, rectagle.Height);
+                }
+                else
+                {
+                    SizeF textSize = graphics.MeasureString(text, font, rectagle.Width, format);
+                    firstRect = new Rectangle((rectagle.Width - (int)textSize.Width + 2)/2 + 3, rectagle.Y, (int)firstSize.Width, rectagle.Height);
+                }
+
+                Rectangle centerRect = new Rectangle(firstRect.X + firstRect.Width + 1, rectagle.Y, (int)centerSize.Width, rectagle.Height);
+                Rectangle lastRect = new Rectangle(centerRect.X + centerRect.Width + 1, rectagle.Y, (int)lastSize.Width, rectagle.Height);
+
+                //graphics.FillRectangle( Brushes.Yellow, firstRect);
+                //graphics.FillRectangle(Brushes.Yellow, lastRect);
+                
+                graphics.FillRectangle(highlightBackColor, centerRect);
+
+                graphics.DrawString(firstText, font, foreColorBrush, firstRect, format);
+                graphics.DrawString(centerText, font, highlightForeColor, centerRect, sfHighlight);
+                graphics.DrawString(lastText, font, foreColorBrush, lastRect, format);
+            }
+        }
+                       
+        #endregion
+
+        string codeBuffer = string.Empty;
+        string textBuffer = string.Empty;
         int findNext = 0;
 
         protected override void OnKeyDown(KeyEventArgs e)

@@ -133,12 +133,15 @@ namespace DatabaseToolSuite.Dialogs
             // 
             // RemoveOrganizationDialog
             // 
+            this.AcceptButton = null;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.CancelButton = null;
             this.ClientSize = new System.Drawing.Size(725, 446);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lockDateTimePicker);
+            this.DialogCaptionImage = global::DatabaseToolSuite.Properties.Resources.Delete32;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimumSize = new System.Drawing.Size(741, 481);

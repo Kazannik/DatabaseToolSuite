@@ -197,6 +197,9 @@
     <Compile Include="Dialogs\SelectOrganizationDialog.Designer.cs">
       <DependentUpon>SelectOrganizationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\StatisticsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Files\gasps.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -250,6 +253,9 @@
     <EmbeddedResource Include="Dialogs\DictionaryEditDialog.resx">
       <DependentUpon>DictionaryEditDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EditErrorDialog.resx">
+      <DependentUpon>EditErrorDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ExportDialog.resx">
       <DependentUpon>ExportDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SelectOrganizationDialog.resx">
       <DependentUpon>SelectOrganizationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\StatisticsDialog.resx">
+      <DependentUpon>StatisticsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -345,21 +354,6 @@
     <None Include="Resources\openHS.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\NewPage32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PageDuplicate32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PageVersion32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PageDelete32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PageSave32.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\FileExit32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -385,6 +379,69 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Windows32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveAs24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExportExcel24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExportXmlFile24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileExit24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImportTextFile24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewSeries24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewSeries32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Duplicate24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Duplicate32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Statistics24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Statistics32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

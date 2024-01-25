@@ -308,6 +308,45 @@ namespace DatabaseToolSuite.Repositoryes
                 }
             }
 
+            public IEnumerable<long> GetSkippedCodes(long authority, string okato)
+            {
+                string leftCode = authority.ToString("00") + okato;
+                string rightCodeFormat = new string('0', 8 - leftCode.Length);
+                List<long> codes = new List<long>(this.AsEnumerable()
+                    .Where(r => r.authority_id == authority && r.okato_code == okato)
+                    .Select(r => long.Parse(r.code.Substring(leftCode.Length)))
+                    .Distinct());
+                long length = rightCodeFormat.Length == 2 ? 99 : 9999;
+                List<long> result = new List<long>();
+                for (long i = 1; i < length; i++)
+                {
+                    if (!codes.Contains(i))
+                    {
+                        result.Add(i);
+                    }
+                }
+                return result;
+            }
+            
+            public string GetNextSkippedCode(long authority, string okato)
+            {
+                string leftCode = authority.ToString("00") + okato;
+                string rightCodeFormat = new string('0', 8 - leftCode.Length);
+                long code = GetSkippedCodes(authority, okato).Min();
+                return leftCode + code.ToString(rightCodeFormat);
+            }
+
+            public IEnumerable<long> GetUsedCodes(long authority, string okato)
+            {
+                string leftCode = authority.ToString("00") + okato;
+                string rightCodeFormat = new string('0', 8 - leftCode.Length);
+                List<long> codes = new List<long>(this.AsEnumerable()
+                    .Where(r => r.authority_id == authority && r.okato_code == okato)               
+                    .Select(r => long.Parse(r.code.Substring(leftCode.Length)))
+                    .Distinct());
+                codes.Sort();
+                return codes;
+            }
 
             public BindingList<gaspsRow> GetLockCodes(long authority, string okato, DateTime today)
             {

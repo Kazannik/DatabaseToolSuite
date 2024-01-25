@@ -11,10 +11,21 @@ namespace DatabaseToolSuite.Dialogs
             InitializeComponent();            
 
             selectedRowStatusLabel.Text = string.Empty;
+
             mnuTableCreateOrganization.Enabled = false;
+            mnuContextCreateOrganization.Enabled = false;
+            tableCreateOrganizationButton.Enabled = false;
+
             mnuTableCreateNewVersion.Enabled = false;
-            mnuTableEditError.Enabled = false;
+            mnuContextCreateNewVersion.Enabled = false;
+            tableCreateNewVersionButton.Enabled = false;
+            
             mnuTableRemoveOrganization.Enabled = false;
+            mnuContextRemoveOrganization.Enabled = false;
+            tableRemoveOrganizationButton.Enabled = false;
+
+            mnuTableEditError.Enabled = false;
+            mnuContextEditError.Enabled = false;
 
             if (Services.FileSystem.DefaultDatabaseFileExists())
                 Services.FileSystem.ReadDatabase();
@@ -26,16 +37,40 @@ namespace DatabaseToolSuite.Dialogs
             rowCountStatusLabel.Text = string.Format("Отражено записей {0}", gaspsListView.RowCount);
         }
 
+
+        bool isFilter = true;
+
         private void Filter_ParametersChanged(object sender, EventArgs e)
         {
-            gaspsListView.SetFilter(authority: filterAuthorityComboBox.Value,
+            if (isFilter)
+            {
+                gaspsListView.SetFilter(authority: filterAuthorityComboBox.Value,
                 okato: filterOkatoComboBox.Code,
                 code: filterCodeNumericTextBox.Text,
                 name: filterNameTextBox.Text,
                 unlockShow: true,
                 reserveShow: true,
                 lockShow: filterLockCodeViewCheckBox.Checked);
+                rowCountStatusLabel.Text = string.Format("Отражено записей {0}", gaspsListView.RowCount);
+           }
+        }
 
+        private void cleanFilterButton_Click(object sender, EventArgs e)
+        {
+            isFilter = false;
+            filterAuthorityComboBox.Code = string.Empty;
+            filterOkatoComboBox.Code = string.Empty;
+            filterCodeNumericTextBox.Text = string.Empty;
+            filterNameTextBox.Text = string.Empty;
+            isFilter = true;
+
+            gaspsListView.SetFilter(authority: filterAuthorityComboBox.Value,
+               okato: filterOkatoComboBox.Code,
+               code: filterCodeNumericTextBox.Text,
+               name: filterNameTextBox.Text,
+               unlockShow: true,
+               reserveShow: true,
+               lockShow: filterLockCodeViewCheckBox.Checked);
             rowCountStatusLabel.Text = string.Format("Отражено записей {0}", gaspsListView.RowCount);
         }
 
@@ -45,24 +80,54 @@ namespace DatabaseToolSuite.Dialogs
             {
                 selectedRowStatusLabel.Text = gaspsListView.DataRow.code.ToString();
                 mnuTableCreateOrganization.Enabled = true;
+                mnuContextCreateOrganization.Enabled = true;
+                tableCreateOrganizationButton.Enabled = true;
+
                 mnuTableCreateNewVersion.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
-                mnuTableEditError.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
+                mnuContextCreateNewVersion.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
+                tableCreateNewVersionButton.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
 
                 mnuTableRemoveOrganization.Enabled = gaspsListView.DataRow.date_end > DateTime.Today;
+                mnuContextRemoveOrganization.Enabled = gaspsListView.DataRow.date_end > DateTime.Today;
+                tableRemoveOrganizationButton.Enabled = gaspsListView.DataRow.date_end > DateTime.Today;
+
+                mnuTableEditError.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
+                mnuContextEditError.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
             }
             else
             {
                 selectedRowStatusLabel.Text = string.Empty;
+
                 mnuTableCreateOrganization.Enabled = false;
+                mnuContextCreateOrganization.Enabled = false;
+                tableCreateOrganizationButton.Enabled = false;
+
                 mnuTableCreateNewVersion.Enabled = false;
-                mnuTableEditError.Enabled = false;
+                mnuContextCreateNewVersion.Enabled = false;
+                tableCreateNewVersionButton.Enabled = false;
+                
                 mnuTableRemoveOrganization.Enabled = false;
+                mnuContextRemoveOrganization.Enabled = false;
+                tableRemoveOrganizationButton.Enabled = false;
+
+                mnuTableEditError.Enabled = false;
+                mnuContextEditError.Enabled = false;
+            }
+        }
+
+
+        private void gaspsListView_ItemMouseClick(object sender, Controls.GaspsListViewEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenuTable.Show(Cursor.Position);
             }
         }
 
         private void TableNewOrganization_Click(object sender, EventArgs e)
         {
             CreateNewOrganizationDialog dialog = new CreateNewOrganizationDialog();
+            dialog.DialogCaptionImage = Properties.Resources.New32;
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 Services.MasterDataSystem.CreateNewOrganization(
@@ -81,6 +146,7 @@ namespace DatabaseToolSuite.Dialogs
         private void TableCreateOrganization_Click(object sender, EventArgs e)
         {
             CreateNewOrganizationDialog dialog = new CreateNewOrganizationDialog(gaspsListView.DataRow);
+            dialog.DialogCaptionImage = Properties.Resources.NewSeries32;
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 Services.MasterDataSystem.CreateNewOrganization(
@@ -172,8 +238,11 @@ namespace DatabaseToolSuite.Dialogs
 
         private void HelpStatistic_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Всего добавлено/изменено/заблокировано в 2023 году записей: " + 
-                Services.FileSystem.Repository.DataSet.gasps.GetEditedRowCount().ToString(), "Статистика", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            StatisticsDialog dialog = new StatisticsDialog();
+            dialog.ShowDialog(this);
+
+            //MessageBox.Show("Всего добавлено/изменено/заблокировано в 2023 году записей: " + 
+            //    Services.FileSystem.Repository.DataSet.gasps.GetEditedRowCount().ToString(), "Статистика", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void FileOpenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -271,18 +340,14 @@ namespace DatabaseToolSuite.Dialogs
         {
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Title = "Экспортировать данные";
-            dialog.Filter = "Документ XML(.xml)|*.xml|XML Schema File(.xsd)|*.xsd";
-            dialog.FileName = string.IsNullOrWhiteSpace(Services.FileSystem.DatabaseFileName) ? "gasps.xml" : Services.FileSystem.DatabaseFileName;
+            dialog.Filter = "Документ XML(.xml)|*.xml";
+            dialog.FileName = "export_gasps.xml";
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 if (dialog.FilterIndex == 1)
                 {
                     Services.Export.ExportToXml(dialog.FileName);
-                }
-                else
-                {
-                   // Services.FileSystem.WriteSchema(dialog.FileName);
-                }
+                }                
             }
         }
 
@@ -300,11 +365,22 @@ namespace DatabaseToolSuite.Dialogs
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
-            DatabaseToolSuite.Properties.Settings.Default.AppWindowWidth = Width;
-            DatabaseToolSuite.Properties.Settings.Default.AppWindowHight = Height;
-            DatabaseToolSuite.Properties.Settings.Default.Save();
-
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                DatabaseToolSuite.Properties.Settings.Default.AppWindowWidth = Width;
+                DatabaseToolSuite.Properties.Settings.Default.AppWindowHight = Height;
+                DatabaseToolSuite.Properties.Settings.Default.Save();
+            }
             base.OnFormClosed(e);
+        }
+
+        private void AppForm_Resize(object sender, EventArgs e)
+        {
+            filterPanel.Location = new System.Drawing.Point(2, mainToolStripBar.Top + mainToolStripBar.Height);
+            filterPanel.Width = ClientSize.Width - 4;
+            gaspsListView.Location = new System.Drawing.Point(filterPanel.Left + filterGroupBox.Left, filterPanel.Top + filterPanel.Height);
+            gaspsListView.Width = ClientSize.Width - (filterPanel.Left + filterGroupBox.Left) * 2;
+            gaspsListView.Height = statusStrip1.Top - gaspsListView.Top - filterPanel.Left;
         }
     }
 }

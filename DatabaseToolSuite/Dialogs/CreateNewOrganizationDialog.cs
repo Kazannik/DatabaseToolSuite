@@ -71,7 +71,15 @@ namespace DatabaseToolSuite.Dialogs
 
         private void nextCodeButton_Click(object sender, EventArgs e)
         {
-            codeTextBox.Text = Services.FileSystem.Repository.DataSet.gasps.GetNextCode(authority: Authority.HasValue ? Authority.Value : 0, okato: OkatoCode);
+            try
+            {
+                codeTextBox.Text = Services.FileSystem.Repository.DataSet.gasps.GetNextCode(authority: Authority.HasValue ? Authority.Value : 0, okato: OkatoCode);
+            }
+            catch (Exception)
+            {
+                codeTextBox.Text = Services.FileSystem.Repository.DataSet.gasps.GetNextSkippedCode(authority: Authority.HasValue ? Authority.Value : 0, okato: OkatoCode);
+                MessageBox.Show(this, "Диапазон кодов исчерпан. Выбран код из числа пропущенных номеров.", "Создание новой записи о подразделении",  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void selectCodeButton_Click(object sender, EventArgs e)

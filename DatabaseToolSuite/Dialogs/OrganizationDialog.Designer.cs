@@ -182,7 +182,7 @@
             // 
             this.lockButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lockButton.Image = global::DatabaseToolSuite.Properties.Resources.PageDelete32;
+            this.lockButton.Image = global::DatabaseToolSuite.Properties.Resources.Delete32;
             this.lockButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lockButton.Location = new System.Drawing.Point(6, 214);
             this.lockButton.Name = "lockButton";
@@ -197,7 +197,7 @@
             // 
             this.createButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.createButton.Image = global::DatabaseToolSuite.Properties.Resources.PageVersion32;
+            this.createButton.Image = global::DatabaseToolSuite.Properties.Resources.Duplicate32;
             this.createButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.createButton.Location = new System.Drawing.Point(6, 150);
             this.createButton.Name = "createButton";
@@ -212,7 +212,7 @@
             // 
             this.cloneButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cloneButton.Image = global::DatabaseToolSuite.Properties.Resources.PageDuplicate32;
+            this.cloneButton.Image = global::DatabaseToolSuite.Properties.Resources.Duplicate32;
             this.cloneButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.cloneButton.Location = new System.Drawing.Point(6, 86);
             this.cloneButton.Name = "cloneButton";
@@ -227,7 +227,7 @@
             // 
             this.newButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.newButton.Image = global::DatabaseToolSuite.Properties.Resources.NewPage32;
+            this.newButton.Image = global::DatabaseToolSuite.Properties.Resources.New32;
             this.newButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.newButton.Location = new System.Drawing.Point(6, 22);
             this.newButton.Name = "newButton";
@@ -266,7 +266,7 @@
             // 
             this.savaButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.savaButton.Image = global::DatabaseToolSuite.Properties.Resources.PageSave32;
+            this.savaButton.Image = global::DatabaseToolSuite.Properties.Resources.Save32;
             this.savaButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.savaButton.Location = new System.Drawing.Point(670, 314);
             this.savaButton.Name = "savaButton";

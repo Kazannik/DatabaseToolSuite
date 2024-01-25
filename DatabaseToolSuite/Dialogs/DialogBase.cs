@@ -321,7 +321,7 @@ namespace DatabaseToolSuite.Dialogs
             // 
             this.button_Apply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Apply.Location = new System.Drawing.Point(0, 0);
-            this.button_Apply.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_Apply.Margin = new System.Windows.Forms.Padding(4);
             this.button_Apply.Name = "button_Apply";
             this.button_Apply.Size = new System.Drawing.Size(100, 28);
             this.button_Apply.TabIndex = 2;
@@ -335,7 +335,7 @@ namespace DatabaseToolSuite.Dialogs
             this.button_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Cancel.Location = new System.Drawing.Point(0, 0);
-            this.button_Cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_Cancel.Margin = new System.Windows.Forms.Padding(4);
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(100, 28);
             this.button_Cancel.TabIndex = 1;
@@ -349,7 +349,7 @@ namespace DatabaseToolSuite.Dialogs
             this.button_OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button_OK.Location = new System.Drawing.Point(0, 0);
-            this.button_OK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_OK.Margin = new System.Windows.Forms.Padding(4);
             this.button_OK.Name = "button_OK";
             this.button_OK.Size = new System.Drawing.Size(100, 28);
             this.button_OK.TabIndex = 0;
@@ -369,7 +369,7 @@ namespace DatabaseToolSuite.Dialogs
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_Apply);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DialogBase";
@@ -382,9 +382,8 @@ namespace DatabaseToolSuite.Dialogs
         }
 
         #endregion
-
-        private Button button_Cancel;
-        private Button button_OK;
+        protected Button button_Cancel;
+        protected Button button_OK;
         private Button button_Apply;
 
         private void DialogBase_Load(object sender, EventArgs e)

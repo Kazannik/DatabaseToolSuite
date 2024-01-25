@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DatabaseToolSuite.Repositoryes;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
+using System.Drawing;
 
 namespace DatabaseToolSuite.Controls
 {
@@ -247,25 +248,25 @@ namespace DatabaseToolSuite.Controls
             }
         }
 
-        private void ListView_SearchForVirtualItem(object sender, SearchForVirtualItemEventArgs e)
-        {
-            //We've gotten a search request.
-            //In this example, finding the item is easy since it's
-            //just the square of its index.  We'll take the square root
-            //and round.
-            double x = 0;
-            if (Double.TryParse(e.Text, out x)) //check if this is a valid search
-            {
-                x = Math.Sqrt(x);
-                x = Math.Round(x);
-                e.Index = (int)x;
-            }
-            //If e.Index is not set, the search returns null.
-            //Note that this only handles simple searches over the entire
-            //list, ignoring any other settings.  Handling Direction, StartIndex,
-            //and the other properties of SearchForVirtualItemEventArgs is up
-            //to this handler.
-        }
+        //private void ListView_SearchForVirtualItem(object sender, SearchForVirtualItemEventArgs e)
+        //{
+        //    //We've gotten a search request.
+        //    //In this example, finding the item is easy since it's
+        //    //just the square of its index.  We'll take the square root
+        //    //and round.
+        //    double x = 0;
+        //    if (Double.TryParse(e.Text, out x)) //check if this is a valid search
+        //    {
+        //        x = Math.Sqrt(x);
+        //        x = Math.Round(x);
+        //        e.Index = (int)x;
+        //    }
+        //    //If e.Index is not set, the search returns null.
+        //    //Note that this only handles simple searches over the entire
+        //    //list, ignoring any other settings.  Handling Direction, StartIndex,
+        //    //and the other properties of SearchForVirtualItemEventArgs is up
+        //    //to this handler.
+        //}
 
         private ListViewItem CreateListViewItem(gaspsRow row)
         {
@@ -385,6 +386,9 @@ namespace DatabaseToolSuite.Controls
         public event EventHandler ReserveVisibleChanged;
         public event EventHandler UnlockVisibleChanged;
 
+        public event EventHandler<GaspsListViewEventArgs> ItemMouseClick;
+
+
         protected virtual void OnItemSelectionChanged(EventArgs e)
         {
             ItemSelectionChanged?.Invoke(this, e);
@@ -408,6 +412,11 @@ namespace DatabaseToolSuite.Controls
             UnlockVisibleChanged?.Invoke(this, e);
         }
 
+        protected virtual void OnItemMouseClick(GaspsListViewEventArgs e)
+        {
+            ItemMouseClick?.Invoke(this, e);
+        }
+
         private void ControlsValueChanged()
         {
             baseListView.SelectedIndices.Clear();
@@ -421,5 +430,44 @@ namespace DatabaseToolSuite.Controls
                 lockShow: _lockShow);
             DetailsUpdate();
         }
+
+        private void ListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            ListView listView = sender as ListView;
+            var focusedItem = listView.FocusedItem;
+            if (focusedItem != null && focusedItem.Bounds.Contains(e.Location))
+            {
+                OnItemMouseClick(new GaspsListViewEventArgs(focusedItem, e ));
+            }
+        }
+    }
+    
+    public class GaspsListViewEventArgs : EventArgs
+    {
+        public GaspsListViewEventArgs(ListViewItem item, MouseEventArgs arg)
+        {
+            FocusedItem = item;
+            Button = arg.Button;
+            Clicks = arg.Clicks;
+            Delta = arg.Delta;
+            Location = arg.Location;
+            X = arg.X;
+            Y = arg.Y;
+        }
+
+        public ListViewItem FocusedItem { get; }
+
+        public MouseButtons Button { get; }
+
+        public int Clicks { get; }
+
+        public int Delta { get; }
+
+        public Point Location { get; }
+
+        public int X { get; }
+
+        public int Y { get; }
+
     }
 }

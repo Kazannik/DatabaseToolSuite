@@ -54,7 +54,7 @@
             this.baseListView.GridLines = true;
             this.baseListView.LargeImageList = this.organizationImageList;
             this.baseListView.Location = new System.Drawing.Point(0, 0);
-            this.baseListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.baseListView.Margin = new System.Windows.Forms.Padding(4);
             this.baseListView.MultiSelect = false;
             this.baseListView.Name = "baseListView";
             this.baseListView.Size = new System.Drawing.Size(863, 185);
@@ -67,8 +67,9 @@
             this.baseListView.CacheVirtualItems += new System.Windows.Forms.CacheVirtualItemsEventHandler(this.ListView_CacheVirtualItems);
             this.baseListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListView_ColumnClick);
             this.baseListView.RetrieveVirtualItem += new System.Windows.Forms.RetrieveVirtualItemEventHandler(this.ListView_RetrieveVirtualItem);
-            this.baseListView.SearchForVirtualItem += new System.Windows.Forms.SearchForVirtualItemEventHandler(this.ListView_SearchForVirtualItem);
+            //this.baseListView.SearchForVirtualItem += new System.Windows.Forms.SearchForVirtualItemEventHandler(this.ListView_SearchForVirtualItem);
             this.baseListView.SelectedIndexChanged += new System.EventHandler(this.ListView_SelectedIndexChanged);
+            this.baseListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListView_MouseClick);
             // 
             // codeColumn
             // 
@@ -113,7 +114,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.baseListView);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GaspsListView";
             this.Size = new System.Drawing.Size(863, 185);
             this.ResumeLayout(false);
