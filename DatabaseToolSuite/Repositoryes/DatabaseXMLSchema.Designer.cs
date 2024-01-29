@@ -1206,6 +1206,22 @@ namespace DatabaseToolSuite.Repositoryes {
             
             private global::System.Data.DataColumn columncourt_type_id;
             
+            private global::System.Data.DataColumn columnesnsi_region_id;
+            
+            private global::System.Data.DataColumn columnesnsi_sv_0004;
+            
+            private global::System.Data.DataColumn columnesnsi_sv_0005;
+            
+            private global::System.Data.DataColumn columnesnsi_sv_0006;
+            
+            private global::System.Data.DataColumn columnesnsi_okato;
+            
+            private global::System.Data.DataColumn columnesnsi_code;
+            
+            private global::System.Data.DataColumn columnesnsi_autokey;
+            
+            private global::System.Data.DataColumn columnesnsi_id;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public gaspsDataTable() {
@@ -1353,6 +1369,70 @@ namespace DatabaseToolSuite.Repositoryes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn esnsi_region_idColumn {
+                get {
+                    return this.columnesnsi_region_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn esnsi_sv_0004Column {
+                get {
+                    return this.columnesnsi_sv_0004;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn esnsi_sv_0005Column {
+                get {
+                    return this.columnesnsi_sv_0005;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn esnsi_sv_0006Column {
+                get {
+                    return this.columnesnsi_sv_0006;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn esnsi_okatoColumn {
+                get {
+                    return this.columnesnsi_okato;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn esnsi_codeColumn {
+                get {
+                    return this.columnesnsi_code;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn esnsi_autokeyColumn {
+                get {
+                    return this.columnesnsi_autokey;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn esnsi_idColumn {
+                get {
+                    return this.columnesnsi_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1388,7 +1468,28 @@ namespace DatabaseToolSuite.Repositoryes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public gaspsRow AddgaspsRow(string name, long key, okatoRow parentokatoRowByFK_okato_gasps, authorityRow parentauthorityRowByFK_authority_gasps, string code, long version, long index, long owner_id, System.DateTime date_beg, System.DateTime date_end, long location_okato_id, long another_okato_id, court_typeRow parentcourt_typeRowByFK_court_type_gasps) {
+            public gaspsRow AddgaspsRow(
+                        string name, 
+                        long key, 
+                        okatoRow parentokatoRowByFK_okato_gasps, 
+                        authorityRow parentauthorityRowByFK_authority_gasps, 
+                        string code, 
+                        long version, 
+                        long index, 
+                        long owner_id, 
+                        System.DateTime date_beg, 
+                        System.DateTime date_end, 
+                        long location_okato_id, 
+                        long another_okato_id, 
+                        court_typeRow parentcourt_typeRowByFK_court_type_gasps, 
+                        long esnsi_region_id, 
+                        string esnsi_sv_0004, 
+                        string esnsi_sv_0005, 
+                        string esnsi_sv_0006, 
+                        short esnsi_okato, 
+                        long esnsi_code, 
+                        string esnsi_autokey, 
+                        long esnsi_id) {
                 gaspsRow rowgaspsRow = ((gaspsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1404,7 +1505,15 @@ namespace DatabaseToolSuite.Repositoryes {
                         date_end,
                         location_okato_id,
                         another_okato_id,
-                        null};
+                        null,
+                        esnsi_region_id,
+                        esnsi_sv_0004,
+                        esnsi_sv_0005,
+                        esnsi_sv_0006,
+                        esnsi_okato,
+                        esnsi_code,
+                        esnsi_autokey,
+                        esnsi_id};
                 if ((parentokatoRowByFK_okato_gasps != null)) {
                     columnValuesArray[3] = parentokatoRowByFK_okato_gasps[0];
                 }
@@ -1457,6 +1566,14 @@ namespace DatabaseToolSuite.Repositoryes {
                 this.columnlocation_okato_id = base.Columns["location_okato_id"];
                 this.columnanother_okato_id = base.Columns["another_okato_id"];
                 this.columncourt_type_id = base.Columns["court_type_id"];
+                this.columnesnsi_region_id = base.Columns["esnsi_region_id"];
+                this.columnesnsi_sv_0004 = base.Columns["esnsi_sv_0004"];
+                this.columnesnsi_sv_0005 = base.Columns["esnsi_sv_0005"];
+                this.columnesnsi_sv_0006 = base.Columns["esnsi_sv_0006"];
+                this.columnesnsi_okato = base.Columns["esnsi_okato"];
+                this.columnesnsi_code = base.Columns["esnsi_code"];
+                this.columnesnsi_autokey = base.Columns["esnsi_autokey"];
+                this.columnesnsi_id = base.Columns["esnsi_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1490,6 +1607,22 @@ namespace DatabaseToolSuite.Repositoryes {
                 base.Columns.Add(this.columnanother_okato_id);
                 this.columncourt_type_id = new global::System.Data.DataColumn("court_type_id", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncourt_type_id);
+                this.columnesnsi_region_id = new global::System.Data.DataColumn("esnsi_region_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnesnsi_region_id);
+                this.columnesnsi_sv_0004 = new global::System.Data.DataColumn("esnsi_sv_0004", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnesnsi_sv_0004);
+                this.columnesnsi_sv_0005 = new global::System.Data.DataColumn("esnsi_sv_0005", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnesnsi_sv_0005);
+                this.columnesnsi_sv_0006 = new global::System.Data.DataColumn("esnsi_sv_0006", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnesnsi_sv_0006);
+                this.columnesnsi_okato = new global::System.Data.DataColumn("esnsi_okato", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnesnsi_okato);
+                this.columnesnsi_code = new global::System.Data.DataColumn("esnsi_code", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnesnsi_code);
+                this.columnesnsi_autokey = new global::System.Data.DataColumn("esnsi_autokey", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnesnsi_autokey);
+                this.columnesnsi_id = new global::System.Data.DataColumn("esnsi_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnesnsi_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("gasps_key", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint4", new global::System.Data.DataColumn[] {
@@ -1515,6 +1648,10 @@ namespace DatabaseToolSuite.Repositoryes {
                 this.columndate_beg.Caption = "Дата начала";
                 this.columndate_end.AllowDBNull = false;
                 this.columndate_end.Caption = "Дата окончания";
+                this.columnesnsi_region_id.Caption = "Регион";
+                this.columnesnsi_sv_0004.Caption = "Телефон канцелярии";
+                this.columnesnsi_sv_0005.Caption = "Электронный адрес канцелярии";
+                this.columnesnsi_sv_0006.Caption = "Адрес приемной";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2395,6 +2532,134 @@ namespace DatabaseToolSuite.Repositoryes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long esnsi_region_id {
+                get {
+                    try {
+                        return ((long)(this[this.tablegasps.esnsi_region_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'esnsi_region_id\' в таблице \'gasps\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegasps.esnsi_region_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string esnsi_sv_0004 {
+                get {
+                    try {
+                        return ((string)(this[this.tablegasps.esnsi_sv_0004Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'esnsi_sv_0004\' в таблице \'gasps\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegasps.esnsi_sv_0004Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string esnsi_sv_0005 {
+                get {
+                    try {
+                        return ((string)(this[this.tablegasps.esnsi_sv_0005Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'esnsi_sv_0005\' в таблице \'gasps\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegasps.esnsi_sv_0005Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string esnsi_sv_0006 {
+                get {
+                    try {
+                        return ((string)(this[this.tablegasps.esnsi_sv_0006Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'esnsi_sv_0006\' в таблице \'gasps\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegasps.esnsi_sv_0006Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public short esnsi_okato {
+                get {
+                    try {
+                        return ((short)(this[this.tablegasps.esnsi_okatoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'esnsi_okato\' в таблице \'gasps\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegasps.esnsi_okatoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long esnsi_code {
+                get {
+                    try {
+                        return ((long)(this[this.tablegasps.esnsi_codeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'esnsi_code\' в таблице \'gasps\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegasps.esnsi_codeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string esnsi_autokey {
+                get {
+                    try {
+                        return ((string)(this[this.tablegasps.esnsi_autokeyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'esnsi_autokey\' в таблице \'gasps\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegasps.esnsi_autokeyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long esnsi_id {
+                get {
+                    try {
+                        return ((long)(this[this.tablegasps.esnsi_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'esnsi_id\' в таблице \'gasps\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegasps.esnsi_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public authorityRow authorityRow {
                 get {
                     return ((authorityRow)(this.GetParentRow(this.Table.ParentRelations["FK_authority_gasps"])));
@@ -2472,6 +2737,102 @@ namespace DatabaseToolSuite.Repositoryes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setcourt_type_idNull() {
                 this[this.tablegasps.court_type_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isesnsi_region_idNull() {
+                return this.IsNull(this.tablegasps.esnsi_region_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setesnsi_region_idNull() {
+                this[this.tablegasps.esnsi_region_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isesnsi_sv_0004Null() {
+                return this.IsNull(this.tablegasps.esnsi_sv_0004Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setesnsi_sv_0004Null() {
+                this[this.tablegasps.esnsi_sv_0004Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isesnsi_sv_0005Null() {
+                return this.IsNull(this.tablegasps.esnsi_sv_0005Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setesnsi_sv_0005Null() {
+                this[this.tablegasps.esnsi_sv_0005Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isesnsi_sv_0006Null() {
+                return this.IsNull(this.tablegasps.esnsi_sv_0006Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setesnsi_sv_0006Null() {
+                this[this.tablegasps.esnsi_sv_0006Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isesnsi_okatoNull() {
+                return this.IsNull(this.tablegasps.esnsi_okatoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setesnsi_okatoNull() {
+                this[this.tablegasps.esnsi_okatoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isesnsi_codeNull() {
+                return this.IsNull(this.tablegasps.esnsi_codeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setesnsi_codeNull() {
+                this[this.tablegasps.esnsi_codeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isesnsi_autokeyNull() {
+                return this.IsNull(this.tablegasps.esnsi_autokeyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setesnsi_autokeyNull() {
+                this[this.tablegasps.esnsi_autokeyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isesnsi_idNull() {
+                return this.IsNull(this.tablegasps.esnsi_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setesnsi_idNull() {
+                this[this.tablegasps.esnsi_idColumn] = global::System.Convert.DBNull;
             }
         }
         

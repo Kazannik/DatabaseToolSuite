@@ -13,14 +13,12 @@ namespace DatabaseToolSuite.Controls
     {
         public NumericTextBox()
         {
-            InitializeComponent();
+
         }
 
         public NumericTextBox(IContainer container)
         {
             container.Add(this);
-
-            InitializeComponent();
         }
 
         protected override void OnKeyPress(KeyPressEventArgs e)

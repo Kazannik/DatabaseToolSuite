@@ -337,45 +337,45 @@ namespace DatabaseToolSuite.Controls
                 baseListView.Columns[e.Column].Tag.ToString() == "UP")
             {
                 if (e.Column == 0)
-                    rowsCollection = rowsCollection.OrderBy(x => x.code).ToList();
+                    rowsCollection = rowsCollection.OrderBy(x => x.code).ToArray();
                 else if (e.Column == 1)
-                    rowsCollection = rowsCollection.OrderBy(x => x.name).ToList();
+                    rowsCollection = rowsCollection.OrderBy(x => x.name).ToArray();
                 else if (e.Column == 2)
-                    rowsCollection = rowsCollection.OrderBy(x => x.okato_code).ToList();
+                    rowsCollection = rowsCollection.OrderBy(x => x.authority_id).ToArray();
                 else if (e.Column == 3)
-                    rowsCollection = rowsCollection.OrderBy(x => x.authority_id).ToList();
+                    rowsCollection = rowsCollection.OrderBy(x => x.okato_code).ToArray();
                 else if (e.Column == 4)
-                    rowsCollection = rowsCollection.OrderBy(x => x.date_beg).ToList();
+                    rowsCollection = rowsCollection.OrderBy(x => x.date_beg).ToArray();
                 else if (e.Column == 5)
-                    rowsCollection = rowsCollection.OrderBy(x => x.date_end).ToList();
+                    rowsCollection = rowsCollection.OrderBy(x => x.date_end).ToArray();
                 else
-                    rowsCollection = rowsCollection.OrderBy(x => x.code).ToList();
+                    rowsCollection = rowsCollection.OrderBy(x => x.code).ToArray();
 
                 baseListView.Columns[e.Column].Tag = "DOWN";
             }
             else
             {
                 if (e.Column == 0)
-                    rowsCollection = rowsCollection.OrderByDescending(x => x.code).ToList();
+                    rowsCollection = rowsCollection.OrderByDescending(x => x.code).ToArray();
                 else if (e.Column == 1)
-                    rowsCollection = rowsCollection.OrderByDescending(x => x.name).ToList();
+                    rowsCollection = rowsCollection.OrderByDescending(x => x.name).ToArray();
                 else if (e.Column == 2)
-                    rowsCollection = rowsCollection.OrderByDescending(x => x.okato_code).ToList();
+                    rowsCollection = rowsCollection.OrderByDescending(x => x.authority_id).ToArray();
                 else if (e.Column == 3)
-                    rowsCollection = rowsCollection.OrderByDescending(x => x.authority_id).ToList();
-                else if (e.Column == 4)
-                    rowsCollection = rowsCollection.OrderByDescending(x => x.date_beg).ToList();
+                    rowsCollection = rowsCollection.OrderByDescending(x => x.okato_code).ToArray();
+               else if (e.Column == 4)
+                    rowsCollection = rowsCollection.OrderByDescending(x => x.date_beg).ToArray();
                 else if (e.Column == 5)
-                    rowsCollection = rowsCollection.OrderByDescending(x => x.date_end).ToList();
+                    rowsCollection = rowsCollection.OrderByDescending(x => x.date_end).ToArray();
                 else
-                    rowsCollection = rowsCollection.OrderByDescending(x => x.code).ToList();
+                    rowsCollection = rowsCollection.OrderByDescending(x => x.code).ToArray();
 
                 baseListView.Columns[e.Column].Tag = "UP";
             }
 
+            int selectIndex = rowsCollection.IndexOf(selectedRow);
             itemsCache = null;
             baseListView.SelectedIndices.Clear();
-            int selectIndex = rowsCollection.IndexOf(selectedRow);
             baseListView.SelectedIndices.Add(selectIndex);
             baseListView.EnsureVisible(selectIndex);
             baseListView.EndUpdate();
@@ -387,6 +387,7 @@ namespace DatabaseToolSuite.Controls
         public event EventHandler UnlockVisibleChanged;
 
         public event EventHandler<GaspsListViewEventArgs> ItemMouseClick;
+        public event EventHandler<GaspsListViewEventArgs> ItemMouseDoubleClick;
 
 
         protected virtual void OnItemSelectionChanged(EventArgs e)
@@ -417,6 +418,11 @@ namespace DatabaseToolSuite.Controls
             ItemMouseClick?.Invoke(this, e);
         }
 
+        protected virtual void OnItemMouseDoubleClick(GaspsListViewEventArgs e)
+        {
+            ItemMouseDoubleClick?.Invoke(this, e);
+        }
+
         private void ControlsValueChanged()
         {
             baseListView.SelectedIndices.Clear();
@@ -440,8 +446,18 @@ namespace DatabaseToolSuite.Controls
                 OnItemMouseClick(new GaspsListViewEventArgs(focusedItem, e ));
             }
         }
+
+        private void ListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListView listView = sender as ListView;
+            var focusedItem = listView.FocusedItem;
+            if (focusedItem != null && focusedItem.Bounds.Contains(e.Location))
+            {
+                OnItemMouseDoubleClick(new GaspsListViewEventArgs(focusedItem, e));
+            }
+        }
     }
-    
+
     public class GaspsListViewEventArgs : EventArgs
     {
         public GaspsListViewEventArgs(ListViewItem item, MouseEventArgs arg)

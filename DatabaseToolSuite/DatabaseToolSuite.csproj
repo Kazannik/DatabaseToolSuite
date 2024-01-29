@@ -104,9 +104,6 @@
       <DependentUpon>GaspsListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\NumericTextBox.cs" />
-    <Compile Include="Controls\NumericTextBox.Designer.cs">
-      <DependentUpon>NumericTextBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\OkatoComboBox.cs" />
     <Compile Include="Controls\OkatoToolStripComboBox.cs" />
     <Compile Include="Controls\ToolStripCheckBox.cs" />
@@ -115,12 +112,6 @@
     <Compile Include="Controls\ToolStripNumericUpDown.cs" />
     <Compile Include="Dialogs\AboutDialog.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ActionsDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ActionsDialog.Designer.cs">
-      <DependentUpon>ActionsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\AppForm.cs">
       <SubType>Form</SubType>
@@ -156,6 +147,9 @@
       <DependentUpon>DictionaryEditDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\EditErrorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EsnsiDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\ExportDialog.cs">
@@ -229,9 +223,6 @@
     <EmbeddedResource Include="Dialogs\AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ActionsDialog.resx">
-      <DependentUpon>ActionsDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AppForm.resx">
       <DependentUpon>AppForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\EditErrorDialog.resx">
       <DependentUpon>EditErrorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EsnsiDialog.resx">
+      <DependentUpon>EsnsiDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ExportDialog.resx">
       <DependentUpon>ExportDialog.cs</DependentUpon>

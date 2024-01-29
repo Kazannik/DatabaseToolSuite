@@ -112,14 +112,22 @@ namespace DatabaseToolSuite.Dialogs
         {
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.textBox_CompanyName = new System.Windows.Forms.TextBox();
+            this.pictureBox_Logo = new System.Windows.Forms.PictureBox();
             this.label_ProductName = new System.Windows.Forms.Label();
             this.label_Version = new System.Windows.Forms.Label();
             this.label_Copyright = new System.Windows.Forms.Label();
             this.textBox_Description = new System.Windows.Forms.TextBox();
-            this.pictureBox_Logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // button_Cancel
+            // 
+            this.button_Cancel.Location = new System.Drawing.Point(495, 359);
+            // 
+            // button_OK
+            // 
+            this.button_OK.Location = new System.Drawing.Point(333, 359);
             // 
             // tableLayoutPanel
             // 
@@ -159,6 +167,19 @@ namespace DatabaseToolSuite.Dialogs
             this.textBox_CompanyName.TabIndex = 25;
             this.textBox_CompanyName.TabStop = false;
             this.textBox_CompanyName.Text = "Наименование компании";
+            // 
+            // pictureBox_Logo
+            // 
+            this.pictureBox_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox_Logo.Image = global::DatabaseToolSuite.Properties.Resources.emblem_big;
+            this.pictureBox_Logo.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox_Logo.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox_Logo.Name = "pictureBox_Logo";
+            this.tableLayoutPanel.SetRowSpan(this.pictureBox_Logo, 4);
+            this.pictureBox_Logo.Size = new System.Drawing.Size(175, 172);
+            this.pictureBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_Logo.TabIndex = 12;
+            this.pictureBox_Logo.TabStop = false;
             // 
             // label_ProductName
             // 
@@ -211,19 +232,6 @@ namespace DatabaseToolSuite.Dialogs
             this.textBox_Description.TabStop = false;
             this.textBox_Description.Text = "Описание";
             // 
-            // pictureBox_Logo
-            // 
-            this.pictureBox_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_Logo.Image = global::DatabaseToolSuite.Properties.Resources.emblem_big;
-            this.pictureBox_Logo.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox_Logo.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox_Logo.Name = "pictureBox_Logo";
-            this.tableLayoutPanel.SetRowSpan(this.pictureBox_Logo, 4);
-            this.pictureBox_Logo.Size = new System.Drawing.Size(175, 172);
-            this.pictureBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_Logo.TabIndex = 12;
-            this.pictureBox_Logo.TabStop = false;
-            // 
             // AboutDialog
             // 
             this.AcceptButton = this.AcceptButton;
@@ -239,6 +247,8 @@ namespace DatabaseToolSuite.Dialogs
             this.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.ShowIcon = false;
             this.Text = "DialogAbout";
+            this.Controls.SetChildIndex(this.button_Cancel, 0);
+            this.Controls.SetChildIndex(this.button_OK, 0);
             this.Controls.SetChildIndex(this.tableLayoutPanel, 0);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();

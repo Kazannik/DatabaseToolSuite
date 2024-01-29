@@ -186,7 +186,7 @@ namespace DatabaseToolSuite.Repositoryes
 
                 return dv;
             }
-            
+
             public IList<gaspsRow> GetLockLastCodes(long? authority, string okato)
             {
                 IEnumerable<gaspsRow> result = this.AsEnumerable()
@@ -205,7 +205,7 @@ namespace DatabaseToolSuite.Repositoryes
 
                 return result.ToList();
             }
-            
+
             public gaspsRow GetOrganizationFromVersion(long version)
             {
                 return this.AsEnumerable()
@@ -327,7 +327,7 @@ namespace DatabaseToolSuite.Repositoryes
                 }
                 return result;
             }
-            
+
             public string GetNextSkippedCode(long authority, string okato)
             {
                 string leftCode = authority.ToString("00") + okato;
@@ -341,7 +341,7 @@ namespace DatabaseToolSuite.Repositoryes
                 string leftCode = authority.ToString("00") + okato;
                 string rightCodeFormat = new string('0', 8 - leftCode.Length);
                 List<long> codes = new List<long>(this.AsEnumerable()
-                    .Where(r => r.authority_id == authority && r.okato_code == okato)               
+                    .Where(r => r.authority_id == authority && r.okato_code == okato)
                     .Select(r => long.Parse(r.code.Substring(leftCode.Length)))
                     .Distinct());
                 codes.Sort();
@@ -371,15 +371,15 @@ namespace DatabaseToolSuite.Repositoryes
 
                 return new BindingList<gaspsRow>(lockCodes.Where(p => unlickCodes.All(p2 => p2.code != p.code)).OrderBy(x => x.code).ToArray());
             }
-            
+
             public IEnumerable<Organization> ExportData()
             {
                 return from item in this.AsEnumerable()
                        where (item.date_beg <= DateTime.Today &&
                        item.date_end > DateTime.Today)
-                       join authority in  authorityTable on item.authority_id equals authority.id
+                       join authority in authorityTable on item.authority_id equals authority.id
                        join okato in okatoTable on item.okato_code equals okato.code
-                       select new Organization(name:item.name, authority:authority.name, okato:okato.code + " - " + okato.name, code: item.code, begin: item.date_beg);
+                       select new Organization(name: item.name, authority: authority.name, okato: okato.code + " - " + okato.name, code: item.code, begin: item.date_beg);
             }
 
             public class Organization

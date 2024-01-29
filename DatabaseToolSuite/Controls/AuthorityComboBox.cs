@@ -1,6 +1,4 @@
 ﻿using DatabaseToolSuite.Repositoryes.Dto;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows.Forms.Design;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
 

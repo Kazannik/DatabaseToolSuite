@@ -254,6 +254,10 @@ namespace DatabaseToolSuite.Dialogs
 
         private void ResizeButton()
         {
+            button_Apply.Size = BUTTON_SIZE;
+            button_Cancel.Size = BUTTON_SIZE;
+            button_OK.Size = BUTTON_SIZE;
+
             int left = Width - RIGHT_BUTTON_MARGIN - BUTTON_SIZE.Width;
             if (button_Cancel.Visible)
             {

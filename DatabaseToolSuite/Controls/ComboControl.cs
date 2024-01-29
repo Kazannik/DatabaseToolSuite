@@ -55,7 +55,7 @@ namespace DatabaseToolSuite.Controls
             DropDownWidth = 80;
             base.AutoSize = false;
             Width = 80;
-            DropDownHeight = 80;
+            DropDownHeight = 200;
             Items.Clear();
 
             ResumeLayout(false);
@@ -72,7 +72,7 @@ namespace DatabaseToolSuite.Controls
 
             SizeF CodeSize = graphics.MeasureString("FFFFF", Font);
             ItemHeight = (int)CodeSize.Height + SystemInformation.BorderSize.Height * 4;
-            DropDownHeight = ItemHeight * 8 + SystemInformation.BorderSize.Height * 4;
+            DropDownHeight = ItemHeight * 20 + SystemInformation.BorderSize.Height * 4;
 
             Rectangle rectSelection = new Rectangle(e.Bounds.X + 1, e.Bounds.Y, e.Bounds.Width - 3, e.Bounds.Height - 1);
             Rectangle rectCode = new Rectangle(rectSelection.X + 2, rectSelection.Y + 2, (int)CodeSize.Width, rectSelection.Height - 4);
@@ -304,8 +304,7 @@ namespace DatabaseToolSuite.Controls
             }
             return false;
         }
-
-
+        
         public string Code
         {
             get
@@ -338,7 +337,6 @@ namespace DatabaseToolSuite.Controls
                 }
             }
         }
-
 
         public long? Value
         {
@@ -413,6 +411,12 @@ namespace DatabaseToolSuite.Controls
                 }
             }
             return false;
+        }
+
+        public new T SelectedItem
+        {
+            get { return (T) base.SelectedItem; }
+            set { base.SelectedItem = value; }
         }
 
         public T GetItem(string code)

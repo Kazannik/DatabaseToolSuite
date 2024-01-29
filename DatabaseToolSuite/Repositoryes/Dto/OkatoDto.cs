@@ -1,5 +1,4 @@
-﻿using System;
-using DatabaseToolSuite.Controls;
+﻿using DatabaseToolSuite.Controls;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
 
 namespace DatabaseToolSuite.Repositoryes.Dto

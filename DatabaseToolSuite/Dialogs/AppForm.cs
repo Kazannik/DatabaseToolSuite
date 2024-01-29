@@ -124,6 +124,26 @@ namespace DatabaseToolSuite.Dialogs
             }
         }
 
+        private void gaspsListView_ItemMouseDoubleClick(object sender, Controls.GaspsListViewEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left &&
+                gaspsListView.DataRow.authority_id ==20)
+            {
+                EsnsiDialog dialog = new EsnsiDialog(gaspsListView.DataRow);
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    gaspsListView.DataRow.esnsi_autokey = dialog.Autokey;
+                    gaspsListView.DataRow.esnsi_code = dialog.Code;
+                    gaspsListView.DataRow.esnsi_id = dialog.Id;
+                    gaspsListView.DataRow.esnsi_okato = (short)dialog.OkatoCode;
+                    gaspsListView.DataRow.esnsi_region_id = dialog.RegionCode;
+                    gaspsListView.DataRow.esnsi_sv_0004 = dialog.Phone;
+                    gaspsListView.DataRow.esnsi_sv_0005 = dialog.Email;
+                    gaspsListView.DataRow.esnsi_sv_0006 = dialog.Address;
+                }
+            }
+        }
+
         private void TableNewOrganization_Click(object sender, EventArgs e)
         {
             CreateNewOrganizationDialog dialog = new CreateNewOrganizationDialog();
@@ -382,5 +402,7 @@ namespace DatabaseToolSuite.Dialogs
             gaspsListView.Width = ClientSize.Width - (filterPanel.Left + filterGroupBox.Left) * 2;
             gaspsListView.Height = statusStrip1.Top - gaspsListView.Top - filterPanel.Left;
         }
+
+        
     }
 }

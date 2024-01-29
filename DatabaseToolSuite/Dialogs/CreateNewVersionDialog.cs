@@ -18,7 +18,7 @@ namespace DatabaseToolSuite.Dialogs
 
             InitializeComponent();
 
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.Sizable;
 
             okatoComboBox.InitializeSource(Services.FileSystem.Repository.DataSet.okato);
             authorityComboBox.InitializeSource(Services.FileSystem.Repository.DataSet.authority);
@@ -45,7 +45,7 @@ namespace DatabaseToolSuite.Dialogs
 
             InitializeComponent();
 
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.Sizable;
 
             codeTextBox.Text = DataRow.code;
 
