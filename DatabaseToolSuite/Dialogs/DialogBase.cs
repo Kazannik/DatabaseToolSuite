@@ -56,8 +56,7 @@ namespace DatabaseToolSuite.Dialogs
 
             base.OnPaint(e);
         }
-
-
+        
         protected bool OkButtonVisible
         {
             get

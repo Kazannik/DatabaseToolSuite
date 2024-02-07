@@ -6,6 +6,7 @@ namespace DatabaseToolSuite.Dialogs
 {
     class EsnsiDialog : DialogBase
     {
+        public fgis_esnsiRow DataRow { get; }
 
         private long oldRegionCode;
         private string oldPhone;
@@ -17,7 +18,7 @@ namespace DatabaseToolSuite.Dialogs
         private long oldId;
 
 
-        public long RegionCode { get { return esnsiOkatoComboBox.SelectedItem.Kod1; } }
+        public long RegionCode { get { return esnsiOkatoComboBox.SelectedItem.Ter; } }
 
         public string Phone { get { return esnsiPhoneTextBox.Text; } }
 
@@ -25,7 +26,7 @@ namespace DatabaseToolSuite.Dialogs
 
         public string Address { get { return esnsiAddressTextBox.Text; } }
 
-        public int OkatoCode { get { return esnsiOkatoComboBox.SelectedItem.Kod1; } }
+        public int OkatoCode { get { return esnsiOkatoComboBox.SelectedItem.Ter; } }
 
         public int Code { get { return (int)esnsiCodeNumericTextBox.Value ; } }
 
@@ -40,9 +41,9 @@ namespace DatabaseToolSuite.Dialogs
             InitializeComponent();
         }
 
-        public EsnsiDialog(gaspsRow row) : base()
+        public EsnsiDialog(gaspsRow gaspsRow,  fgis_esnsiRow row) : base()
         {
-            ApplyButtonVisible = false;
+            ApplyButtonVisible = false; 
 
             InitializeComponent();
 
@@ -55,24 +56,27 @@ namespace DatabaseToolSuite.Dialogs
             Text = "ФГИС 'Единая система нормативно-справочной информации'";
             DialogCaption = "Сведения о прокуратуре для ФГИС ЕСНСИ";
 
-            oldAutokey = DataRow.Isesnsi_autokeyNull()? string.Empty: DataRow.esnsi_autokey;
-            oldRegionCode = DataRow.Isesnsi_region_idNull()? -1: DataRow.esnsi_region_id;
-            oldOkatoCode = DataRow.Isesnsi_okatoNull()? -1: DataRow.esnsi_okato;
-            oldPhone = DataRow.Isesnsi_sv_0004Null()?string.Empty: DataRow.esnsi_sv_0004;
-            oldEmail = DataRow.Isesnsi_sv_0005Null()? string.Empty: DataRow.esnsi_sv_0005;
-            oldAddress = DataRow.Isesnsi_sv_0006Null()? string.Empty: DataRow.esnsi_sv_0006;
-            oldCode = DataRow.Isesnsi_codeNull()?-1: DataRow.esnsi_code;
-            oldId = DataRow.Isesnsi_idNull()? -1: DataRow.esnsi_id;
+            oldAutokey = DataRow.IsautokeyNull()? string.Empty: DataRow.autokey;
+            oldRegionCode = DataRow.Isregion_idNull()? -1: DataRow.region_id;
+            oldOkatoCode = DataRow.IsokatoNull()? -1: DataRow.okato;
+            oldPhone = DataRow.Issv_0004Null()?string.Empty: DataRow.sv_0004;
+            oldEmail = DataRow.Issv_0005Null()? string.Empty: DataRow.sv_0005;
+            oldAddress = DataRow.Issv_0006Null()? string.Empty: DataRow.sv_0006;
+            oldCode = DataRow.IscodeNull()?-1: DataRow.code;
+            oldId = DataRow.IsidNull()? -1: DataRow.id;
 
-            esnsiOkatoComboBox.Code = DataRow.okato_code;
+            if (oldOkatoCode >= 0)
+            {
+                esnsiOkatoComboBox.Code = oldOkatoCode.ToString("00");
+            }
 
-            esnsiNameTextBox.Text = DataRow.name;
-            esnsiRegionTextBox.Text = esnsiOkatoComboBox.SelectedItem.Name2;
-            esnsiPhoneTextBox.Text = DataRow.Isesnsi_sv_0004Null() ? string.Empty : DataRow.esnsi_sv_0004;
-            esnsiEmailTextBox.Text = DataRow.Isesnsi_sv_0005Null() ? string.Empty : DataRow.esnsi_sv_0005;
-            esnsiAddressTextBox.Text = DataRow.Isesnsi_sv_0006Null() ? string.Empty : DataRow.esnsi_sv_0006;
-            esnsiCodeNumericTextBox.Text = DataRow.Isesnsi_codeNull() ? string.Empty : DataRow.esnsi_code.ToString();
-            esnsiIdNumericTextBox.Text = DataRow.Isesnsi_idNull() ? string.Empty : DataRow.esnsi_id.ToString();
+            esnsiNameTextBox.Text = gaspsRow.name;
+            esnsiRegionTextBox.Text = esnsiOkatoComboBox.SelectedItem !=null ? esnsiOkatoComboBox.SelectedItem.Name2: string.Empty;
+            esnsiPhoneTextBox.Text = DataRow.Issv_0004Null() ? string.Empty : DataRow.sv_0004;
+            esnsiEmailTextBox.Text = DataRow.Issv_0005Null() ? string.Empty : DataRow.sv_0005;
+            esnsiAddressTextBox.Text = DataRow.Issv_0006Null() ? string.Empty : DataRow.sv_0006;
+            esnsiCodeNumericTextBox.Text = DataRow.IscodeNull() ? string.Empty : DataRow.code.ToString();
+            esnsiIdNumericTextBox.Text = DataRow.IsidNull() ? string.Empty : DataRow.id.ToString();
 
             OkButtonEnabled = false;
         }
@@ -80,6 +84,9 @@ namespace DatabaseToolSuite.Dialogs
 
         private void Controls_ValueChanged(object sender, EventArgs e)
         {
+            esnsiAutokeyTextBox.Text = "FED_GENPROK_ORGANIZATION_" + esnsiIdNumericTextBox.Text;
+            esnsiRegionTextBox.Text = esnsiOkatoComboBox.SelectedItem !=null ? esnsiOkatoComboBox.SelectedItem.Name2: string.Empty;
+
             if (
                 oldAddress != Address ||
                 oldAutokey != Autokey ||
@@ -99,7 +106,7 @@ namespace DatabaseToolSuite.Dialogs
             }           
         }
         
-        public gaspsRow DataRow { get; }
+        
 
         private System.Windows.Forms.TextBox esnsiNameTextBox;
         private System.Windows.Forms.Label esnsiRegionLabel;
@@ -313,8 +320,7 @@ namespace DatabaseToolSuite.Dialogs
             this.esnsiOkatoComboBox.SelectedItem = null;
             this.esnsiOkatoComboBox.Size = new System.Drawing.Size(624, 31);
             this.esnsiOkatoComboBox.TabIndex = 16;
-            this.esnsiOkatoComboBox.SelectedIndexChanged += new System.EventHandler(this.esnsiOkatoComboBox_SelectedIndexChanged);
-            this.esnsiOkatoComboBox.TextChanged += new System.EventHandler(this.Controls_ValueChanged);
+            this.esnsiOkatoComboBox.SelectedIndexChanged += new System.EventHandler(this.Controls_ValueChanged);
             // 
             // esnsiCodeNumericTextBox
             // 
@@ -324,7 +330,7 @@ namespace DatabaseToolSuite.Dialogs
             this.esnsiCodeNumericTextBox.Name = "esnsiCodeNumericTextBox";
             this.esnsiCodeNumericTextBox.Size = new System.Drawing.Size(304, 27);
             this.esnsiCodeNumericTextBox.TabIndex = 17;
-            this.esnsiCodeNumericTextBox.TextChanged += new System.EventHandler(this.esnsiCodeNumericTextBox_TextChanged);
+            this.esnsiCodeNumericTextBox.TextChanged += new System.EventHandler(this.Controls_ValueChanged);
             // 
             // esnsiAutokeyTextBox
             // 
@@ -411,15 +417,6 @@ namespace DatabaseToolSuite.Dialogs
             this.PerformLayout();
 
         }
-
-        private void esnsiOkatoComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            esnsiRegionTextBox.Text = esnsiOkatoComboBox.SelectedItem.Name2;
-        }
-
-        private void esnsiCodeNumericTextBox_TextChanged(object sender, EventArgs e)
-        {
-            esnsiAutokeyTextBox.Text = "FED_GENPROK_ORGANIZATION_" + esnsiIdNumericTextBox.Text;
-        }
+                
     }
 }

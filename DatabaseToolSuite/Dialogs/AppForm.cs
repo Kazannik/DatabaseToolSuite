@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DatabaseToolSuite.Services;
+using System;
 using System.Windows.Forms;
+using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
 
 namespace DatabaseToolSuite.Dialogs
 {
@@ -129,17 +131,28 @@ namespace DatabaseToolSuite.Dialogs
             if (e.Button == MouseButtons.Left &&
                 gaspsListView.DataRow.authority_id ==20)
             {
-                EsnsiDialog dialog = new EsnsiDialog(gaspsListView.DataRow);
+                fgis_esnsiRow editRow;
+
+                if (MasterDataSystem.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version))
+                {
+                    editRow = MasterDataSystem.DataSet.fgis_esnsi.Get(gaspsListView.DataRow.version);
+                }
+                else
+                {
+                    editRow = MasterDataSystem.DataSet.fgis_esnsi.Create(gaspsListView.DataRow.version);
+                }
+
+                EsnsiDialog dialog = new EsnsiDialog(gaspsListView.DataRow, editRow);
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    gaspsListView.DataRow.esnsi_autokey = dialog.Autokey;
-                    gaspsListView.DataRow.esnsi_code = dialog.Code;
-                    gaspsListView.DataRow.esnsi_id = dialog.Id;
-                    gaspsListView.DataRow.esnsi_okato = (short)dialog.OkatoCode;
-                    gaspsListView.DataRow.esnsi_region_id = dialog.RegionCode;
-                    gaspsListView.DataRow.esnsi_sv_0004 = dialog.Phone;
-                    gaspsListView.DataRow.esnsi_sv_0005 = dialog.Email;
-                    gaspsListView.DataRow.esnsi_sv_0006 = dialog.Address;
+                    editRow.autokey = dialog.Autokey;
+                    editRow.code = dialog.Code;
+                    editRow.id = dialog.Id;
+                    editRow.okato = (short)dialog.OkatoCode;
+                    editRow.region_id = dialog.RegionCode;
+                    editRow.sv_0004 = dialog.Phone;
+                    editRow.sv_0005 = dialog.Email;
+                    editRow.sv_0006 = dialog.Address;
                 }
             }
         }
@@ -373,7 +386,12 @@ namespace DatabaseToolSuite.Dialogs
 
         private void FileExportToExcel_Click(object sender, EventArgs e)
         {
-            Services.Export.ExportToExcel();
+            Services.Export.ExportGaspsToExcel();
+        }
+
+        private void FileFgisEsnsiExportToExcel_Click(object sender, EventArgs e)
+        {
+            Services.Export.ExportFgisEsnsiToExcel();
         }
 
         private void AppForm_Load(object sender, EventArgs e)

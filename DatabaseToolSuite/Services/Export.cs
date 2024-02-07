@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet.gaspsDataTable;
+using static DatabaseToolSuite.Repositoryes.RepositoryDataSet.fgis_esnsiDataTable;
 
 namespace DatabaseToolSuite.Services
 {
@@ -19,9 +20,9 @@ namespace DatabaseToolSuite.Services
         }
 
 
-        public static void ExportToExcel()
+        public static void ExportGaspsToExcel()
         {
-            IEnumerable<Organization> data = MasterDataSystem.DataSet.gasps.ExportData();
+            IEnumerable<GaspsOrganization> data = MasterDataSystem.DataSet.gasps.ExportData();
             int rowCount = data.Count();
 
             Excel.Application m_objExcel = null;
@@ -75,7 +76,7 @@ namespace DatabaseToolSuite.Services
 
             object[,] objData = new object[rowCount, 6];
             int r = 0;
-            foreach (Organization item in data)
+            foreach (GaspsOrganization item in data)
             {
                 objData[r, 0] = r + 1;
                 objData[r, 1] = item.Name;
@@ -98,5 +99,57 @@ namespace DatabaseToolSuite.Services
           //  m_objExcel.Quit();
         }
 
+
+        public static void ExportFgisEsnsiToExcel()
+        {
+            IEnumerable<FgisEsnsiOrganization> data = MasterDataSystem.DataSet.fgis_esnsi.ExportData();
+            int rowCount = data.Count();
+
+            Excel.Application m_objExcel = null;
+            Excel.Workbooks m_objBooks = null;
+            Excel._Workbook m_objBook = null;
+            Excel.Sheets m_objSheets = null;
+            Excel._Worksheet m_objSheet = null;
+            Excel.Range m_objRange = null;
+            Excel.Font m_objFont = null;
+
+            object m_objOpt = Missing.Value;
+
+            // Start a new workbook in Excel.
+            m_objExcel = new Excel.Application();
+
+            m_objExcel.Visible = true;
+
+            m_objBooks = m_objExcel.Workbooks;
+
+            m_objBook = m_objBooks.Add(m_objOpt);
+            m_objSheets = m_objBook.Worksheets;
+            m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+            m_objSheet.Name = "FED_GENPROK_ORGANIZATION_Cp1251";
+
+            object[] objHeaders = { "id", "NAME", "REGION", "PHONE", "EMAIL", "ADDRESS", "OKATO", "CODE", "autokey"};
+            m_objRange = m_objSheet.get_Range("A1", "I1");
+            m_objRange.Value = objHeaders;
+           
+            object[,] objData = new object[rowCount, objHeaders.Count()];
+            int r = 0;
+            foreach (FgisEsnsiOrganization item in data)
+            {
+                objData[r, 0] = item.Id;
+                objData[r, 1] = item.Name;
+                objData[r, 2] = item.Region;
+                objData[r, 3] = item.Phone;
+                objData[r, 4] = item.Email;
+                objData[r, 5] = item.Address;
+                objData[r, 6] = item.Okato;
+                objData[r, 7] = item.Code;
+                objData[r, 8] = item.Autokey;
+                r += 1;
+            }
+
+            m_objRange = m_objSheet.get_Range("A2", m_objOpt);
+            m_objRange = m_objRange.get_Resize(rowCount, objHeaders.Count());
+            m_objRange.Value = objData;            
+        }
     }
 }

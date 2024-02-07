@@ -20,9 +20,22 @@ namespace DatabaseToolSuite.Controls
                 Add(new OkatoDto(row));
             }
             EndUpdate();
-        }        
+        }
 
         #endregion
+
+
+        public OkatoDto GetItemFromTer(int ter)
+        {
+            foreach (OkatoDto i in Items)
+            {
+                if (i.Ter == ter && i.Kod1 == 0)
+                {
+                    return i;
+                }
+            }
+            return default(OkatoDto);
+        }
     }
 }
 

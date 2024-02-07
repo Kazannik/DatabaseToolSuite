@@ -12,6 +12,7 @@ namespace DatabaseToolSuite.Repositoryes
 
     partial class RepositoryDataSet
     {
+
         public bool ExistsCourtTypeId(Int64 id)
         {
             court_typeDataTable okato = (court_typeDataTable)this.Tables["court_type"];
@@ -78,6 +79,91 @@ namespace DatabaseToolSuite.Repositoryes
             return okato.GetGenitive(code);
         }
 
+
+        partial class fgis_esnsiDataTable
+        {
+            public bool ExistsRow(long gaspsVersion)
+            {
+                return (from item in this.AsEnumerable()
+                        where item.version == gaspsVersion
+                        select item).Count() > 0;
+            }
+
+            public fgis_esnsiRow Get(long gaspsVersion)
+            {
+                return this.AsEnumerable()
+                    .Last(x => x.version == gaspsVersion);
+            }
+
+            public fgis_esnsiRow Create(long gaspsVersion)
+            {
+                return (fgis_esnsiRow)this.Rows.Add(new object[] { gaspsVersion, null, null, null, null, null, null, null, null }); ;
+            }
+
+            public class FgisEsnsiOrganization
+            {
+                public long Id { get; }
+                public string Name { get; }
+                public string Region { get; }
+                public string Phone { get; }
+                public string Email { get; }
+                public string Address { get; }
+                public int Okato { get; }
+                public long Code { get; }
+                public string Autokey { get; }
+
+                public FgisEsnsiOrganization(
+                    long id,
+                    string name,
+                    string region,
+                    string phone,
+                    string email,
+                    string address,
+                    int okato,
+                    long code,
+                    string autokey)
+                {
+                    Id = id;
+                    Name = name;
+                    Region = region;
+                    Phone = phone;
+                    Email = email;
+                    Address = address;
+                    Okato = okato;
+                    Code = code;
+                    Autokey = autokey;
+                }
+            }
+
+            public IEnumerable<FgisEsnsiOrganization> ExportData()
+            {
+                return from gasps in gaspsTable
+                       where (gasps.authority_id == 20 && gasps.date_beg <= DateTime.Today &&
+                       gasps.date_end > DateTime.Today)
+                       join esnsi in this on gasps.version equals esnsi.version
+                       join okato in okatoTable on gasps.okato_code equals okato.code
+                       select new FgisEsnsiOrganization(
+                           id: esnsi.id,
+                           name: gasps.name,
+                           region: okato.name2,
+                           phone: esnsi.sv_0004,
+                           email: esnsi.sv_0005,
+                           address: esnsi.sv_0006,
+                           okato: esnsi.okato,
+                           code: esnsi.code,
+                           autokey: esnsi.autokey);
+            }
+
+            private gaspsDataTable gaspsTable
+            {
+                get { return Services.MasterDataSystem.DataSet.gasps; }
+            }
+            private okatoDataTable okatoTable
+            {
+                get { return Services.MasterDataSystem.DataSet.okato; }
+            }
+        }
+
         partial class court_typeDataTable
         {
             public bool ExistsId(Int64 id)
@@ -104,7 +190,6 @@ namespace DatabaseToolSuite.Repositoryes
 
         partial class gaspsDataTable
         {
-
             public bool ExistsCode(string code)
             {
                 return (from item in this.AsEnumerable()
@@ -225,7 +310,6 @@ namespace DatabaseToolSuite.Repositoryes
                     .Where(x => x.code.Equals(code, StringComparison.CurrentCultureIgnoreCase)).Max(r => r.version);
                 return GetOrganizationFromVersion(version);
             }
-
 
             public int GetEditedRowCount()
             {
@@ -372,17 +456,17 @@ namespace DatabaseToolSuite.Repositoryes
                 return new BindingList<gaspsRow>(lockCodes.Where(p => unlickCodes.All(p2 => p2.code != p.code)).OrderBy(x => x.code).ToArray());
             }
 
-            public IEnumerable<Organization> ExportData()
+            public IEnumerable<GaspsOrganization> ExportData()
             {
                 return from item in this.AsEnumerable()
                        where (item.date_beg <= DateTime.Today &&
                        item.date_end > DateTime.Today)
                        join authority in authorityTable on item.authority_id equals authority.id
                        join okato in okatoTable on item.okato_code equals okato.code
-                       select new Organization(name: item.name, authority: authority.name, okato: okato.code + " - " + okato.name, code: item.code, begin: item.date_beg);
+                       select new GaspsOrganization(name: item.name, authority: authority.name, okato: okato.code + " - " + okato.name, code: item.code, begin: item.date_beg);
             }
 
-            public class Organization
+            public class GaspsOrganization
             {
                 public string Name { get; }
                 public string Authority { get; }
@@ -390,7 +474,7 @@ namespace DatabaseToolSuite.Repositoryes
                 public string Code { get; }
                 public DateTime Begin { get; }
 
-                public Organization(string name, string authority, string okato, string code, DateTime begin)
+                public GaspsOrganization(string name, string authority, string okato, string code, DateTime begin)
                 {
                     Name = name;
                     Authority = authority;
