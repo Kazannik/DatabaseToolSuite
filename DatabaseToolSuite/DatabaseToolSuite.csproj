@@ -103,6 +103,9 @@
     <Compile Include="Controls\GaspsListView.Designer.cs">
       <DependentUpon>GaspsListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GaspsListView2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\NumericTextBox.cs" />
     <Compile Include="Controls\OkatoComboBox.cs" />
     <Compile Include="Controls\OkatoToolStripComboBox.cs" />
@@ -182,6 +185,9 @@
     <Compile Include="Dialogs\OrganizationDialog.Designer.cs">
       <DependentUpon>OrganizationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\OrganizationViewDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\RemoveOrganizationDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     <Compile Include="Services\MasterDataSystem.cs" />
     <EmbeddedResource Include="Controls\GaspsListView.resx">
       <DependentUpon>GaspsListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GaspsListView2.resx">
+      <DependentUpon>GaspsListView2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
@@ -265,6 +274,9 @@
     <EmbeddedResource Include="Dialogs\OrganizationDialog.resx">
       <DependentUpon>OrganizationDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\OrganizationViewDialog.resx">
+      <DependentUpon>OrganizationViewDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\RemoveOrganizationDialog.resx">
       <DependentUpon>RemoveOrganizationDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +297,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="DatabaseToolSuite_TemporaryKey.pfx" />
+    <None Include="Files\FED_GENPROK_ORGANIZATION_Cp1251.csv" />
+    <None Include="Files\FED_GENPROK_ORGANIZATION_Cp1251.xlsx" />
     <None Include="Files\gasps.xsc">
       <DependentUpon>gasps.xsd</DependentUpon>
     </None>
@@ -436,6 +450,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Statistics32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\epgu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\epguremove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Files\FED.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

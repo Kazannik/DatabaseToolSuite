@@ -1,5 +1,7 @@
 ﻿using DatabaseToolSuite.Services;
 using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Windows.Forms;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
 
@@ -85,16 +87,27 @@ namespace DatabaseToolSuite.Dialogs
                 mnuContextCreateOrganization.Enabled = true;
                 tableCreateOrganizationButton.Enabled = true;
 
-                mnuTableCreateNewVersion.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
-                mnuContextCreateNewVersion.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
-                tableCreateNewVersionButton.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
+                bool isLastVarsion = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
+
+                mnuTableCreateNewVersion.Enabled = isLastVarsion;
+                mnuContextCreateNewVersion.Enabled = isLastVarsion;
+                tableCreateNewVersionButton.Enabled = isLastVarsion;
 
                 mnuTableRemoveOrganization.Enabled = gaspsListView.DataRow.date_end > DateTime.Today;
                 mnuContextRemoveOrganization.Enabled = gaspsListView.DataRow.date_end > DateTime.Today;
                 tableRemoveOrganizationButton.Enabled = gaspsListView.DataRow.date_end > DateTime.Today;
 
-                mnuTableEditError.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
-                mnuContextEditError.Enabled = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
+                mnuTableEditError.Enabled = isLastVarsion;
+                mnuContextEditError.Enabled = isLastVarsion;
+
+                mnuTableFgisEsnsiEdit.Enabled = isLastVarsion && gaspsListView.DataRow.authority_id == 20;
+                mnuContextFgisEsnsiEdit.Enabled = isLastVarsion && gaspsListView.DataRow.authority_id == 20;
+                mnuTableFgisEsnsiEditButton.Enabled = isLastVarsion && gaspsListView.DataRow.authority_id == 20;
+
+                bool existsFgisEsnsi = Services.FileSystem.Repository.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version);
+
+                mnuTableFgisEsnsiRemove.Enabled = existsFgisEsnsi;
+                mnuTableFgisEsnsiRemoveButton.Enabled = existsFgisEsnsi;
             }
             else
             {
@@ -114,6 +127,13 @@ namespace DatabaseToolSuite.Dialogs
 
                 mnuTableEditError.Enabled = false;
                 mnuContextEditError.Enabled = false;
+
+                mnuTableFgisEsnsiEdit.Enabled = false;
+                mnuContextFgisEsnsiEdit.Enabled = false;
+                mnuTableFgisEsnsiEditButton.Enabled = false;
+
+                mnuTableFgisEsnsiRemove.Enabled = false;
+                mnuTableFgisEsnsiRemoveButton.Enabled = false;
             }
         }
 
@@ -128,31 +148,13 @@ namespace DatabaseToolSuite.Dialogs
 
         private void gaspsListView_ItemMouseDoubleClick(object sender, Controls.GaspsListViewEventArgs e)
         {
-            if (e.Button == MouseButtons.Left &&
-                gaspsListView.DataRow.authority_id ==20)
+            if (e.Button == MouseButtons.Left)
             {
-                fgis_esnsiRow editRow;
+                if (gaspsListView.SelectedOrganization != null)
+                {
+                    OrganizationViewDialog dialog = new OrganizationViewDialog(gaspsListView.SelectedOrganization);
+                    dialog.ShowDialog(this);
 
-                if (MasterDataSystem.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version))
-                {
-                    editRow = MasterDataSystem.DataSet.fgis_esnsi.Get(gaspsListView.DataRow.version);
-                }
-                else
-                {
-                    editRow = MasterDataSystem.DataSet.fgis_esnsi.Create(gaspsListView.DataRow.version);
-                }
-
-                EsnsiDialog dialog = new EsnsiDialog(gaspsListView.DataRow, editRow);
-                if (dialog.ShowDialog(this) == DialogResult.OK)
-                {
-                    editRow.autokey = dialog.Autokey;
-                    editRow.code = dialog.Code;
-                    editRow.id = dialog.Id;
-                    editRow.okato = (short)dialog.OkatoCode;
-                    editRow.region_id = dialog.RegionCode;
-                    editRow.sv_0004 = dialog.Phone;
-                    editRow.sv_0005 = dialog.Email;
-                    editRow.sv_0006 = dialog.Address;
                 }
             }
         }
@@ -384,7 +386,7 @@ namespace DatabaseToolSuite.Dialogs
             }
         }
 
-        private void FileExportToExcel_Click(object sender, EventArgs e)
+        private void FileExportGaspsToExcel_Click(object sender, EventArgs e)
         {
             Services.Export.ExportGaspsToExcel();
         }
@@ -421,6 +423,85 @@ namespace DatabaseToolSuite.Dialogs
             gaspsListView.Height = statusStrip1.Top - gaspsListView.Top - filterPanel.Left;
         }
 
-        
+        private void FgisEsnsiEdit_Click(object sender, EventArgs e)
+        {
+            FgisEsnsiEdit();
+        }
+
+        private void FgisEsnsiRemove_Click(object sender, EventArgs e)
+        {
+            if (gaspsListView.DataRow != null && gaspsListView.DataRow.authority_id == 20)
+            {
+                if (MasterDataSystem.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version))
+                {
+                    MasterDataSystem.DataSet.fgis_esnsi.Romove(gaspsListView.DataRow.version);
+                }
+
+                bool existsFgisEsnsi = Services.FileSystem.Repository.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version);
+
+                mnuTableFgisEsnsiRemove.Enabled = existsFgisEsnsi;
+                mnuTableFgisEsnsiRemoveButton.Enabled = existsFgisEsnsi;
+            }
+        }
+    
+
+        private void FgisEsnsiEdit()
+        {
+            if (gaspsListView.DataRow !=null && gaspsListView.DataRow.authority_id == 20)
+            {
+                fgis_esnsiRow editRow;
+
+                if (MasterDataSystem.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version))
+                {
+                    editRow = MasterDataSystem.DataSet.fgis_esnsi.Get(gaspsListView.DataRow.version);
+                }
+                else
+                {
+                    editRow = MasterDataSystem.DataSet.fgis_esnsi.Create(gaspsListView.DataRow.version);
+                }
+
+                EsnsiDialog dialog = new EsnsiDialog(gaspsListView.DataRow, editRow);
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    editRow.autokey = dialog.Autokey;
+                    editRow.code = dialog.Code;
+                    editRow.id = dialog.Id;
+                    editRow.okato = (short)dialog.OkatoCode;
+                    editRow.region_id = dialog.RegionCode;
+                    editRow.sv_0004 = dialog.Phone;
+                    editRow.sv_0005 = dialog.Email;
+                    editRow.sv_0006 = dialog.Address;
+                }
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            List<string> collection = new List<string>();
+            List<string> exists = new List<string>();
+
+            System.IO.StreamReader reader = new System.IO.StreamReader("FED.txt", Encoding.Default);
+            reader.ReadLine();
+            while (!reader.EndOfStream)
+            {
+                string line = reader.ReadLine();
+                string[] split = line.Split(new string[] { ";" }, StringSplitOptions.None);
+                collection.Add(split[1]);
+                string address = split[1];
+                string address1 = address.Replace(" г. ", " города ");
+                string address2 = address.Replace(" города ", " г. ");
+
+                if (!Services.MasterDataSystem.DataSet.gasps.ExistsName(address, int.Parse(split[6]).ToString("00")) &&
+                    !Services.MasterDataSystem.DataSet.gasps.ExistsName(address1, int.Parse(split[6]).ToString("00")) &&
+                    !Services.MasterDataSystem.DataSet.gasps.ExistsName(address2, int.Parse(split[6]).ToString("00"))                    )
+                {
+                    exists.Add(split[1]);
+                } 
+            }
+
+            reader.Close();
+
+
+        }
     }
 }

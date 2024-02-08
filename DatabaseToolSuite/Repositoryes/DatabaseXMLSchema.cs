@@ -9,7 +9,6 @@ using System.Linq;
 namespace DatabaseToolSuite.Repositoryes
 {
 
-
     partial class RepositoryDataSet
     {
 
@@ -85,14 +84,22 @@ namespace DatabaseToolSuite.Repositoryes
             public bool ExistsRow(long gaspsVersion)
             {
                 return (from item in this.AsEnumerable()
-                        where item.version == gaspsVersion
+                        where item.RowState != DataRowState.Deleted &&
+                        item.version == gaspsVersion
                         select item).Count() > 0;
             }
 
             public fgis_esnsiRow Get(long gaspsVersion)
             {
                 return this.AsEnumerable()
+                    .Where(x => x.RowState != DataRowState.Deleted)
                     .Last(x => x.version == gaspsVersion);
+            }
+
+            public void Romove(long gaspsVersion)
+            {
+                DataRow row = Get(gaspsVersion);
+                row.Delete();
             }
 
             public fgis_esnsiRow Create(long gaspsVersion)
@@ -102,6 +109,7 @@ namespace DatabaseToolSuite.Repositoryes
 
             public class FgisEsnsiOrganization
             {
+                public long Version { get; }
                 public long Id { get; }
                 public string Name { get; }
                 public string Region { get; }
@@ -113,6 +121,7 @@ namespace DatabaseToolSuite.Repositoryes
                 public string Autokey { get; }
 
                 public FgisEsnsiOrganization(
+                    long version,
                     long id,
                     string name,
                     string region,
@@ -123,6 +132,7 @@ namespace DatabaseToolSuite.Repositoryes
                     long code,
                     string autokey)
                 {
+                    Version = version;
                     Id = id;
                     Name = name;
                     Region = region;
@@ -143,9 +153,10 @@ namespace DatabaseToolSuite.Repositoryes
                        join esnsi in this on gasps.version equals esnsi.version
                        join okato in okatoTable on gasps.okato_code equals okato.code
                        select new FgisEsnsiOrganization(
+                           version: esnsi.version,
                            id: esnsi.id,
                            name: gasps.name,
-                           region: okato.name2,
+                           region: okato.name,
                            phone: esnsi.sv_0004,
                            email: esnsi.sv_0005,
                            address: esnsi.sv_0006,
@@ -194,6 +205,14 @@ namespace DatabaseToolSuite.Repositoryes
             {
                 return (from item in this.AsEnumerable()
                         where item.code.Equals(code, StringComparison.CurrentCultureIgnoreCase)
+                        select item).Count() > 0;
+            }
+
+            public bool ExistsName(string name, string okato)
+            {
+                return (from item in this.AsEnumerable()
+                        where item.name.Equals(name, StringComparison.CurrentCultureIgnoreCase) &&
+                        item.okato_code.Equals(okato, StringComparison.CurrentCultureIgnoreCase)
                         select item).Count() > 0;
             }
 
@@ -251,6 +270,65 @@ namespace DatabaseToolSuite.Repositoryes
                 if (!string.IsNullOrWhiteSpace(name))
                 {
                     result = result.Where(x => x.name.ToLower().Contains(name.ToLower()));
+                }
+
+                return result;
+            }
+
+            public IList<FullOrganization> GetFullOrganizationFilter(long? authority, string okato, string code, string name, bool unlockShow, bool reserveShow, bool lockShow)
+            {
+                return _GetFullOrganizationFilter(authority: authority,
+                    okato: okato,
+                    code: code,
+                    name: name,
+                    unlockShow: unlockShow,
+                    reserveShow: reserveShow,
+                    lockShow: lockShow).ToList();
+            }
+
+            private IEnumerable<FullOrganization> _GetFullOrganizationFilter(long? authority, string okato, string code, string name, bool unlockShow, bool reserveShow, bool lockShow)
+            {
+                IEnumerable<FullOrganization> result = GetFullOrganization()
+                    .OrderBy(x => x.Version).OrderBy(x => x.Code);
+
+                if (!unlockShow)
+                {
+                    result = result
+                        .Where(x => (
+                    (x.End < DateTime.Now || x.Begin >= DateTime.Today))
+                    );
+                }
+
+                if (!reserveShow)
+                {
+                    result = result
+                    .Where(x => x.Begin < DateTime.Today);
+                }
+
+                if (!lockShow)
+                {
+                    result = result
+                    .Where(x => x.End > DateTime.Today);
+                }
+
+                if (authority.HasValue)
+                {
+                    result = result.Where(x => x.AuthorityId == authority.Value);
+                }
+
+                if (!string.IsNullOrWhiteSpace(okato))
+                {
+                    result = result.Where(x => x.OkatoCode.Equals(okato, StringComparison.OrdinalIgnoreCase));
+                }
+
+                if (!string.IsNullOrWhiteSpace(code))
+                {
+                    result = result.Where(x => x.Code.Contains(code));
+                }
+
+                if (!string.IsNullOrWhiteSpace(name))
+                {
+                    result = result.Where(x => x.Name.ToLower().Contains(name.ToLower()));
                 }
 
                 return result;
@@ -463,25 +541,114 @@ namespace DatabaseToolSuite.Repositoryes
                        item.date_end > DateTime.Today)
                        join authority in authorityTable on item.authority_id equals authority.id
                        join okato in okatoTable on item.okato_code equals okato.code
-                       select new GaspsOrganization(name: item.name, authority: authority.name, okato: okato.code + " - " + okato.name, code: item.code, begin: item.date_beg);
+                       select new GaspsOrganization(name: item.name, authority: authority.name, okato: okato.code + " - " + okato.name, code: item.code, begin: item.date_beg, end: item.date_end, version: item.version, authorityId: item.authority_id, okatoCode: item.okato_code);
             }
 
             public class GaspsOrganization
             {
+                [Description("Наименование подразделения (SV-0001)")]
+                [Category("ГАС ПС")]
+                [DisplayName("Наименование")]
                 public string Name { get; }
+
+                [Description("Ведомство")]
+                [Category("ГАС ПС")]
+                [DisplayName("Ведомство")]
                 public string Authority { get; }
+
+                [Description("Код ОКАТО")]
+                [Category("ГАС ПС")]
+                [DisplayName("ОКАТО")]
                 public string Okato { get; }
+
+                [Description("Код подразделения")]
+                [Category("ГАС ПС")]
+                [DisplayName("Код подразделения")]
                 public string Code { get; }
+
+                [Description("Дата начала действия подразделения")]
+                [Category("ГАС ПС")]
+                [DisplayName("Дата начала")]
                 public DateTime Begin { get; }
 
-                public GaspsOrganization(string name, string authority, string okato, string code, DateTime begin)
+                [Description("Дата окончания действия подразделения")]
+                [Category("ГАС ПС")]
+                [DisplayName("Дата окончания")]
+                public DateTime End { get; }
+                
+                [Browsable(false)]           
+                public long Version { get; }
+                [Browsable(false)]
+                public long AuthorityId { get; }
+                [Browsable(false)]
+                public string OkatoCode { get; }
+
+                public GaspsOrganization(string name, string authority, string okato, string code, DateTime begin, DateTime end, long version, long authorityId, string okatoCode)
                 {
                     Name = name;
                     Authority = authority;
                     Okato = okato;
                     Code = code;
                     Begin = begin;
+                    End = end;
+                    Version = version;
+                    AuthorityId = authorityId;
+                    OkatoCode = okatoCode;
                 }
+            }
+
+            public class FullOrganization : GaspsOrganization
+            {                
+                [Description("Телефон канцелярии (SV-0004)")]
+                [Category("ФГИС ЕСНСИ")]
+                [DisplayName("Телефон")]
+                public string Phone { get; }
+
+                [Description("Электронный адрес канцелярии (SV-0005)")]
+                [Category("ФГИС ЕСНСИ")]
+                [DisplayName("Электронный адрес")]
+                public string Email { get; }
+
+                [Description("Почтовый адрес где ведется прием граждан (SV-0006)")]
+                [Category("ФГИС ЕСНСИ")]
+                [DisplayName("Почтовый адрес")]
+                public string Address { get; }
+                
+                public FullOrganization(
+                    string name, 
+                    string authority, 
+                    string okato, 
+                    string code, 
+                    DateTime begin,
+                    DateTime end,
+                    string phone,
+                    string email,
+                    string address,
+                    long version, 
+                    long authorityId, 
+                    string okatoCode) : base(name, authority, okato, code, begin, end, version, authorityId, okatoCode)
+                {
+                    Phone = phone;
+                    Email = email;
+                    Address = address;
+                }
+            }
+
+
+            public IEnumerable<FullOrganization> GetFullOrganization()
+            {
+                return from gasps in this
+                       join authority in authorityTable on gasps.authority_id equals authority.id
+                       join okato in okatoTable on gasps.okato_code equals okato.code
+                       join esnsi in fgisesnsiTable on gasps.version equals esnsi.version into ps_jointable
+                       from p in ps_jointable.DefaultIfEmpty()
+                       select new FullOrganization(gasps.name, authority.name, okato.code + " - " + okato.name, gasps.code, gasps.date_beg, gasps.date_end,
+                       p == null ? string.Empty: p.sv_0004,
+                       p == null ? string.Empty : p.sv_0005,
+                       p == null ? string.Empty : p.sv_0006,
+                       gasps.version,
+                       gasps.authority_id,
+                       gasps.okato_code);
             }
 
             private authorityDataTable authorityTable
@@ -492,6 +659,11 @@ namespace DatabaseToolSuite.Repositoryes
             private okatoDataTable okatoTable
             {
                 get { return Services.MasterDataSystem.DataSet.okato; }
+            }
+
+            private fgis_esnsiDataTable fgisesnsiTable
+            {
+                get { return Services.MasterDataSystem.DataSet.fgis_esnsi; }
             }
         }
 

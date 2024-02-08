@@ -40,7 +40,9 @@
             this.mnuFileImport = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileExport = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFileExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileGaspsExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileFgisEsnsiExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTable = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +54,9 @@
             this.mnuTableRemoveOrganization = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuTableEditError = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuTableFgisEsnsiEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTableFgisEsnsiRemove = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpStatistic = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
@@ -62,14 +67,11 @@
             this.filterPanel = new System.Windows.Forms.Panel();
             this.filterGroupBox = new System.Windows.Forms.GroupBox();
             this.cleanFilterButton = new System.Windows.Forms.Button();
-            this.filterCodeNumericTextBox = new DatabaseToolSuite.Controls.NumericTextBox(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.filterNameTextBox = new System.Windows.Forms.TextBox();
             this.filterLockCodeViewCheckBox = new System.Windows.Forms.CheckBox();
             this.okatoLabel = new System.Windows.Forms.Label();
-            this.filterAuthorityComboBox = new DatabaseToolSuite.Controls.AuthorityComboBox();
-            this.filterOkatoComboBox = new DatabaseToolSuite.Controls.OkatoComboBox();
             this.authorityLabel = new System.Windows.Forms.Label();
             this.contextMenuTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuContextNewOrganization = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +82,8 @@
             this.mnuContextRemoveOrganization = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuContextEditError = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuContextFgisEsnsiEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStripBar = new System.Windows.Forms.ToolStrip();
             this.fileSaveButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -89,8 +93,14 @@
             this.tableCreateNewVersionButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tableRemoveOrganizationButton = new System.Windows.Forms.ToolStripButton();
-            this.gaspsListView = new DatabaseToolSuite.Controls.GaspsListView();
-            this.mnuFileFgisEsnsiExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuTableFgisEsnsiEditButton = new System.Windows.Forms.ToolStripButton();
+            this.mnuTableFgisEsnsiRemoveButton = new System.Windows.Forms.ToolStripButton();
+            this.gaspsListView = new DatabaseToolSuite.Controls.GaspsListView2();
+            this.filterCodeNumericTextBox = new DatabaseToolSuite.Controls.NumericTextBox(this.components);
+            this.filterAuthorityComboBox = new DatabaseToolSuite.Controls.AuthorityComboBox();
+            this.filterOkatoComboBox = new DatabaseToolSuite.Controls.OkatoComboBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.mainMenuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.filterPanel.SuspendLayout();
@@ -125,8 +135,7 @@
             this.mnuFileImport,
             this.mnuFileExport,
             this.toolStripMenuItem2,
-            this.mnuFileGaspsExportToExcel,
-            this.mnuFileFgisEsnsiExportToExcel,
+            this.mnuFileExportToExcel,
             this.toolStripMenuItem6,
             this.mnuFileExit});
             this.mnuFile.Name = "mnuFile";
@@ -136,7 +145,7 @@
             // mnuFileNew
             // 
             this.mnuFileNew.Name = "mnuFileNew";
-            this.mnuFileNew.Size = new System.Drawing.Size(461, 30);
+            this.mnuFileNew.Size = new System.Drawing.Size(288, 30);
             this.mnuFileNew.Text = "mnuFileNew";
             this.mnuFileNew.Visible = false;
             // 
@@ -144,7 +153,7 @@
             // 
             this.mnuFileOpen.Image = global::DatabaseToolSuite.Properties.Resources.Open24;
             this.mnuFileOpen.Name = "mnuFileOpen";
-            this.mnuFileOpen.Size = new System.Drawing.Size(461, 30);
+            this.mnuFileOpen.Size = new System.Drawing.Size(288, 30);
             this.mnuFileOpen.Text = "Открыть...";
             this.mnuFileOpen.Click += new System.EventHandler(this.FileOpenToolStripMenuItem_Click);
             // 
@@ -152,7 +161,7 @@
             // 
             this.mnuFileSave.Image = global::DatabaseToolSuite.Properties.Resources.Save24;
             this.mnuFileSave.Name = "mnuFileSave";
-            this.mnuFileSave.Size = new System.Drawing.Size(461, 30);
+            this.mnuFileSave.Size = new System.Drawing.Size(288, 30);
             this.mnuFileSave.Text = "Сохранить";
             this.mnuFileSave.Click += new System.EventHandler(this.FileSaveToolStripMenuItem_Click);
             // 
@@ -160,20 +169,20 @@
             // 
             this.mnuFileSaveAs.Image = global::DatabaseToolSuite.Properties.Resources.SaveAs24;
             this.mnuFileSaveAs.Name = "mnuFileSaveAs";
-            this.mnuFileSaveAs.Size = new System.Drawing.Size(461, 30);
+            this.mnuFileSaveAs.Size = new System.Drawing.Size(288, 30);
             this.mnuFileSaveAs.Text = "Сохранить как...";
             this.mnuFileSaveAs.Click += new System.EventHandler(this.FileSaveAsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(458, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(285, 6);
             // 
             // mnuFileImport
             // 
             this.mnuFileImport.Image = global::DatabaseToolSuite.Properties.Resources.ImportTextFile24;
             this.mnuFileImport.Name = "mnuFileImport";
-            this.mnuFileImport.Size = new System.Drawing.Size(461, 30);
+            this.mnuFileImport.Size = new System.Drawing.Size(288, 30);
             this.mnuFileImport.Text = "Импорт из файла...";
             this.mnuFileImport.Click += new System.EventHandler(this.FileImport_Click);
             // 
@@ -181,33 +190,49 @@
             // 
             this.mnuFileExport.Image = global::DatabaseToolSuite.Properties.Resources.ExportXmlFile24;
             this.mnuFileExport.Name = "mnuFileExport";
-            this.mnuFileExport.Size = new System.Drawing.Size(461, 30);
+            this.mnuFileExport.Size = new System.Drawing.Size(288, 30);
             this.mnuFileExport.Text = "Экспорт данных в файл...";
             this.mnuFileExport.Click += new System.EventHandler(this.FileExport_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(458, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(285, 6);
+            // 
+            // mnuFileExportToExcel
+            // 
+            this.mnuFileExportToExcel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFileGaspsExportToExcel,
+            this.mnuFileFgisEsnsiExportToExcel});
+            this.mnuFileExportToExcel.Image = global::DatabaseToolSuite.Properties.Resources.ExportExcel24;
+            this.mnuFileExportToExcel.Name = "mnuFileExportToExcel";
+            this.mnuFileExportToExcel.Size = new System.Drawing.Size(288, 30);
+            this.mnuFileExportToExcel.Text = "Экспорт в MS Office Excel";
             // 
             // mnuFileGaspsExportToExcel
             // 
-            this.mnuFileGaspsExportToExcel.Image = global::DatabaseToolSuite.Properties.Resources.ExportExcel24;
             this.mnuFileGaspsExportToExcel.Name = "mnuFileGaspsExportToExcel";
-            this.mnuFileGaspsExportToExcel.Size = new System.Drawing.Size(461, 30);
-            this.mnuFileGaspsExportToExcel.Text = "Экспорт данных ГАС ПС в MS Office Excel";
-            this.mnuFileGaspsExportToExcel.Click += new System.EventHandler(this.FileExportToExcel_Click);
+            this.mnuFileGaspsExportToExcel.Size = new System.Drawing.Size(269, 28);
+            this.mnuFileGaspsExportToExcel.Text = "Данных ГАС ПС...";
+            this.mnuFileGaspsExportToExcel.Click += new System.EventHandler(this.FileExportGaspsToExcel_Click);
+            // 
+            // mnuFileFgisEsnsiExportToExcel
+            // 
+            this.mnuFileFgisEsnsiExportToExcel.Name = "mnuFileFgisEsnsiExportToExcel";
+            this.mnuFileFgisEsnsiExportToExcel.Size = new System.Drawing.Size(269, 28);
+            this.mnuFileFgisEsnsiExportToExcel.Text = "Данных ФГИС ЕСНСИ...";
+            this.mnuFileFgisEsnsiExportToExcel.Click += new System.EventHandler(this.FileFgisEsnsiExportToExcel_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(458, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(285, 6);
             // 
             // mnuFileExit
             // 
             this.mnuFileExit.Image = global::DatabaseToolSuite.Properties.Resources.FileExit24;
             this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(461, 30);
+            this.mnuFileExit.Size = new System.Drawing.Size(288, 30);
             this.mnuFileExit.Text = "Выход";
             this.mnuFileExit.Click += new System.EventHandler(this.FileExit_Click);
             // 
@@ -221,7 +246,10 @@
             this.toolStripMenuItem4,
             this.mnuTableRemoveOrganization,
             this.toolStripMenuItem7,
-            this.mnuTableEditError});
+            this.mnuTableEditError,
+            this.toolStripMenuItem11,
+            this.mnuTableFgisEsnsiEdit,
+            this.mnuTableFgisEsnsiRemove});
             this.mnuTable.Name = "mnuTable";
             this.mnuTable.Size = new System.Drawing.Size(246, 27);
             this.mnuTable.Text = "Справочник подразделений";
@@ -280,6 +308,29 @@
             this.mnuTableEditError.Size = new System.Drawing.Size(379, 30);
             this.mnuTableEditError.Text = "Исправить ошибку...";
             this.mnuTableEditError.Click += new System.EventHandler(this.TableEditError_Click);
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(376, 6);
+            // 
+            // mnuTableFgisEsnsiEdit
+            // 
+            this.mnuTableFgisEsnsiEdit.Enabled = false;
+            this.mnuTableFgisEsnsiEdit.Image = global::DatabaseToolSuite.Properties.Resources.epgu;
+            this.mnuTableFgisEsnsiEdit.Name = "mnuTableFgisEsnsiEdit";
+            this.mnuTableFgisEsnsiEdit.Size = new System.Drawing.Size(379, 30);
+            this.mnuTableFgisEsnsiEdit.Text = "Запись ФГИС ЕСНСИ...";
+            this.mnuTableFgisEsnsiEdit.Click += new System.EventHandler(this.FgisEsnsiEdit_Click);
+            // 
+            // mnuTableFgisEsnsiRemove
+            // 
+            this.mnuTableFgisEsnsiRemove.Enabled = false;
+            this.mnuTableFgisEsnsiRemove.Image = ((System.Drawing.Image)(resources.GetObject("mnuTableFgisEsnsiRemove.Image")));
+            this.mnuTableFgisEsnsiRemove.Name = "mnuTableFgisEsnsiRemove";
+            this.mnuTableFgisEsnsiRemove.Size = new System.Drawing.Size(379, 30);
+            this.mnuTableFgisEsnsiRemove.Text = "Удалить запись ФГИС ЕСНСИ";
+            this.mnuTableFgisEsnsiRemove.Click += new System.EventHandler(this.FgisEsnsiRemove_Click);
             // 
             // mnuHelp
             // 
@@ -384,15 +435,6 @@
             this.cleanFilterButton.Text = "Очистить";
             this.cleanFilterButton.Click += new System.EventHandler(this.cleanFilterButton_Click);
             // 
-            // filterCodeNumericTextBox
-            // 
-            this.filterCodeNumericTextBox.Location = new System.Drawing.Point(9, 142);
-            this.filterCodeNumericTextBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.filterCodeNumericTextBox.Name = "filterCodeNumericTextBox";
-            this.filterCodeNumericTextBox.Size = new System.Drawing.Size(200, 27);
-            this.filterCodeNumericTextBox.TabIndex = 6;
-            this.filterCodeNumericTextBox.TextChanged += new System.EventHandler(this.Filter_ParametersChanged);
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -449,46 +491,6 @@
             this.okatoLabel.TabIndex = 35;
             this.okatoLabel.Text = "Код ОКАТО:";
             // 
-            // filterAuthorityComboBox
-            // 
-            this.filterAuthorityComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.filterAuthorityComboBox.Code = "";
-            this.filterAuthorityComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.filterAuthorityComboBox.DropDownHeight = 504;
-            this.filterAuthorityComboBox.DropDownWidth = 80;
-            this.filterAuthorityComboBox.FormattingEnabled = true;
-            this.filterAuthorityComboBox.IntegralHeight = false;
-            this.filterAuthorityComboBox.ItemHeight = 25;
-            this.filterAuthorityComboBox.Location = new System.Drawing.Point(131, 66);
-            this.filterAuthorityComboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.filterAuthorityComboBox.MaxDropDownItems = 20;
-            this.filterAuthorityComboBox.Name = "filterAuthorityComboBox";
-            this.filterAuthorityComboBox.SelectedItem = null;
-            this.filterAuthorityComboBox.Size = new System.Drawing.Size(369, 31);
-            this.filterAuthorityComboBox.TabIndex = 4;
-            this.filterAuthorityComboBox.SelectedIndexChanged += new System.EventHandler(this.Filter_ParametersChanged);
-            // 
-            // filterOkatoComboBox
-            // 
-            this.filterOkatoComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.filterOkatoComboBox.Code = "";
-            this.filterOkatoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.filterOkatoComboBox.DropDownHeight = 504;
-            this.filterOkatoComboBox.DropDownWidth = 80;
-            this.filterOkatoComboBox.FormattingEnabled = true;
-            this.filterOkatoComboBox.IntegralHeight = false;
-            this.filterOkatoComboBox.ItemHeight = 25;
-            this.filterOkatoComboBox.Location = new System.Drawing.Point(134, 26);
-            this.filterOkatoComboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.filterOkatoComboBox.MaxDropDownItems = 20;
-            this.filterOkatoComboBox.Name = "filterOkatoComboBox";
-            this.filterOkatoComboBox.SelectedItem = null;
-            this.filterOkatoComboBox.Size = new System.Drawing.Size(690, 31);
-            this.filterOkatoComboBox.TabIndex = 3;
-            this.filterOkatoComboBox.SelectedIndexChanged += new System.EventHandler(this.Filter_ParametersChanged);
-            // 
             // authorityLabel
             // 
             this.authorityLabel.AutoSize = true;
@@ -511,9 +513,11 @@
             this.toolStripMenuItem9,
             this.mnuContextRemoveOrganization,
             this.toolStripMenuItem10,
-            this.mnuContextEditError});
+            this.mnuContextEditError,
+            this.toolStripMenuItem12,
+            this.mnuContextFgisEsnsiEdit});
             this.contextMenuTable.Name = "contextMenuTable";
-            this.contextMenuTable.Size = new System.Drawing.Size(378, 172);
+            this.contextMenuTable.Size = new System.Drawing.Size(378, 208);
             // 
             // mnuContextNewOrganization
             // 
@@ -570,6 +574,20 @@
             this.mnuContextEditError.Text = "Исправить ошибку...";
             this.mnuContextEditError.Click += new System.EventHandler(this.TableEditError_Click);
             // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(374, 6);
+            // 
+            // mnuContextFgisEsnsiEdit
+            // 
+            this.mnuContextFgisEsnsiEdit.Enabled = false;
+            this.mnuContextFgisEsnsiEdit.Image = global::DatabaseToolSuite.Properties.Resources.epgu;
+            this.mnuContextFgisEsnsiEdit.Name = "mnuContextFgisEsnsiEdit";
+            this.mnuContextFgisEsnsiEdit.Size = new System.Drawing.Size(377, 30);
+            this.mnuContextFgisEsnsiEdit.Text = "Запись ФГИС ЕСНСИ...";
+            this.mnuContextFgisEsnsiEdit.Click += new System.EventHandler(this.FgisEsnsiEdit_Click);
+            // 
             // mainToolStripBar
             // 
             this.mainToolStripBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -582,7 +600,11 @@
             this.toolStripSeparator2,
             this.tableCreateNewVersionButton,
             this.toolStripSeparator3,
-            this.tableRemoveOrganizationButton});
+            this.tableRemoveOrganizationButton,
+            this.toolStripSeparator4,
+            this.mnuTableFgisEsnsiEditButton,
+            this.mnuTableFgisEsnsiRemoveButton,
+            this.toolStripButton1});
             this.mainToolStripBar.Location = new System.Drawing.Point(0, 31);
             this.mainToolStripBar.Name = "mainToolStripBar";
             this.mainToolStripBar.Size = new System.Drawing.Size(1228, 39);
@@ -654,6 +676,33 @@
             this.tableRemoveOrganizationButton.Text = "Заблокировать запись...";
             this.tableRemoveOrganizationButton.Click += new System.EventHandler(this.TableRemoveOrganization_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 39);
+            // 
+            // mnuTableFgisEsnsiEditButton
+            // 
+            this.mnuTableFgisEsnsiEditButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mnuTableFgisEsnsiEditButton.Enabled = false;
+            this.mnuTableFgisEsnsiEditButton.Image = global::DatabaseToolSuite.Properties.Resources.epgu;
+            this.mnuTableFgisEsnsiEditButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mnuTableFgisEsnsiEditButton.Name = "mnuTableFgisEsnsiEditButton";
+            this.mnuTableFgisEsnsiEditButton.Size = new System.Drawing.Size(36, 36);
+            this.mnuTableFgisEsnsiEditButton.Text = "Запись ФГИС ЕСНСИ";
+            this.mnuTableFgisEsnsiEditButton.Click += new System.EventHandler(this.FgisEsnsiEdit_Click);
+            // 
+            // mnuTableFgisEsnsiRemoveButton
+            // 
+            this.mnuTableFgisEsnsiRemoveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mnuTableFgisEsnsiRemoveButton.Enabled = false;
+            this.mnuTableFgisEsnsiRemoveButton.Image = ((System.Drawing.Image)(resources.GetObject("mnuTableFgisEsnsiRemoveButton.Image")));
+            this.mnuTableFgisEsnsiRemoveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mnuTableFgisEsnsiRemoveButton.Name = "mnuTableFgisEsnsiRemoveButton";
+            this.mnuTableFgisEsnsiRemoveButton.Size = new System.Drawing.Size(36, 36);
+            this.mnuTableFgisEsnsiRemoveButton.Text = "Удалить запись ФГИС ЕСНСИ";
+            this.mnuTableFgisEsnsiRemoveButton.Click += new System.EventHandler(this.FgisEsnsiRemove_Click);
+            // 
             // gaspsListView
             // 
             this.gaspsListView.DataSet = null;
@@ -669,13 +718,64 @@
             this.gaspsListView.ItemMouseClick += new System.EventHandler<DatabaseToolSuite.Controls.GaspsListViewEventArgs>(this.gaspsListView_ItemMouseClick);
             this.gaspsListView.ItemMouseDoubleClick += new System.EventHandler<DatabaseToolSuite.Controls.GaspsListViewEventArgs>(this.gaspsListView_ItemMouseDoubleClick);
             // 
-            // mnuFileFgisEsnsiExportToExcel
+            // filterCodeNumericTextBox
             // 
-            this.mnuFileFgisEsnsiExportToExcel.Image = global::DatabaseToolSuite.Properties.Resources.ExportExcel24;
-            this.mnuFileFgisEsnsiExportToExcel.Name = "mnuFileFgisEsnsiExportToExcel";
-            this.mnuFileFgisEsnsiExportToExcel.Size = new System.Drawing.Size(461, 30);
-            this.mnuFileFgisEsnsiExportToExcel.Text = "Экспорт данных ФГИС ЕСНСИ в MS Office Excel";
-            this.mnuFileFgisEsnsiExportToExcel.Click += new System.EventHandler(this.FileFgisEsnsiExportToExcel_Click);
+            this.filterCodeNumericTextBox.Location = new System.Drawing.Point(9, 142);
+            this.filterCodeNumericTextBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.filterCodeNumericTextBox.Name = "filterCodeNumericTextBox";
+            this.filterCodeNumericTextBox.Size = new System.Drawing.Size(200, 27);
+            this.filterCodeNumericTextBox.TabIndex = 6;
+            this.filterCodeNumericTextBox.TextChanged += new System.EventHandler(this.Filter_ParametersChanged);
+            // 
+            // filterAuthorityComboBox
+            // 
+            this.filterAuthorityComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterAuthorityComboBox.Code = "";
+            this.filterAuthorityComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.filterAuthorityComboBox.DropDownHeight = 504;
+            this.filterAuthorityComboBox.DropDownWidth = 80;
+            this.filterAuthorityComboBox.FormattingEnabled = true;
+            this.filterAuthorityComboBox.IntegralHeight = false;
+            this.filterAuthorityComboBox.ItemHeight = 25;
+            this.filterAuthorityComboBox.Location = new System.Drawing.Point(131, 66);
+            this.filterAuthorityComboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.filterAuthorityComboBox.MaxDropDownItems = 20;
+            this.filterAuthorityComboBox.Name = "filterAuthorityComboBox";
+            this.filterAuthorityComboBox.SelectedItem = null;
+            this.filterAuthorityComboBox.Size = new System.Drawing.Size(369, 31);
+            this.filterAuthorityComboBox.TabIndex = 4;
+            this.filterAuthorityComboBox.SelectedIndexChanged += new System.EventHandler(this.Filter_ParametersChanged);
+            // 
+            // filterOkatoComboBox
+            // 
+            this.filterOkatoComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterOkatoComboBox.Code = "";
+            this.filterOkatoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.filterOkatoComboBox.DropDownHeight = 504;
+            this.filterOkatoComboBox.DropDownWidth = 80;
+            this.filterOkatoComboBox.FormattingEnabled = true;
+            this.filterOkatoComboBox.IntegralHeight = false;
+            this.filterOkatoComboBox.ItemHeight = 25;
+            this.filterOkatoComboBox.Location = new System.Drawing.Point(134, 26);
+            this.filterOkatoComboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.filterOkatoComboBox.MaxDropDownItems = 20;
+            this.filterOkatoComboBox.Name = "filterOkatoComboBox";
+            this.filterOkatoComboBox.SelectedItem = null;
+            this.filterOkatoComboBox.Size = new System.Drawing.Size(690, 31);
+            this.filterOkatoComboBox.TabIndex = 3;
+            this.filterOkatoComboBox.SelectedIndexChanged += new System.EventHandler(this.Filter_ParametersChanged);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // AppForm
             // 
@@ -737,7 +837,7 @@
         private Controls.AuthorityComboBox filterAuthorityComboBox;
         private Controls.OkatoComboBox filterOkatoComboBox;
         private System.Windows.Forms.Label authorityLabel;
-        private Controls.GaspsListView gaspsListView;
+        private Controls.GaspsListView2 gaspsListView;
         private System.Windows.Forms.ToolStripStatusLabel rowCountStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem mnuTable;
         private System.Windows.Forms.ToolStripMenuItem mnuTableNewOrganization;
@@ -751,7 +851,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem mnuHelpAbout;
         private System.Windows.Forms.ToolStripStatusLabel selectedRowStatusLabel;
-        private System.Windows.Forms.ToolStripMenuItem mnuFileGaspsExportToExcel;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem mnuTableEditError;
@@ -774,6 +873,17 @@
         private System.Windows.Forms.ToolStripButton tableCreateNewVersionButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tableRemoveOrganizationButton;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileExportToExcel;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileGaspsExportToExcel;
         private System.Windows.Forms.ToolStripMenuItem mnuFileFgisEsnsiExportToExcel;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem mnuTableFgisEsnsiEdit;
+        private System.Windows.Forms.ToolStripMenuItem mnuTableFgisEsnsiRemove;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem mnuContextFgisEsnsiEdit;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton mnuTableFgisEsnsiEditButton;
+        private System.Windows.Forms.ToolStripButton mnuTableFgisEsnsiRemoveButton;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

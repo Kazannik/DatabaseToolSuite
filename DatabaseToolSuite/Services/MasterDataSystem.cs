@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
 
 namespace DatabaseToolSuite.Services
@@ -162,6 +161,22 @@ namespace DatabaseToolSuite.Services
                 dateEnd: MAX_DATE,
                 courtTypeId: courtTypeId);
 
+            if (modifedRow.authority_id == 20 &&
+               DataSet.fgis_esnsi.ExistsRow(modifedRow.version))
+            {
+                fgis_esnsiRow clonedRow = DataSet.fgis_esnsi.Get(modifedRow.version);
+                CreateFgisEsnsiNote(
+                    version: newVersion,
+                    region_id: clonedRow.region_id,
+                    sv_0004: clonedRow.sv_0004,
+                    sv_0005: clonedRow.sv_0005,
+                    sv_0006: clonedRow.sv_0006,
+                    okato: clonedRow.okato,
+                    code: clonedRow.code,
+                    autokey: clonedRow.autokey,
+                    id: clonedRow.id);
+            }
+
             return newRow.version;
         }
 
@@ -204,6 +219,21 @@ namespace DatabaseToolSuite.Services
                 dateEnd: MAX_DATE,
                 courtTypeId: modifedRow.court_type_id);
 
+            if (modifedRow.authority_id == 20 &&
+                DataSet.fgis_esnsi.ExistsRow(modifedRow.version))
+            {
+                fgis_esnsiRow clonedRow = DataSet.fgis_esnsi.Get(modifedRow.version);
+                CreateFgisEsnsiNote(
+                    version: newVersion,
+                    region_id: clonedRow.region_id,
+                    sv_0004: clonedRow.sv_0004,
+                    sv_0005: clonedRow.sv_0005,
+                    sv_0006: clonedRow.sv_0006,
+                    okato: clonedRow.okato,
+                    code: clonedRow.code,
+                    autokey: clonedRow.autokey,
+                    id: clonedRow.id);
+            }
             return newRow.version;
         }
 
@@ -251,6 +281,46 @@ namespace DatabaseToolSuite.Services
             errorRow.date_end = MAX_DATE;
 
             return errorRow.version;
+        }
+
+       
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="version">Версия. Поле для связи gasps и fgis_esnsi</param>
+        /// <param name="region_id">Индекс региона</param>
+        /// <param name="sv_0004">Телефон</param>
+        /// <param name="sv_0005">Електронный адрес</param>
+        /// <param name="sv_0006">Почтовый адрес</param>
+        /// <param name="okato">ОКАТО</param>
+        /// <param name="code">Служебный код</param>
+        /// <param name="autokey">Составной ключ</param>
+        /// <param name="id">Ключ записи</param>
+        /// <returns></returns>
+        public static fgis_esnsiRow CreateFgisEsnsiNote(
+            long version,
+            long region_id,
+            string sv_0004,
+            string sv_0005,
+            string sv_0006,
+            short okato,
+            long code,
+            string autokey,
+            long id)
+        {
+                object[] values = new object[9];
+                values[0] = version;
+                values[1] = region_id;
+                values[2] = sv_0004;
+                values[3] = sv_0005;
+                values[4] = sv_0006;
+                values[5] = okato;
+                values[6] = code;
+                values[7] = autokey;
+                values[8] = id;
+
+                fgis_esnsiRow newRow = (fgis_esnsiRow)FileSystem.Repository.DataSet.fgis_esnsi.Rows.Add(values);
+                return newRow;
         }
     }
 }
