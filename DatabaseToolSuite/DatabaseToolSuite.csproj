@@ -122,10 +122,10 @@
     <Compile Include="Dialogs\AppForm.Designer.cs">
       <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\AuthorityDialog.cs">
+    <Compile Include="Utils\Dialogs\AuthorityDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\AuthorityDialog.Designer.cs">
+    <Compile Include="Utils\Dialogs\AuthorityDialog.Designer.cs">
       <DependentUpon>AuthorityDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\CodeCollectionDialog.cs">
@@ -143,10 +143,10 @@
     <Compile Include="Dialogs\DialogBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\DictionaryEditDialog.cs">
+    <Compile Include="Utils\Dialogs\DictionaryEditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\DictionaryEditDialog.Designer.cs">
+    <Compile Include="Utils\Dialogs\DictionaryEditDialog.Designer.cs">
       <DependentUpon>DictionaryEditDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\EditErrorDialog.cs">
@@ -155,22 +155,28 @@
     <Compile Include="Dialogs\EsnsiDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ExportDialog.cs">
+    <Compile Include="Utils\Dialogs\ExportDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ExportDialog.Designer.cs">
+    <Compile Include="Utils\Dialogs\ExportDialog.Designer.cs">
       <DependentUpon>ExportDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ImportProcessDialog.cs">
+    <Compile Include="Utils\Dialogs\ImportDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ImportProcessDialog.Designer.cs">
+    <Compile Include="Utils\Dialogs\ImportDialog.Designer.cs">
+      <DependentUpon>ImportDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Dialogs\ImportProcessDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\Dialogs\ImportProcessDialog.Designer.cs">
       <DependentUpon>ImportProcessDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\MainForm.cs">
+    <Compile Include="Utils\Dialogs\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\MainForm.Designer.cs">
+    <Compile Include="Utils\Dialogs\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\OkatoEditDialog.cs">
@@ -179,10 +185,10 @@
     <Compile Include="Dialogs\OkatoEditDialog.Designer.cs">
       <DependentUpon>OkatoEditDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\OrganizationDialog.cs">
+    <Compile Include="Utils\Dialogs\OrganizationDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\OrganizationDialog.Designer.cs">
+    <Compile Include="Utils\Dialogs\OrganizationDialog.Designer.cs">
       <DependentUpon>OrganizationDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\OrganizationViewDialog.cs">
@@ -200,7 +206,7 @@
     <Compile Include="Dialogs\StatisticsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Files\gasps.Designer.cs">
+    <Compile Include="Utils\Files\gasps.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>gasps.xsd</DependentUpon>
@@ -235,7 +241,7 @@
     <EmbeddedResource Include="Dialogs\AppForm.resx">
       <DependentUpon>AppForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\AuthorityDialog.resx">
+    <EmbeddedResource Include="Utils\Dialogs\AuthorityDialog.resx">
       <DependentUpon>AuthorityDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\CodeCollectionDialog.resx">
@@ -250,7 +256,7 @@
     <EmbeddedResource Include="Dialogs\DialogBase.resx">
       <DependentUpon>DialogBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\DictionaryEditDialog.resx">
+    <EmbeddedResource Include="Utils\Dialogs\DictionaryEditDialog.resx">
       <DependentUpon>DictionaryEditDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\EditErrorDialog.resx">
@@ -259,19 +265,22 @@
     <EmbeddedResource Include="Dialogs\EsnsiDialog.resx">
       <DependentUpon>EsnsiDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ExportDialog.resx">
+    <EmbeddedResource Include="Utils\Dialogs\ExportDialog.resx">
       <DependentUpon>ExportDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ImportProcessDialog.resx">
+    <EmbeddedResource Include="Utils\Dialogs\ImportDialog.resx">
+      <DependentUpon>ImportDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Dialogs\ImportProcessDialog.resx">
       <DependentUpon>ImportProcessDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\MainForm.resx">
+    <EmbeddedResource Include="Utils\Dialogs\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\OkatoEditDialog.resx">
       <DependentUpon>OkatoEditDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\OrganizationDialog.resx">
+    <EmbeddedResource Include="Utils\Dialogs\OrganizationDialog.resx">
       <DependentUpon>OrganizationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\OrganizationViewDialog.resx">
@@ -297,17 +306,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="DatabaseToolSuite_TemporaryKey.pfx" />
-    <None Include="Files\FED_GENPROK_ORGANIZATION_Cp1251.csv" />
-    <None Include="Files\FED_GENPROK_ORGANIZATION_Cp1251.xlsx" />
-    <None Include="Files\gasps.xsc">
+    <None Include="Utils\Files\FED_GENPROK_ORGANIZATION_Cp1251.csv" />
+    <None Include="Utils\Files\FED_GENPROK_ORGANIZATION_Cp1251.xlsx" />
+    <None Include="Utils\Files\gasps.xsc">
       <DependentUpon>gasps.xsd</DependentUpon>
     </None>
-    <None Include="Files\gasps.xsd">
+    <None Include="Utils\Files\gasps.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>gasps.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Files\gasps.xss">
+    <None Include="Utils\Files\gasps.xss">
       <DependentUpon>gasps.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
@@ -335,9 +344,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Files\gasps.xml" />
-    <None Include="Files\gasps_dictionaries.xml" />
-    <None Include="Files\linked.txt" />
+    <None Include="Utils\Files\gasps.xml" />
+    <None Include="Utils\Files\gasps_dictionaries.xml" />
+    <None Include="Utils\Files\linked.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -458,7 +467,7 @@
     <None Include="Resources\epguremove.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Files\FED.txt" />
+    <Content Include="Utils\Files\FED.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

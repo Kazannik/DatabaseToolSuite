@@ -23,13 +23,22 @@ namespace DatabaseToolSuite.Dialogs
             mnuTableCreateNewVersion.Enabled = false;
             mnuContextCreateNewVersion.Enabled = false;
             tableCreateNewVersionButton.Enabled = false;
-            
+
+            mnuToolsCreateNewVersion.Enabled = false;
+
             mnuTableRemoveOrganization.Enabled = false;
             mnuContextRemoveOrganization.Enabled = false;
             tableRemoveOrganizationButton.Enabled = false;
 
             mnuTableEditError.Enabled = false;
             mnuContextEditError.Enabled = false;
+
+            mnuTableFgisEsnsiEdit.Enabled = false;
+            mnuContextFgisEsnsiEdit.Enabled = false;
+            mnuTableFgisEsnsiEditButton.Enabled = false;
+
+            mnuTableFgisEsnsiRemove.Enabled = false;
+            mnuTableFgisEsnsiRemoveButton.Enabled = false;
 
             if (Services.FileSystem.DefaultDatabaseFileExists())
                 Services.FileSystem.ReadDatabase();
@@ -87,22 +96,24 @@ namespace DatabaseToolSuite.Dialogs
                 mnuContextCreateOrganization.Enabled = true;
                 tableCreateOrganizationButton.Enabled = true;
 
-                bool isLastVarsion = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
+                bool isLastVersion = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
 
-                mnuTableCreateNewVersion.Enabled = isLastVarsion;
-                mnuContextCreateNewVersion.Enabled = isLastVarsion;
-                tableCreateNewVersionButton.Enabled = isLastVarsion;
+                mnuTableCreateNewVersion.Enabled = isLastVersion;
+                mnuContextCreateNewVersion.Enabled = isLastVersion;
+                tableCreateNewVersionButton.Enabled = isLastVersion;
+
+                mnuToolsCreateNewVersion.Enabled = true;
 
                 mnuTableRemoveOrganization.Enabled = gaspsListView.DataRow.date_end > DateTime.Today;
                 mnuContextRemoveOrganization.Enabled = gaspsListView.DataRow.date_end > DateTime.Today;
                 tableRemoveOrganizationButton.Enabled = gaspsListView.DataRow.date_end > DateTime.Today;
 
-                mnuTableEditError.Enabled = isLastVarsion;
-                mnuContextEditError.Enabled = isLastVarsion;
+                mnuTableEditError.Enabled = isLastVersion;
+                mnuContextEditError.Enabled = isLastVersion;
 
-                mnuTableFgisEsnsiEdit.Enabled = isLastVarsion && gaspsListView.DataRow.authority_id == 20;
-                mnuContextFgisEsnsiEdit.Enabled = isLastVarsion && gaspsListView.DataRow.authority_id == 20;
-                mnuTableFgisEsnsiEditButton.Enabled = isLastVarsion && gaspsListView.DataRow.authority_id == 20;
+                mnuTableFgisEsnsiEdit.Enabled = gaspsListView.DataRow.authority_id == 20;
+                mnuContextFgisEsnsiEdit.Enabled = gaspsListView.DataRow.authority_id == 20;
+                mnuTableFgisEsnsiEditButton.Enabled = gaspsListView.DataRow.authority_id == 20;
 
                 bool existsFgisEsnsi = Services.FileSystem.Repository.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version);
 
@@ -120,7 +131,8 @@ namespace DatabaseToolSuite.Dialogs
                 mnuTableCreateNewVersion.Enabled = false;
                 mnuContextCreateNewVersion.Enabled = false;
                 tableCreateNewVersionButton.Enabled = false;
-                
+                mnuToolsCreateNewVersion.Enabled = false;
+
                 mnuTableRemoveOrganization.Enabled = false;
                 mnuContextRemoveOrganization.Enabled = false;
                 tableRemoveOrganizationButton.Enabled = false;
@@ -475,33 +487,10 @@ namespace DatabaseToolSuite.Dialogs
             }
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void ToolsImportFgisEsnsi_Click(object sender, EventArgs e)
         {
-            List<string> collection = new List<string>();
-            List<string> exists = new List<string>();
-
-            System.IO.StreamReader reader = new System.IO.StreamReader("FED.txt", Encoding.Default);
-            reader.ReadLine();
-            while (!reader.EndOfStream)
-            {
-                string line = reader.ReadLine();
-                string[] split = line.Split(new string[] { ";" }, StringSplitOptions.None);
-                collection.Add(split[1]);
-                string address = split[1];
-                string address1 = address.Replace(" г. ", " города ");
-                string address2 = address.Replace(" города ", " г. ");
-
-                if (!Services.MasterDataSystem.DataSet.gasps.ExistsName(address, int.Parse(split[6]).ToString("00")) &&
-                    !Services.MasterDataSystem.DataSet.gasps.ExistsName(address1, int.Parse(split[6]).ToString("00")) &&
-                    !Services.MasterDataSystem.DataSet.gasps.ExistsName(address2, int.Parse(split[6]).ToString("00"))                    )
-                {
-                    exists.Add(split[1]);
-                } 
-            }
-
-            reader.Close();
-
-
+            Utils.Dialogs.ImportDialog dialog = new Utils.Dialogs.ImportDialog();
+            dialog.ShowDialog(this);
         }
     }
 }

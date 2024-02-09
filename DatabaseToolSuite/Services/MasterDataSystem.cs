@@ -308,6 +308,7 @@ namespace DatabaseToolSuite.Services
             string autokey,
             long id)
         {
+            
                 object[] values = new object[9];
                 values[0] = version;
                 values[1] = region_id;
@@ -321,6 +322,7 @@ namespace DatabaseToolSuite.Services
 
                 fgis_esnsiRow newRow = (fgis_esnsiRow)FileSystem.Repository.DataSet.fgis_esnsi.Rows.Add(values);
                 return newRow;
+                         
         }
     }
 }

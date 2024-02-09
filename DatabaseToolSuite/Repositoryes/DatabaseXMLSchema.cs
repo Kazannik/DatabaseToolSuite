@@ -109,14 +109,16 @@ namespace DatabaseToolSuite.Repositoryes
 
             public class FgisEsnsiOrganization
             {
-                public long Version { get; }
+                private FgisEsnsiOrganization() { }
+
+                public long Version { get; protected set; }
                 public long Id { get; }
                 public string Name { get; }
                 public string Region { get; }
                 public string Phone { get; }
                 public string Email { get; }
                 public string Address { get; }
-                public int Okato { get; }
+                public short Okato { get; }
                 public long Code { get; }
                 public string Autokey { get; }
 
@@ -128,7 +130,7 @@ namespace DatabaseToolSuite.Repositoryes
                     string phone,
                     string email,
                     string address,
-                    int okato,
+                    short okato,
                     long code,
                     string autokey)
                 {
@@ -214,6 +216,18 @@ namespace DatabaseToolSuite.Repositoryes
                         where item.name.Equals(name, StringComparison.CurrentCultureIgnoreCase) &&
                         item.okato_code.Equals(okato, StringComparison.CurrentCultureIgnoreCase)
                         select item).Count() > 0;
+            }
+
+            public IEnumerable<long> GetVersionFromNameOkato(string name1, string name2, string name3, string okato)
+            {
+                return from item in this.AsEnumerable()
+                        where (
+                        item.name.Equals(name1, StringComparison.CurrentCultureIgnoreCase) ||
+                        item.name.Equals(name2, StringComparison.CurrentCultureIgnoreCase)||
+                        item.name.Equals(name3, StringComparison.CurrentCultureIgnoreCase)
+                        ) &&
+                        item.okato_code.Equals(okato, StringComparison.CurrentCultureIgnoreCase)
+                        select item.version;
             }
 
             public IList<gaspsRow> GetOrganizationFilter(long? authority, string okato, string code, string name, bool unlockShow, bool reserveShow, bool lockShow)
@@ -372,7 +386,7 @@ namespace DatabaseToolSuite.Repositoryes
             public gaspsRow GetOrganizationFromVersion(long version)
             {
                 return this.AsEnumerable()
-                    .Last(x => x.version.Equals(version));
+                    .Last(x => x.version == version);
             }
 
             public gaspsRow GetLastVersionOrganizationFromKey(long key)
@@ -414,7 +428,7 @@ namespace DatabaseToolSuite.Repositoryes
             {
                 gaspsRow current = GetOrganizationFromVersion(version);
                 gaspsRow last = GetLastVersionOrganizationFromCode(current.code);
-                return version.Equals(last.version);
+                return version == last.version;
             }
 
             public long GetNextKey()
@@ -575,8 +589,9 @@ namespace DatabaseToolSuite.Repositoryes
                 [Category("ГАС ПС")]
                 [DisplayName("Дата окончания")]
                 public DateTime End { get; }
-                
-                [Browsable(false)]           
+
+                [Description("Уникальное значение версии записи")]
+                [DisplayName("Версия записи")]
                 public long Version { get; }
                 [Browsable(false)]
                 public long AuthorityId { get; }

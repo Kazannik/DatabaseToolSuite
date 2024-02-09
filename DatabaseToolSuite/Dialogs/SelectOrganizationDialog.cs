@@ -44,6 +44,26 @@ namespace DatabaseToolSuite.Dialogs
             }
         }
 
+
+        public long FilterAuthority
+        {
+            get
+            {
+                return filterAuthorityComboBox.Value.HasValue ? filterAuthorityComboBox.Value.Value : 0;
+            }
+            set
+            {
+                filterAuthorityComboBox.Code = value.ToString("00");
+            }
+        }
+
+
+        public string FilterName
+        {
+            get { return filterNameTextBox.Text; }
+            set { filterNameTextBox.Text = value; }
+        }
+
         public bool ReserveShow { get; set; }
         
         public SelectOrganizationDialog(): this(dataSet: Services.FileSystem.Repository.DataSet) { }
