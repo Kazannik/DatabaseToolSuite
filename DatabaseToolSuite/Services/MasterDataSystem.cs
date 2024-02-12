@@ -324,5 +324,31 @@ namespace DatabaseToolSuite.Services
                 return newRow;
                          
         }
+
+
+        public static fgis_esnsiRow CloneFgisEsnsiNoteToLastVersion(long currentVersion)
+        {
+            gaspsRow currentGaspsRow = DataSet.gasps.GetOrganizationFromVersion(version: currentVersion);
+            gaspsRow lastGaspsRow = DataSet.gasps.GetLastVersionOrganizationFromCode(currentGaspsRow.code);
+
+           if (!DataSet.fgis_esnsi.ExistsRow(lastGaspsRow.version))
+            {
+                fgis_esnsiRow currentFgisEsnsiRow = DataSet.fgis_esnsi.Get(currentGaspsRow.version);
+                return CreateFgisEsnsiNote(
+                version: lastGaspsRow.version,
+                region_id: currentFgisEsnsiRow.region_id,
+                sv_0004: currentFgisEsnsiRow.sv_0004,
+                sv_0005: currentFgisEsnsiRow.sv_0005,
+                sv_0006: currentFgisEsnsiRow.sv_0006,
+                okato: currentFgisEsnsiRow.okato,
+                code: currentFgisEsnsiRow.code,
+                autokey: currentFgisEsnsiRow.autokey,
+                id: currentFgisEsnsiRow.id);
+            }
+            else
+            {
+                return null;
+            }            
+        }
     }
 }

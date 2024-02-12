@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace DatabaseToolSuite.Controls
@@ -29,8 +30,11 @@ namespace DatabaseToolSuite.Controls
                 e.Handled = false;
             else if (e.KeyChar == (0x0d))
                 e.Handled = false;
-            else if (e.KeyChar >= 48 & e.KeyChar <= 57)
+            else if (char.IsNumber(e.KeyChar))
                 e.Handled = false;
+            else if (char.IsControl(e.KeyChar))
+                   e.Handled = false;
+            
             else
                 e.Handled = true;
             base.OnKeyPress(e);
@@ -48,7 +52,23 @@ namespace DatabaseToolSuite.Controls
                 else                
                     return 0;
             }
-        }       
+        }
+
+        string oldText = string.Empty;
+
+        protected override void OnTextChanged(EventArgs e)
+        {
+            Regex regex = new Regex("^\\d+$");
+            if (regex.IsMatch(this.Text))
+            {
+                oldText = Text;
+                base.OnTextChanged(e);
+            }            
+            else
+            {
+                Text = oldText;
+            }
+        }
     }
 }
 

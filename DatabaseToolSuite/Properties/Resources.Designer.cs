@@ -203,6 +203,16 @@ namespace DatabaseToolSuite.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap epgu_dublicate {
+            get {
+                object obj = ResourceManager.GetObject("epgu_dublicate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap epguremove {
             get {
                 object obj = ResourceManager.GetObject("epguremove", resourceCulture);
@@ -416,6 +426,16 @@ namespace DatabaseToolSuite.Properties {
         internal static System.Drawing.Bitmap Statistics32 {
             get {
                 object obj = ResourceManager.GetObject("Statistics32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Update24 {
+            get {
+                object obj = ResourceManager.GetObject("Update24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

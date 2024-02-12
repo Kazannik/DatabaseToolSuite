@@ -82,8 +82,7 @@ namespace DatabaseToolSuite.Controls
         }
 
         public gaspsRow DataRow { get; private set; }
-
-
+        
         public FullOrganization SelectedOrganization
         {
             get
@@ -276,6 +275,65 @@ namespace DatabaseToolSuite.Controls
             return item;
         }
 
+
+        public void UpdateListViewItem(           
+            string code,           
+            string phone,
+            string email,
+            string address,            
+            string okatoCode)
+        {
+            if (itemsCollection.Count == 0) return;
+            int selectedIndex = baseListView.SelectedIndices.Count > 0 ? baseListView.SelectedIndices[0] : 0;
+            FullOrganization organization = itemsCollection[selectedIndex];
+
+            UpdateListViewItem(
+                name: organization.Name,
+                authority: organization.Authority,
+                okato: organization.Okato,
+                code: code,
+                begin: organization.Begin,
+                end: organization.End,
+                phone: phone,
+                email: email,
+                address: address,
+                version: organization.Version,
+                authorityId: organization.AuthorityId,
+                okatoCode: okatoCode);           
+        }
+
+        public void UpdateListViewItem(
+            string name,
+            string authority,
+            string okato,
+            string code,
+            DateTime begin,
+            DateTime end,
+            string phone,
+            string email,
+            string address,
+            long version,
+            long authorityId,
+            string okatoCode)
+        {
+            if (itemsCollection.Count == 0) return;
+            int selectedIndex = baseListView.SelectedIndices.Count > 0 ? baseListView.SelectedIndices[0] : 0;
+            FullOrganization organization = itemsCollection[selectedIndex];
+            itemsCollection[selectedIndex] = new FullOrganization(
+                name: name,
+                authority: authority,
+                okato: okato,
+                code: code,
+                begin: begin,
+                end: end,
+                phone: phone,
+                email: email,
+                address: address,
+                version: version,
+                authorityId: authorityId,
+                okatoCode: okatoCode);
+            UpdateListViewItem();
+        }
 
         public void UpdateListViewItem()
         {

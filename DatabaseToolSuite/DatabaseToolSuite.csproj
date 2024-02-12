@@ -467,6 +467,8 @@
     <None Include="Resources\epguremove.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\epgu_dublicate.png" />
+    <None Include="Resources\Update24.png" />
     <Content Include="Utils\Files\FED.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

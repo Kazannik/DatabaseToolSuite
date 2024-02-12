@@ -11,7 +11,6 @@ namespace DatabaseToolSuite.Repositoryes
 
     partial class RepositoryDataSet
     {
-
         public bool ExistsCourtTypeId(Int64 id)
         {
             court_typeDataTable okato = (court_typeDataTable)this.Tables["court_type"];
@@ -221,13 +220,13 @@ namespace DatabaseToolSuite.Repositoryes
             public IEnumerable<long> GetVersionFromNameOkato(string name1, string name2, string name3, string okato)
             {
                 return from item in this.AsEnumerable()
-                        where (
-                        item.name.Equals(name1, StringComparison.CurrentCultureIgnoreCase) ||
-                        item.name.Equals(name2, StringComparison.CurrentCultureIgnoreCase)||
-                        item.name.Equals(name3, StringComparison.CurrentCultureIgnoreCase)
-                        ) &&
-                        item.okato_code.Equals(okato, StringComparison.CurrentCultureIgnoreCase)
-                        select item.version;
+                       where (
+                       item.name.Equals(name1, StringComparison.CurrentCultureIgnoreCase) ||
+                       item.name.Equals(name2, StringComparison.CurrentCultureIgnoreCase) ||
+                       item.name.Equals(name3, StringComparison.CurrentCultureIgnoreCase)
+                       ) &&
+                       item.okato_code.Equals(okato, StringComparison.CurrentCultureIgnoreCase)
+                       select item.version;
             }
 
             public IList<gaspsRow> GetOrganizationFilter(long? authority, string okato, string code, string name, bool unlockShow, bool reserveShow, bool lockShow)
@@ -613,7 +612,7 @@ namespace DatabaseToolSuite.Repositoryes
             }
 
             public class FullOrganization : GaspsOrganization
-            {                
+            {
                 [Description("Телефон канцелярии (SV-0004)")]
                 [Category("ФГИС ЕСНСИ")]
                 [DisplayName("Телефон")]
@@ -628,19 +627,19 @@ namespace DatabaseToolSuite.Repositoryes
                 [Category("ФГИС ЕСНСИ")]
                 [DisplayName("Почтовый адрес")]
                 public string Address { get; }
-                
+
                 public FullOrganization(
-                    string name, 
-                    string authority, 
-                    string okato, 
-                    string code, 
+                    string name,
+                    string authority,
+                    string okato,
+                    string code,
                     DateTime begin,
                     DateTime end,
                     string phone,
                     string email,
                     string address,
-                    long version, 
-                    long authorityId, 
+                    long version,
+                    long authorityId,
                     string okatoCode) : base(name, authority, okato, code, begin, end, version, authorityId, okatoCode)
                 {
                     Phone = phone;
@@ -658,7 +657,7 @@ namespace DatabaseToolSuite.Repositoryes
                        join esnsi in fgisesnsiTable on gasps.version equals esnsi.version into ps_jointable
                        from p in ps_jointable.DefaultIfEmpty()
                        select new FullOrganization(gasps.name, authority.name, okato.code + " - " + okato.name, gasps.code, gasps.date_beg, gasps.date_end,
-                       p == null ? string.Empty: p.sv_0004,
+                       p == null ? string.Empty : p.sv_0004,
                        p == null ? string.Empty : p.sv_0005,
                        p == null ? string.Empty : p.sv_0006,
                        gasps.version,

@@ -37,6 +37,10 @@ namespace DatabaseToolSuite.Dialogs
             mnuContextFgisEsnsiEdit.Enabled = false;
             mnuTableFgisEsnsiEditButton.Enabled = false;
 
+            mnuTableFgisEsnsiCloneToLast.Enabled = false;
+            mnuContextFgisEsnsiCloneToLast.Enabled = false;
+            mnuTableFgisEsnsiCloneToLastButton.Enabled = false;
+
             mnuTableFgisEsnsiRemove.Enabled = false;
             mnuTableFgisEsnsiRemoveButton.Enabled = false;
 
@@ -117,6 +121,10 @@ namespace DatabaseToolSuite.Dialogs
 
                 bool existsFgisEsnsi = Services.FileSystem.Repository.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version);
 
+                mnuTableFgisEsnsiCloneToLast.Enabled = !isLastVersion && existsFgisEsnsi;
+                mnuContextFgisEsnsiCloneToLast.Enabled = !isLastVersion && existsFgisEsnsi;
+                mnuTableFgisEsnsiCloneToLastButton.Enabled = !isLastVersion && existsFgisEsnsi;
+
                 mnuTableFgisEsnsiRemove.Enabled = existsFgisEsnsi;
                 mnuTableFgisEsnsiRemoveButton.Enabled = existsFgisEsnsi;
             }
@@ -143,6 +151,10 @@ namespace DatabaseToolSuite.Dialogs
                 mnuTableFgisEsnsiEdit.Enabled = false;
                 mnuContextFgisEsnsiEdit.Enabled = false;
                 mnuTableFgisEsnsiEditButton.Enabled = false;
+
+                mnuTableFgisEsnsiCloneToLast.Enabled = false;
+                mnuContextFgisEsnsiCloneToLast.Enabled = false;
+                mnuTableFgisEsnsiCloneToLastButton.Enabled = false;
 
                 mnuTableFgisEsnsiRemove.Enabled = false;
                 mnuTableFgisEsnsiRemoveButton.Enabled = false;
@@ -453,6 +465,7 @@ namespace DatabaseToolSuite.Dialogs
 
                 mnuTableFgisEsnsiRemove.Enabled = existsFgisEsnsi;
                 mnuTableFgisEsnsiRemoveButton.Enabled = existsFgisEsnsi;
+                gaspsListView.UpdateListViewItem();
             }
         }
     
@@ -483,6 +496,23 @@ namespace DatabaseToolSuite.Dialogs
                     editRow.sv_0004 = dialog.Phone;
                     editRow.sv_0005 = dialog.Email;
                     editRow.sv_0006 = dialog.Address;
+                    gaspsListView.UpdateListViewItem();
+                }
+            }
+        }
+
+        private void FgisEsnsiCloneToLast_Click(object sender, EventArgs e)
+        {
+            if (MasterDataSystem.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version))
+            {
+                fgis_esnsiRow currentRow = MasterDataSystem.DataSet.fgis_esnsi.Get(gaspsListView.DataRow.version);
+               if ( MasterDataSystem.CloneFgisEsnsiNoteToLastVersion(currentRow.version) != null)
+                {
+                    MessageBox.Show(this, "Данные ФГСИ ЕСНСИ успешно скопированы в действующую запись!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } 
+               else
+                {
+                    MessageBox.Show(this, "Не удалось скопировать данные ФГСИ ЕСНСИ!" + Environment.NewLine + "Вероятно в действующей записи уже имеются сведения.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -491,6 +521,6 @@ namespace DatabaseToolSuite.Dialogs
         {
             Utils.Dialogs.ImportDialog dialog = new Utils.Dialogs.ImportDialog();
             dialog.ShowDialog(this);
-        }
+        }        
     }
 }
