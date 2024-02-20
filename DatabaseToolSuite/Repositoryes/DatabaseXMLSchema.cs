@@ -155,15 +155,15 @@ namespace DatabaseToolSuite.Repositoryes
                        join okato in okatoTable on gasps.okato_code equals okato.code
                        select new FgisEsnsiOrganization(
                            version: esnsi.version,
-                           id: esnsi.id,
+                           id: esnsi.IsidNull() ? 0: esnsi.id,
                            name: gasps.name,
                            region: okato.name,
-                           phone: esnsi.sv_0004,
-                           email: esnsi.sv_0005,
-                           address: esnsi.sv_0006,
-                           okato: esnsi.okato,
-                           code: esnsi.code,
-                           autokey: esnsi.autokey);
+                           phone: esnsi.Issv_0004Null() ? string.Empty:  esnsi.sv_0004,
+                           email: esnsi.Issv_0005Null() ? string.Empty: esnsi.sv_0005,
+                           address: esnsi.Issv_0006Null() ? string.Empty: esnsi.sv_0006,
+                           okato: esnsi.IsokatoNull() ? (short) 0 :  esnsi.okato,
+                           code: esnsi.IscodeNull() ? 0: esnsi.code,
+                           autokey: esnsi.IsautokeyNull() ? string.Empty: esnsi.autokey);
             }
 
             private gaspsDataTable gaspsTable
@@ -554,7 +554,16 @@ namespace DatabaseToolSuite.Repositoryes
                        item.date_end > DateTime.Today)
                        join authority in authorityTable on item.authority_id equals authority.id
                        join okato in okatoTable on item.okato_code equals okato.code
-                       select new GaspsOrganization(name: item.name, authority: authority.name, okato: okato.code + " - " + okato.name, code: item.code, begin: item.date_beg, end: item.date_end, version: item.version, authorityId: item.authority_id, okatoCode: item.okato_code);
+                       select new GaspsOrganization(
+                           name: item.name, 
+                           authority: authority.name, 
+                           okato: okato.code + " - " + okato.name, 
+                           code: item.code, 
+                           begin: item.date_beg, 
+                           end: item.date_end, 
+                           version: item.version, 
+                           authorityId: item.authority_id, 
+                           okatoCode: item.okato_code);
             }
 
             public class GaspsOrganization
@@ -656,13 +665,19 @@ namespace DatabaseToolSuite.Repositoryes
                        join okato in okatoTable on gasps.okato_code equals okato.code
                        join esnsi in fgisesnsiTable on gasps.version equals esnsi.version into ps_jointable
                        from p in ps_jointable.DefaultIfEmpty()
-                       select new FullOrganization(gasps.name, authority.name, okato.code + " - " + okato.name, gasps.code, gasps.date_beg, gasps.date_end,
-                       p == null ? string.Empty : p.sv_0004,
-                       p == null ? string.Empty : p.sv_0005,
-                       p == null ? string.Empty : p.sv_0006,
-                       gasps.version,
-                       gasps.authority_id,
-                       gasps.okato_code);
+                       select new FullOrganization(
+                           name: gasps.name, 
+                           authority: authority.name, 
+                           okato: okato.code + " - " + okato.name, 
+                           code: gasps.code, 
+                           begin: gasps.date_beg, 
+                           end: gasps.date_end,
+                           phone: p == null ? string.Empty : (p.Issv_0004Null() ? string.Empty: p.sv_0004),
+                           email: p == null ? string.Empty : (p.Issv_0005Null() ? string.Empty : p.sv_0005),
+                           address: p == null ? string.Empty : (p.Issv_0006Null() ? string.Empty : p.sv_0006),
+                           version: gasps.version,
+                           authorityId: gasps.authority_id,
+                           okatoCode: gasps.okato_code);
             }
 
             private authorityDataTable authorityTable

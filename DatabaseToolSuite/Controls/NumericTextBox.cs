@@ -63,7 +63,12 @@ namespace DatabaseToolSuite.Controls
             {
                 oldText = Text;
                 base.OnTextChanged(e);
-            }            
+            } 
+            else if (string.IsNullOrEmpty(this.Text))
+            {
+                oldText = Text;
+                base.OnTextChanged(e);
+            }
             else
             {
                 Text = oldText;

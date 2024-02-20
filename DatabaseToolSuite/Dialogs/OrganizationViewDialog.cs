@@ -62,7 +62,6 @@ namespace DatabaseToolSuite.Dialogs
             this.ClientSize = new System.Drawing.Size(722, 533);
             this.Controls.Add(this.propertyGrid1);
             this.DialogCaptionImage = global::DatabaseToolSuite.Properties.Resources.About24;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrganizationViewDialog";
             this.Controls.SetChildIndex(this.button_Cancel, 0);

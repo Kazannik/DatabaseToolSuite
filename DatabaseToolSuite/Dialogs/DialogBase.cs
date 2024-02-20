@@ -371,7 +371,6 @@ namespace DatabaseToolSuite.Dialogs
             this.Controls.Add(this.button_OK);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_Apply);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

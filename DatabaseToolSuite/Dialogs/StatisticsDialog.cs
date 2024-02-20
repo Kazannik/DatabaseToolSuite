@@ -144,7 +144,6 @@ namespace DatabaseToolSuite.Dialogs
             this.Controls.Add(this.label1);
             this.Controls.Add(this.authorityComboBox1);
             this.Controls.Add(this.listView1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StatisticsDialog";
             this.Controls.SetChildIndex(this.button_Cancel, 0);

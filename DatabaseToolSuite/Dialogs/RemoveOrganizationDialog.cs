@@ -70,6 +70,14 @@ namespace DatabaseToolSuite.Dialogs
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // button_Cancel
+            // 
+            this.button_Cancel.Location = new System.Drawing.Point(640, 419);
+            // 
+            // button_OK
+            // 
+            this.button_OK.Location = new System.Drawing.Point(478, 419);
+            // 
             // lockDateTimePicker
             // 
             this.lockDateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -133,9 +141,7 @@ namespace DatabaseToolSuite.Dialogs
             // 
             // RemoveOrganizationDialog
             // 
-            this.AcceptButton = null;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.CancelButton = null;
             this.ClientSize = new System.Drawing.Size(725, 446);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listView1);
@@ -146,6 +152,8 @@ namespace DatabaseToolSuite.Dialogs
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimumSize = new System.Drawing.Size(741, 481);
             this.Name = "RemoveOrganizationDialog";
+            this.Controls.SetChildIndex(this.button_Cancel, 0);
+            this.Controls.SetChildIndex(this.button_OK, 0);
             this.Controls.SetChildIndex(this.lockDateTimePicker, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.listView1, 0);
