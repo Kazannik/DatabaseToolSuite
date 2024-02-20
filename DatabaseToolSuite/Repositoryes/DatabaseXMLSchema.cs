@@ -301,7 +301,7 @@ namespace DatabaseToolSuite.Repositoryes
 
             private IEnumerable<FullOrganization> _GetFullOrganizationFilter(long? authority, string okato, string code, string name, bool unlockShow, bool reserveShow, bool lockShow)
             {
-                IEnumerable<FullOrganization> result = GetFullOrganization()
+                IEnumerable<FullOrganization> result = GetFullOrganizations()
                     .OrderBy(x => x.Version).OrderBy(x => x.Code);
 
                 if (!unlockShow)
@@ -656,14 +656,39 @@ namespace DatabaseToolSuite.Repositoryes
                     Address = address;
                 }
             }
+            
 
-
-            public IEnumerable<FullOrganization> GetFullOrganization()
+            public FullOrganization GetFullOrganization(long version)
             {
-                return from gasps in this
+                gaspsRow gasps = this.GetOrganizationFromVersion(version);
+                string authority_name = authorityTable.GetName(gasps.authority_id);
+                string okato_name = okatoTable.GetName(gasps.okato_code);
+
+                fgis_esnsiRow esnsi = fgisesnsiTable.ExistsRow(version) ? fgisesnsiTable.Get(version) : null;
+
+                return new FullOrganization(
+                           name: gasps.name,
+                           authority: authority_name,
+                           okato: gasps.okato_code + " - " + okato_name,
+                           code: gasps.code,
+                           begin: gasps.date_beg,
+                           end: gasps.date_end,
+                           phone: esnsi == null ? string.Empty : (esnsi.Issv_0004Null() ? string.Empty : esnsi.sv_0004),
+                           email: esnsi == null ? string.Empty : (esnsi.Issv_0005Null() ? string.Empty : esnsi.sv_0005),
+                           address: esnsi == null ? string.Empty : (esnsi.Issv_0006Null() ? string.Empty : esnsi.sv_0006),
+                           version: gasps.version,
+                           authorityId: gasps.authority_id,
+                           okatoCode: gasps.okato_code);
+            }
+
+
+            public IEnumerable<FullOrganization> GetFullOrganizations()
+            {
+
+                return from gasps in this.Where(e => e.RowState != DataRowState.Deleted)
                        join authority in authorityTable on gasps.authority_id equals authority.id
                        join okato in okatoTable on gasps.okato_code equals okato.code
-                       join esnsi in fgisesnsiTable on gasps.version equals esnsi.version into ps_jointable
+                       join esnsi in fgisesnsiTable.Where(e => e.RowState != DataRowState.Deleted) on gasps.version equals esnsi.version into ps_jointable
                        from p in ps_jointable.DefaultIfEmpty()
                        select new FullOrganization(
                            name: gasps.name, 

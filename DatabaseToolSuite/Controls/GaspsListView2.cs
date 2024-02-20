@@ -162,6 +162,7 @@ namespace DatabaseToolSuite.Controls
                 unlockShow,
                 reserveShow: reserveShow,
                 lockShow: lockShow);
+            
         }
 
         private void InitializeFilter(RepositoryDataSet dataSet, long? authority, string okato, string code, string name, bool unlockShow, bool reserveShow, bool lockShow)
@@ -339,9 +340,9 @@ namespace DatabaseToolSuite.Controls
         {
             if (itemsCollection.Count == 0) return;
             int selectedIndex = baseListView.SelectedIndices.Count > 0 ? baseListView.SelectedIndices[0] : 0;
+            long version = itemsCollection[selectedIndex].Version;
+            itemsCollection[selectedIndex] = _dataSet.gasps.GetFullOrganization(version);
             FullOrganization organization = itemsCollection[selectedIndex];
-
-
             ListViewItem item = itemsCache[selectedIndex - firstItemIndex];
 
             if (organization.Begin > DateTime.Today)
@@ -361,6 +362,8 @@ namespace DatabaseToolSuite.Controls
             item.SubItems[6].Text = organization.Phone;
             item.SubItems[7].Text = organization.Email;
             item.SubItems[8].Text = organization.Address;
+
+            Refresh();
         }
 
         private void ListView_SelectedIndexChanged(object sender, EventArgs e)

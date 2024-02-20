@@ -155,7 +155,7 @@ namespace DatabaseToolSuite.Services
                 authorityId: authorityId,
                 code: modifedRow.code,
                 version: newVersion,
-                index: modifedRow.index,
+                index: modifedRow.IsindexNull() ? 0: modifedRow.index,
                 ownerKey: ownerKey,
                 dateBegin: date,
                 dateEnd: MAX_DATE,
@@ -167,14 +167,14 @@ namespace DatabaseToolSuite.Services
                 fgis_esnsiRow clonedRow = DataSet.fgis_esnsi.Get(modifedRow.version);
                 CreateFgisEsnsiNote(
                     version: newVersion,
-                    region_id: clonedRow.region_id,
-                    sv_0004: clonedRow.sv_0004,
-                    sv_0005: clonedRow.sv_0005,
-                    sv_0006: clonedRow.sv_0006,
-                    okato: clonedRow.okato,
-                    code: clonedRow.code,
-                    autokey: clonedRow.autokey,
-                    id: clonedRow.id);
+                    region_id: clonedRow.Isregion_idNull() ? 0: clonedRow.region_id,
+                    sv_0004: clonedRow.Issv_0004Null() ? string.Empty: clonedRow.sv_0004,
+                    sv_0005: clonedRow.Issv_0005Null() ? string.Empty: clonedRow.sv_0005,
+                    sv_0006: clonedRow.Issv_0006Null() ? string.Empty: clonedRow.sv_0006,
+                    okato: clonedRow.IsokatoNull() ? (short) 0: clonedRow.okato,
+                    code: clonedRow.IscodeNull()? 0: clonedRow.code,
+                    autokey: clonedRow.IsautokeyNull() ? string.Empty: clonedRow.autokey,
+                    id: clonedRow.IsidNull()? 0: clonedRow.id);
             }
 
             return newRow.version;
@@ -225,14 +225,14 @@ namespace DatabaseToolSuite.Services
                 fgis_esnsiRow clonedRow = DataSet.fgis_esnsi.Get(modifedRow.version);
                 CreateFgisEsnsiNote(
                     version: newVersion,
-                    region_id: clonedRow.region_id,
-                    sv_0004: clonedRow.sv_0004,
-                    sv_0005: clonedRow.sv_0005,
-                    sv_0006: clonedRow.sv_0006,
-                    okato: clonedRow.okato,
-                    code: clonedRow.code,
-                    autokey: clonedRow.autokey,
-                    id: clonedRow.id);
+                    region_id: clonedRow.Isregion_idNull() ? 0 : clonedRow.region_id,
+                    sv_0004: clonedRow.Issv_0004Null() ? string.Empty : clonedRow.sv_0004,
+                    sv_0005: clonedRow.Issv_0005Null() ? string.Empty : clonedRow.sv_0005,
+                    sv_0006: clonedRow.Issv_0006Null() ? string.Empty : clonedRow.sv_0006,
+                    okato: clonedRow.IsokatoNull() ? (short)0: clonedRow.okato,
+                    code: clonedRow.IscodeNull() ? 0 : clonedRow.code,
+                    autokey: clonedRow.IsautokeyNull() ? string.Empty : clonedRow.autokey,
+                    id: clonedRow.IsidNull() ? 0 : clonedRow.id);
             }
             return newRow.version;
         }
@@ -336,14 +336,14 @@ namespace DatabaseToolSuite.Services
                 fgis_esnsiRow currentFgisEsnsiRow = DataSet.fgis_esnsi.Get(currentGaspsRow.version);
                 return CreateFgisEsnsiNote(
                 version: lastGaspsRow.version,
-                region_id: currentFgisEsnsiRow.region_id,
-                sv_0004: currentFgisEsnsiRow.sv_0004,
-                sv_0005: currentFgisEsnsiRow.sv_0005,
-                sv_0006: currentFgisEsnsiRow.sv_0006,
-                okato: currentFgisEsnsiRow.okato,
-                code: currentFgisEsnsiRow.code,
-                autokey: currentFgisEsnsiRow.autokey,
-                id: currentFgisEsnsiRow.id);
+                region_id: currentFgisEsnsiRow.Isregion_idNull() ? 0 : currentFgisEsnsiRow.region_id,
+                sv_0004: currentFgisEsnsiRow.Issv_0004Null() ? string.Empty : currentFgisEsnsiRow.sv_0004,
+                sv_0005: currentFgisEsnsiRow.Issv_0005Null() ? string.Empty : currentFgisEsnsiRow.sv_0005,
+                sv_0006: currentFgisEsnsiRow.Issv_0006Null() ? string.Empty : currentFgisEsnsiRow.sv_0006,
+                okato: currentFgisEsnsiRow.IsokatoNull() ? (short) 0 : currentFgisEsnsiRow.okato,
+                code: currentFgisEsnsiRow.IscodeNull() ? 0 : currentFgisEsnsiRow.code,
+                autokey: currentFgisEsnsiRow.IsautokeyNull() ? string.Empty : currentFgisEsnsiRow.autokey, 
+                id: currentFgisEsnsiRow.IsidNull() ? 0 : currentFgisEsnsiRow.id);
             }
             else
             {
