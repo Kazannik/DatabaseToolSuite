@@ -418,6 +418,12 @@ namespace DatabaseToolSuite.Dialogs
             Services.Export.ExportFgisEsnsiToExcel();
         }
 
+        private void mnuFileErknmExportToExcel_Click(object sender, EventArgs e)
+        {
+            Services.Export.ExportGaspsToExcel2();
+        }
+
+
         private void AppForm_Load(object sender, EventArgs e)
         {
             DatabaseToolSuite.Properties.Settings.Default.Reload();
@@ -519,6 +525,8 @@ namespace DatabaseToolSuite.Dialogs
         {
             Utils.Dialogs.ImportDialog dialog = new Utils.Dialogs.ImportDialog();
             dialog.ShowDialog(this);
-        }        
+        }
+
+        
     }
 }

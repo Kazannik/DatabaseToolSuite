@@ -563,7 +563,9 @@ namespace DatabaseToolSuite.Repositoryes
                            end: item.date_end, 
                            version: item.version, 
                            authorityId: item.authority_id, 
-                           okatoCode: item.okato_code);
+                           okatoCode: item.okato_code,
+                           key: item.key,
+                           ownerId: item.owner_id);
             }
 
             public class GaspsOrganization
@@ -606,7 +608,11 @@ namespace DatabaseToolSuite.Repositoryes
                 [Browsable(false)]
                 public string OkatoCode { get; }
 
-                public GaspsOrganization(string name, string authority, string okato, string code, DateTime begin, DateTime end, long version, long authorityId, string okatoCode)
+                public long Key { get; }
+
+                public long OwnerId { get; }
+
+                public GaspsOrganization(string name, string authority, string okato, string code, DateTime begin, DateTime end, long version, long authorityId, string okatoCode, long key, long ownerId)
                 {
                     Name = name;
                     Authority = authority;
@@ -617,6 +623,8 @@ namespace DatabaseToolSuite.Repositoryes
                     Version = version;
                     AuthorityId = authorityId;
                     OkatoCode = okatoCode;
+                    Key = key;
+                    OwnerId = ownerId;
                 }
             }
 
@@ -649,7 +657,9 @@ namespace DatabaseToolSuite.Repositoryes
                     string address,
                     long version,
                     long authorityId,
-                    string okatoCode) : base(name, authority, okato, code, begin, end, version, authorityId, okatoCode)
+                    string okatoCode,
+                    long key,
+                    long ownerId) : base(name, authority, okato, code, begin, end, version, authorityId, okatoCode, key, ownerId)
                 {
                     Phone = phone;
                     Email = email;
@@ -678,7 +688,9 @@ namespace DatabaseToolSuite.Repositoryes
                            address: esnsi == null ? string.Empty : (esnsi.Issv_0006Null() ? string.Empty : esnsi.sv_0006),
                            version: gasps.version,
                            authorityId: gasps.authority_id,
-                           okatoCode: gasps.okato_code);
+                           okatoCode: gasps.okato_code,
+                           key: gasps.key,
+                           ownerId: gasps.owner_id);
             }
 
 
@@ -702,7 +714,9 @@ namespace DatabaseToolSuite.Repositoryes
                            address: p == null ? string.Empty : (p.Issv_0006Null() ? string.Empty : p.sv_0006),
                            version: gasps.version,
                            authorityId: gasps.authority_id,
-                           okatoCode: gasps.okato_code);
+                           okatoCode: gasps.okato_code,
+                           key: gasps.key,
+                           ownerId: gasps.owner_id);
             }
 
             private authorityDataTable authorityTable

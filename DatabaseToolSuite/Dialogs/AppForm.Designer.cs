@@ -33,20 +33,40 @@
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFileImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileExport = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFileExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileGaspsExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileFgisEsnsiExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTable = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTableNewOrganization = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTableCreateOrganization = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuTableCreateNewVersion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuTableRemoveOrganization = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuTableEditError = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuTableFgisEsnsiEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTableFgisEsnsiCloneToLast = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTableFgisEsnsiRemove = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTools = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuToolsImportFgisEsnsi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuToolsServise = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuToolsCreateNewVersion = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelpStatistic = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.rowCountStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.selectedRowStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -63,55 +83,36 @@
             this.filterOkatoComboBox = new DatabaseToolSuite.Controls.OkatoComboBox();
             this.authorityLabel = new System.Windows.Forms.Label();
             this.contextMenuTable = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuContextNewOrganization = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuContextCreateOrganization = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuContextCreateNewVersion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuContextRemoveOrganization = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuContextEditError = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripSeparator();
-            this.mainToolStripBar = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.gaspsListView = new DatabaseToolSuite.Controls.GaspsListView2();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuContextFgisEsnsiEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuContextFgisEsnsiCloneToLast = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuContextUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainToolStripBar = new System.Windows.Forms.ToolStrip();
             this.fileSaveButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tableNewOrganizationButton = new System.Windows.Forms.ToolStripButton();
             this.tableCreateOrganizationButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tableCreateNewVersionButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tableRemoveOrganizationButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuTableFgisEsnsiEditButton = new System.Windows.Forms.ToolStripButton();
             this.mnuTableFgisEsnsiCloneToLastButton = new System.Windows.Forms.ToolStripButton();
             this.mnuTableFgisEsnsiRemoveButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuTableRefreshButton = new System.Windows.Forms.ToolStripButton();
-            this.mnuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileImport = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileExport = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileGaspsExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileFgisEsnsiExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTableNewOrganization = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTableCreateOrganization = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTableCreateNewVersion = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTableRemoveOrganization = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTableEditError = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTableFgisEsnsiEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTableFgisEsnsiCloneToLast = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTableFgisEsnsiRemove = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuToolsCreateNewVersion = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelpStatistic = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContextNewOrganization = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContextCreateOrganization = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContextCreateNewVersion = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContextRemoveOrganization = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContextEditError = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContextFgisEsnsiEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContextFgisEsnsiCloneToLast = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContextUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.gaspsListView = new DatabaseToolSuite.Controls.GaspsListView2();
+            this.mnuFileErknmExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.filterPanel.SuspendLayout();
@@ -161,20 +162,93 @@
             this.mnuFileNew.Text = "mnuFileNew";
             this.mnuFileNew.Visible = false;
             // 
+            // mnuFileOpen
+            // 
+            this.mnuFileOpen.Image = global::DatabaseToolSuite.Properties.Resources.Open24;
+            this.mnuFileOpen.Name = "mnuFileOpen";
+            this.mnuFileOpen.Size = new System.Drawing.Size(288, 30);
+            this.mnuFileOpen.Text = "Открыть...";
+            this.mnuFileOpen.Click += new System.EventHandler(this.FileOpenToolStripMenuItem_Click);
+            // 
+            // mnuFileSave
+            // 
+            this.mnuFileSave.Image = global::DatabaseToolSuite.Properties.Resources.Save24;
+            this.mnuFileSave.Name = "mnuFileSave";
+            this.mnuFileSave.Size = new System.Drawing.Size(288, 30);
+            this.mnuFileSave.Text = "Сохранить";
+            this.mnuFileSave.Click += new System.EventHandler(this.FileSaveToolStripMenuItem_Click);
+            // 
+            // mnuFileSaveAs
+            // 
+            this.mnuFileSaveAs.Image = global::DatabaseToolSuite.Properties.Resources.SaveAs24;
+            this.mnuFileSaveAs.Name = "mnuFileSaveAs";
+            this.mnuFileSaveAs.Size = new System.Drawing.Size(288, 30);
+            this.mnuFileSaveAs.Text = "Сохранить как...";
+            this.mnuFileSaveAs.Click += new System.EventHandler(this.FileSaveAsToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(285, 6);
+            // 
+            // mnuFileImport
+            // 
+            this.mnuFileImport.Image = global::DatabaseToolSuite.Properties.Resources.ImportTextFile24;
+            this.mnuFileImport.Name = "mnuFileImport";
+            this.mnuFileImport.Size = new System.Drawing.Size(288, 30);
+            this.mnuFileImport.Text = "Импорт из файла...";
+            this.mnuFileImport.Click += new System.EventHandler(this.FileImport_Click);
+            // 
+            // mnuFileExport
+            // 
+            this.mnuFileExport.Image = global::DatabaseToolSuite.Properties.Resources.ExportXmlFile24;
+            this.mnuFileExport.Name = "mnuFileExport";
+            this.mnuFileExport.Size = new System.Drawing.Size(288, 30);
+            this.mnuFileExport.Text = "Экспорт данных в файл...";
+            this.mnuFileExport.Click += new System.EventHandler(this.FileExport_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(285, 6);
             // 
+            // mnuFileExportToExcel
+            // 
+            this.mnuFileExportToExcel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFileGaspsExportToExcel,
+            this.mnuFileFgisEsnsiExportToExcel,
+            this.mnuFileErknmExportToExcel});
+            this.mnuFileExportToExcel.Image = global::DatabaseToolSuite.Properties.Resources.ExportExcel24;
+            this.mnuFileExportToExcel.Name = "mnuFileExportToExcel";
+            this.mnuFileExportToExcel.Size = new System.Drawing.Size(288, 30);
+            this.mnuFileExportToExcel.Text = "Экспорт в MS Office Excel";
+            // 
+            // mnuFileGaspsExportToExcel
+            // 
+            this.mnuFileGaspsExportToExcel.Name = "mnuFileGaspsExportToExcel";
+            this.mnuFileGaspsExportToExcel.Size = new System.Drawing.Size(269, 28);
+            this.mnuFileGaspsExportToExcel.Text = "Данных ГАС ПС...";
+            this.mnuFileGaspsExportToExcel.Click += new System.EventHandler(this.FileExportGaspsToExcel_Click);
+            // 
+            // mnuFileFgisEsnsiExportToExcel
+            // 
+            this.mnuFileFgisEsnsiExportToExcel.Name = "mnuFileFgisEsnsiExportToExcel";
+            this.mnuFileFgisEsnsiExportToExcel.Size = new System.Drawing.Size(269, 28);
+            this.mnuFileFgisEsnsiExportToExcel.Text = "Данных ФГИС ЕСНСИ...";
+            this.mnuFileFgisEsnsiExportToExcel.Click += new System.EventHandler(this.FileFgisEsnsiExportToExcel_Click);
+            // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(285, 6);
+            // 
+            // mnuFileExit
+            // 
+            this.mnuFileExit.Image = global::DatabaseToolSuite.Properties.Resources.FileExit24;
+            this.mnuFileExit.Name = "mnuFileExit";
+            this.mnuFileExit.Size = new System.Drawing.Size(288, 30);
+            this.mnuFileExit.Text = "Выход";
+            this.mnuFileExit.Click += new System.EventHandler(this.FileExit_Click);
             // 
             // mnuTable
             // 
@@ -195,25 +269,89 @@
             this.mnuTable.Size = new System.Drawing.Size(246, 27);
             this.mnuTable.Text = "Справочник подразделений";
             // 
+            // mnuTableNewOrganization
+            // 
+            this.mnuTableNewOrganization.Image = global::DatabaseToolSuite.Properties.Resources.New24;
+            this.mnuTableNewOrganization.Name = "mnuTableNewOrganization";
+            this.mnuTableNewOrganization.Size = new System.Drawing.Size(607, 30);
+            this.mnuTableNewOrganization.Text = "Создать запись...";
+            this.mnuTableNewOrganization.Click += new System.EventHandler(this.TableNewOrganization_Click);
+            // 
+            // mnuTableCreateOrganization
+            // 
+            this.mnuTableCreateOrganization.Image = global::DatabaseToolSuite.Properties.Resources.NewSeries24;
+            this.mnuTableCreateOrganization.Name = "mnuTableCreateOrganization";
+            this.mnuTableCreateOrganization.Size = new System.Drawing.Size(607, 30);
+            this.mnuTableCreateOrganization.Text = "Создать запись на основе текущей...";
+            this.mnuTableCreateOrganization.Click += new System.EventHandler(this.TableCreateOrganization_Click);
+            // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(604, 6);
+            // 
+            // mnuTableCreateNewVersion
+            // 
+            this.mnuTableCreateNewVersion.Image = global::DatabaseToolSuite.Properties.Resources.Duplicate24;
+            this.mnuTableCreateNewVersion.Name = "mnuTableCreateNewVersion";
+            this.mnuTableCreateNewVersion.Size = new System.Drawing.Size(607, 30);
+            this.mnuTableCreateNewVersion.Text = "Создать новую версию записи...";
+            this.mnuTableCreateNewVersion.Click += new System.EventHandler(this.TableCreateVersion_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(604, 6);
             // 
+            // mnuTableRemoveOrganization
+            // 
+            this.mnuTableRemoveOrganization.Image = global::DatabaseToolSuite.Properties.Resources.Delete24;
+            this.mnuTableRemoveOrganization.Name = "mnuTableRemoveOrganization";
+            this.mnuTableRemoveOrganization.Size = new System.Drawing.Size(607, 30);
+            this.mnuTableRemoveOrganization.Text = "Заблокировать запись...";
+            this.mnuTableRemoveOrganization.Click += new System.EventHandler(this.TableRemoveOrganization_Click);
+            // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Size = new System.Drawing.Size(604, 6);
             // 
+            // mnuTableEditError
+            // 
+            this.mnuTableEditError.Image = global::DatabaseToolSuite.Properties.Resources.Edit24;
+            this.mnuTableEditError.Name = "mnuTableEditError";
+            this.mnuTableEditError.Size = new System.Drawing.Size(607, 30);
+            this.mnuTableEditError.Text = "Исправить ошибку...";
+            this.mnuTableEditError.Click += new System.EventHandler(this.TableEditError_Click);
+            // 
             // toolStripMenuItem11
             // 
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
             this.toolStripMenuItem11.Size = new System.Drawing.Size(604, 6);
+            // 
+            // mnuTableFgisEsnsiEdit
+            // 
+            this.mnuTableFgisEsnsiEdit.Image = global::DatabaseToolSuite.Properties.Resources.epgu;
+            this.mnuTableFgisEsnsiEdit.Name = "mnuTableFgisEsnsiEdit";
+            this.mnuTableFgisEsnsiEdit.Size = new System.Drawing.Size(607, 30);
+            this.mnuTableFgisEsnsiEdit.Text = "Запись ФГИС ЕСНСИ...";
+            this.mnuTableFgisEsnsiEdit.Click += new System.EventHandler(this.FgisEsnsiEdit_Click);
+            // 
+            // mnuTableFgisEsnsiCloneToLast
+            // 
+            this.mnuTableFgisEsnsiCloneToLast.Image = global::DatabaseToolSuite.Properties.Resources.epgu_dublicate;
+            this.mnuTableFgisEsnsiCloneToLast.Name = "mnuTableFgisEsnsiCloneToLast";
+            this.mnuTableFgisEsnsiCloneToLast.Size = new System.Drawing.Size(607, 30);
+            this.mnuTableFgisEsnsiCloneToLast.Text = "Копировать запись ФГИС ЕСНСИ в действующую версию записи";
+            this.mnuTableFgisEsnsiCloneToLast.Click += new System.EventHandler(this.FgisEsnsiCloneToLast_Click);
+            // 
+            // mnuTableFgisEsnsiRemove
+            // 
+            this.mnuTableFgisEsnsiRemove.Image = ((System.Drawing.Image)(resources.GetObject("mnuTableFgisEsnsiRemove.Image")));
+            this.mnuTableFgisEsnsiRemove.Name = "mnuTableFgisEsnsiRemove";
+            this.mnuTableFgisEsnsiRemove.Size = new System.Drawing.Size(607, 30);
+            this.mnuTableFgisEsnsiRemove.Text = "Удалить запись ФГИС ЕСНСИ";
+            this.mnuTableFgisEsnsiRemove.Click += new System.EventHandler(this.FgisEsnsiRemove_Click);
             // 
             // mnuTools
             // 
@@ -245,6 +383,14 @@
             this.mnuToolsServise.Size = new System.Drawing.Size(333, 28);
             this.mnuToolsServise.Text = "Сервисные команды";
             // 
+            // mnuToolsCreateNewVersion
+            // 
+            this.mnuToolsCreateNewVersion.Image = global::DatabaseToolSuite.Properties.Resources.Duplicate24;
+            this.mnuToolsCreateNewVersion.Name = "mnuToolsCreateNewVersion";
+            this.mnuToolsCreateNewVersion.Size = new System.Drawing.Size(443, 30);
+            this.mnuToolsCreateNewVersion.Text = "Аварийное создание новой версии записи...";
+            this.mnuToolsCreateNewVersion.Click += new System.EventHandler(this.TableCreateVersion_Click);
+            // 
             // mnuHelp
             // 
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -255,10 +401,26 @@
             this.mnuHelp.Size = new System.Drawing.Size(88, 27);
             this.mnuHelp.Text = "Справка";
             // 
+            // mnuHelpStatistic
+            // 
+            this.mnuHelpStatistic.Image = global::DatabaseToolSuite.Properties.Resources.Statistics24;
+            this.mnuHelpStatistic.Name = "mnuHelpStatistic";
+            this.mnuHelpStatistic.Size = new System.Drawing.Size(209, 30);
+            this.mnuHelpStatistic.Text = "Статистика";
+            this.mnuHelpStatistic.Click += new System.EventHandler(this.HelpStatistic_Click);
+            // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(206, 6);
+            // 
+            // mnuHelpAbout
+            // 
+            this.mnuHelpAbout.Image = global::DatabaseToolSuite.Properties.Resources.About24;
+            this.mnuHelpAbout.Name = "mnuHelpAbout";
+            this.mnuHelpAbout.Size = new System.Drawing.Size(209, 30);
+            this.mnuHelpAbout.Text = "О программе...";
+            this.mnuHelpAbout.Click += new System.EventHandler(this.HelpAbout_Click);
             // 
             // statusStrip1
             // 
@@ -468,25 +630,94 @@
             this.contextMenuTable.Name = "contextMenuTable";
             this.contextMenuTable.Size = new System.Drawing.Size(606, 274);
             // 
+            // mnuContextNewOrganization
+            // 
+            this.mnuContextNewOrganization.Image = global::DatabaseToolSuite.Properties.Resources.New24;
+            this.mnuContextNewOrganization.Name = "mnuContextNewOrganization";
+            this.mnuContextNewOrganization.Size = new System.Drawing.Size(605, 30);
+            this.mnuContextNewOrganization.Text = "Создать запись...";
+            this.mnuContextNewOrganization.Click += new System.EventHandler(this.TableNewOrganization_Click);
+            // 
+            // mnuContextCreateOrganization
+            // 
+            this.mnuContextCreateOrganization.Image = global::DatabaseToolSuite.Properties.Resources.NewSeries24;
+            this.mnuContextCreateOrganization.Name = "mnuContextCreateOrganization";
+            this.mnuContextCreateOrganization.Size = new System.Drawing.Size(605, 30);
+            this.mnuContextCreateOrganization.Text = "Создать запись на основе текущей...";
+            this.mnuContextCreateOrganization.Click += new System.EventHandler(this.TableCreateOrganization_Click);
+            // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             this.toolStripMenuItem8.Size = new System.Drawing.Size(602, 6);
+            // 
+            // mnuContextCreateNewVersion
+            // 
+            this.mnuContextCreateNewVersion.Image = global::DatabaseToolSuite.Properties.Resources.Duplicate24;
+            this.mnuContextCreateNewVersion.Name = "mnuContextCreateNewVersion";
+            this.mnuContextCreateNewVersion.Size = new System.Drawing.Size(605, 30);
+            this.mnuContextCreateNewVersion.Text = "Создать новую версию записи...";
+            this.mnuContextCreateNewVersion.Click += new System.EventHandler(this.TableCreateVersion_Click);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             this.toolStripMenuItem9.Size = new System.Drawing.Size(602, 6);
             // 
+            // mnuContextRemoveOrganization
+            // 
+            this.mnuContextRemoveOrganization.Image = global::DatabaseToolSuite.Properties.Resources.Delete24;
+            this.mnuContextRemoveOrganization.Name = "mnuContextRemoveOrganization";
+            this.mnuContextRemoveOrganization.Size = new System.Drawing.Size(605, 30);
+            this.mnuContextRemoveOrganization.Text = "Заблокировать запись...";
+            this.mnuContextRemoveOrganization.Click += new System.EventHandler(this.TableRemoveOrganization_Click);
+            // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
             this.toolStripMenuItem10.Size = new System.Drawing.Size(602, 6);
             // 
+            // mnuContextEditError
+            // 
+            this.mnuContextEditError.Image = global::DatabaseToolSuite.Properties.Resources.Edit24;
+            this.mnuContextEditError.Name = "mnuContextEditError";
+            this.mnuContextEditError.Size = new System.Drawing.Size(605, 30);
+            this.mnuContextEditError.Text = "Исправить ошибку...";
+            this.mnuContextEditError.Click += new System.EventHandler(this.TableEditError_Click);
+            // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
             this.toolStripMenuItem12.Size = new System.Drawing.Size(602, 6);
+            // 
+            // mnuContextFgisEsnsiEdit
+            // 
+            this.mnuContextFgisEsnsiEdit.Image = global::DatabaseToolSuite.Properties.Resources.epgu;
+            this.mnuContextFgisEsnsiEdit.Name = "mnuContextFgisEsnsiEdit";
+            this.mnuContextFgisEsnsiEdit.Size = new System.Drawing.Size(605, 30);
+            this.mnuContextFgisEsnsiEdit.Text = "Запись ФГИС ЕСНСИ...";
+            this.mnuContextFgisEsnsiEdit.Click += new System.EventHandler(this.FgisEsnsiEdit_Click);
+            // 
+            // mnuContextFgisEsnsiCloneToLast
+            // 
+            this.mnuContextFgisEsnsiCloneToLast.Image = global::DatabaseToolSuite.Properties.Resources.epgu_dublicate;
+            this.mnuContextFgisEsnsiCloneToLast.Name = "mnuContextFgisEsnsiCloneToLast";
+            this.mnuContextFgisEsnsiCloneToLast.Size = new System.Drawing.Size(605, 30);
+            this.mnuContextFgisEsnsiCloneToLast.Text = "Копировать запись ФГИС ЕСНСИ в действующую версию записи";
+            this.mnuContextFgisEsnsiCloneToLast.Click += new System.EventHandler(this.FgisEsnsiCloneToLast_Click);
+            // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(602, 6);
+            // 
+            // mnuContextUpdate
+            // 
+            this.mnuContextUpdate.Image = global::DatabaseToolSuite.Properties.Resources.Update24;
+            this.mnuContextUpdate.Name = "mnuContextUpdate";
+            this.mnuContextUpdate.Size = new System.Drawing.Size(605, 30);
+            this.mnuContextUpdate.Text = "Обновить таблицу";
+            this.mnuContextUpdate.Click += new System.EventHandler(this.Filter_ParametersChanged);
             // 
             // mainToolStripBar
             // 
@@ -513,51 +744,6 @@
             this.mainToolStripBar.TabIndex = 9;
             this.mainToolStripBar.Text = "Стандартная";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 39);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 39);
-            // 
-            // gaspsListView
-            // 
-            this.gaspsListView.DataSet = null;
-            this.gaspsListView.Location = new System.Drawing.Point(0, 299);
-            this.gaspsListView.LockShow = false;
-            this.gaspsListView.Margin = new System.Windows.Forms.Padding(6);
-            this.gaspsListView.Name = "gaspsListView";
-            this.gaspsListView.ReserveShow = true;
-            this.gaspsListView.Size = new System.Drawing.Size(1228, 361);
-            this.gaspsListView.TabIndex = 1;
-            this.gaspsListView.UnlockShow = true;
-            this.gaspsListView.ItemSelectionChanged += new System.EventHandler(this.gaspsListView_ItemSelectionChanged);
-            this.gaspsListView.ItemMouseClick += new System.EventHandler<DatabaseToolSuite.Controls.GaspsListViewEventArgs>(this.gaspsListView_ItemMouseClick);
-            this.gaspsListView.ItemMouseDoubleClick += new System.EventHandler<DatabaseToolSuite.Controls.GaspsListViewEventArgs>(this.gaspsListView_ItemMouseDoubleClick);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 39);
-            // 
-            // toolStripMenuItem14
-            // 
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(602, 6);
-            // 
             // fileSaveButton
             // 
             this.fileSaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -567,6 +753,11 @@
             this.fileSaveButton.Size = new System.Drawing.Size(36, 36);
             this.fileSaveButton.Text = "Сохранить файл";
             this.fileSaveButton.Click += new System.EventHandler(this.FileSaveToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // tableNewOrganizationButton
             // 
@@ -588,6 +779,11 @@
             this.tableCreateOrganizationButton.Text = "Создать запись на основе текущей...";
             this.tableCreateOrganizationButton.Click += new System.EventHandler(this.TableCreateOrganization_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
+            // 
             // tableCreateNewVersionButton
             // 
             this.tableCreateNewVersionButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -598,6 +794,11 @@
             this.tableCreateNewVersionButton.Text = "Создать новую версию записи...";
             this.tableCreateNewVersionButton.Click += new System.EventHandler(this.TableCreateVersion_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 39);
+            // 
             // tableRemoveOrganizationButton
             // 
             this.tableRemoveOrganizationButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -607,6 +808,11 @@
             this.tableRemoveOrganizationButton.Size = new System.Drawing.Size(36, 36);
             this.tableRemoveOrganizationButton.Text = "Заблокировать запись...";
             this.tableRemoveOrganizationButton.Click += new System.EventHandler(this.TableRemoveOrganization_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 39);
             // 
             // mnuTableFgisEsnsiEditButton
             // 
@@ -638,6 +844,11 @@
             this.mnuTableFgisEsnsiRemoveButton.Text = "Удалить запись ФГИС ЕСНСИ";
             this.mnuTableFgisEsnsiRemoveButton.Click += new System.EventHandler(this.FgisEsnsiRemove_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 39);
+            // 
             // mnuTableRefreshButton
             // 
             this.mnuTableRefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -648,229 +859,27 @@
             this.mnuTableRefreshButton.Text = "Обновить таблицу";
             this.mnuTableRefreshButton.Click += new System.EventHandler(this.Filter_ParametersChanged);
             // 
-            // mnuFileOpen
+            // gaspsListView
             // 
-            this.mnuFileOpen.Image = global::DatabaseToolSuite.Properties.Resources.Open24;
-            this.mnuFileOpen.Name = "mnuFileOpen";
-            this.mnuFileOpen.Size = new System.Drawing.Size(288, 30);
-            this.mnuFileOpen.Text = "Открыть...";
-            this.mnuFileOpen.Click += new System.EventHandler(this.FileOpenToolStripMenuItem_Click);
+            this.gaspsListView.DataSet = null;
+            this.gaspsListView.Location = new System.Drawing.Point(0, 299);
+            this.gaspsListView.LockShow = false;
+            this.gaspsListView.Margin = new System.Windows.Forms.Padding(6);
+            this.gaspsListView.Name = "gaspsListView";
+            this.gaspsListView.ReserveShow = true;
+            this.gaspsListView.Size = new System.Drawing.Size(1228, 361);
+            this.gaspsListView.TabIndex = 1;
+            this.gaspsListView.UnlockShow = true;
+            this.gaspsListView.ItemSelectionChanged += new System.EventHandler(this.gaspsListView_ItemSelectionChanged);
+            this.gaspsListView.ItemMouseClick += new System.EventHandler<DatabaseToolSuite.Controls.GaspsListViewEventArgs>(this.gaspsListView_ItemMouseClick);
+            this.gaspsListView.ItemMouseDoubleClick += new System.EventHandler<DatabaseToolSuite.Controls.GaspsListViewEventArgs>(this.gaspsListView_ItemMouseDoubleClick);
             // 
-            // mnuFileSave
+            // mnuFileErknmExportToExcel
             // 
-            this.mnuFileSave.Image = global::DatabaseToolSuite.Properties.Resources.Save24;
-            this.mnuFileSave.Name = "mnuFileSave";
-            this.mnuFileSave.Size = new System.Drawing.Size(288, 30);
-            this.mnuFileSave.Text = "Сохранить";
-            this.mnuFileSave.Click += new System.EventHandler(this.FileSaveToolStripMenuItem_Click);
-            // 
-            // mnuFileSaveAs
-            // 
-            this.mnuFileSaveAs.Image = global::DatabaseToolSuite.Properties.Resources.SaveAs24;
-            this.mnuFileSaveAs.Name = "mnuFileSaveAs";
-            this.mnuFileSaveAs.Size = new System.Drawing.Size(288, 30);
-            this.mnuFileSaveAs.Text = "Сохранить как...";
-            this.mnuFileSaveAs.Click += new System.EventHandler(this.FileSaveAsToolStripMenuItem_Click);
-            // 
-            // mnuFileImport
-            // 
-            this.mnuFileImport.Image = global::DatabaseToolSuite.Properties.Resources.ImportTextFile24;
-            this.mnuFileImport.Name = "mnuFileImport";
-            this.mnuFileImport.Size = new System.Drawing.Size(288, 30);
-            this.mnuFileImport.Text = "Импорт из файла...";
-            this.mnuFileImport.Click += new System.EventHandler(this.FileImport_Click);
-            // 
-            // mnuFileExport
-            // 
-            this.mnuFileExport.Image = global::DatabaseToolSuite.Properties.Resources.ExportXmlFile24;
-            this.mnuFileExport.Name = "mnuFileExport";
-            this.mnuFileExport.Size = new System.Drawing.Size(288, 30);
-            this.mnuFileExport.Text = "Экспорт данных в файл...";
-            this.mnuFileExport.Click += new System.EventHandler(this.FileExport_Click);
-            // 
-            // mnuFileExportToExcel
-            // 
-            this.mnuFileExportToExcel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuFileGaspsExportToExcel,
-            this.mnuFileFgisEsnsiExportToExcel});
-            this.mnuFileExportToExcel.Image = global::DatabaseToolSuite.Properties.Resources.ExportExcel24;
-            this.mnuFileExportToExcel.Name = "mnuFileExportToExcel";
-            this.mnuFileExportToExcel.Size = new System.Drawing.Size(288, 30);
-            this.mnuFileExportToExcel.Text = "Экспорт в MS Office Excel";
-            // 
-            // mnuFileGaspsExportToExcel
-            // 
-            this.mnuFileGaspsExportToExcel.Name = "mnuFileGaspsExportToExcel";
-            this.mnuFileGaspsExportToExcel.Size = new System.Drawing.Size(269, 28);
-            this.mnuFileGaspsExportToExcel.Text = "Данных ГАС ПС...";
-            this.mnuFileGaspsExportToExcel.Click += new System.EventHandler(this.FileExportGaspsToExcel_Click);
-            // 
-            // mnuFileFgisEsnsiExportToExcel
-            // 
-            this.mnuFileFgisEsnsiExportToExcel.Name = "mnuFileFgisEsnsiExportToExcel";
-            this.mnuFileFgisEsnsiExportToExcel.Size = new System.Drawing.Size(269, 28);
-            this.mnuFileFgisEsnsiExportToExcel.Text = "Данных ФГИС ЕСНСИ...";
-            this.mnuFileFgisEsnsiExportToExcel.Click += new System.EventHandler(this.FileFgisEsnsiExportToExcel_Click);
-            // 
-            // mnuFileExit
-            // 
-            this.mnuFileExit.Image = global::DatabaseToolSuite.Properties.Resources.FileExit24;
-            this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(288, 30);
-            this.mnuFileExit.Text = "Выход";
-            this.mnuFileExit.Click += new System.EventHandler(this.FileExit_Click);
-            // 
-            // mnuTableNewOrganization
-            // 
-            this.mnuTableNewOrganization.Image = global::DatabaseToolSuite.Properties.Resources.New24;
-            this.mnuTableNewOrganization.Name = "mnuTableNewOrganization";
-            this.mnuTableNewOrganization.Size = new System.Drawing.Size(607, 30);
-            this.mnuTableNewOrganization.Text = "Создать запись...";
-            this.mnuTableNewOrganization.Click += new System.EventHandler(this.TableNewOrganization_Click);
-            // 
-            // mnuTableCreateOrganization
-            // 
-            this.mnuTableCreateOrganization.Image = global::DatabaseToolSuite.Properties.Resources.NewSeries24;
-            this.mnuTableCreateOrganization.Name = "mnuTableCreateOrganization";
-            this.mnuTableCreateOrganization.Size = new System.Drawing.Size(607, 30);
-            this.mnuTableCreateOrganization.Text = "Создать запись на основе текущей...";
-            this.mnuTableCreateOrganization.Click += new System.EventHandler(this.TableCreateOrganization_Click);
-            // 
-            // mnuTableCreateNewVersion
-            // 
-            this.mnuTableCreateNewVersion.Image = global::DatabaseToolSuite.Properties.Resources.Duplicate24;
-            this.mnuTableCreateNewVersion.Name = "mnuTableCreateNewVersion";
-            this.mnuTableCreateNewVersion.Size = new System.Drawing.Size(607, 30);
-            this.mnuTableCreateNewVersion.Text = "Создать новую версию записи...";
-            this.mnuTableCreateNewVersion.Click += new System.EventHandler(this.TableCreateVersion_Click);
-            // 
-            // mnuTableRemoveOrganization
-            // 
-            this.mnuTableRemoveOrganization.Image = global::DatabaseToolSuite.Properties.Resources.Delete24;
-            this.mnuTableRemoveOrganization.Name = "mnuTableRemoveOrganization";
-            this.mnuTableRemoveOrganization.Size = new System.Drawing.Size(607, 30);
-            this.mnuTableRemoveOrganization.Text = "Заблокировать запись...";
-            this.mnuTableRemoveOrganization.Click += new System.EventHandler(this.TableRemoveOrganization_Click);
-            // 
-            // mnuTableEditError
-            // 
-            this.mnuTableEditError.Image = global::DatabaseToolSuite.Properties.Resources.Edit24;
-            this.mnuTableEditError.Name = "mnuTableEditError";
-            this.mnuTableEditError.Size = new System.Drawing.Size(607, 30);
-            this.mnuTableEditError.Text = "Исправить ошибку...";
-            this.mnuTableEditError.Click += new System.EventHandler(this.TableEditError_Click);
-            // 
-            // mnuTableFgisEsnsiEdit
-            // 
-            this.mnuTableFgisEsnsiEdit.Image = global::DatabaseToolSuite.Properties.Resources.epgu;
-            this.mnuTableFgisEsnsiEdit.Name = "mnuTableFgisEsnsiEdit";
-            this.mnuTableFgisEsnsiEdit.Size = new System.Drawing.Size(607, 30);
-            this.mnuTableFgisEsnsiEdit.Text = "Запись ФГИС ЕСНСИ...";
-            this.mnuTableFgisEsnsiEdit.Click += new System.EventHandler(this.FgisEsnsiEdit_Click);
-            // 
-            // mnuTableFgisEsnsiCloneToLast
-            // 
-            this.mnuTableFgisEsnsiCloneToLast.Image = global::DatabaseToolSuite.Properties.Resources.epgu_dublicate;
-            this.mnuTableFgisEsnsiCloneToLast.Name = "mnuTableFgisEsnsiCloneToLast";
-            this.mnuTableFgisEsnsiCloneToLast.Size = new System.Drawing.Size(607, 30);
-            this.mnuTableFgisEsnsiCloneToLast.Text = "Копировать запись ФГИС ЕСНСИ в действующую версию записи";
-            this.mnuTableFgisEsnsiCloneToLast.Click += new System.EventHandler(this.FgisEsnsiCloneToLast_Click);
-            // 
-            // mnuTableFgisEsnsiRemove
-            // 
-            this.mnuTableFgisEsnsiRemove.Image = ((System.Drawing.Image)(resources.GetObject("mnuTableFgisEsnsiRemove.Image")));
-            this.mnuTableFgisEsnsiRemove.Name = "mnuTableFgisEsnsiRemove";
-            this.mnuTableFgisEsnsiRemove.Size = new System.Drawing.Size(607, 30);
-            this.mnuTableFgisEsnsiRemove.Text = "Удалить запись ФГИС ЕСНСИ";
-            this.mnuTableFgisEsnsiRemove.Click += new System.EventHandler(this.FgisEsnsiRemove_Click);
-            // 
-            // mnuToolsCreateNewVersion
-            // 
-            this.mnuToolsCreateNewVersion.Image = global::DatabaseToolSuite.Properties.Resources.Duplicate24;
-            this.mnuToolsCreateNewVersion.Name = "mnuToolsCreateNewVersion";
-            this.mnuToolsCreateNewVersion.Size = new System.Drawing.Size(443, 30);
-            this.mnuToolsCreateNewVersion.Text = "Аварийное создание новой версии записи...";
-            this.mnuToolsCreateNewVersion.Click += new System.EventHandler(this.TableCreateVersion_Click);
-            // 
-            // mnuHelpStatistic
-            // 
-            this.mnuHelpStatistic.Image = global::DatabaseToolSuite.Properties.Resources.Statistics24;
-            this.mnuHelpStatistic.Name = "mnuHelpStatistic";
-            this.mnuHelpStatistic.Size = new System.Drawing.Size(209, 30);
-            this.mnuHelpStatistic.Text = "Статистика";
-            this.mnuHelpStatistic.Click += new System.EventHandler(this.HelpStatistic_Click);
-            // 
-            // mnuHelpAbout
-            // 
-            this.mnuHelpAbout.Image = global::DatabaseToolSuite.Properties.Resources.About24;
-            this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(209, 30);
-            this.mnuHelpAbout.Text = "О программе...";
-            this.mnuHelpAbout.Click += new System.EventHandler(this.HelpAbout_Click);
-            // 
-            // mnuContextNewOrganization
-            // 
-            this.mnuContextNewOrganization.Image = global::DatabaseToolSuite.Properties.Resources.New24;
-            this.mnuContextNewOrganization.Name = "mnuContextNewOrganization";
-            this.mnuContextNewOrganization.Size = new System.Drawing.Size(605, 30);
-            this.mnuContextNewOrganization.Text = "Создать запись...";
-            this.mnuContextNewOrganization.Click += new System.EventHandler(this.TableNewOrganization_Click);
-            // 
-            // mnuContextCreateOrganization
-            // 
-            this.mnuContextCreateOrganization.Image = global::DatabaseToolSuite.Properties.Resources.NewSeries24;
-            this.mnuContextCreateOrganization.Name = "mnuContextCreateOrganization";
-            this.mnuContextCreateOrganization.Size = new System.Drawing.Size(605, 30);
-            this.mnuContextCreateOrganization.Text = "Создать запись на основе текущей...";
-            this.mnuContextCreateOrganization.Click += new System.EventHandler(this.TableCreateOrganization_Click);
-            // 
-            // mnuContextCreateNewVersion
-            // 
-            this.mnuContextCreateNewVersion.Image = global::DatabaseToolSuite.Properties.Resources.Duplicate24;
-            this.mnuContextCreateNewVersion.Name = "mnuContextCreateNewVersion";
-            this.mnuContextCreateNewVersion.Size = new System.Drawing.Size(605, 30);
-            this.mnuContextCreateNewVersion.Text = "Создать новую версию записи...";
-            this.mnuContextCreateNewVersion.Click += new System.EventHandler(this.TableCreateVersion_Click);
-            // 
-            // mnuContextRemoveOrganization
-            // 
-            this.mnuContextRemoveOrganization.Image = global::DatabaseToolSuite.Properties.Resources.Delete24;
-            this.mnuContextRemoveOrganization.Name = "mnuContextRemoveOrganization";
-            this.mnuContextRemoveOrganization.Size = new System.Drawing.Size(605, 30);
-            this.mnuContextRemoveOrganization.Text = "Заблокировать запись...";
-            this.mnuContextRemoveOrganization.Click += new System.EventHandler(this.TableRemoveOrganization_Click);
-            // 
-            // mnuContextEditError
-            // 
-            this.mnuContextEditError.Image = global::DatabaseToolSuite.Properties.Resources.Edit24;
-            this.mnuContextEditError.Name = "mnuContextEditError";
-            this.mnuContextEditError.Size = new System.Drawing.Size(605, 30);
-            this.mnuContextEditError.Text = "Исправить ошибку...";
-            this.mnuContextEditError.Click += new System.EventHandler(this.TableEditError_Click);
-            // 
-            // mnuContextFgisEsnsiEdit
-            // 
-            this.mnuContextFgisEsnsiEdit.Image = global::DatabaseToolSuite.Properties.Resources.epgu;
-            this.mnuContextFgisEsnsiEdit.Name = "mnuContextFgisEsnsiEdit";
-            this.mnuContextFgisEsnsiEdit.Size = new System.Drawing.Size(605, 30);
-            this.mnuContextFgisEsnsiEdit.Text = "Запись ФГИС ЕСНСИ...";
-            this.mnuContextFgisEsnsiEdit.Click += new System.EventHandler(this.FgisEsnsiEdit_Click);
-            // 
-            // mnuContextFgisEsnsiCloneToLast
-            // 
-            this.mnuContextFgisEsnsiCloneToLast.Image = global::DatabaseToolSuite.Properties.Resources.epgu_dublicate;
-            this.mnuContextFgisEsnsiCloneToLast.Name = "mnuContextFgisEsnsiCloneToLast";
-            this.mnuContextFgisEsnsiCloneToLast.Size = new System.Drawing.Size(605, 30);
-            this.mnuContextFgisEsnsiCloneToLast.Text = "Копировать запись ФГИС ЕСНСИ в действующую версию записи";
-            this.mnuContextFgisEsnsiCloneToLast.Click += new System.EventHandler(this.FgisEsnsiCloneToLast_Click);
-            // 
-            // mnuContextUpdate
-            // 
-            this.mnuContextUpdate.Image = global::DatabaseToolSuite.Properties.Resources.Update24;
-            this.mnuContextUpdate.Name = "mnuContextUpdate";
-            this.mnuContextUpdate.Size = new System.Drawing.Size(605, 30);
-            this.mnuContextUpdate.Text = "Обновить таблицу";
-            this.mnuContextUpdate.Click += new System.EventHandler(this.Filter_ParametersChanged);
+            this.mnuFileErknmExportToExcel.Name = "mnuFileErknmExportToExcel";
+            this.mnuFileErknmExportToExcel.Size = new System.Drawing.Size(269, 28);
+            this.mnuFileErknmExportToExcel.Text = "Данных ЕРКНМ";
+            this.mnuFileErknmExportToExcel.Click += new System.EventHandler(this.mnuFileErknmExportToExcel_Click);
             // 
             // AppForm
             // 
@@ -991,5 +1000,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuContextUpdate;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton mnuTableRefreshButton;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileErknmExportToExcel;
     }
 }

@@ -300,7 +300,9 @@ namespace DatabaseToolSuite.Controls
                 address: address,
                 version: organization.Version,
                 authorityId: organization.AuthorityId,
-                okatoCode: okatoCode);           
+                okatoCode: okatoCode,
+                key: organization.Key,
+                ownerId: organization.OwnerId);           
         }
 
         public void UpdateListViewItem(
@@ -315,7 +317,9 @@ namespace DatabaseToolSuite.Controls
             string address,
             long version,
             long authorityId,
-            string okatoCode)
+            string okatoCode,
+            long key,
+            long ownerId)
         {
             if (itemsCollection.Count == 0) return;
             int selectedIndex = baseListView.SelectedIndices.Count > 0 ? baseListView.SelectedIndices[0] : 0;
@@ -332,7 +336,9 @@ namespace DatabaseToolSuite.Controls
                 address: address,
                 version: version,
                 authorityId: authorityId,
-                okatoCode: okatoCode);
+                okatoCode: okatoCode,
+                key: key,
+                ownerId: ownerId);
             UpdateListViewItem();
         }
 
