@@ -1,5 +1,6 @@
 ﻿using DatabaseToolSuite.Services;
 using System;
+using System.Reflection;
 using System.Windows.Forms;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet;
 
@@ -10,7 +11,10 @@ namespace DatabaseToolSuite.Dialogs
 
         public AppForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
+
+            this.Text = "Справочник подразделений правоохранительных органов в НСИ ГАС ПС - " +
+                string.Format("Версия {0}",  Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
             selectedRowStatusLabel.Text = string.Empty;
 
