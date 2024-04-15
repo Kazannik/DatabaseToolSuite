@@ -13,9 +13,23 @@ namespace DatabaseToolSuite.Dialogs
         {
             InitializeComponent();
 
-            this.Text = "Справочник подразделений правоохранительных органов в НСИ ГАС ПС - " +
-                string.Format("Версия {0}",  Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            this.Text = Const.App.APP_CAPTION + 
+                string.Format(" - Версия {0}",  Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
+            DisableControl();
+
+            if (Services.FileSystem.DefaultDatabaseFileExists())
+                Services.FileSystem.ReadDatabase();
+
+            gaspsListView.DataSet = Services.FileSystem.Repository.DataSet;
+
+            filterOkatoComboBox.InitializeSource(Services.FileSystem.Repository.DataSet.okato);
+            filterAuthorityComboBox.InitializeSource(Services.FileSystem.Repository.DataSet.authority);
+            rowCountStatusLabel.Text = string.Format("Отражено записей {0}", gaspsListView.RowCount);
+        }
+
+        private void DisableControl()
+        {
             selectedRowStatusLabel.Text = string.Empty;
 
             mnuTableCreateOrganization.Enabled = false;
@@ -25,7 +39,6 @@ namespace DatabaseToolSuite.Dialogs
             mnuTableCreateNewVersion.Enabled = false;
             mnuContextCreateNewVersion.Enabled = false;
             tableCreateNewVersionButton.Enabled = false;
-
             mnuToolsCreateNewVersion.Enabled = false;
 
             mnuTableRemoveOrganization.Enabled = false;
@@ -34,6 +47,7 @@ namespace DatabaseToolSuite.Dialogs
 
             mnuTableEditError.Enabled = false;
             mnuContextEditError.Enabled = false;
+            mnuToolsEditError.Enabled = false;
 
             mnuTableFgisEsnsiEdit.Enabled = false;
             mnuContextFgisEsnsiEdit.Enabled = false;
@@ -45,15 +59,6 @@ namespace DatabaseToolSuite.Dialogs
 
             mnuTableFgisEsnsiRemove.Enabled = false;
             mnuTableFgisEsnsiRemoveButton.Enabled = false;
-
-            if (Services.FileSystem.DefaultDatabaseFileExists())
-                Services.FileSystem.ReadDatabase();
-
-            gaspsListView.DataSet = Services.FileSystem.Repository.DataSet;
-
-            filterOkatoComboBox.InitializeSource(Services.FileSystem.Repository.DataSet.okato);
-            filterAuthorityComboBox.InitializeSource(Services.FileSystem.Repository.DataSet.authority);
-            rowCountStatusLabel.Text = string.Format("Отражено записей {0}", gaspsListView.RowCount);
         }
 
 
@@ -102,7 +107,9 @@ namespace DatabaseToolSuite.Dialogs
                 mnuContextCreateOrganization.Enabled = true;
                 tableCreateOrganizationButton.Enabled = true;
 
-                bool isLastVersion = Services.FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
+                mnuToolsEditError.Enabled = true;
+
+                bool isLastVersion = FileSystem.Repository.DataSet.gasps.IsLastVersion(gaspsListView.DataRow.version);
 
                 mnuTableCreateNewVersion.Enabled = isLastVersion;
                 mnuContextCreateNewVersion.Enabled = isLastVersion;
@@ -132,34 +139,7 @@ namespace DatabaseToolSuite.Dialogs
             }
             else
             {
-                selectedRowStatusLabel.Text = string.Empty;
-
-                mnuTableCreateOrganization.Enabled = false;
-                mnuContextCreateOrganization.Enabled = false;
-                tableCreateOrganizationButton.Enabled = false;
-
-                mnuTableCreateNewVersion.Enabled = false;
-                mnuContextCreateNewVersion.Enabled = false;
-                tableCreateNewVersionButton.Enabled = false;
-                mnuToolsCreateNewVersion.Enabled = false;
-
-                mnuTableRemoveOrganization.Enabled = false;
-                mnuContextRemoveOrganization.Enabled = false;
-                tableRemoveOrganizationButton.Enabled = false;
-
-                mnuTableEditError.Enabled = false;
-                mnuContextEditError.Enabled = false;
-
-                mnuTableFgisEsnsiEdit.Enabled = false;
-                mnuContextFgisEsnsiEdit.Enabled = false;
-                mnuTableFgisEsnsiEditButton.Enabled = false;
-
-                mnuTableFgisEsnsiCloneToLast.Enabled = false;
-                mnuContextFgisEsnsiCloneToLast.Enabled = false;
-                mnuTableFgisEsnsiCloneToLastButton.Enabled = false;
-
-                mnuTableFgisEsnsiRemove.Enabled = false;
-                mnuTableFgisEsnsiRemoveButton.Enabled = false;
+                DisableControl();
             }
         }
 
@@ -180,7 +160,6 @@ namespace DatabaseToolSuite.Dialogs
                 {
                     OrganizationViewDialog dialog = new OrganizationViewDialog(gaspsListView.SelectedOrganization);
                     dialog.ShowDialog(this);
-
                 }
             }
         }
@@ -191,7 +170,7 @@ namespace DatabaseToolSuite.Dialogs
             dialog.DialogCaptionImage = Properties.Resources.New32;
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
-                Services.MasterDataSystem.CreateNewOrganization(
+                MasterDataSystem.CreateNewOrganization(
                     name: dialog.OrganizationName,
                     okato: dialog.OkatoCode,
                     authorityId: dialog.Authority.HasValue ? dialog.Authority.Value : 0,
@@ -210,7 +189,7 @@ namespace DatabaseToolSuite.Dialogs
             dialog.DialogCaptionImage = Properties.Resources.NewSeries32;
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
-                Services.MasterDataSystem.CreateNewOrganization(
+                MasterDataSystem.CreateNewOrganization(
                     name: dialog.OrganizationName,
                     okato: dialog.OkatoCode,
                     authorityId: dialog.Authority.HasValue ? dialog.Authority.Value : 0,
@@ -229,7 +208,7 @@ namespace DatabaseToolSuite.Dialogs
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 long version = gaspsListView.DataRow.version;
-                Services.MasterDataSystem.CreateNewVersionOrganization(
+                MasterDataSystem.CreateNewVersionOrganization(
                     version: version, 
                     date: dialog.BeginDate,
                     name: dialog.OrganizationName,
@@ -247,7 +226,7 @@ namespace DatabaseToolSuite.Dialogs
             if (dialog.ShowDialog(this)== DialogResult.OK)
             {
                 long version = gaspsListView.DataRow.version;
-                Services.MasterDataSystem.RemoveOrganization(version: version, date: dialog.LockDate);
+                MasterDataSystem.RemoveOrganization(version: version, date: dialog.LockDate);
                 gaspsListView.UpdateListViewItem();
             }
         }
@@ -259,7 +238,7 @@ namespace DatabaseToolSuite.Dialogs
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 long version = gaspsListView.DataRow.version;
-                Services.MasterDataSystem.EditVersionOrganization(
+                MasterDataSystem.EditVersionOrganization(
                     version: version,
                     date: dialog.BeginDate,
                     name: dialog.OrganizationName,
@@ -275,12 +254,12 @@ namespace DatabaseToolSuite.Dialogs
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                if (Services.FileSystem.Repository.DataSet.HasChanges())
+                if (FileSystem.Repository.DataSet.HasChanges())
                 {
                     DialogResult result = MessageBox.Show("Вы хотите сохранить изменения?", Text, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        Services.FileSystem.WriteDatabase();
+                        FileSystem.WriteDatabase();
                     }
                     else if (result == DialogResult.Cancel)
                     {
@@ -290,9 +269,9 @@ namespace DatabaseToolSuite.Dialogs
             }
             else
             {
-                if (Services.FileSystem.Repository.DataSet.HasChanges())
+                if (FileSystem.Repository.DataSet.HasChanges())
                 {
-                    Services.FileSystem.RescueDatabase();
+                    FileSystem.RescueDatabase();
                 }
             }
         }
@@ -316,30 +295,30 @@ namespace DatabaseToolSuite.Dialogs
             {
                 if (dialog.FilterIndex == 1)
                 {
-                    Services.FileSystem.ReadDatabase(dialog.FileName);
+                    FileSystem.ReadDatabase(dialog.FileName);
                 }
                 else
                 {
-                    Services.FileSystem.ReadSchema(dialog.FileName);
+                    FileSystem.ReadSchema(dialog.FileName);
                 }
 
-                gaspsListView.DataSet = Services.FileSystem.Repository.DataSet;
+                gaspsListView.DataSet = FileSystem.Repository.DataSet;
 
-                filterOkatoComboBox.InitializeSource(Services.FileSystem.Repository.DataSet.okato);
-                filterAuthorityComboBox.InitializeSource(Services.FileSystem.Repository.DataSet.authority);
+                filterOkatoComboBox.InitializeSource(FileSystem.Repository.DataSet.okato);
+                filterAuthorityComboBox.InitializeSource(FileSystem.Repository.DataSet.authority);
                 rowCountStatusLabel.Text = string.Format("Отражено записей {0}", gaspsListView.RowCount);
             }
         }
 
         private void FileSaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(Services.FileSystem.DatabaseFileName))
+            if (string.IsNullOrWhiteSpace(FileSystem.DatabaseFileName))
             {
                 FileSaveAs();
             }
             else
             {
-                Services.FileSystem.WriteDatabase();
+                FileSystem.WriteDatabase();
             }
         }
 
@@ -353,16 +332,16 @@ namespace DatabaseToolSuite.Dialogs
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Title = "Сохранить данные";
             dialog.Filter = "Документ XML(.xml)|*.xml|XML Schema File(.xsd)|*.xsd";
-            dialog.FileName = string.IsNullOrWhiteSpace(Services.FileSystem.DatabaseFileName) ? "gasps.xml": Services.FileSystem.DatabaseFileName;
+            dialog.FileName = string.IsNullOrWhiteSpace(FileSystem.DatabaseFileName) ? "gasps.xml": FileSystem.DatabaseFileName;
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 if (dialog.FilterIndex == 1)
                 {
-                    Services.FileSystem.WriteDatabase(dialog.FileName);
+                    FileSystem.WriteDatabase(dialog.FileName);
                 }
                 else
                 {
-                    Services.FileSystem.WriteSchema(dialog.FileName);
+                    FileSystem.WriteSchema(dialog.FileName);
                 }
             }
         }
@@ -388,7 +367,7 @@ namespace DatabaseToolSuite.Dialogs
             {
                 if (dialog.FilterIndex == 1)
                 {
-                    Services.Impors.ImportTextFile(dialog.FileName);
+                    Impors.ImportTextFile(dialog.FileName);
                 }
                 else
                 {
@@ -407,41 +386,41 @@ namespace DatabaseToolSuite.Dialogs
             {
                 if (dialog.FilterIndex == 1)
                 {
-                    Services.Export.ExportToXml(dialog.FileName);
+                    Export.ExportToXml(dialog.FileName);
                 }                
             }
         }
 
         private void FileExportGaspsToExcel_Click(object sender, EventArgs e)
         {
-            Services.Export.ExportGaspsToExcel();
+            Export.ExportGaspsToExcel();
         }
 
         private void FileFgisEsnsiExportToExcel_Click(object sender, EventArgs e)
         {
-            Services.Export.ExportFgisEsnsiToExcel();
+            Export.ExportFgisEsnsiToExcel();
         }
 
         private void mnuFileErknmExportToExcel_Click(object sender, EventArgs e)
         {
-            Services.Export.ExportGaspsToExcel2();
+            Export.ExportGaspsToExcel2();
         }
 
 
         private void AppForm_Load(object sender, EventArgs e)
         {
-            DatabaseToolSuite.Properties.Settings.Default.Reload();
-            Width = DatabaseToolSuite.Properties.Settings.Default.AppWindowWidth;
-            Height = DatabaseToolSuite.Properties.Settings.Default.AppWindowHight;
+            Properties.Settings.Default.Reload();
+            Width = Properties.Settings.Default.AppWindowWidth;
+            Height = Properties.Settings.Default.AppWindowHight;
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
             {
-                DatabaseToolSuite.Properties.Settings.Default.AppWindowWidth = Width;
-                DatabaseToolSuite.Properties.Settings.Default.AppWindowHight = Height;
-                DatabaseToolSuite.Properties.Settings.Default.Save();
+                Properties.Settings.Default.AppWindowWidth = Width;
+                Properties.Settings.Default.AppWindowHight = Height;
+                Properties.Settings.Default.Save();
             }
             base.OnFormClosed(e);
         }
@@ -469,7 +448,7 @@ namespace DatabaseToolSuite.Dialogs
                     MasterDataSystem.DataSet.fgis_esnsi.Romove(gaspsListView.DataRow.version);
                 }
 
-                bool existsFgisEsnsi = Services.FileSystem.Repository.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version);
+                bool existsFgisEsnsi = FileSystem.Repository.DataSet.fgis_esnsi.ExistsRow(gaspsListView.DataRow.version);
 
                 mnuTableFgisEsnsiRemove.Enabled = existsFgisEsnsi;
                 mnuTableFgisEsnsiRemoveButton.Enabled = existsFgisEsnsi;
@@ -529,8 +508,6 @@ namespace DatabaseToolSuite.Dialogs
         {
             Utils.Dialogs.ImportDialog dialog = new Utils.Dialogs.ImportDialog();
             dialog.ShowDialog(this);
-        }
-
-        
+        }                
     }
 }

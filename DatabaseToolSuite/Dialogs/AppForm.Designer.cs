@@ -43,6 +43,7 @@
             this.mnuFileExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileGaspsExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileFgisEsnsiExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileErknmExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTable = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,7 +113,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuTableRefreshButton = new System.Windows.Forms.ToolStripButton();
             this.gaspsListView = new DatabaseToolSuite.Controls.GaspsListView2();
-            this.mnuFileErknmExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuToolsEditError = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.filterPanel.SuspendLayout();
@@ -236,6 +237,13 @@
             this.mnuFileFgisEsnsiExportToExcel.Size = new System.Drawing.Size(269, 28);
             this.mnuFileFgisEsnsiExportToExcel.Text = "Данных ФГИС ЕСНСИ...";
             this.mnuFileFgisEsnsiExportToExcel.Click += new System.EventHandler(this.FileFgisEsnsiExportToExcel_Click);
+            // 
+            // mnuFileErknmExportToExcel
+            // 
+            this.mnuFileErknmExportToExcel.Name = "mnuFileErknmExportToExcel";
+            this.mnuFileErknmExportToExcel.Size = new System.Drawing.Size(269, 28);
+            this.mnuFileErknmExportToExcel.Text = "Данных ЕРКНМ";
+            this.mnuFileErknmExportToExcel.Click += new System.EventHandler(this.mnuFileErknmExportToExcel_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -378,7 +386,8 @@
             // mnuToolsServise
             // 
             this.mnuToolsServise.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuToolsCreateNewVersion});
+            this.mnuToolsCreateNewVersion,
+            this.mnuToolsEditError});
             this.mnuToolsServise.Name = "mnuToolsServise";
             this.mnuToolsServise.Size = new System.Drawing.Size(333, 28);
             this.mnuToolsServise.Text = "Сервисные команды";
@@ -874,12 +883,13 @@
             this.gaspsListView.ItemMouseClick += new System.EventHandler<DatabaseToolSuite.Controls.GaspsListViewEventArgs>(this.gaspsListView_ItemMouseClick);
             this.gaspsListView.ItemMouseDoubleClick += new System.EventHandler<DatabaseToolSuite.Controls.GaspsListViewEventArgs>(this.gaspsListView_ItemMouseDoubleClick);
             // 
-            // mnuFileErknmExportToExcel
+            // mnuToolsEditError
             // 
-            this.mnuFileErknmExportToExcel.Name = "mnuFileErknmExportToExcel";
-            this.mnuFileErknmExportToExcel.Size = new System.Drawing.Size(269, 28);
-            this.mnuFileErknmExportToExcel.Text = "Данных ЕРКНМ";
-            this.mnuFileErknmExportToExcel.Click += new System.EventHandler(this.mnuFileErknmExportToExcel_Click);
+            this.mnuToolsEditError.Image = global::DatabaseToolSuite.Properties.Resources.Edit24;
+            this.mnuToolsEditError.Name = "mnuToolsEditError";
+            this.mnuToolsEditError.Size = new System.Drawing.Size(443, 30);
+            this.mnuToolsEditError.Text = "Аварийное исправление ошибки...";
+            this.mnuToolsEditError.Click += new System.EventHandler(this.TableEditError_Click);
             // 
             // AppForm
             // 
@@ -1001,5 +1011,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton mnuTableRefreshButton;
         private System.Windows.Forms.ToolStripMenuItem mnuFileErknmExportToExcel;
+        private System.Windows.Forms.ToolStripMenuItem mnuToolsEditError;
     }
 }

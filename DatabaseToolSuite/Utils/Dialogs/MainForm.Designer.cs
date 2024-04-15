@@ -70,11 +70,11 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.mainDataGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.okatoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.repositoryDataSet = new DatabaseToolSuite.Repositoryes.RepositoryDataSet();
             this.okatoToolStripComboBox1 = new DatabaseToolSuite.Controls.OkatoToolStripComboBox(this.components);
             this.authorityToolStripComboBox1 = new DatabaseToolSuite.Controls.AuthorityToolStripComboBox(this.components);
             this.unlockCodeStripCheckBox = new DatabaseToolSuite.Controls.ToolStripCheckBox();
+            this.okatoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.repositoryDataSet = new DatabaseToolSuite.Repositoryes.RepositoryDataSet();
             this.mainMenuBar.SuspendLayout();
             this.mainToolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
@@ -459,17 +459,6 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // okatoBindingSource
-            // 
-            this.okatoBindingSource.DataMember = "okato";
-            this.okatoBindingSource.DataSource = this.repositoryDataSet;
-            // 
-            // repositoryDataSet
-            // 
-            this.repositoryDataSet.DataSetName = "RepositoryDataSet";
-            this.repositoryDataSet.Locale = new System.Globalization.CultureInfo("ru");
-            this.repositoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // okatoToolStripComboBox1
             // 
             this.okatoToolStripComboBox1.AutoSize = false;
@@ -479,7 +468,7 @@
             this.okatoToolStripComboBox1.IntegralHeight = false;
             this.okatoToolStripComboBox1.MaxDropDownItems = 20;
             this.okatoToolStripComboBox1.Name = "okatoToolStripComboBox1";
-            this.okatoToolStripComboBox1.Size = new System.Drawing.Size(400, 28);
+            this.okatoToolStripComboBox1.Size = new System.Drawing.Size(400, 31);
             // 
             // authorityToolStripComboBox1
             // 
@@ -490,7 +479,7 @@
             this.authorityToolStripComboBox1.IntegralHeight = false;
             this.authorityToolStripComboBox1.MaxDropDownItems = 20;
             this.authorityToolStripComboBox1.Name = "authorityToolStripComboBox1";
-            this.authorityToolStripComboBox1.Size = new System.Drawing.Size(200, 28);
+            this.authorityToolStripComboBox1.Size = new System.Drawing.Size(200, 31);
             // 
             // unlockCodeStripCheckBox
             // 
@@ -499,6 +488,17 @@
             this.unlockCodeStripCheckBox.Name = "unlockCodeStripCheckBox";
             this.unlockCodeStripCheckBox.Size = new System.Drawing.Size(178, 28);
             this.unlockCodeStripCheckBox.Text = "Только действующие";
+            // 
+            // okatoBindingSource
+            // 
+            this.okatoBindingSource.DataMember = "okato";
+            this.okatoBindingSource.DataSource = this.repositoryDataSet;
+            // 
+            // repositoryDataSet
+            // 
+            this.repositoryDataSet.DataSetName = "RepositoryDataSet";
+            this.repositoryDataSet.Locale = new System.Globalization.CultureInfo("ru");
+            this.repositoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // MainForm
             // 
