@@ -157,7 +157,7 @@ namespace DatabaseToolSuite.Repositoryes
                            version: esnsi.version,
                            id: esnsi.IsidNull() ? 0: esnsi.id,
                            name: gasps.name,
-                           region: okato.name,
+                           region: okato.Isname2Null()? okato.name: okato.name2,
                            phone: esnsi.Issv_0004Null() ? string.Empty:  esnsi.sv_0004,
                            email: esnsi.Issv_0005Null() ? string.Empty: esnsi.sv_0005,
                            address: esnsi.Issv_0006Null() ? string.Empty: esnsi.sv_0006,
@@ -557,7 +557,7 @@ namespace DatabaseToolSuite.Repositoryes
                        select new GaspsOrganization(
                            name: item.name, 
                            authority: authority.name, 
-                           okato: okato.code + " - " + okato.name, 
+                           okato: okato.code + " - " + (okato.Isname2Null() ? okato.name: okato.name2), 
                            code: item.code, 
                            begin: item.date_beg, 
                            end: item.date_end, 
@@ -672,7 +672,7 @@ namespace DatabaseToolSuite.Repositoryes
             {
                 gaspsRow gasps = this.GetOrganizationFromVersion(version);
                 string authority_name = authorityTable.GetName(gasps.authority_id);
-                string okato_name = okatoTable.GetName(gasps.okato_code);
+                string okato_name = okatoTable.GetName2(gasps.okato_code);
 
                 fgis_esnsiRow esnsi = fgisesnsiTable.ExistsRow(version) ? fgisesnsiTable.Get(version) : null;
 
@@ -705,7 +705,7 @@ namespace DatabaseToolSuite.Repositoryes
                        select new FullOrganization(
                            name: gasps.name, 
                            authority: authority.name, 
-                           okato: okato.code + " - " + okato.name, 
+                           okato: okato.code + " - " + (okato.Isname2Null() ? okato.name : okato.name2), 
                            code: gasps.code, 
                            begin: gasps.date_beg, 
                            end: gasps.date_end,

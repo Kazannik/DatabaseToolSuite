@@ -380,14 +380,17 @@ namespace DatabaseToolSuite.Dialogs
         {
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Title = "Экспортировать данные";
-            dialog.Filter = "Документ XML(.xml)|*.xml";
-            dialog.FileName = "export_gasps.xml";
+            dialog.Filter = "Документ XML(.xml)|*.xml|Файл Microsoft Excel, содержащий значения, разделенные запятыми (.csv)|*.csv";
+            dialog.FileName = "export";
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 if (dialog.FilterIndex == 1)
                 {
                     Export.ExportToXml(dialog.FileName);
-                }                
+                } else if (dialog.FilterIndex == 2)
+                {
+                    Export.ExportFgisEsnsiToCsv(dialog.FileName);
+                }
             }
         }
 

@@ -1,0 +1,90 @@
+id;Region;OKATO;Code;autokey
+33;Ленинградская область;41;47;FED_GENPROK_REGION_33
+60;Ульяновская область;73;73;FED_GENPROK_REGION_60
+45;Пермский край;57;59;FED_GENPROK_REGION_45
+3;Красноярский край;4;24;FED_GENPROK_REGION_3
+76;Республика Северная Осетия - Алания;90;15;FED_GENPROK_REGION_76
+81;Республика Хакасия;95;19;FED_GENPROK_REGION_81
+83;Чувашская Республика - Чувашия;97;21;FED_GENPROK_REGION_83
+58;Ханты-Мансийский автономный округ - Югра;7110;86;FED_GENPROK_REGION_58
+69;Кабардино-Балкарская Республика;83;7;FED_GENPROK_REGION_69
+16;Воронежская область;20;36;FED_GENPROK_REGION_16
+42;Оренбургская область;53;56;FED_GENPROK_REGION_42
+27;Костромская область;34;44;FED_GENPROK_REGION_27
+19;Иркутская область;25;38;FED_GENPROK_REGION_19
+73;Республика Коми;87;11;FED_GENPROK_REGION_73
+68;Республика Дагестан;82;5;FED_GENPROK_REGION_68
+20;Республика Ингушетия;26;6;FED_GENPROK_REGION_20
+41;Омская область;52;55;FED_GENPROK_REGION_41
+39;Новгородская область;49;53;FED_GENPROK_REGION_39
+57;Тюменская область;7100;72;FED_GENPROK_REGION_57
+82;Чеченская Республика;96;20;FED_GENPROK_REGION_82
+15;Вологодская область;19;35;FED_GENPROK_REGION_15
+85;Еврейская автономная область;99;79;FED_GENPROK_REGION_85
+1;Алтайский край;1;22;FED_GENPROK_REGION_1
+28;Республика Крым;35;91;FED_GENPROK_REGION_28
+54;Тамбовская область;68;68;FED_GENPROK_REGION_54
+24;Камчатский край;30;41;FED_GENPROK_REGION_24
+84;Республика Саха (Якутия);98;14;FED_GENPROK_REGION_84
+66;Республика Башкортостан;80;2;FED_GENPROK_REGION_66
+4;Приморский край;5;25;FED_GENPROK_REGION_4
+11;Белгородская область;14;31;FED_GENPROK_REGION_11
+46;Псковская область;58;60;FED_GENPROK_REGION_46
+12;Брянская область;15;32;FED_GENPROK_REGION_12
+77;Карачаево-Черкесская Республика;91;9;FED_GENPROK_REGION_77
+35;Магаданская область;44;49;FED_GENPROK_REGION_35
+71;Республика Калмыкия;85;8;FED_GENPROK_REGION_71
+14;Волгоградская область;18;34;FED_GENPROK_REGION_14
+48;Рязанская область;61;62;FED_GENPROK_REGION_48
+44;Пензенская область;56;58;FED_GENPROK_REGION_44
+30;Курганская область;37;45;FED_GENPROK_REGION_30
+61;Челябинская область;75;74;FED_GENPROK_REGION_61
+80;Удмуртская Республика;94;18;FED_GENPROK_REGION_80
+31;Курская область;38;46;FED_GENPROK_REGION_31
+10;Астраханская область;12;30;FED_GENPROK_REGION_10
+75;Республика Мордовия;89;13;FED_GENPROK_REGION_75
+74;Республика Марий Эл;88;12;FED_GENPROK_REGION_74
+47;Ростовская область;60;61;FED_GENPROK_REGION_47
+56;Тульская область;70;71;FED_GENPROK_REGION_56
+37;Московская область;46;50;FED_GENPROK_REGION_37
+51;Свердловская область;65;66;FED_GENPROK_REGION_51
+70;Республика Алтай;84;4;FED_GENPROK_REGION_70
+52;Смоленская область;66;67;FED_GENPROK_REGION_52
+67;Республика Бурятия;81;3;FED_GENPROK_REGION_67
+2;Краснодарский край;3;23;FED_GENPROK_REGION_2
+22;Тверская область;28;69;FED_GENPROK_REGION_22
+36;г. Москва;45;77;FED_GENPROK_REGION_36
+40;Новосибирская область;50;54;FED_GENPROK_REGION_40
+59;Ямало-Ненецкий автономный округ;7114;89;FED_GENPROK_REGION_59
+25;Кемеровская область;32;42;FED_GENPROK_REGION_25
+53;Севастополь;67;92;FED_GENPROK_REGION_53
+7;Амурская область;10;28;FED_GENPROK_REGION_7
+8;Архангельская область;11;29;FED_GENPROK_REGION_8
+50;Сахалинская область;64;65;FED_GENPROK_REGION_50
+23;Калужская область;29;40;FED_GENPROK_REGION_23
+34;Липецкая область;42;48;FED_GENPROK_REGION_34
+49;Саратовская область;63;64;FED_GENPROK_REGION_49
+6;Хабаровский край;8;27;FED_GENPROK_REGION_6
+26;Кировская область;33;43;FED_GENPROK_REGION_26
+65;Республика Адыгея (Адыгея);79;1;FED_GENPROK_REGION_65
+63;Чукотский автономный округ;77;87;FED_GENPROK_REGION_63
+21;Калининградская область;27;39;FED_GENPROK_REGION_21
+78;Республика Татарстан (Татарстан);92;16;FED_GENPROK_REGION_78
+18;Ивановская область;24;37;FED_GENPROK_REGION_18
+43;Орловская область;54;57;FED_GENPROK_REGION_43
+79;Республика Тыва;93;17;FED_GENPROK_REGION_79
+13;Владимирская область;17;33;FED_GENPROK_REGION_13
+55;Томская область;69;70;FED_GENPROK_REGION_55
+38;Мурманская область;47;51;FED_GENPROK_REGION_38
+17;Нижегородская область;22;52;FED_GENPROK_REGION_17
+64;Ярославская область;78;76;FED_GENPROK_REGION_64
+9;Ненецкий автономный округ;111;80;FED_GENPROK_REGION_9
+32;Санкт-Петербург;40;78;FED_GENPROK_REGION_32
+29;Самарская область;36;63;FED_GENPROK_REGION_29
+5;Ставропольский край;7;26;FED_GENPROK_REGION_5
+62;Забайкальский край;76;75;FED_GENPROK_REGION_62
+72;Республика Карелия;86;10;FED_GENPROK_REGION_72
+86;Донецкая Народная Республика;21;93;FED_GENPROK_REGION_86
+87;Луганская Народная Республика;43;94;FED_GENPROK_REGION_87
+88;Херсонская область;74;95;FED_GENPROK_REGION_88
+89;Запорожская область;23;90;FED_GENPROK_REGION_89

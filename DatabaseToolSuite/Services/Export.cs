@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet.gaspsDataTable;
 using static DatabaseToolSuite.Repositoryes.RepositoryDataSet.fgis_esnsiDataTable;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
 
 namespace DatabaseToolSuite.Services
 {
@@ -235,7 +234,27 @@ namespace DatabaseToolSuite.Services
             m_objRange.Value = objData;            
         }
 
-
-       
+        public static void ExportFgisEsnsiToCsv(string path)
+        {
+            IEnumerable<FgisEsnsiOrganization> data = MasterDataSystem.DataSet.fgis_esnsi.ExportData();
+            StreamWriter writer = new StreamWriter(path: path, append: false, encoding: Encoding.GetEncoding(1251));
+            writer.WriteLine("id;NAME;REGION;PHONE;EMAIL;ADDRESS;OKATO;CODE;autokey");
+            
+            foreach (FgisEsnsiOrganization item in data)
+            {
+                string line = item.Id + ";" + 
+                    item.Name.Trim() + ";" + 
+                    item.Region.Trim() + ";" + 
+                    item.Phone.Trim() + ";" + 
+                    item.Email.Trim() + ";" + 
+                    item.Address.Trim() + ";" + 
+                    item.Okato.ToString("00") + ";" + 
+                    item.Code + ";" + 
+                    item.Autokey.Trim();
+                writer.WriteLine(line);
+             }
+            writer.Close();
+            MessageBox.Show("Экспорт в формате CSV выполнен!");
+        }
     }
 }

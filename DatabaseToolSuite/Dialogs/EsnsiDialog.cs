@@ -35,7 +35,7 @@ namespace DatabaseToolSuite.Dialogs
         {
             get
             {
-                return esnsiOkatoComboBox.SelectedItem != null ? esnsiOkatoComboBox.SelectedItem.Ter : 0;
+                return esnsiOkatoComboBox.SelectedItem != null ? int.Parse(esnsiOkatoComboBox.SelectedItem.Okato) : 0;
             }
         }
 
